@@ -40,33 +40,45 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath: string) {
-          // Map localized ES path segments back to English originals for redirects
           const mappings = [
-            {localized: '/principios/', english: '/principles/'},
-            {localized: '/fases/', english: '/phases/'},
-            {localized: '/modelo-comercial/', english: '/commercial/'},
-            {localized: '/planificacion/', english: '/planning/'},
-            {localized: '/recursos/', english: '/resources/'},
+            {es: '/principios/', en: '/principles/'},
+            {es: '/fases/', en: '/phases/'},
+            {es: '/modelo-comercial/', en: '/commercial/'},
+            {es: '/planificacion/', en: '/planning/'},
+            {es: '/recursos/', en: '/resources/'},
           ];
 
-          for (const {localized, english} of mappings) {
-            if (existingPath.includes(localized)) {
-              return [existingPath.replace(localized, english)];
+          const indexMappings = [
+            {es: '/principios', en: '/principles'},
+            {es: '/fases', en: '/phases'},
+            {es: '/modelo-comercial', en: '/commercial'},
+            {es: '/planificacion', en: '/planning'},
+            {es: '/recursos', en: '/resources'},
+          ];
+
+          // ES pages: redirect English-segment URLs → Spanish-segment URLs
+          // e.g. /es/phases/problem-discovery → /es/fases/problem-discovery
+          for (const {es, en} of mappings) {
+            if (existingPath.includes(es)) {
+              return [existingPath.replace(es, en)];
+            }
+          }
+          for (const {es, en} of indexMappings) {
+            if (existingPath === es) {
+              return [en];
             }
           }
 
-          // Category index pages (exact match, no trailing slash content)
-          const indexMappings = [
-            {localized: '/principios', english: '/principles'},
-            {localized: '/fases', english: '/phases'},
-            {localized: '/modelo-comercial', english: '/commercial'},
-            {localized: '/planificacion', english: '/planning'},
-            {localized: '/recursos', english: '/resources'},
-          ];
-
-          for (const {localized, english} of indexMappings) {
-            if (existingPath === localized) {
-              return [english];
+          // EN pages: redirect Spanish-segment URLs → English-segment URLs
+          // Fixes locale switcher: ES→EN tries /fases/x, needs redirect to /phases/x
+          for (const {es, en} of mappings) {
+            if (existingPath.includes(en)) {
+              return [existingPath.replace(en, es)];
+            }
+          }
+          for (const {es, en} of indexMappings) {
+            if (existingPath === en) {
+              return [es];
             }
           }
 

@@ -56,9 +56,19 @@ import DocCardList from '@theme/DocCardList';
 
 The sidebar references these via `link: {type: 'doc', id: '[section]/index'}`.
 
-### Redirect Plugin
+### Redirect Plugin (Bidirectional)
 
-`@docusaurus/plugin-client-redirects` in `docusaurus.config.ts` maps old English-path URLs to localized ES URLs. When adding a new directory with a translated prefix, update the `createRedirects` function in `docusaurus.config.ts`.
+`@docusaurus/plugin-client-redirects` in `docusaurus.config.ts` handles **bidirectional** redirects between EN and ES path segments. This is CRITICAL for the locale switcher to work correctly.
+
+**Why bidirectional:** Docusaurus locale switcher does a simple URL path swap (adds/removes `/es/` prefix). Without bidirectional redirects:
+- EN→ES: `/phases/x` → `/es/phases/x` → 404 (actual page: `/es/fases/x`)
+- ES→EN: `/es/fases/x` → `/fases/x` → 404 (actual page: `/phases/x`)
+
+**The `createRedirects` function MUST handle both directions:**
+1. **ES locale**: redirect English-segment URLs → Spanish-segment URLs (e.g., `/es/phases/x` → `/es/fases/x`)
+2. **EN locale**: redirect Spanish-segment URLs → English-segment URLs (e.g., `/fases/x` → `/phases/x`)
+
+**When adding a new directory with a translated prefix**, add BOTH mapping directions to `createRedirects` in `docusaurus.config.ts`. The mappings array is shared — the function applies it in both directions automatically.
 
 ---
 
@@ -74,8 +84,11 @@ When a new content section is needed:
    - `i18n/es/.../current/[section]/index.mdx` — ES index with `slug: /[es-prefix]`
    - `i18n/es/.../current/[section]/_category_.json` — ES category metadata
 4. **Update `sidebars.ts`** — Add the new category entry with `link: {type: 'doc', id: '[section]/index'}`
-5. **Update `docusaurus.config.ts`** — Add the new mapping to `createRedirects` if the ES prefix differs from EN
-6. **Update `footer.json`** — Add label translation if the section appears in the footer
+5. **Update `docusaurus.config.ts`** — If the ES prefix differs from EN, add the new mapping to BOTH arrays in `createRedirects` (`mappings` for child pages, `indexMappings` for category index). The function already handles bidirectional redirects from a single mapping entry.
+6. **Verify locale switcher** — After build, confirm that switching EN↔ES works for the new section by testing both directions:
+   - EN page → switch to ES → should redirect correctly
+   - ES page → switch to EN → should redirect correctly
+7. **Update `footer.json`** — Add label translation if the section appears in the footer
 
 ---
 
@@ -140,6 +153,14 @@ When a new content section is needed:
 - Serve: `npx docusaurus serve --port 3000`
 - Confirm server is running and report URL `http://localhost:3000`
 
+### 10. Locale Switcher Verification
+- For the page(s) just created or modified, verify locale switching works in both directions:
+  - Curl the EN page URL → 200
+  - Curl the ES page URL → 200
+  - Curl the EN→ES redirect path (`/es/[en-segment]/[slug]`) → 200 (via redirect)
+  - Curl the ES→EN redirect path (`/[es-segment]/[slug]`) → 200 (via redirect)
+- If any redirect returns 404, check that `createRedirects` in `docusaurus.config.ts` includes the mapping for this directory
+
 ---
 
 ## Step-by-Step: `sincroniza todo`
@@ -170,8 +191,12 @@ When a new content section is needed:
 - Verify `i18n/es/docusaurus-theme-classic/footer.json` exists and is valid JSON
 - Verify `i18n/es/docusaurus-plugin-content-docs/current.json` exists and is valid JSON
 
-### 6. Redirect Plugin Audit
+### 6. Redirect Plugin Audit (Bidirectional)
 - Verify every ES prefix in the Path Prefix Map (where EN ≠ ES) has a corresponding entry in `createRedirects` in `docusaurus.config.ts`
+- Verify redirects work in BOTH directions:
+  - For each mapping, check `build/es/[en-segment]/` exists (EN→ES redirect)
+  - For each mapping, check `build/[es-segment]/` exists (ES→EN redirect)
+- Test locale switcher on at least one page per section: EN→ES and ES→EN
 
 ### 7. Build Verification
 - Run `npx docusaurus build`
