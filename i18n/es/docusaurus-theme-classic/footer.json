@@ -35,17 +35,9 @@
     "message": "Planificación",
     "description": "The label of footer link with label=Planning linking to /planning"
   },
-  "link.item.label.FAQ": {
-    "message": "FAQ",
-    "description": "The label of footer link with label=FAQ linking to /resources/faq"
-  },
-  "link.item.label.Tools": {
-    "message": "Herramientas",
-    "description": "The label of footer link with label=Tools linking to /resources/tools"
-  },
-  "link.item.label.Reading List": {
-    "message": "Lecturas recomendadas",
-    "description": "The label of footer link with label=Reading List linking to /resources/reading-list"
+  "link.item.label.Resources": {
+    "message": "Recursos",
+    "description": "The label of footer link with label=Resources linking to /resources"
   },
   "copyright": {
     "message": "Copyright © 2026 Problem Drive AI. Built with Docusaurus.",

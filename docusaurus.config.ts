@@ -35,6 +35,47 @@ const config: Config = {
     },
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        createRedirects(existingPath: string) {
+          // Map localized ES path segments back to English originals for redirects
+          const mappings = [
+            {localized: '/principios/', english: '/principles/'},
+            {localized: '/fases/', english: '/phases/'},
+            {localized: '/modelo-comercial/', english: '/commercial/'},
+            {localized: '/planificacion/', english: '/planning/'},
+            {localized: '/recursos/', english: '/resources/'},
+          ];
+
+          for (const {localized, english} of mappings) {
+            if (existingPath.includes(localized)) {
+              return [existingPath.replace(localized, english)];
+            }
+          }
+
+          // Category index pages (exact match, no trailing slash content)
+          const indexMappings = [
+            {localized: '/principios', english: '/principles'},
+            {localized: '/fases', english: '/phases'},
+            {localized: '/modelo-comercial', english: '/commercial'},
+            {localized: '/planificacion', english: '/planning'},
+            {localized: '/recursos', english: '/resources'},
+          ];
+
+          for (const {localized, english} of indexMappings) {
+            if (existingPath === localized) {
+              return [english];
+            }
+          }
+
+          return undefined;
+        },
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -105,9 +146,7 @@ const config: Config = {
         {
           title: 'Resources',
           items: [
-            {label: 'FAQ', to: '/resources/faq'},
-            {label: 'Tools', to: '/resources/tools'},
-            {label: 'Reading List', to: '/resources/reading-list'},
+            {label: 'Resources', to: '/resources'},
           ],
         },
       ],

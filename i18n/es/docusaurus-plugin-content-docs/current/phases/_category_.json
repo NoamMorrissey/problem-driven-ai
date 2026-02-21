@@ -1,0 +1,10 @@
+{
+  "label": "Fases",
+  "position": 3,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/fases",
+    "description": "Ciclo de vida completo de la metodología: desde Discovery hasta Delivery."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Framework",
+  "position": 4,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/framework",
+    "description": "Procesos, artefactos y herramientas del framework Problem Drive AI."
+  }
+}

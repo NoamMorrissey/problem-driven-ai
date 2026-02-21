@@ -1,0 +1,10 @@
+{
+  "label": "Recursos",
+  "position": 7,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/recursos",
+    "description": "FAQ, herramientas, recetas y lecturas recomendadas."
+  }
+}
