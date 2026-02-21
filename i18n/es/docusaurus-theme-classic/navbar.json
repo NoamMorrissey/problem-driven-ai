@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Problem Drive AI",
+    "description": "The title in the navbar"
+  },
+  "item.label.Methodology": {
+    "message": "Metodología",
+    "description": "Navbar item with label Methodology"
+  },
+  "item.label.Framework": {
+    "message": "Framework",
+    "description": "Navbar item with label Framework"
+  },
+  "item.label.Resources": {
+    "message": "Recursos",
+    "description": "Navbar item with label Resources"
+  }
+}

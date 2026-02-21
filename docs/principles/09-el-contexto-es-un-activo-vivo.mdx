@@ -1,0 +1,40 @@
+---
+title: "09. Context is a living asset"
+description: "The context you build for AI is not a static document. It evolves with each iteration, market signal, and new learning."
+sidebar_position: 9
+tags: [principle, context-engineering, context-debt, evolution]
+---
+
+# 09. Context is a living asset
+
+> The context you build for AI is not a static document. It evolves with each iteration, with each market signal, with each new learning.
+
+## Statement
+
+Treating it as finished is the beginning of **context debt**. Context has its own lifecycle: it's born with the Problem Statement, grows with discovery, is refined with market validation, and matures with each iteration. Declaring it "done" is declaring that you've stopped learning.
+
+## Why it matters
+
+Context debt is the AI equivalent of technical debt: invisible at first, paralyzing at the end. Outdated context produces outputs that reflect a reality that no longer exists. And the worst part: the outputs seem correct because they're internally coherent, even though they're based on obsolete premises.
+
+Context as a living asset requires governance: who updates it, when it's reviewed, what signals trigger an update, how changes are versioned.
+
+## Practical implications
+
+- **Version your context**: each significant change deserves a record of what changed and why.
+- **Define update triggers**: market signals, team changes, new learnings, strategic pivots.
+- **Audit context debt**: periodically review whether the context reflects the current reality of the project.
+- **Assign ownership**: someone must be responsible for the health of the context.
+
+:::danger Anti-pattern: The Frozen Context
+
+Writing the context once at the start of the project and never touching it again. The team continues using a context that reflects day-1 reality, while the project is on day 90. AI outputs are technically correct but strategically obsolete.
+
+:::
+
+## Connections
+
+- Natural evolution of [Principle 04: Context Engineering is design](/principles/context-engineering-es-diseno).
+- Updated with signals from [Principle 07: The market always knows more](/principles/el-mercado-siempre-sabe-mas).
+- Each [Iteration](/principles/iterar-no-es-repetir) is an opportunity for updates.
+- Managed through the [Framework](/framework) artifacts.

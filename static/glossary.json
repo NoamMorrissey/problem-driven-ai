@@ -1,0 +1,72 @@
+{
+  "terms": [
+    {
+      "term": "Problem Statement",
+      "definition": "Declaración formal del problema real que se está resolviendo. Es el cimiento de toda la metodología y se descubre progresivamente, no se asume.",
+      "related_principles": [1, 2],
+      "canonical": true
+    },
+    {
+      "term": "Context Engineering",
+      "definition": "Disciplina de diseño que consiste en tomar decisiones deliberadas sobre qué información incluir, excluir y cómo estructurarla para maximizar la calidad del output de la IA.",
+      "related_principles": [4, 9],
+      "canonical": true
+    },
+    {
+      "term": "Consenso Organizacional",
+      "definition": "Alineamiento explícito entre todos los stakeholders sobre el problema y la dirección de la solución. Es un prerequisito técnico, no un nice-to-have.",
+      "related_principles": [3],
+      "canonical": true
+    },
+    {
+      "term": "Deuda de Contexto",
+      "definition": "Degradación progresiva de la calidad del contexto cuando no se actualiza con nueva información. Equivalente en IA de la deuda técnica.",
+      "related_principles": [9],
+      "canonical": true
+    },
+    {
+      "term": "Señales del Mercado",
+      "definition": "Datos generados por el uso real del producto: métricas de uso, feedback directo, patrones de abandono, solicitudes recurrentes.",
+      "related_principles": [7, 8],
+      "canonical": true
+    },
+    {
+      "term": "Escucha Activa",
+      "definition": "Práctica deliberada de observación y formulación de preguntas incómodas para llegar al problema real, más allá de lo que el cliente articula inicialmente.",
+      "related_principles": [1, 2],
+      "canonical": true
+    },
+    {
+      "term": "Iteración",
+      "definition": "Ciclo de trabajo que incorpora nueva información. Se diferencia de la repetición por la presencia de aprendizaje documentado.",
+      "related_principles": [8],
+      "canonical": true
+    },
+    {
+      "term": "Speed Theater",
+      "definition": "Anti-patrón: usar la velocidad de generación de la IA como métrica de productividad sin validar la dirección.",
+      "related_principles": [6],
+      "canonical": true
+    },
+    {
+      "term": "Build-First Bias",
+      "definition": "Anti-patrón: saltar directamente a la implementación sin validar el problema ni construir contexto adecuado.",
+      "related_principles": [5],
+      "canonical": true
+    },
+    {
+      "term": "Discovery",
+      "definition": "Fase del ciclo de vida dedicada a la investigación profunda del problema, el usuario y el contexto antes de cualquier construcción.",
+      "related_principles": [1, 2, 7],
+      "canonical": true
+    },
+    {
+      "term": "KPIs",
+      "definition": "Indicadores clave de rendimiento que deben definirse con claridad absoluta. Criterios medibles de éxito del proyecto.",
+      "related_principles": [10],
+      "canonical": true
+    }
+  ],
+  "version": "0.1.0",
+  "last_updated": "2026-02-21"
+}

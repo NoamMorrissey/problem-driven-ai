@@ -1,0 +1,40 @@
+---
+title: "09. El contexto es un activo vivo"
+description: "El contexto que construyes para la IA no es un documento estático. Evoluciona con cada iteración, señal del mercado y nuevo aprendizaje."
+sidebar_position: 9
+tags: [principio, context-engineering, deuda-de-contexto, evolución]
+---
+
+# 09. El contexto es un activo vivo
+
+> El contexto que construyes para la IA no es un documento estático. Evoluciona con cada iteración, con cada señal del mercado, con cada nuevo aprendizaje.
+
+## Enunciado
+
+Tratarlo como algo terminado es el inicio de la **deuda de contexto**. El contexto tiene un ciclo de vida propio: nace con el Problem Statement, crece con el discovery, se refina con la validación del mercado y madura con cada iteración. Declararlo "terminado" es declarar que has dejado de aprender.
+
+## Por qué importa
+
+La deuda de contexto es el equivalente en IA de la deuda técnica: invisible al principio, paralizante al final. Un contexto desactualizado produce outputs que reflejan una realidad que ya no existe. Y lo peor: los outputs parecen correctos porque son coherentes internamente, aunque estén basados en premisas obsoletas.
+
+El contexto como activo vivo requiere gobernanza: quién lo actualiza, cuándo se revisa, qué señales disparan una actualización, cómo se versionan los cambios.
+
+## Implicaciones prácticas
+
+- **Versiona el contexto**: cada cambio significativo merece un registro de qué cambió y por qué.
+- **Define triggers de actualización**: señales del mercado, cambios en el equipo, nuevos aprendizajes, pivotes estratégicos.
+- **Audita la deuda de contexto**: revisa periódicamente si el contexto refleja la realidad actual del proyecto.
+- **Asigna ownership**: alguien debe ser responsable de la salud del contexto.
+
+:::danger Anti-patrón: El Contexto Congelado
+
+Escribir el contexto una vez al inicio del proyecto y no volver a tocarlo. El equipo sigue usando un contexto que refleja la realidad del día 1, mientras el proyecto está en el día 90. Los outputs de la IA son técnicamente correctos pero estratégicamente obsoletos.
+
+:::
+
+## Conexiones
+
+- Evolución natural del [Principio 04: Context Engineering es diseño](/principles/context-engineering-es-diseno).
+- Se actualiza con las señales del [Principio 07: El mercado siempre sabe más](/principles/el-mercado-siempre-sabe-mas).
+- Cada [Iteración](/principles/iterar-no-es-repetir) es una oportunidad de actualización.
+- Se gestiona a través de los artefactos del [Framework](/framework).
