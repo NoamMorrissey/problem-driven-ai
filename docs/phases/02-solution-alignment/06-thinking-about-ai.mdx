@@ -1,0 +1,43 @@
+---
+title: "Thinking about AI without touching AI"
+description: "The team begins thinking about how AI will process the solution, without writing a single line of context."
+sidebar_position: 6
+slug: thinking-about-ai
+tags: [phases, alignment, translatability, context-engineering]
+---
+
+# Thinking about AI without touching AI
+
+There's something that happens in this phase that doesn't happen in any other: the team begins thinking about how AI will process the solution, without writing a single line of context or configuring a single agent.
+
+This is deliberate. Phase 3 (Context Engineering) is where the solution is translated into a language AI can process. But that translation is dramatically easier — and the result dramatically better — if the solution was designed with the knowledge that it will be translated.
+
+## The Translatability Map
+
+After convergence and before validations, the team reviews the chosen solution with a question that appears in no other framework: **"How easy will it be to translate this solution into precise context for AI?"**
+
+This question forces the team to think about the four dimensions from the perspective of whoever will write the context:
+
+| Dimension | Translatability question | Risk signal |
+|---|---|---|
+| **Business** | Are the success criteria measurable and expressible as instructions? | "Improve the experience" is not translatable. "Reduce response time from 48h to 4h" is. |
+| **Model** | Is the AI type defined with enough precision to guide a technical decision? | "Use AI" is not translatable. "Predictive model on tabular historical sales data" is. |
+| **Architecture** | Are the integration points identified and constraints explicit? | "It integrates with the client's systems" is not translatable. "Consumes the ERP (SAP) REST API with OAuth 2.0 authentication and 15-min query frequency" is. |
+| **Data** | Is the data strategy defined: sources, format, quality, accessibility? | "We'll use the client's data" is not translatable. "3-year history of sales transactions in CSV format, daily granularity per SKU per store, accessible via SFTP" is. |
+
+:::tip[Insight]
+**Translatability is a precision test.** If something is not translatable into context for AI, it's generally because it's not defined with enough precision for anyone — neither for AI nor for a human. The exercise of thinking about translation reveals ambiguities that would otherwise reach Phase 3 and contaminate the context.
+:::
+
+## The Pre-Execution Scorecard
+
+For high-complexity solutions, the team produces an intermediate document we call the Pre-Execution Scorecard. It's not a technical document — it's an executive summary of decisions made in each dimension that serves as a checkpoint before entering Context Engineering.
+
+| Dimension | Decision made | Active assumptions | Risk if assumption is false |
+|---|---|---|---|
+| **Business** | Define the business case: budget per inference/token, target ROI, KPIs to move. | [This dimension's assumptions] | [Impact if they fail] |
+| **Model** | Select model type and define technical success metrics. | [This dimension's assumptions] | [Impact if they fail] |
+| **Architecture** | Define if specific infrastructure is required (vector database, orchestrator, guardrails) and security model. | [This dimension's assumptions] | [Impact if they fail] |
+| **Data** | Complete data quality audit and define ingestion pipeline. | [This dimension's assumptions] | [Impact if they fail] |
+
+This scorecard travels to Phase 3 alongside the Solution Brief. It's the bridge between human alignment thinking and context design thinking.
