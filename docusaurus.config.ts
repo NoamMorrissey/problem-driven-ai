@@ -43,16 +43,13 @@ const config: Config = {
           const mappings = [
             {es: '/principios/', en: '/principles/'},
             {es: '/fases/', en: '/phases/'},
-            {es: '/modelo-comercial/', en: '/commercial/'},
-            {es: '/planificacion/', en: '/planning/'},
+            {es: '/framework/fases/', en: '/framework/phases/'},
             {es: '/recursos/', en: '/resources/'},
           ];
 
           const indexMappings = [
             {es: '/principios', en: '/principles'},
             {es: '/fases', en: '/phases'},
-            {es: '/modelo-comercial', en: '/commercial'},
-            {es: '/planificacion', en: '/planning'},
             {es: '/recursos', en: '/resources'},
           ];
 
@@ -150,15 +147,16 @@ const config: Config = {
         {
           title: 'Framework',
           items: [
-            {label: 'Processes & Artifacts', to: '/framework'},
-            {label: 'Commercial Model', to: '/commercial'},
-            {label: 'Planning', to: '/planning'},
+            {label: 'Framework', to: '/framework'},
+            {label: 'Phases', to: '/framework/phases'},
           ],
         },
         {
           title: 'Resources',
           items: [
-            {label: 'Resources', to: '/resources'},
+            {label: 'FAQ', to: '/resources/faq'},
+            {label: 'Glossary', to: '/resources/glossary'},
+            {label: 'Tools', to: '/resources/tools'},
           ],
         },
       ],
