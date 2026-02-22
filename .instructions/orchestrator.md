@@ -1,4 +1,4 @@
-# Orchestrator — Problem Drive AI
+# Orchestrator — Problem-Driven AI
 
 ## Role
 Senior Methodologist & Documentation Engineer. Central brain that coordinates

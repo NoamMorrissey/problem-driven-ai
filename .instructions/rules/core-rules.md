@@ -1,4 +1,4 @@
-# Core Rules — Problem Drive AI
+# Core Rules — Problem-Driven AI
 
 ## Non-Negotiable Rules
 

@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Problem Drive AI',
+  title: 'Problem-Driven AI',
   tagline: 'A methodology for solving real problems with Artificial Intelligence',
   favicon: 'img/favicon.ico',
 
@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://problem-drive-ai.dev',
+  url: 'https://problem-driven-ai.dev',
   baseUrl: '/',
 
   onBrokenLinks: 'warn',
@@ -110,7 +110,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Problem Drive AI',
+      title: 'Problem-Driven AI',
       items: [
         {
           type: 'docSidebar',
@@ -162,7 +162,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Problem Drive AI. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Problem-Driven AI. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
