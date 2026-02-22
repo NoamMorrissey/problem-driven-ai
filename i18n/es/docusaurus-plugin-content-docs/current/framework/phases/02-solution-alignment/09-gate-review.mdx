@@ -23,3 +23,25 @@ tags: [fases, alineacion, gate-review, calidad]
 - Hay desacuerdos no resueltos ni documentados.
 - El Solution Brief tiene asunciones de alto riesgo sin verificar y sin plan de contingencia.
 :::
+
+## Después del gate: transición a la Fase 3
+
+Cuando el equipo completa el Gate Review, sucede algo importante: **el equipo gana el derecho a traducir su pensamiento a un lenguaje que la IA pueda procesar.**
+
+Este concepto — ganarse el derecho a hacer Context Engineering — es central en la metodología. Un equipo que ha logrado consenso real llega a la Fase 3 (Context Engineering) con la precisión necesaria para producir un contexto que realmente funcione. Un equipo que se saltó la alineación llega con ambigüedad que contamina cada prompt, cada configuración de agente, cada output.
+
+El Solution Brief viaja a la Fase 3 como input directo, acompañado del Problem Statement, el Mapa de Traducibilidad y el conjunto completo de artefactos. Juntos contienen:
+
+- **La solución definida** — qué se va a construir, para quién y qué cambia.
+- **El razonamiento detrás de ella** — por qué esta solución y no las alternativas, con criterios explícitos.
+- **Los riesgos que la acompañan** — asunciones clasificadas por impacto, con planes de acción.
+- **La preparación para la traducción** — con qué precisión está definida cada dimensión para el contexto de IA.
+
+La Fase 3 no empieza de cero. El trabajo de estructuración realizado en esta fase es la materia prima del Context Engineering:
+
+- **El Árbol de Soluciones** se convierte en la estructura del PRD que guía al PM Agent.
+- **Las asunciones activas** se convierten en restricciones del contexto que la IA debe respetar.
+- **Los criterios de éxito** se convierten en las métricas que los Agentes de IA deben optimizar.
+- **El Mapa de Traducibilidad** se convierte en un checklist de calidad — las dimensiones señaladas como riesgo requieren más iteración durante el diseño de contexto.
+
+Hay un elemento que merece atención especial en esta transición: **el Problem Statement viaja intacto.** No se reescribe. Es la referencia canónica. El Solution Brief, sin embargo, se traduce, no se copia. El Context Engineer lo transforma en documentos procesables: el PRD para el PM Agent, el Architecture Document para el Architect Agent, los Story Files para el SM Agent. La estructura por cuatro dimensiones facilita enormemente esta traducción porque cada dimensión se mapea a un aspecto específico del contexto.
