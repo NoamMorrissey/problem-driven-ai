@@ -1,0 +1,188 @@
+---
+title: "El proceso paso a paso"
+sidebar_label: "Paso a Paso"
+description: "Cinco pasos: divergencia, estructuración, convergencia, validación externa y validación interna para alcanzar consenso real."
+sidebar_position: 1
+slug: /framework/fases/solution-alignment/proceso-paso-a-paso
+tags: [fases, alineacion, proceso, divergencia, convergencia, consenso]
+---
+
+# El proceso paso a paso
+
+Solution Alignment tiene cinco pasos. Los tres primeros (Divergencia, Estructuración, Convergencia) son el trabajo intelectual de encontrar y definir la solución. Los dos últimos (Validación externa, Validación interna) son el trabajo de alineación que convierte una buena idea en un mandato compartido.
+
+## Paso 1. Divergencia: generar sin filtrar
+
+*Duración estimada: 1-2 sesiones de 2-3 horas*
+
+El primer paso es deliberadamente divergente. El objetivo es amplitud, no calidad. El equipo genera el mayor número posible de soluciones al problema definido, sin filtrar, sin juzgar, sin preocuparse por la viabilidad.
+
+Esto parece contradecir el rigor que pedimos en la Fase 1. No lo hace. La divergencia controlada es una herramienta, no un abandono de la disciplina. El Problem Statement actúa como marco: todas las soluciones deben responder al problema definido, no a un problema imaginado durante la sesión.
+
+### Técnicas de divergencia
+
+| Técnica | Cómo funciona | Cuándo usarla |
+|---|---|---|
+| **How Might We** | Se reformula el Problem Statement como pregunta abierta: "¿Cómo podríamos hacer que los gerentes anticipen las roturas de stock?" Cada participante genera respuestas individuales antes de compartir. | Siempre. Es el punto de partida natural para cualquier divergencia. |
+| **Crazy 8s** | Cada persona dibuja 8 ideas en 8 minutos. Fuerza la velocidad para superar el filtro interno que censura ideas "malas". | Cuando el equipo tiene tendencia a converger demasiado rápido o a autocensurarse. |
+| **Reverse brainstorming** | En lugar de buscar soluciones, el equipo busca formas de empeorar el problema. Después, invierte cada idea para generar soluciones. | Cuando el equipo está bloqueado o las ideas son demasiado convencionales. |
+| **Analogías cruzadas** | Se buscan soluciones a problemas similares en industrias completamente diferentes. "¿Cómo resuelve Uber el problema de predicción de demanda?" | Problemas de diseño donde se necesita pensamiento lateral. |
+
+### El Ideation Board
+
+Todas las ideas generadas se capturan visualmente en un Ideation Board. Este artefacto es importante no por las ideas que se eligen, sino por las que se descartan. El registro de por qué se descartó cada idea es memoria organizacional que evita que en tres meses alguien proponga lo mismo sin saber que ya se evaluó.
+
+:::danger[Anti-patrón: La Ideación del HiPPO]
+HiPPO: Highest Paid Person's Opinion. La sesión de ideación se convierte en el espectáculo de una persona. El stakeholder con más autoridad propone una idea en los primeros cinco minutos. El resto del equipo dedica la sesión a elaborar variaciones de esa idea en lugar de explorar alternativas reales.
+
+**Cómo prevenirlo:** Las ideas se generan en silencio e individualmente antes de compartirse. Escritas en post-its, no dichas en voz alta. Se leen todas antes de discutir ninguna. Así la idea del VP tiene el mismo tamaño visual que la del junior.
+:::
+
+## Paso 2. Estructuración: descomponer para entender
+
+*Duración estimada: 1-2 sesiones de 3-4 horas*
+
+Aquí es donde el pensamiento se vuelve riguroso. Las ideas generadas en la divergencia se organizan, se agrupan y se someten a la descomposición por las cuatro dimensiones (negocio, modelo, arquitectura, datos).
+
+Este paso es el que la mayoría de los equipos se saltan. Van directamente de la ideación a la votación. El resultado: eligen soluciones sin entender su complejidad real, sus dependencias ni sus riesgos.
+
+### El Árbol de Soluciones
+
+Para cada solución candidata (típicamente 2-3 después de una primera agrupación), el equipo construye un Árbol de Soluciones que descompone la idea en sus componentes por dimensión:
+
+```
+Solución candidata: "Predicción de rotura de stock con IA"
+│
+├── Negocio
+│   ├── KPI objetivo: reducir roturas de stock del 15% al 3%
+│   ├── ROI esperado: recuperar 12% de ventas perdidas (~€X/año)
+│   ├── Coste operativo: tokens/inferencia × volumen × frecuencia
+│   └── Modelo de adopción: ¿quién lo usa y cómo cambia su workflow?
+│
+├── Modelo
+│   ├── Tipo de IA: modelo predictivo (no generativo)
+│   ├── Input: histórico de ventas + estacionalidad + datos externos
+│   ├── Output: probabilidad de rotura por SKU a 24-72h
+│   ├── Precisión requerida: >85% (debajo no genera confianza)
+│   └── Margen de error aceptable: falsos positivos tolerables,
+│       falsos negativos críticos
+│
+├── Arquitectura
+│   ├── Integración: conector con ERP (batch diario → ¿near real-time?)
+│   ├── Despliegue: cloud (latencia no crítica, escala sí)
+│   ├── Interfaz: ¿dashboard? ¿alertas push? ¿integración en sistema existente?
+│   └── Seguridad: datos de ventas no son PII pero sí confidenciales
+│
+└── Datos
+    ├── Disponibilidad: histórico de 3 años en ERP
+    ├── Calidad: datos de temporada alta fiables, temporada baja incompletos
+    ├── Gaps: no hay datos de demanda no satisfecha (ventas perdidas)
+    ├── Privacidad: sin datos personales, compliance no es bloqueante
+    └── Estrategia: modelo predictivo clásico, posible enriquecimiento con RAG
+        para contexto de tendencias de mercado
+```
+
+:::info[Técnica]
+**El test de completitud por dimensión:** Después de construir el árbol, el equipo revisa cada dimensión con una pregunta: "Si ignoramos esta rama completamente, ¿la solución puede funcionar?" Si la respuesta es sí, la rama no es crítica (pero documéntala como asunción). Si la respuesta es no, es un componente esencial que necesita respuestas antes de avanzar.
+:::
+
+### El Registro de Asunciones
+
+Durante la estructuración, emergen inevitablemente asunciones: cosas que el equipo cree que son ciertas pero que no ha verificado. Cada asunción es un riesgo. El trabajo de esta fase no es verificar todas las asunciones — eso sería interminable — sino clasificarlas por riesgo y decidir cuáles son aceptables y cuáles son bloqueantes.
+
+| Tipo de asunción | Definición | Qué hacer con ella |
+|---|---|---|
+| **Verificada** | Tenemos evidencia de que es cierta. | Documentar la evidencia y avanzar. |
+| **De bajo riesgo** | Si es falsa, la solución se ajusta sin impacto mayor. | Documentar y aceptar como riesgo menor. |
+| **De alto riesgo** | Si es falsa, la solución no funciona o cambia fundamentalmente. | Verificar antes de avanzar al Paso 3. No se elige una solución cuya viabilidad depende de asunciones de alto riesgo sin verificar. |
+| **Desconocida** | No sabemos si es cierta y no sabemos cómo verificarla. | Señalar como riesgo abierto. Si la solución depende de esta asunción, necesita un plan de contingencia. |
+
+:::info[Ejemplo: Asunciones del proyecto de inventario]
+**Verificada:** "El ERP tiene 3 años de histórico de ventas accesible vía API." → Confirmado por IT.
+
+**De bajo riesgo:** "Los gerentes de tienda usarán la herramienta si se integra en su flujo actual." → Probable basado en entrevistas, pero no seguro. Si es falso, hay que añadir formación.
+
+**De alto riesgo:** "Los datos de ventas del ERP son suficientemente granulares para predecir a nivel de SKU individual." → Si no lo son, el modelo no funciona. **Verificar antes de elegir esta solución.**
+
+**Desconocida:** "Los datos de demanda no satisfecha (ventas perdidas por falta de stock) pueden estimarse a partir de patrones de búsqueda en la web del retailer." → Nadie ha investigado esto. Si es posible, enriquece enormemente el modelo. Si no, funciona sin ello pero con menos precisión.
+:::
+
+## Paso 3. Convergencia: decidir con criterios explícitos
+
+*Duración estimada: 1 sesión de 2-3 horas*
+
+Ahora el equipo tiene 2-3 soluciones candidatas estructuradas, con sus árboles por dimensión y sus asunciones clasificadas. El paso siguiente no es votar. Es evaluar contra criterios explícitos.
+
+### La Decision Matrix
+
+La Decision Matrix es una tabla donde las soluciones candidatas se evalúan contra un conjunto de criterios ponderados. Los criterios no son genéricos: se derivan directamente del Problem Statement y de la descomposición por dimensiones.
+
+| Criterio | Peso | Fuente | Por qué importa |
+|---|---|---|---|
+| **Impacto en el problema definido** | 30% | Problem Statement → criterio de éxito | ¿Cuánto mueve esta solución la aguja del KPI definido en el Problem Statement? Una solución que resuelve el 40% del problema no es igual que una que resuelve el 90%. |
+| **Viabilidad técnica** | 20% | Dimensión Arquitectura + Datos | ¿Podemos construir esto con los datos, la infraestructura y el conocimiento que tenemos? ¿Cuántas asunciones de alto riesgo depende? |
+| **Viabilidad de negocio** | 20% | Dimensión Negocio | ¿El ROI justifica la inversión? ¿El coste operativo es sostenible a largo plazo? ¿El modelo de adopción es realista? |
+| **Riesgo de asunciones** | 15% | Registro de asunciones | ¿Cuántas asunciones de alto riesgo no verificadas tiene esta solución? ¿Cuántas desconocidas? |
+| **Fricción de adopción** | 15% | Dimensión Negocio + feedback de usuarios | ¿Cuánto cambia el workflow de los usuarios? ¿Cuánta resistencia al cambio es previsible? |
+
+Cada solución candidata recibe una puntuación de 1 a 5 en cada criterio. La puntuación ponderada produce un ranking. Pero el ranking no es la decisión. Es el input de la decisión. Si la solución con mayor puntuación tiene una asunción de alto riesgo no verificada que la segunda no tiene, puede ser más prudente elegir la segunda.
+
+:::danger[Anti-patrón: La Matrix Decorativa]
+**Qué es:** El equipo ya sabe qué solución quiere. Construye la Decision Matrix y ajusta los pesos de los criterios hasta que el resultado confirma la decisión que ya estaba tomada.
+
+**Cómo detectarlo:** Si cambias los pesos un 10% en cualquier dirección y el resultado cambia, la decisión es frágil. Si los pesos fueron "ajustados" después de ver los resultados iniciales, es manipulación disfrazada de método.
+
+**Cómo prevenirlo:** Los pesos se definen y se fijan antes de evaluar ninguna solución. Se documentan y no se modifican. Si el resultado no es el esperado, la respuesta es examinar por qué, no cambiar los criterios.
+:::
+
+## Paso 4. Validación con clientes
+
+*Duración estimada: 3-5 sesiones de 30-45 minutos*
+
+La solución candidata elegida se presenta a clientes o usuarios reales — preferiblemente los mismos que validaron el Problem Statement. El objetivo no es pedirles que la evalúen técnicamente (no es su trabajo) sino que confirmen que la solución, tal como se describe, resuelve el problema que ellos viven.
+
+La pregunta clave es: "Si esto existiera mañana, ¿cambiaría algo en tu día a día?"
+
+Las respuestas suelen caer en tres categorías:
+
+- **"Sí, exactamente."** → Validación. Avanzar.
+- **"Sí, pero falta..."** → Iteración. Incorporar lo que falta y volver a presentar.
+- **"Mmm, no es exactamente lo que necesito."** → Señal de alerta. Examinar si el equipo se ha alejado del problema original o si la solución no traduce bien el Problem Statement.
+
+Se itera hasta que el feedback confirma que la solución resuelve el problema definido. Esto puede tomar 2-3 rondas.
+
+## Paso 5. Validación con stakeholders internos — el consenso real
+
+*Duración estimada: 2-4 sesiones de 1-2 horas según complejidad*
+
+Este es el paso más difícil de toda la fase y el que más equipos hacen mal. No porque sea técnicamente complejo, sino porque requiere algo que las organizaciones rara vez practican: consenso real.
+
+### Qué es consenso real
+
+El consenso no es unanimidad. No requiere que todos estén entusiasmados con la solución. Requiere que todos los stakeholders relevantes:
+
+1. **Entienden** qué se va a construir y por qué.
+2. **Aceptan** que la solución resuelve el problema definido.
+3. **Conocen** las asunciones que contiene y los riesgos asociados.
+4. **Se comprometen** a apoyar la solución cuando surjan las primeras dificultades, no a abandonarla.
+
+El cuarto punto es el más importante y el que distingue el consenso del permiso. Un director que dice "adelante" en una reunión pero que retira su apoyo al primer contratiempo nunca dio consenso. Dio permiso. El permiso es frágil. El consenso es resiliente.
+
+### Qué NO es consenso
+
+| Lo que parece consenso | Por qué no lo es | Qué produce |
+|---|---|---|
+| **El jefe dice "adelante"** | Una persona aprobó. El resto no sabe o no entiende. | El equipo construye sin apoyo real. Al primer problema, nadie defiende la solución. |
+| **Nadie objeta en la reunión** | El silencio no es acuerdo. Puede ser desinterés, miedo a disentir o falta de comprensión. | Objeciones que aparecen durante la construcción, cuando es demasiado tarde. |
+| **Mayoría vota a favor** | La minoría que votó en contra sigue sin estar de acuerdo. Sus objeciones no desaparecieron. | Sabotaje pasivo. "Yo ya dije que esto no iba a funcionar." |
+| **Se aprueba el documento** | Firmar un documento no es entenderlo. Muchos stakeholders firman sin leer. | Desacuerdos que emergen cuando ven el resultado real y dicen "esto no es lo que esperaba". |
+
+:::info[Técnica]
+**El Test del Consenso de Corredor:** Después de la sesión de alineación, encuentra a cada stakeholder individualmente — en el pasillo, en un café, por una llamada rápida. Pregúntale: "Si tuvieras que explicarle a tu equipo qué vamos a construir y por qué, ¿qué les dirías?" Si no puede explicarlo, o si su explicación es significativamente distinta a la de otro stakeholder, no hay consenso. Hay un documento firmado.
+:::
+
+### Gestión del disenso
+
+No todos los desacuerdos deben resolverse. Algunos son legítimos y deben documentarse. Lo que no es aceptable es el desacuerdo invisible — el que existe pero nadie nombra.
+
+Cuando un stakeholder tiene una objeción que el equipo no puede resolver, se documenta en el Feedback Log con tres elementos: qué dice, por qué lo dice y qué haría falta para resolver su objeción. Este registro no es una concesión. Es honestidad. Las soluciones que se construyen sobre desacuerdos ocultos fracasan de formas que nadie puede predecir.

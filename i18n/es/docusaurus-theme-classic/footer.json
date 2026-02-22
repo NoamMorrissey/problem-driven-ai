@@ -12,8 +12,12 @@
     "description": "The title of the footer links column with title=Resources"
   },
   "link.item.label.Overview": {
-    "message": "Overview",
+    "message": "Visión General",
     "description": "The label of footer link with label=Overview linking to /overview"
+  },
+  "link.item.label.Manifesto": {
+    "message": "Manifiesto",
+    "description": "The label of footer link with label=Manifesto linking to /overview/manifiesto"
   },
   "link.item.label.Principles": {
     "message": "Principios",
@@ -21,26 +25,30 @@
   },
   "link.item.label.Phases": {
     "message": "Fases",
-    "description": "The label of footer link with label=Phases linking to /phases"
+    "description": "The label of footer link with label=Phases"
   },
-  "link.item.label.Processes & Artifacts": {
-    "message": "Procesos y Artefactos",
-    "description": "The label of footer link with label=Processes & Artifacts linking to /framework"
+  "link.item.label.Processes": {
+    "message": "Procesos",
+    "description": "The label of footer link with label=Processes linking to /framework/processes"
   },
-  "link.item.label.Commercial Model": {
-    "message": "Modelo Comercial",
-    "description": "The label of footer link with label=Commercial Model linking to /commercial"
+  "link.item.label.Artifacts": {
+    "message": "Artefactos",
+    "description": "The label of footer link with label=Artifacts linking to /framework/artifacts"
   },
-  "link.item.label.Planning": {
-    "message": "Planificación",
-    "description": "The label of footer link with label=Planning linking to /planning"
+  "link.item.label.FAQ": {
+    "message": "FAQ",
+    "description": "The label of footer link with label=FAQ linking to /resources/faq"
   },
-  "link.item.label.Resources": {
-    "message": "Recursos",
-    "description": "The label of footer link with label=Resources linking to /resources"
+  "link.item.label.Glossary": {
+    "message": "Glosario",
+    "description": "The label of footer link with label=Glossary linking to /resources/glossary"
+  },
+  "link.item.label.Tools": {
+    "message": "Herramientas",
+    "description": "The label of footer link with label=Tools linking to /resources/tools"
   },
   "copyright": {
-    "message": "Copyright © 2026 Problem-Driven AI. Built with Docusaurus.",
+    "message": "© 2026 <a href=\"https://morcuende.info\" target=\"_blank\" rel=\"noopener noreferrer\">Alfonso Morcuende</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://licensebuttons.net/l/by-sa/4.0/88x31.png\" alt=\"CC BY-SA 4.0\" style=\"vertical-align: middle; height: 20px;\" /> CC BY-SA 4.0</a>",
     "description": "The footer copyright"
   }
 }

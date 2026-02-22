@@ -43,16 +43,13 @@ const config: Config = {
           const mappings = [
             {es: '/principios/', en: '/principles/'},
             {es: '/fases/', en: '/phases/'},
-            {es: '/modelo-comercial/', en: '/commercial/'},
-            {es: '/planificacion/', en: '/planning/'},
+            {es: '/framework/fases/', en: '/framework/phases/'},
             {es: '/recursos/', en: '/resources/'},
           ];
 
           const indexMappings = [
             {es: '/principios', en: '/principles'},
             {es: '/fases', en: '/phases'},
-            {es: '/modelo-comercial', en: '/commercial'},
-            {es: '/planificacion', en: '/planning'},
             {es: '/recursos', en: '/resources'},
           ];
 
@@ -143,6 +140,7 @@ const config: Config = {
           title: 'Methodology',
           items: [
             {label: 'Overview', to: '/overview'},
+            {label: 'Manifesto', to: '/overview/manifiesto'},
             {label: 'Principles', to: '/principles'},
             {label: 'Phases', to: '/phases'},
           ],
@@ -150,19 +148,21 @@ const config: Config = {
         {
           title: 'Framework',
           items: [
-            {label: 'Processes & Artifacts', to: '/framework'},
-            {label: 'Commercial Model', to: '/commercial'},
-            {label: 'Planning', to: '/planning'},
+            {label: 'Phases', to: '/framework'},
+            {label: 'Processes', to: '/framework/processes'},
+            {label: 'Artifacts', to: '/framework/artifacts'},
           ],
         },
         {
           title: 'Resources',
           items: [
-            {label: 'Resources', to: '/resources'},
+            {label: 'FAQ', to: '/resources/faq'},
+            {label: 'Glossary', to: '/resources/glossary'},
+            {label: 'Tools', to: '/resources/tools'},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Problem-Driven AI. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} <a href="https://morcuende.info" target="_blank" rel="noopener noreferrer">Alfonso Morcuende</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="CC BY-SA 4.0" style="vertical-align: middle; height: 20px;" /> CC BY-SA 4.0</a>`,
     },
     prism: {
       theme: prismThemes.github,

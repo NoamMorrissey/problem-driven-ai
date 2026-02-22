@@ -1,8 +1,4 @@
 {
-  "sidebar.methodologySidebar.category.Overview": {
-    "message": "Overview",
-    "description": "The label for category Overview in sidebar methodologySidebar"
-  },
   "sidebar.methodologySidebar.category.Principles": {
     "message": "Principios",
     "description": "The label for category Principles in sidebar methodologySidebar"
@@ -11,20 +7,8 @@
     "message": "Fases",
     "description": "The label for category Phases in sidebar methodologySidebar"
   },
-  "sidebar.frameworkSidebar.category.Framework": {
-    "message": "Framework",
-    "description": "The label for category Framework in sidebar frameworkSidebar"
-  },
-  "sidebar.frameworkSidebar.category.Commercial Model": {
-    "message": "Modelo Comercial",
-    "description": "The label for category Commercial Model in sidebar frameworkSidebar"
-  },
-  "sidebar.frameworkSidebar.category.Planning": {
-    "message": "Planificación",
-    "description": "The label for category Planning in sidebar frameworkSidebar"
-  },
-  "sidebar.resourcesSidebar.category.Resources": {
-    "message": "Recursos",
-    "description": "The label for category Resources in sidebar resourcesSidebar"
+  "sidebar.frameworkSidebar.category.Phases": {
+    "message": "Fases",
+    "description": "The label for category Phases in sidebar frameworkSidebar"
   }
 }

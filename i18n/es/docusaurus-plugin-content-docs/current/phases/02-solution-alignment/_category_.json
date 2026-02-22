@@ -1,7 +1,7 @@
 {
-  "label": "Fase 02: Solution Alignment",
+  "label": "2. Solution Alignment",
   "position": 3,
-  "collapsed": false,
+  "collapsed": true,
   "link": {
     "type": "doc",
     "id": "phases/solution-alignment/index"
