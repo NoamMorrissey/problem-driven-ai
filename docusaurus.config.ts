@@ -140,6 +140,7 @@ const config: Config = {
           title: 'Methodology',
           items: [
             {label: 'Overview', to: '/overview'},
+            {label: 'Manifesto', to: '/overview/manifiesto'},
             {label: 'Principles', to: '/principles'},
             {label: 'Phases', to: '/phases'},
           ],
@@ -147,8 +148,9 @@ const config: Config = {
         {
           title: 'Framework',
           items: [
-            {label: 'Framework', to: '/framework'},
-            {label: 'Phases', to: '/framework/phases'},
+            {label: 'Phases', to: '/framework'},
+            {label: 'Processes', to: '/framework/processes'},
+            {label: 'Artifacts', to: '/framework/artifacts'},
           ],
         },
         {
@@ -160,7 +162,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Problem-Driven AI. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} <a href="https://morcuende.info" target="_blank" rel="noopener noreferrer">Alfonso Morcuende</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="CC BY-SA 4.0" style="vertical-align: middle; height: 20px;" /> CC BY-SA 4.0</a>`,
     },
     prism: {
       theme: prismThemes.github,

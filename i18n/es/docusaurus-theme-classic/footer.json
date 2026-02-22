@@ -15,6 +15,10 @@
     "message": "Visión General",
     "description": "The label of footer link with label=Overview linking to /overview"
   },
+  "link.item.label.Manifesto": {
+    "message": "Manifiesto",
+    "description": "The label of footer link with label=Manifesto linking to /overview/manifiesto"
+  },
   "link.item.label.Principles": {
     "message": "Principios",
     "description": "The label of footer link with label=Principles linking to /principles"
@@ -23,9 +27,13 @@
     "message": "Fases",
     "description": "The label of footer link with label=Phases"
   },
-  "link.item.label.Framework": {
-    "message": "Fases",
-    "description": "The label of footer link with label=Framework linking to /framework"
+  "link.item.label.Processes": {
+    "message": "Procesos",
+    "description": "The label of footer link with label=Processes linking to /framework/processes"
+  },
+  "link.item.label.Artifacts": {
+    "message": "Artefactos",
+    "description": "The label of footer link with label=Artifacts linking to /framework/artifacts"
   },
   "link.item.label.FAQ": {
     "message": "FAQ",
@@ -40,7 +48,7 @@
     "description": "The label of footer link with label=Tools linking to /resources/tools"
   },
   "copyright": {
-    "message": "Copyright © 2026 Problem-Driven AI. Built with Docusaurus.",
+    "message": "© 2026 <a href=\"https://morcuende.info\" target=\"_blank\" rel=\"noopener noreferrer\">Alfonso Morcuende</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://licensebuttons.net/l/by-sa/4.0/88x31.png\" alt=\"CC BY-SA 4.0\" style=\"vertical-align: middle; height: 20px;\" /> CC BY-SA 4.0</a>",
     "description": "The footer copyright"
   }
 }
