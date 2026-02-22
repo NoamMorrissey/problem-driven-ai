@@ -1,41 +1,32 @@
-# Website
+# 🌀 Problem-Driven AI
+> **"The answer is 42. The problem is that we never knew what the question was."**
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+In the era of Artificial Intelligence, building is faster and cheaper than ever. But speed is not progress if you are running in the wrong direction. **Problem-Driven AI** is a thinking methodology designed to ensure that the superpower of AI is applied to solving real problems, not accelerating incorrect solutions.
 
-## Installation
+## 💡 The Philosophy
+The bottleneck of technology has never been construction—it has always been **understanding**.
 
-```bash
-yarn
-```
+* **Thought is the Product:** Construction costs are trending toward zero. Competitive advantage now lies in the depth of our questions and the clarity of our thinking.
+* **Context over Code:** A poorly defined problem fed into an AI produces a perfectly constructed incorrect answer at scale. The quality of the output is a direct function of the quality of the context provided.
+* **Aim Before You Fire:** This isn't about going slower; it's about earning the right to build through the deeply human work of listening, aligning, and defining.
 
-## Local Development
+## 🚀 The Continuous Value Loop (The Spiral)
+The methodology operates in a spiral of five phases that transform uncertainty into high-precision solutions:
 
-```bash
-yarn start
-```
+1.  **Problem Discovery:** Deep research to find the real problem, not just the one that is comfortable to solve.
+2.  **Solution Alignment:** Achieving genuine organizational consensus on the solution before writing a single line of context.
+3.  **Context Engineering:** The high-leverage skill of the AI era. Systematically translating human thought into a structured system of **Agents and Documents** that AI can process with fidelity.
+4.  **AI Build:** Context-guided construction. With high-quality context, this phase becomes the point of lowest friction.
+5.  **Market Iteration:** Real-world usage generates signals that feed back into the system, making every turn of the spiral smarter than the last.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## 🛠️ Execution: Context Engineering
+To ensure AI executes without "context loss," we transform strategy into **Artifacts of Truth**:
 
-## Build
+* **Specialized Agents:** Roles (Analyst, PM, Architect) that act as context executors to maintain coherence.
+* **Structured Artifacts:** From the **PRD** (defining the *what* and *for whom*) to the **project-context.md** (the "Constitution" of the project), ensuring global rules remain consistent.
 
-```bash
-yarn build
-```
+---
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+**The problem is still the product. AI only changed what happens after you find it.**
 
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+---
