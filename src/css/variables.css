@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Design Tokens - Problem-Driven AI
+   All CSS custom properties. Organized by category.
+   ========================================================================== */
+
+:root {
+  /* ---------- Typography ---------- */
+  --pdai-font-family-heading: 'Plus Jakarta Sans', var(--ifm-font-family-base);
+  --pdai-font-family-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --pdai-font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+
+  /* ---------- Spacing ---------- */
+  --pdai-border-radius: 0.5rem;
+  --pdai-border-radius-lg: 0.75rem;
+  --pdai-border-radius-sm: 0.25rem;
+
+  /* ---------- Borders ---------- */
+  --pdai-border-color: var(--pdai-gray-200);
+  --pdai-border-width: 1px;
+
+  /* ---------- Shadows (minimal - light mode only) ---------- */
+  --pdai-shadow-sm: 0 1px 2px 0 rgba(15, 18, 37, 0.05);
+  --pdai-shadow-md: 0 4px 6px -1px rgba(15, 18, 37, 0.07), 0 2px 4px -2px rgba(15, 18, 37, 0.05);
+
+  /* ---------- Gray Scale (hue 230, blue-tinted) ---------- */
+  --pdai-gray-0: #ffffff;
+  --pdai-gray-50: #f8f9fc;
+  --pdai-gray-100: #f1f3f9;
+  --pdai-gray-200: #e2e5f0;
+  --pdai-gray-300: #c8cde0;
+  --pdai-gray-400: #9ba3c2;
+  --pdai-gray-500: #6e78a0;
+  --pdai-gray-600: #515b7d;
+  --pdai-gray-700: #3b4361;
+  --pdai-gray-800: #272d45;
+  --pdai-gray-900: #1a1f36;
+  --pdai-gray-1000: #0f1225;
+
+  /* ---------- Brand Colors ---------- */
+  --pdai-primary: #4f46e5;
+  --pdai-primary-dark: #4338ca;
+  --pdai-primary-darker: #3730a3;
+  --pdai-primary-darkest: #312e81;
+  --pdai-primary-light: #6366f1;
+  --pdai-primary-lighter: #818cf8;
+  --pdai-primary-lightest: #c7d2fe;
+  --pdai-accent: #d97706;
+  --pdai-accent-light: #f59e0b;
+  --pdai-accent-bg: #fffbeb;
+
+  /* ---------- Infima Overrides: Primary ---------- */
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #c7d2fe;
+  --ifm-color-primary-contrast-background: #eef2ff;
+  --ifm-color-primary-contrast-foreground: #312e81;
+
+  /* ---------- Infima Overrides: Semantic Colors ---------- */
+  --ifm-color-success: #059669;
+  --ifm-color-success-dark: #047857;
+  --ifm-color-success-darker: #065f46;
+  --ifm-color-success-darkest: #064e3b;
+  --ifm-color-success-light: #10b981;
+  --ifm-color-success-lighter: #34d399;
+  --ifm-color-success-lightest: #6ee7b7;
+  --ifm-color-success-contrast-background: #ecfdf5;
+  --ifm-color-success-contrast-foreground: #064e3b;
+
+  --ifm-color-info: #0891b2;
+  --ifm-color-info-dark: #0e7490;
+  --ifm-color-info-darker: #155e75;
+  --ifm-color-info-darkest: #164e63;
+  --ifm-color-info-light: #06b6d4;
+  --ifm-color-info-lighter: #22d3ee;
+  --ifm-color-info-lightest: #67e8f9;
+  --ifm-color-info-contrast-background: #ecfeff;
+  --ifm-color-info-contrast-foreground: #164e63;
+
+  --ifm-color-warning: #d97706;
+  --ifm-color-warning-dark: #b45309;
+  --ifm-color-warning-darker: #92400e;
+  --ifm-color-warning-darkest: #78350f;
+  --ifm-color-warning-light: #f59e0b;
+  --ifm-color-warning-lighter: #fbbf24;
+  --ifm-color-warning-lightest: #fcd34d;
+  --ifm-color-warning-contrast-background: #fffbeb;
+  --ifm-color-warning-contrast-foreground: #78350f;
+
+  --ifm-color-danger: #dc2626;
+  --ifm-color-danger-dark: #b91c1c;
+  --ifm-color-danger-darker: #991b1b;
+  --ifm-color-danger-darkest: #7f1d1d;
+  --ifm-color-danger-light: #ef4444;
+  --ifm-color-danger-lighter: #f87171;
+  --ifm-color-danger-lightest: #fca5a5;
+  --ifm-color-danger-contrast-background: #fef2f2;
+  --ifm-color-danger-contrast-foreground: #7f1d1d;
+
+  /* ---------- Infima Overrides: Typography ---------- */
+  --ifm-font-family-base: var(--pdai-font-family-body);
+  --ifm-font-family-monospace: var(--pdai-font-family-mono);
+  --ifm-heading-font-family: var(--pdai-font-family-heading);
+  --ifm-font-size-base: 100%;
+  --ifm-line-height-base: 1.75;
+  --ifm-heading-font-weight: 700;
+  --ifm-font-weight-semibold: 600;
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.25rem;
+  --ifm-h4-font-size: 1rem;
+  --ifm-h5-font-size: 0.875rem;
+  --ifm-h6-font-size: 0.85rem;
+
+  /* ---------- Infima Overrides: Layout ---------- */
+  --ifm-global-radius: var(--pdai-border-radius);
+  --ifm-global-border-width: var(--pdai-border-width);
+  --ifm-global-shadow-lw: var(--pdai-shadow-sm);
+  --ifm-global-shadow-md: var(--pdai-shadow-md);
+  --ifm-global-shadow-tl: var(--pdai-shadow-md);
+
+  /* ---------- Infima Overrides: Backgrounds ---------- */
+  --ifm-background-color: var(--pdai-gray-0);
+  --ifm-background-surface-color: var(--pdai-gray-0);
+  --ifm-color-content: var(--pdai-gray-900);
+  --ifm-color-content-secondary: var(--pdai-gray-600);
+  --ifm-hover-overlay: rgba(79, 70, 229, 0.04);
+
+  /* ---------- Infima Overrides: Code ---------- */
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: var(--pdai-gray-100);
+  --ifm-code-border-radius: var(--pdai-border-radius-sm);
+  --ifm-code-padding-horizontal: 0.25rem;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-pre-background: var(--pdai-gray-50);
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.08);
+
+  /* ---------- Infima Overrides: Navbar ---------- */
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.85);
+  --ifm-navbar-link-color: var(--pdai-gray-700);
+  --ifm-navbar-link-hover-color: var(--pdai-primary);
+  --ifm-navbar-height: 4rem;
+
+  /* ---------- Infima Overrides: Sidebar / Menu ---------- */
+  --ifm-menu-color: var(--pdai-gray-600);
+  --ifm-menu-color-active: var(--pdai-primary);
+  --ifm-menu-color-background-active: rgba(79, 70, 229, 0.06);
+  --ifm-menu-color-background-hover: rgba(79, 70, 229, 0.04);
+
+  /* ---------- Infima Overrides: TOC ---------- */
+  --ifm-toc-border-color: var(--pdai-gray-200);
+  --ifm-toc-link-color: var(--pdai-gray-500);
+
+  /* ---------- Infima Overrides: Footer ---------- */
+  --ifm-footer-background-color: var(--pdai-gray-900);
+  --ifm-footer-color: var(--pdai-gray-400);
+  --ifm-footer-link-color: var(--pdai-gray-300);
+  --ifm-footer-link-hover-color: var(--pdai-primary-lightest);
+  --ifm-footer-title-color: var(--pdai-gray-0);
+  --ifm-footer-padding-vertical: 3rem;
+
+  /* ---------- Infima Overrides: Alerts ---------- */
+  --ifm-alert-shadow: none;
+  --ifm-alert-border-radius: var(--pdai-border-radius);
+  --ifm-alert-border-left-width: 4px;
+
+  /* ---------- Infima Overrides: Scrollbar ---------- */
+  --ifm-scrollbar-size: 6px;
+  --ifm-scrollbar-track-background-color: transparent;
+  --ifm-scrollbar-thumb-background-color: var(--pdai-gray-300);
+  --ifm-scrollbar-thumb-hover-background-color: var(--pdai-gray-400);
+
+  /* ---------- Infima Overrides: Misc ---------- */
+  --ifm-pagination-nav-border-radius: var(--pdai-border-radius);
+  --ifm-pagination-nav-color-hover: var(--pdai-primary);
+  --ifm-card-border-radius: var(--pdai-border-radius-lg);
+  --ifm-tabs-color: var(--pdai-gray-500);
+  --ifm-tabs-color-active: var(--pdai-primary);
+  --ifm-tabs-color-active-border: var(--pdai-primary);
+  --ifm-blockquote-border-color: var(--pdai-primary-lightest);
+  --ifm-blockquote-color: var(--pdai-gray-700);
+}
+
+/* ==========================================================================
+   Dark Mode Tokens
+   ========================================================================== */
+
+[data-theme='dark'] {
+  --pdai-primary: #818cf8;
+  --pdai-primary-dark: #6366f1;
+  --pdai-primary-darker: #4f46e5;
+  --pdai-primary-darkest: #4338ca;
+  --pdai-primary-light: #a5b4fc;
+  --pdai-primary-lighter: #c7d2fe;
+  --pdai-primary-lightest: #e0e7ff;
+  --pdai-accent: #fbbf24;
+  --pdai-accent-light: #fcd34d;
+  --pdai-accent-bg: rgba(251, 191, 36, 0.08);
+  --pdai-border-color: var(--pdai-gray-700);
+
+  /* Shadows: none in dark mode */
+  --pdai-shadow-sm: none;
+  --pdai-shadow-md: none;
+
+  /* Primary */
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #4f46e5;
+  --ifm-color-primary-darkest: #4338ca;
+  --ifm-color-primary-light: #a5b4fc;
+  --ifm-color-primary-lighter: #c7d2fe;
+  --ifm-color-primary-lightest: #e0e7ff;
+  --ifm-color-primary-contrast-background: #1e1b4b;
+  --ifm-color-primary-contrast-foreground: #e0e7ff;
+
+  /* Semantic dark adjustments */
+  --ifm-color-success-contrast-background: #052e16;
+  --ifm-color-success-contrast-foreground: #d1fae5;
+  --ifm-color-info-contrast-background: #083344;
+  --ifm-color-info-contrast-foreground: #cffafe;
+  --ifm-color-warning-contrast-background: #451a03;
+  --ifm-color-warning-contrast-foreground: #fef3c7;
+  --ifm-color-danger-contrast-background: #450a0a;
+  --ifm-color-danger-contrast-foreground: #fee2e2;
+
+  /* Backgrounds */
+  --ifm-background-color: #13162b;
+  --ifm-background-surface-color: #1a1f3a;
+  --ifm-color-content: #e2e5f0;
+  --ifm-color-content-secondary: #9ba3c2;
+  --ifm-hover-overlay: rgba(129, 140, 248, 0.06);
+  --docusaurus-highlighted-code-line-bg: rgba(129, 140, 248, 0.12);
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(19, 22, 43, 0.85);
+  --ifm-navbar-link-color: var(--pdai-gray-300);
+  --ifm-navbar-shadow: none;
+
+  /* Sidebar */
+  --ifm-menu-color: var(--pdai-gray-400);
+  --ifm-menu-color-active: var(--pdai-primary);
+  --ifm-menu-color-background-active: rgba(129, 140, 248, 0.08);
+  --ifm-menu-color-background-hover: rgba(129, 140, 248, 0.05);
+
+  /* TOC */
+  --ifm-toc-border-color: var(--pdai-gray-700);
+  --ifm-toc-link-color: var(--pdai-gray-500);
+
+  /* Footer */
+  --ifm-footer-background-color: #0c0e1d;
+  --ifm-footer-color: var(--pdai-gray-500);
+  --ifm-footer-link-color: var(--pdai-gray-400);
+  --ifm-footer-title-color: var(--pdai-gray-200);
+
+  /* Code */
+  --ifm-code-background: rgba(129, 140, 248, 0.1);
+  --ifm-pre-background: rgba(26, 31, 58, 0.8);
+
+  /* Scrollbar */
+  --ifm-scrollbar-track-background-color: transparent;
+  --ifm-scrollbar-thumb-background-color: var(--pdai-gray-700);
+  --ifm-scrollbar-thumb-hover-background-color: var(--pdai-gray-600);
+
+  /* Blockquotes */
+  --ifm-blockquote-border-color: var(--pdai-gray-700);
+  --ifm-blockquote-color: var(--pdai-gray-400);
+
+  /* Shadows off */
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+  --ifm-alert-shadow: none;
+}

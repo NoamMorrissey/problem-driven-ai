@@ -11,6 +11,24 @@ const config: Config = {
     v4: true,
   },
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+  ],
+
   url: 'https://problem-driven-ai.dev',
   baseUrl: '/',
 
@@ -95,7 +113,11 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/fonts.css',
+            './src/css/variables.css',
+            './src/css/custom.css',
+          ],
         },
       } satisfies Preset.Options,
     ],
@@ -107,6 +129,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
+      hideOnScroll: true,
       title: 'Problem-Driven AI',
       items: [
         {
