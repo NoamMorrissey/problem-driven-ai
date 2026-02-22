@@ -1,0 +1,54 @@
+---
+title: "Rules: the project's constitution"
+sidebar_label: "Rules"
+slug: rules-the-constitution
+description: "Rules are the norms that apply to the entire project. They are what turns a collection of independent Agents and Skills into a coherent system."
+sidebar_position: 4
+tags: [phases, context-engineering, rules, project-context]
+---
+
+# Rules: the project's constitution
+
+Rules are the first element the Context Engineer designs, because they govern everything else. An Agent without Rules improvises. A Skill without Rules produces unpredictable results. Rules are what turns a collection of independent Agents and Skills into a coherent system.
+
+## What Rules are and where they live
+
+Rules are the norms that apply to the entire project. Any decision an Agent makes when executing any Skill must be compatible with the Rules. They materialize in the **project-context.md**: the constitution that every Agent loads before executing any Skill.
+
+The project-context.md is not a passive document that Agents "consult." It's an active document that Agents load as a base constraint before processing any Skill. The difference is crucial: consulting is optional; loading as a constraint is mandatory.
+
+### What the project-context.md contains
+
+- **Technology stack:** Languages, frameworks, versions. A non-negotiable constraint that applies to all Agents and all development Skills.
+- **Code conventions:** Naming, file structure, mandatory patterns. An Agent executing a Skill inherits these conventions automatically.
+- **Security constraints:** What is prohibited for all Agents, what requires escalation to the Context Engineer.
+- **Integration rules:** How components communicate. When a Skill involves integration, these Rules define the how.
+- **Agent limits:** What each Agent can decide autonomously and what it cannot. This prevents an Agent from making decisions outside its role while executing a Skill.
+- **Gap protocol:** The most important Rule: "When an Agent detects that a Skill has insufficient information, it FLAGS the gap. It doesn't fill it."
+- **Global decisions with justification:** Each cross-cutting decision, with its "why." If an Agent understands the reason, it can apply the Rule correctly in situations the Context Engineer didn't foresee.
+
+:::info[Technique]
+**The three-reads rule:** An Agent that receives only the project-context.md should be able to answer: What technologies do I use? What can I not do? What is the convention for any recurring pattern? If any answer is missing, the Rules are incomplete — and the Skills that Agents execute will suffer that deficiency.
+:::
+
+## The five precision levels
+
+Not all Rules require the same rigidity. The key is calibration: invest precision where the impact on Agents and Skills is high, and delegate where it's low.
+
+| Level | Type | Impact on Agents and Skills | Example |
+|---|---|---|---|
+| **5** | Prescriptive | Absolute constraint. No Agent can violate it in any Skill. If a Skill contradicts it, the Agent must escalate. | "All endpoints: JSON &#123; data, error, meta &#125;. No exceptions." |
+| **4** | Specific | Every Skill that touches this area must comply. Agents apply it without interpretation. | "Push alert to manager in under 2 min when stock below threshold." |
+| **3** | Directed | Agents follow the direction. Skills can adapt it to their specific context. | "Informative tone, no jargon. Adaptable by audience." |
+| **2** | Orientative | Preference, not mandate. Agents consider it; Skills can deviate if justified. | "We prefer tables for inventory. Other formats acceptable." |
+| **1** | Delegated | The Context Engineer explicitly delegates to the Agent. The Skill doesn't prescribe; the Agent decides. | "camelCase for variables. Rest: Agent's judgment." |
+
+Delegation is not forgetting. It's deciding what doesn't need prescription. Level 1-2 Rules are conscious delegations from the Context Engineer to the Agent. Level 4-5 are limits that no Agent can cross when executing any Skill.
+
+:::danger[Anti-pattern: Implicit Rules]
+**What it is:** The team assumes certain norms are "obvious" and doesn't write them in the project-context.md. "Everyone knows we use TypeScript." Agents are not "everyone." If it's not in the Rules, it doesn't exist for them.
+
+**What it produces:** One Agent chooses Python in a Skill because nothing prevented it. Another Agent uses REST while the first used GraphQL. Each Skill produces correct output in isolation and incoherent output globally.
+
+**How to prevent it:** If it's true for the entire project, it's in the Rules. If it's not in the Rules, Agents don't know it and Skills don't respect it.
+:::
