@@ -517,3 +517,8 @@ div[class*='announcementBar'] {
 .section-hero--principles { background-image: url('/img/principios.png'); }
 .section-hero--manifesto { background-image: url('/img/manifiesto.png'); }
 .section-hero--principle { background-image: url('/img/principios-listado.png'); }
+
+.section-hero--principle .section-hero__title {
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+}

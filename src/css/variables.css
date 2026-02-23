@@ -60,45 +60,45 @@
   --ifm-color-primary-contrast-foreground: #312e81;
 
   /* ---------- Infima Overrides: Semantic Colors ---------- */
-  --ifm-color-success: #059669;
-  --ifm-color-success-dark: #047857;
-  --ifm-color-success-darker: #065f46;
-  --ifm-color-success-darkest: #064e3b;
-  --ifm-color-success-light: #10b981;
-  --ifm-color-success-lighter: #34d399;
-  --ifm-color-success-lightest: #6ee7b7;
-  --ifm-color-success-contrast-background: #ecfdf5;
-  --ifm-color-success-contrast-foreground: #064e3b;
+  --ifm-color-success: #52DC82;
+  --ifm-color-success-dark: #3BD473;
+  --ifm-color-success-darker: #2ECA66;
+  --ifm-color-success-darkest: #22A852;
+  --ifm-color-success-light: #6DE294;
+  --ifm-color-success-lighter: #88E8A6;
+  --ifm-color-success-lightest: #A3EEB8;
+  --ifm-color-success-contrast-background: rgba(82, 220, 130, 0.15);
+  --ifm-color-success-contrast-foreground: #1A6B34;
 
-  --ifm-color-info: #0891b2;
-  --ifm-color-info-dark: #0e7490;
-  --ifm-color-info-darker: #155e75;
-  --ifm-color-info-darkest: #164e63;
-  --ifm-color-info-light: #06b6d4;
-  --ifm-color-info-lighter: #22d3ee;
-  --ifm-color-info-lightest: #67e8f9;
-  --ifm-color-info-contrast-background: #ecfeff;
-  --ifm-color-info-contrast-foreground: #164e63;
+  --ifm-color-info: #60D6E1;
+  --ifm-color-info-dark: #49CFD9;
+  --ifm-color-info-darker: #3BCAD5;
+  --ifm-color-info-darkest: #2AABB4;
+  --ifm-color-info-light: #78DDE6;
+  --ifm-color-info-lighter: #90E4EB;
+  --ifm-color-info-lightest: #A8EBF0;
+  --ifm-color-info-contrast-background: rgba(96, 214, 225, 0.15);
+  --ifm-color-info-contrast-foreground: #1A6B72;
 
-  --ifm-color-warning: #d97706;
-  --ifm-color-warning-dark: #b45309;
-  --ifm-color-warning-darker: #92400e;
-  --ifm-color-warning-darkest: #78350f;
-  --ifm-color-warning-light: #f59e0b;
-  --ifm-color-warning-lighter: #fbbf24;
-  --ifm-color-warning-lightest: #fcd34d;
-  --ifm-color-warning-contrast-background: #fffbeb;
-  --ifm-color-warning-contrast-foreground: #78350f;
+  --ifm-color-warning: #EBBF5E;
+  --ifm-color-warning-dark: #E8B445;
+  --ifm-color-warning-darker: #E5AB35;
+  --ifm-color-warning-darkest: #C9901A;
+  --ifm-color-warning-light: #EEC977;
+  --ifm-color-warning-lighter: #F1D490;
+  --ifm-color-warning-lightest: #F4DEA9;
+  --ifm-color-warning-contrast-background: rgba(235, 191, 94, 0.15);
+  --ifm-color-warning-contrast-foreground: #6B5419;
 
-  --ifm-color-danger: #dc2626;
-  --ifm-color-danger-dark: #b91c1c;
-  --ifm-color-danger-darker: #991b1b;
-  --ifm-color-danger-darkest: #7f1d1d;
-  --ifm-color-danger-light: #ef4444;
-  --ifm-color-danger-lighter: #f87171;
-  --ifm-color-danger-lightest: #fca5a5;
-  --ifm-color-danger-contrast-background: #fef2f2;
-  --ifm-color-danger-contrast-foreground: #7f1d1d;
+  --ifm-color-danger: #F55B80;
+  --ifm-color-danger-dark: #F3416C;
+  --ifm-color-danger-darker: #F12D5F;
+  --ifm-color-danger-darkest: #D50E40;
+  --ifm-color-danger-light: #F77594;
+  --ifm-color-danger-lighter: #F98FA8;
+  --ifm-color-danger-lightest: #FBA9BC;
+  --ifm-color-danger-contrast-background: rgba(245, 91, 128, 0.15);
+  --ifm-color-danger-contrast-foreground: #7A1D30;
 
   /* ---------- Infima Overrides: Typography ---------- */
   --ifm-font-family-base: var(--pdai-font-family-body);
@@ -218,14 +218,14 @@
   --ifm-color-primary-contrast-foreground: #e0e7ff;
 
   /* Semantic dark adjustments */
-  --ifm-color-success-contrast-background: #052e16;
-  --ifm-color-success-contrast-foreground: #d1fae5;
-  --ifm-color-info-contrast-background: #083344;
-  --ifm-color-info-contrast-foreground: #cffafe;
-  --ifm-color-warning-contrast-background: #451a03;
-  --ifm-color-warning-contrast-foreground: #fef3c7;
-  --ifm-color-danger-contrast-background: #450a0a;
-  --ifm-color-danger-contrast-foreground: #fee2e2;
+  --ifm-color-success-contrast-background: rgba(82, 220, 130, 0.15);
+  --ifm-color-success-contrast-foreground: #A3EEB8;
+  --ifm-color-info-contrast-background: rgba(96, 214, 225, 0.15);
+  --ifm-color-info-contrast-foreground: #A8EBF0;
+  --ifm-color-warning-contrast-background: rgba(235, 191, 94, 0.15);
+  --ifm-color-warning-contrast-foreground: #F4DEA9;
+  --ifm-color-danger-contrast-background: rgba(245, 91, 128, 0.15);
+  --ifm-color-danger-contrast-foreground: #FBA9BC;
 
   /* Backgrounds */
   --ifm-background-color: #13162b;
