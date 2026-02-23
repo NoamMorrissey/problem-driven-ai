@@ -212,7 +212,11 @@ const config: Config = {
     },
     navbar: {
       hideOnScroll: true,
-      title: 'Problem-Driven AI',
+      logo: {
+        alt: 'Problem-Driven AI',
+        src: 'img/logo-dark.png',
+        srcDark: 'img/logo-light.png',
+      },
       items: [
         {
           type: 'docSidebar',
