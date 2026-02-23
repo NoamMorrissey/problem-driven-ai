@@ -1,0 +1,112 @@
+---
+title: "Anti-patterns"
+sidebar_label: "Anti-patterns"
+slug: /framework/phases/market-iteration/anti-patterns
+description: "The six operational anti-patterns of Phase 5: from launch as arrival to the frozen Context Document. With detection signals and prevention."
+sidebar_position: 5
+tags: [framework, phases, market-iteration, anti-patterns, risks]
+---
+
+# Anti-patterns: what can go wrong
+
+Phase 5 has six recurring operational anti-patterns. Unlike previous phases, these anti-patterns don't manifest immediately — they accumulate silently over weeks or months until the gap between the market and the Context Document is too large to ignore.
+
+## Quick reference table
+
+| Anti-pattern | Primary signal | Severity | Typical detection |
+|---|---|---|---|
+| Launch as arrival | Empty Signal Log 3 months post go-live | High | Quarterly |
+| Cosmetic iteration | Same problems in consecutive cycles | High | Monthly |
+| KPIs as target | KPIs rise but users don't improve | Medium-high | Monthly |
+| Signal without cause hypothesis | Full Signal Log, empty Context Update Record | Medium | Weekly |
+| Update without traceability | Context Document changes without signal references | Medium | Monthly |
+| Frozen Context Document | 60+ days without updates during active operation | Critical | Monthly |
+
+---
+
+## 1. Launch as arrival
+
+:::danger[Anti-pattern]
+**What it is:** The team celebrates go-live as if it were the project's end. Phase 5 activates but nobody governs it. The Signal Log receives no entries. The Context Document isn't updated. The system learns only through deterioration.
+
+**How to detect it:** Three months after launch, the Context Document is identical to what existed at go-live. The Signal Log is empty or full of unprocessed entries.
+
+**How to prevent it:** Phase 5 has a designated owner **before** go-live. The first Iteration Brief is planned for the fourth week after launch. Go-live is celebrated as the start of iteration, not the project's end.
+:::
+
+---
+
+## 2. Systematic cosmetic iteration
+
+:::danger[Anti-pattern]
+**What it is:** The team iterates frequently and enthusiastically, but always on the implementation layer. Phase 4 cycles follow one another. The construction-layer Context Document updates. The Problem Statement and Solution Brief are never revised even though market signals are questioning them.
+
+**Why it happens:** Returning to Phase 1 or 2 has significant organizational cost. It's more comfortable to add a feature than to question whether the original problem was well defined.
+
+**How to detect it:** The same user friction themes appear in every feedback cycle. KPIs move but the team doesn't feel the system is solving the right thing.
+
+**How to prevent it:** The quarterly strategic review includes an explicit, mandatory question: *"Are there signals justifying a return to Phase 1 or 2?"* If the answer is always no, the question probably isn't being asked correctly.
+:::
+
+---
+
+## 3. KPIs as target instead of input
+
+:::danger[Anti-pattern]
+**What it is:** The team optimizes KPIs instead of using them as signals of system state. Decisions are made to raise KPIs instead of based on what KPIs are saying.
+
+**How to detect it:** KPIs consistently rise but user interviews reveal the problem isn't being solved better. The team discusses how to improve KPIs, not what they're saying.
+
+**How to prevent it:** KPIs are always reviewed alongside qualitative signals. A KPI that rises but users don't recognize as real improvement is a sign the KPI was poorly defined or the team is gaming it.
+:::
+
+---
+
+## 4. Signal without cause hypothesis
+
+:::danger[Anti-pattern]
+**What it is:** The team collects abundant market signals but doesn't build cause hypotheses. Signals accumulate in the Signal Log as observations without interpretation. Context Document updates are arbitrary.
+
+**How to detect it:** The Signal Log has many entries but the Context Update Record has few. Context Document updates don't reference specific signals.
+
+**How to prevent it:** No signal enters the Signal Log without at least one preliminary cause hypothesis. The hypothesis may be wrong — it's revised with more data — but it must exist. A signal without a cause hypothesis is an observation nobody knows how to use.
+:::
+
+---
+
+## 5. Update without traceability
+
+:::danger[Anti-pattern]
+**What it is:** The Context Document is updated frequently but without recording which signal motivated each change. The team acts on intuitions. The Context Update Record is empty or full of vague entries.
+
+**Why it's destructive long-term:** In six months, nobody knows why the Context Document is the way it is. Existing Rules have no documented justification. New team members can't distinguish well-founded decisions from arbitrary ones.
+
+**How to prevent it:** The Context Document is not updated without a corresponding Context Update Record entry with the motivating signal. Traceability is not optional — it's the condition for the Context Document being an organizational asset rather than the Context Engineer's personal document.
+:::
+
+---
+
+## 6. The frozen Context Document
+
+:::danger[Anti-pattern]
+**What it is:** The market sends signals. The team reads them. But the Context Document isn't updated because "it's fine as it is" or because "the changes are minor." The distance between what the market says and what the Context Document describes grows silently.
+
+**Why it's Phase 5's most dangerous anti-pattern:** It isn't detected until the gap is so large the solution is no longer relevant to the market. The system keeps working. The code keeps compiling. But the problem it solves is no longer the problem users need solved.
+
+**How to prevent it:** The simplest health indicator: if the Context Document hasn't been updated in 60 days of active operation, there is accumulated Context Debt that must be processed before the next construction cycle.
+:::
+
+---
+
+## Detection pattern: the monthly anti-pattern review
+
+At the close of each monthly synthesis session, the team spends 15 minutes reviewing this table:
+
+| Question | Healthy answer |
+|---|---|
+| Does the Signal Log have entries from the last 2 weeks? | Yes |
+| Does the Context Update Record have entries from this cycle? | Yes |
+| Are the same problems appearing for the third consecutive time? | No |
+| Do KPIs match what users are saying? | Yes |
+| Does each Context Document update reference a signal? | Yes |
+| Has a return to Phase 1 or 2 been considered in the last quarter? | At least once |

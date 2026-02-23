@@ -152,6 +152,12 @@ const config: Config = {
             {en: '/phases/market-iteration/progressive-automation', es: '/fases/market-iteration/automatizacion-progresiva'},
             {en: '/phases/market-iteration/who-participates', es: '/fases/market-iteration/quien-participa'},
             {en: '/phases/market-iteration/the-living-context', es: '/fases/market-iteration/el-contexto-vivo'},
+            // Framework Phase 5
+            {en: '/framework/phases/market-iteration/step-by-step-process', es: '/framework/fases/market-iteration/proceso-paso-a-paso'},
+            {en: '/framework/phases/market-iteration/iteration-cycle-anatomy', es: '/framework/fases/market-iteration/anatomia-del-ciclo-de-iteracion'},
+            {en: '/framework/phases/market-iteration/artifacts', es: '/framework/fases/market-iteration/artefactos'},
+            {en: '/framework/phases/market-iteration/anti-patterns', es: '/framework/fases/market-iteration/anti-patrones'},
+            {en: '/framework/phases/market-iteration/duration-and-effort', es: '/framework/fases/market-iteration/duracion-y-esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},

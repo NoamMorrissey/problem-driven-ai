@@ -1,0 +1,135 @@
+---
+title: "The step-by-step process"
+sidebar_label: "Step by Step"
+slug: /framework/phases/market-iteration/step-by-step-process
+description: "The five steps of Phase 5: measurement system activation, signal capture, interpretation, Context Document update, and Iteration Brief."
+sidebar_position: 1
+tags: [framework, phases, market-iteration, process, step-by-step]
+---
+
+# The step-by-step process
+
+Phase 5 doesn't have an end. But it does have a structure that repeats in cycles of varying frequency. The process is not linear — it's a system of nested loops with different cadences. The innermost loop operates continuously and automatically. The outermost loop operates quarterly and requires deep strategic thinking.
+
+---
+
+## Step 1: Measurement system activation
+
+**Duration:** One-time at Phase 5 start. Continuous maintenance.
+
+Before the first user interacts with the system, the measurement infrastructure must be active. You can't learn from a market you don't observe.
+
+### 1.1 Connecting the KPI & OKR Register to the measurement system
+
+The KPI & OKR Register, built in Phase 3, defines **what** to measure. This step translates those definitions into concrete instrumentation. Each KPI needs three elements to be operational:
+
+| Element | Description | Example |
+|---|---|---|
+| **Verified data source** | Where does the data come from? Product event, database query, external integration? | `alert_discovered` event instrumented in the inventory system. |
+| **Unambiguous calculation definition** | Precise formula. Ambiguous definitions produce metrics different people read differently. | "Discovery rate = alerts discovered by manager / total alerts generated, in 24h window." |
+| **Alert threshold** | What deviation level triggers a review. Prevents both analysis paralysis and inaction blindness. | Deviation > 15% from target for 7 consecutive days → weekly review. |
+
+### 1.2 The Signal Log: the continuous signal register
+
+The Signal Log is Phase 5's central artifact. It's the equivalent of Phase 1's Synthesis Board: the place where raw information becomes structured findings. Unlike the Synthesis Board, it is fed **continuously**.
+
+Each Signal Log entry has five fields:
+
+| Field | Description | Why it's critical |
+|---|---|---|
+| **Observed signal** | What was observed: the raw data, behavior, comment. No interpretation yet. | Separating observation from interpretation prevents confirmation bias from contaminating analysis. |
+| **Source and method** | Where it comes from: analytics, interview, KPI, support ticket, external signal. | Determines reliability and representativeness level. |
+| **Cause hypothesis** | What might be causing this signal. Formulated as hypothesis, not conclusion. | Forces distinguishing what is observed from what is inferred. |
+| **Affected Context Document element** | What part might need updating: Problem Statement, Solution Brief, Rule, Story File. | The bridge between market signal and context action. |
+| **Urgency and proposed action** | Immediate (this week) / Normal (next iteration) / Strategic (Problem Statement review). | Prioritizes response and defines which process activates. |
+
+---
+
+## Step 2: Signal capture
+
+**Duration:** Continuous. Inner loop operating permanently.
+
+Capture is not a periodic process. It's a system that operates continuously in the background. What is periodic is the analysis and interpretation.
+
+### The three capture layers
+
+| Layer | What it captures | Cadence | Possible automation |
+|---|---|---|---|
+| **Automatic** | User behavior events, KPI movement, system logs, performance alerts. | Real time. Dashboards updated continuously. | 100% automatable. Product instrumentation + analytics tools. |
+| **Structured** | Follow-up interviews with users, periodic support ticket analysis, feedback channel review. | Weekly (tickets) / Monthly (interviews). | Partial. Ticket synthesis can be done with AI. Interviews require humans. |
+| **Contextual** | Competitor movements, regulatory changes, benchmark evolution, emerging ecosystem signals. | Monthly / Quarterly. | Partial with market monitoring tools. Strategic interpretation is human. |
+
+---
+
+## Step 3: Signal interpretation
+
+**Duration:** Weekly sessions (KPIs), monthly (qualitative feedback), quarterly (strategic signals).
+
+Capture produces data. Interpretation produces knowledge. A dashboard full of metrics nobody analyzes in the context of the original problem doesn't produce learning.
+
+### The three interpretation questions
+
+For each significant Signal Log signal, the team answers in order:
+
+1. **Does this signal confirm or refute a Context Document assumption?** Go to the Context Document and locate the specific assumption. If no specific assumption can be located, the signal may be noise — or information about something the context didn't contemplate.
+
+2. **What causes this signal?** Dig deeper with the 5 Whys technique. A root cause pointing to the Problem Statement has completely different implications than one pointing to a technical Rule.
+
+3. **What Context Document element must change?** If the team can articulate what changes and why, it's ready for Step 4. If not, it needs more data.
+
+### Session structure
+
+| Session | Cadence | Participants | Focus | Output |
+|---|---|---|---|---|
+| **KPI review** | Weekly. 45-60 min. | Product Lead + Data Lead + Context Engineer. | Are KPIs moving as expected? Anomalous patterns? | Classified signals. Decision: process or escalate. |
+| **Feedback synthesis** | Monthly. 2-3 hours. | Product Lead + Context Engineer + support/sales + Phase 1-2 stakeholders. | What are users saying that doesn't appear in automated data? | Updated Signal Log with qualitative findings. |
+| **Strategic review** | Quarterly. Half a day. | Full team + key stakeholders. | Is the Problem Statement still correct? What did we learn? | Iteration Brief. Decision on return to Phase 1, 2, 3, or 4. |
+
+---
+
+## Step 4: Context Document update
+
+**Duration:** Immediate for Rules. 1-3 days for Story Files. Weeks for Problem Statement or Solution Brief.
+
+This is the step where Phase 5 produces tangible value. An interpreted signal that doesn't update the context is a learning that produces no action.
+
+### Update types
+
+| Type | What changes | Process | Who approves |
+|---|---|---|---|
+| **Rule update** | A project-context.md Rule is modified, added, or removed. | Context Engineer modifies. Documented in Context Update Record with signal traceability. Active teams notified. | Context Engineer. For level 4-5 Rules, Tech Lead co-approves. |
+| **Story File update** | Existing Skills adjusted or new ones created. | Context Engineer updates. New Skills go through full Phase 4 process. | Context Engineer + Product Lead. |
+| **PRD update** | Use cases modified, added, or removed. | PM Agent produces update. Reviewed with stakeholders. | Product Lead + Solution Brief stakeholders. |
+| **Solution Brief revision** | Significant solution redesign. | Formal return to Phase 2 with additional market information. | All original Solution Brief stakeholders. |
+| **Problem Statement revision** | The problem was poorly defined or has evolved significantly. | Formal return to Phase 1. New user interviews. | Same validation process as original Phase 1. |
+
+### The Context Update Record
+
+Each update is registered with full traceability:
+
+```
+Date: [YYYY-MM-DD]
+Source signal: [Signal Log reference]
+Validated cause hypothesis: [Description]
+Modified element: [Problem Statement | Solution Brief | Rule | Story File | PRD]
+Change made: [Description of the change]
+Approved by: [Name and role]
+```
+
+---
+
+## Step 5: The Iteration Brief and the new iteration
+
+**Duration:** 1-2 days to write. Activated at the start of each cycle.
+
+The Iteration Brief marks the transition between a learning cycle and the next construction cycle. It doesn't say what to build. It says what was learned and what questions need answering.
+
+### Iteration Brief anatomy
+
+| Section | Contents | Quality test |
+|---|---|---|
+| **Previous cycle learnings** | Significant signals, validated hypotheses, confirmed or refuted assumptions. | Does each learning have Signal Log traceability? |
+| **Context Document state** | Summary of updates made and why. | Does each update have Context Update Record traceability? |
+| **Open questions** | Unverified hypotheses due to insufficient data. Weak signals that could be important. | Are questions formulated so a team can design actions to answer them? |
+| **Next cycle focus** | What aspect deserves more attention and why. Includes return phase if applicable. | Is the focus justified by cycle learnings? |
+| **Priority KPIs** | Indicators to watch most closely. | Are they different from the previous cycle if learnings justify it? |

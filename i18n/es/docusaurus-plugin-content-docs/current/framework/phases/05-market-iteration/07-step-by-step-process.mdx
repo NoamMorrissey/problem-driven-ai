@@ -1,0 +1,135 @@
+---
+title: "Proceso paso a paso"
+sidebar_label: "Paso a Paso"
+slug: /framework/fases/market-iteration/proceso-paso-a-paso
+description: "Los cinco pasos de la Fase 5: activación del sistema de medición, captura de señales, interpretación, actualización del Context Document e Iteration Brief."
+sidebar_position: 1
+tags: [framework, fases, market-iteration, proceso, paso-a-paso]
+---
+
+# Proceso paso a paso
+
+La Fase 5 no tiene un final. Pero sí tiene una estructura que se repite en ciclos de distinta frecuencia. El proceso no es lineal — es un sistema de bucles anidados con diferentes cadencias. El bucle más interno opera de forma continua y automática. El bucle más externo opera trimestralmente y requiere pensamiento estratégico profundo.
+
+---
+
+## Paso 1: Activación del sistema de medición
+
+**Duración:** Único, al inicio de la Fase 5. Mantenimiento continuo.
+
+Antes de que el primer usuario interactúe con el sistema, la infraestructura de medición debe estar activa. No se puede aprender de un mercado que no se observa.
+
+### 1.1 Conexión del KPI & OKR Register al sistema de medición
+
+El KPI & OKR Register, construido en la Fase 3, define **qué** medir. Este paso traduce esas definiciones en instrumentación concreta. Cada KPI necesita tres elementos para ser operativo:
+
+| Elemento | Descripción | Ejemplo |
+|---|---|---|
+| **Fuente de datos verificada** | ¿De dónde viene el dato? ¿Evento del producto, consulta a base de datos, integración externa? | Evento `alert_discovered` instrumentado en el sistema de inventario. |
+| **Definición de cálculo sin ambigüedad** | Fórmula precisa. Definiciones ambiguas producen métricas que distintas personas leen de forma distinta. | "Tasa de descubrimiento = alertas descubiertas por gerente / alertas totales generadas, en ventana de 24h." |
+| **Umbral de alerta** | Qué nivel de desviación activa una revisión. Previene tanto parálisis por análisis como ceguera por inacción. | Desviación > 15% del objetivo durante 7 días consecutivos → revisión semanal. |
+
+### 1.2 El Signal Log: el registro continuo de señales
+
+El Signal Log es el artefacto central de la Fase 5. Es el equivalente al Synthesis Board de la Fase 1: el lugar donde la información bruta se convierte en hallazgos estructurados. A diferencia del Synthesis Board, se alimenta de forma **continua**.
+
+Cada entrada del Signal Log tiene cinco campos:
+
+| Campo | Descripción | Por qué es crítico |
+|---|---|---|
+| **Señal observada** | Qué se observó: el dato crudo, el comportamiento, el comentario. Sin interpretación todavía. | La separación entre observación e interpretación previene que el sesgo de confirmación contamine el análisis. |
+| **Fuente y método** | De dónde viene: analytics, entrevista, KPI, ticket de soporte, señal externa. | Determina el nivel de fiabilidad y representatividad. |
+| **Hipótesis de causa** | Qué podría estar causando esta señal. Formulado como hipótesis, no como conclusión. | Fuerza a distinguir lo que se observa de lo que se infiere. |
+| **Elemento del Context Document afectado** | Qué parte podría necesitar actualización: Problem Statement, Solution Brief, Regla, Story File. | Es el puente entre la señal del mercado y la acción sobre el contexto. |
+| **Urgencia y acción propuesta** | Inmediata (esta semana) / Normal (próxima iteración) / Estratégica (revisión de Problem Statement). | Prioriza la respuesta y define qué proceso se activa. |
+
+---
+
+## Paso 2: Captura de señales
+
+**Duración:** Continua. Bucle interno operando permanentemente.
+
+La captura no es un proceso periódico. Es un sistema que opera de forma continua en el fondo. Lo que es periódico es el análisis e interpretación.
+
+### Las tres capas de captura
+
+| Capa | Qué captura | Cadencia | Automatización posible |
+|---|---|---|---|
+| **Automática** | Eventos de comportamiento de usuario, movimiento de KPIs, logs del sistema, alertas de rendimiento. | Tiempo real. Dashboards actualizados continuamente. | 100% automatizable. Instrumentación del producto + herramientas de analytics. |
+| **Estructurada** | Entrevistas de seguimiento con usuarios, análisis periódico de tickets de soporte, revisión de feedback en canales. | Semanal (tickets) / Mensual (entrevistas). | Parcialmente. La síntesis de tickets puede hacerse con IA. Las entrevistas requieren humanos. |
+| **Contextual** | Movimientos de competidores, cambios regulatorios, evolución de benchmarks, señales emergentes del ecosistema. | Mensual / Trimestral. | Parcialmente con herramientas de monitorización de mercado. La interpretación estratégica es humana. |
+
+---
+
+## Paso 3: Interpretación de señales
+
+**Duración:** Sesiones semanales (KPIs), mensuales (feedback cualitativo), trimestrales (señales estratégicas).
+
+La captura produce datos. La interpretación produce conocimiento. Un dashboard lleno de métricas que nadie analiza en el contexto del problema original no produce aprendizaje.
+
+### Las tres preguntas de interpretación
+
+Para cada señal significativa del Signal Log, el equipo responde en orden:
+
+1. **¿Esta señal confirma o refuta una asunción del Context Document?** Ir al Context Document y localizar la asunción específica. Si no se puede localizar una asunción, la señal puede ser ruido — o información sobre algo que el contexto no contemplaba.
+
+2. **¿Qué causa esta señal?** Profundizar con la técnica de los 5 por qués. Una causa raíz que apunta al Problem Statement tiene implicaciones completamente distintas a una que apunta a una Regla técnica.
+
+3. **¿Qué elemento del Context Document debe cambiar?** Si el equipo puede articular qué cambia y por qué, está listo para el Paso 4. Si no puede, necesita más datos.
+
+### Estructura de las sesiones
+
+| Sesión | Cadencia | Participantes | Foco | Output |
+|---|---|---|---|---|
+| **Revisión de KPIs** | Semanal. 45-60 min. | Product Lead + Data Lead + Context Engineer. | ¿Los KPIs se mueven como se esperaba? ¿Patrones anómalos? | Señales clasificadas. Decisión: procesar o escalar. |
+| **Síntesis de feedback** | Mensual. 2-3 horas. | Product Lead + Context Engineer + soporte/ventas + stakeholders Fases 1-2. | ¿Qué dicen los usuarios que no aparece en datos automáticos? | Signal Log actualizado con hallazgos cualitativos. |
+| **Revisión estratégica** | Trimestral. Medio día. | Equipo completo + stakeholders clave. | ¿El Problem Statement sigue siendo correcto? ¿Qué aprendimos? | Iteration Brief. Decisión sobre regreso a Fase 1, 2, 3 o 4. |
+
+---
+
+## Paso 4: Actualización del Context Document
+
+**Duración:** Inmediata para Reglas. 1-3 días para Story Files. Semanas para Problem Statement o Solution Brief.
+
+Este es el paso donde la Fase 5 produce valor tangible. Una señal interpretada que no actualiza el contexto es un aprendizaje que no produce acción.
+
+### Tipos de actualización
+
+| Tipo | Qué cambia | Proceso | Quién aprueba |
+|---|---|---|---|
+| **Actualización de Regla** | Una Regla del project-context.md se modifica, añade o elimina. | Context Engineer modifica. Se documenta en el Context Update Record con trazabilidad a la señal. Se notifica a equipos activos. | Context Engineer. Para Reglas de nivel 4-5, Tech Lead co-aprueba. |
+| **Actualización de Story Files** | Skills existentes se ajustan o se crean nuevos. | Context Engineer actualiza. Nuevos Skills pasan por proceso completo de Fase 4. | Context Engineer + Product Lead. |
+| **Actualización del PRD** | Casos de uso se modifican, añaden o eliminan. | PM Agent produce actualización. Se revisa con stakeholders. | Product Lead + stakeholders del Solution Brief. |
+| **Revisión del Solution Brief** | Rediseño significativo de la solución. | Regreso formal a Fase 2 con información adicional del mercado. | Todos los stakeholders del Solution Brief original. |
+| **Revisión del Problem Statement** | El problema estaba mal definido o ha evolucionado significativamente. | Regreso formal a Fase 1. Nuevas entrevistas. | Mismo proceso de validación que en Fase 1. |
+
+### El Context Update Record
+
+Cada actualización se registra con trazabilidad completa:
+
+```
+Fecha: [YYYY-MM-DD]
+Señal origen: [Referencia al Signal Log]
+Hipótesis de causa validada: [Descripción]
+Elemento modificado: [Problem Statement | Solution Brief | Regla | Story File | PRD]
+Cambio realizado: [Descripción del cambio]
+Aprobado por: [Nombre y rol]
+```
+
+---
+
+## Paso 5: El Iteration Brief y la nueva iteración
+
+**Duración:** 1-2 días de redacción. Se activa al inicio de cada ciclo.
+
+El Iteration Brief marca la transición entre un ciclo de aprendizaje y el siguiente ciclo de construcción. No dice qué construir. Dice qué se aprendió y qué preguntas hay que responder.
+
+### Anatomía del Iteration Brief
+
+| Sección | Qué contiene | Test de calidad |
+|---|---|---|
+| **Aprendizajes del ciclo anterior** | Señales significativas, hipótesis validadas, asunciones confirmadas o refutadas. | ¿Cada aprendizaje tiene trazabilidad a una señal del Signal Log? |
+| **Estado del Context Document** | Resumen de actualizaciones realizadas y por qué. | ¿Cada actualización tiene trazabilidad al Context Update Record? |
+| **Preguntas abiertas** | Hipótesis no verificadas por falta de datos. Señales débiles que podrían ser importantes. | ¿Las preguntas están formuladas de forma que un equipo puede diseñar acciones para responderlas? |
+| **Foco del próximo ciclo** | Qué aspecto merece más atención y por qué. Incluye fase de regreso si aplica. | ¿El foco está justificado por los aprendizajes del ciclo? |
+| **KPIs prioritarios** | Indicadores que se observarán con más atención. | ¿Son distintos a los del ciclo anterior si los aprendizajes lo justifican? |

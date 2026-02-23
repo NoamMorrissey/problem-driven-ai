@@ -1,0 +1,68 @@
+---
+title: "Criterio de no-salida: la salud continua"
+sidebar_label: "Gate Review"
+slug: /framework/fases/market-iteration/gate-review
+description: "La Fase 5 no tiene Gate Review porque no hay fase siguiente. Tiene un criterio de salud continuo que indica si el sistema de aprendizaje está operando correctamente."
+sidebar_position: 4
+tags: [framework, fases, market-iteration, gate-review, salud, exit-criteria]
+---
+
+# Criterio de no-salida: por qué esta fase no termina
+
+Todas las fases anteriores tienen un Gate Review: un conjunto de condiciones que, cuando se cumplen, autorizan el avance a la siguiente fase. La Fase 5 no tiene Gate Review porque **no hay fase siguiente**.
+
+En su lugar, tiene un **criterio de salud continuo**: el sistema de señales está activo, las señales se interpretan con regularidad, el Context Document se actualiza en respuesta a ellas y el equipo puede articular qué aprendió en el último ciclo que no sabía en el ciclo anterior.
+
+## Indicadores de operación saludable
+
+| # | Indicador | Frecuencia de verificación |
+|---|---|---|
+| 1 | El Signal Log tiene entradas de las últimas dos semanas con hipótesis de causa documentadas. | Semanal |
+| 2 | El Context Update Record tiene al menos una entrada por cada ciclo de iteración activo. | Mensual |
+| 3 | El Iteration Brief del ciclo anterior está documentado y accesible. | Al inicio de cada ciclo |
+| 4 | Los KPIs del KPI & OKR Register están conectados a fuentes de datos activas y se actualizan automáticamente. | Semanal |
+| 5 | Al menos un stakeholder no técnico (de los que participaron en Fases 1-2) revisa el Signal Log con regularidad. | Mensual |
+| 6 | El Problem Statement ha sido revisado explícitamente en los últimos 90 días. | Trimestral |
+| 7 | El equipo puede responder: *"¿Qué aprendimos en el último ciclo que no sabíamos al empezar?"* | Al cierre de cada ciclo |
+
+## Señales de operación NO saludable
+
+:::danger[Alertas rojas]
+Cualquiera de estas señales indica que la Fase 5 ha dejado de funcionar como sistema de aprendizaje:
+
+- **Signal Log vacío:** No ha tenido nuevas entradas en más de **dos semanas** durante operación activa.
+- **Context Document congelado:** No ha sido actualizado en más de **60 días** durante operación activa.
+- **Problemas recurrentes:** Los mismos problemas de usuario aparecen en **tres ciclos consecutivos** de feedback sin haber producido una actualización del Context Document.
+- **Stakeholders desconectados:** Ningún stakeholder de las Fases 1-2 ha revisado el Signal Log en el **último trimestre**.
+:::
+
+## El criterio de cierre (raro)
+
+Hay un criterio de cierre que la Fase 5 sí puede alcanzar, aunque raramente ocurre antes de que el propio producto llegue al final de su vida útil:
+
+> El momento en que **todas las asunciones del Problem Statement han sido confirmadas** o **el problema ha dejado de existir**.
+
+En ese momento, la Fase 5 no termina — el producto termina.
+
+## Checklist de salud — para usar en cada revisión estratégica
+
+```
+□ Signal Log activo con entradas recientes (<2 semanas)
+□ Hipótesis de causa documentadas para señales significativas
+□ Context Update Record al día (≥1 entrada por ciclo)
+□ Iteration Brief del ciclo anterior disponible
+□ KPI Dashboard conectado y actualizado
+□ Al menos 1 stakeholder no técnico revisa señales regularmente
+□ Problem Statement revisado en últimos 90 días
+□ El equipo articula aprendizajes concretos del último ciclo
+□ Las sesiones de interpretación producen actualizaciones, no solo discusiones
+□ Los mismos problemas NO se repiten en ciclos consecutivos sin acción
+```
+
+:::tip[La pregunta del Gate Review que no existe]
+En las fases anteriores, la pregunta del Gate Review es: *"¿Estamos listos para avanzar?"*
+
+En la Fase 5, la pregunta es: **"¿Estamos aprendiendo?"**
+
+Si la respuesta es sí, el sistema es saludable. Si la respuesta es no, hay Context Debt acumulándose que debe procesarse antes de cualquier nuevo ciclo de construcción.
+:::

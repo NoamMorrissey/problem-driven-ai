@@ -1,0 +1,81 @@
+---
+title: "Duración y esfuerzo"
+sidebar_label: "Duración"
+slug: /framework/fases/market-iteration/duracion-y-esfuerzo
+description: "La Fase 5 no tiene duración. Tiene régimen permanente. Lo que varía es la intensidad del esfuerzo según el momento del ciclo de vida y la madurez del Context Document."
+sidebar_position: 6
+tags: [framework, fases, market-iteration, duracion, esfuerzo, dedicacion]
+---
+
+# Duración y esfuerzo
+
+La Fase 5 no tiene duración. Tiene **régimen permanente**. Lo que varía entre proyectos no es cuánto dura sino cuánto esfuerzo requiere su operación en distintos momentos del ciclo de vida del producto.
+
+## Intensidad por momento del ciclo
+
+| Momento del ciclo | Intensidad | Actividades principales | Dedicación aproximada |
+|---|---|---|---|
+| **Primeras 4-8 semanas** post-lanzamiento | Alta. Máxima atención a señales de adopción y validación de asunciones. | Revisión diaria de KPIs. Entrevistas de seguimiento semanales. Signal Log muy activo. Primer Iteration Brief. | Product Lead + Context Engineer: **40-60%** de su tiempo en Fase 5. |
+| **2-6 meses** post-lanzamiento | Media-alta. Las asunciones críticas ya se han confirmado o refutado. El sistema de medición está maduro. | Revisión semanal de KPIs. Entrevistas mensuales. Síntesis cualitativa mensual. Iteration Briefs mensuales. | Product Lead + Context Engineer: **20-30%** de su tiempo. |
+| **6-18 meses** post-lanzamiento | Media. El sistema está establecido. Los ciclos son más largos y las señales más predecibles. | KPIs automatizados. Entrevistas mensuales. Revisión estratégica trimestral. Iteration Briefs trimestrales. | Product Lead + Context Engineer: **10-20%** de su tiempo. |
+| **18+ meses** post-lanzamiento | Baja-media con picos estratégicos. El sistema está maduro. Los ciclos de aprendizaje son más largos pero más estructurales. | Monitorización automática continua. Síntesis mensual. Revisión estratégica trimestral o semestral. | 10-15% del tiempo del equipo de producto. Picos del **30-40%** en revisiones estratégicas que producen regreso a Fase 1 o 2. |
+
+## La regla general
+
+:::tip[La intensidad es inversamente proporcional a la madurez del contexto]
+La Fase 5 requiere más esfuerzo humano cuando el Context Document es menos preciso. En las primeras semanas post-lanzamiento, el contexto es una hipótesis sofisticada. El mercado la pone a prueba intensamente y el equipo debe estar muy atento.
+
+A medida que el Context Document incorpora aprendizajes del mercado y gana precisión, la automatización puede absorber más del trabajo de captura y síntesis. El esfuerzo humano no desaparece — se desplaza del análisis rutinario hacia las decisiones estratégicas que solo los humanos pueden tomar.
+:::
+
+## Distribución del esfuerzo por actividad
+
+### Primeras 8 semanas (alta intensidad)
+
+| Actividad | % del tiempo de Fase 5 |
+|---|---|
+| Monitorización y captura de señales | 30% |
+| Interpretación y análisis | 35% |
+| Actualización del Context Document | 20% |
+| Documentación (Signal Log, CUR, Iteration Brief) | 15% |
+
+### Estado estable (6+ meses)
+
+| Actividad | % del tiempo de Fase 5 |
+|---|---|
+| Monitorización y captura de señales | 15% (mayormente automático) |
+| Interpretación y análisis | 40% |
+| Actualización del Context Document | 15% |
+| Revisión estratégica y planificación | 20% |
+| Documentación | 10% |
+
+## Señales de infrainversión
+
+| Señal | Qué indica | Riesgo |
+|---|---|---|
+| El Signal Log no se actualiza en 2+ semanas | Nadie está dedicando tiempo a la captura | Context Debt acumulándose |
+| Las sesiones de interpretación se cancelan recurrentemente | La Fase 5 no tiene prioridad organizacional | Iteración a ciegas |
+| El Iteration Brief se escribe en 30 minutos | No hay análisis profundo detrás | Ciclos sin aprendizaje real |
+| Solo el Context Engineer trabaja en Fase 5 | Falta de perspectiva multidisciplinar | Interpretaciones sesgadas |
+
+## Señales de sobreinversión
+
+| Señal | Qué indica | Riesgo |
+|---|---|---|
+| El equipo pasa más del 60% del tiempo en análisis sin producir actualizaciones | Parálisis por análisis | El Context Document no mejora a pesar del esfuerzo |
+| Cada señal menor genera una sesión de interpretación completa | No hay filtro de significancia | Fatiga del equipo |
+| El Context Document se actualiza diariamente | Reactividad excesiva | Incoherencia entre actualizaciones |
+| Los stakeholders se reúnen semanalmente para la Fase 5 | Sobrecarga de coordinación | Los stakeholders se desconectan por fatiga |
+
+## Composición del equipo mínimo
+
+| Rol | Dedicación mínima (estado estable) | Crítico para |
+|---|---|---|
+| **Product Lead** | 10-15% | Interpretación y priorización |
+| **Context Engineer** | 15-20% | Actualizaciones y trazabilidad |
+| **Data Lead** | 5-10% | Mantenimiento del sistema de medición |
+| **1 stakeholder no técnico** | 2-4h/mes | Revisión mensual + trimestral |
+
+:::warning[El error más común]
+Planificar la Fase 5 con 0% de dedicación. Muchos equipos asumen que después del go-live el producto se mantiene solo y el equipo pasa al siguiente proyecto. Sin dedicación explícita a la Fase 5, el Context Document se congela y toda la inversión en las Fases 1-4 pierde valor progresivamente.
+:::
