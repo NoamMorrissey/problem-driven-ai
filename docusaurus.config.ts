@@ -125,6 +125,12 @@ const config: Config = {
             {en: '/framework/phases/solution-alignment/artifacts', es: '/framework/fases/solution-alignment/artefactos'},
             {en: '/framework/phases/solution-alignment/anti-patterns', es: '/framework/fases/solution-alignment/anti-patrones'},
             {en: '/framework/phases/solution-alignment/duration-and-effort', es: '/framework/fases/solution-alignment/duracion-y-esfuerzo'},
+            // Framework Phase 3
+            {en: '/framework/phases/context-engineering/step-by-step-process', es: '/framework/fases/context-engineering/proceso-paso-a-paso'},
+            {en: '/framework/phases/context-engineering/context-system-anatomy', es: '/framework/fases/context-engineering/anatomia-del-sistema-de-contexto'},
+            {en: '/framework/phases/context-engineering/artifacts', es: '/framework/fases/context-engineering/artefactos'},
+            {en: '/framework/phases/context-engineering/anti-patterns', es: '/framework/fases/context-engineering/anti-patrones'},
+            {en: '/framework/phases/context-engineering/duration-and-effort', es: '/framework/fases/context-engineering/duracion-y-esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},
