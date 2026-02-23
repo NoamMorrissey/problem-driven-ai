@@ -144,6 +144,14 @@ const config: Config = {
             {en: '/framework/phases/ai-build/artifacts', es: '/framework/fases/ai-build/artefactos'},
             {en: '/framework/phases/ai-build/anti-patterns', es: '/framework/fases/ai-build/anti-patrones'},
             {en: '/framework/phases/ai-build/duration-and-effort', es: '/framework/fases/ai-build/duracion-y-esfuerzo'},
+            // Phase 5: Market Iteration (methodology)
+            {en: '/phases/market-iteration/why-this-phase-exists', es: '/fases/market-iteration/por-que-esta-fase-existe'},
+            {en: '/phases/market-iteration/the-learning-spiral', es: '/fases/market-iteration/la-espiral-de-aprendizaje'},
+            {en: '/phases/market-iteration/what-it-is-and-isnt', es: '/fases/market-iteration/que-es-y-que-no-es'},
+            {en: '/phases/market-iteration/market-signals', es: '/fases/market-iteration/las-senales-del-mercado'},
+            {en: '/phases/market-iteration/progressive-automation', es: '/fases/market-iteration/automatizacion-progresiva'},
+            {en: '/phases/market-iteration/who-participates', es: '/fases/market-iteration/quien-participa'},
+            {en: '/phases/market-iteration/the-living-context', es: '/fases/market-iteration/el-contexto-vivo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},

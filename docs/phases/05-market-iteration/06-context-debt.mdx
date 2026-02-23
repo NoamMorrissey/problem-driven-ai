@@ -1,0 +1,62 @@
+---
+title: "Context Debt: the Phase 5 risk"
+sidebar_label: "Context Debt"
+slug: context-debt
+description: "Context Debt in Phase 5 occurs when the market sends change signals and the Context Document doesn't incorporate them. It's not technical — it's semantic."
+sidebar_position: 6
+tags: [phases, market-iteration, context-debt, risk, health]
+---
+
+# Context Debt: the specific risk of Phase 5
+
+In Phase 4 we discussed context drift as the risk that technical decisions silently distance the solution from the original problem. In Phase 5 there exists an analogous and more insidious risk: **accumulated Context Debt**, which occurs when the market sends change signals and the Context Document doesn't incorporate them.
+
+Context Debt in Phase 5 is not technical. It's semantic. The system keeps working. KPIs may keep moving. But the Context Document describes a problem and solution that no longer reflect market reality. The team keeps building and iterating on a foundation that has lost precision.
+
+## How Context Debt accumulates
+
+| Mechanism | How it happens | Sign that it's happening |
+|---|---|---|
+| **Unincorporated signals** | The Signal Log grows but Context Document updates don't keep pace. Signals accumulate as pending items nobody processes. | The Signal Log has entries older than two weeks without documented cause hypotheses. The Context Update Record has had no entries in over a month. |
+| **Updates without traceability** | The Context Document is updated in response to signals, but without recording which signal motivated each change. The team knows what the current context is but not why. | The Context Update Record is empty or has entries without Signal Log references. Nobody can explain why a Rule exists. |
+| **Outdated Problem Statement** | The market has evolved. The problem the solution solves is no longer the most relevant one. But the Problem Statement isn't revised because the technical system keeps working. | Users use the solution but not for the main use case. The problem they mention most in interviews isn't in the Problem Statement. |
+| **KPIs that no longer measure what matters** | KPIs move in the right direction, but the team senses they don't capture real value. Nobody questions them because showing green KPIs is comfortable. | Stakeholders no longer celebrate when KPIs rise. Satisfied users aren't the same ones moving the KPIs. |
+| **Systematic cosmetic iteration** | The team iterates frequently but always on the implementation layer. It never returns to Phase 1 or 2 even though signals would justify it. | The same user problems appear in every feedback cycle. The team discusses them, adjusts slightly, and they return next month. |
+
+## The Context Document health test
+
+The most efficient way to detect Context Debt before it accumulates is to periodically run the same test:
+
+> Present the current Context Document — the Problem Statement, KPIs, and Solution Brief — to three users who live with the problem daily, and ask them if what it describes reflects their reality.
+
+If they recognize it, the context is healthy. If there are elements they no longer recognize, or aspects of their reality the context doesn't mention, there is Context Debt that must be processed.
+
+This test doesn't require instrumentation or dashboards. It requires **two monthly conversations with real users**.
+
+## The quarterly Problem Statement review
+
+The Problem Statement is not permanent. Problems evolve. Markets change. A solution that solved the right problem twelve months ago may be solving a problem that's no longer relevant.
+
+The quarterly strategic review always includes this explicit question:
+
+:::warning[The mandatory question]
+*"Is the Problem Statement we wrote still the most accurate description of the problem these users need us to solve?"*
+
+If the answer isn't a resounding yes with supporting market evidence, the strategic review must include a partial return to Phase 1.
+:::
+
+## Phase 5 health indicators
+
+**Healthy operation:**
+- The Signal Log has entries from the last two weeks with documented cause hypotheses
+- The Context Update Record has at least one entry per active iteration cycle
+- The previous cycle's Iteration Brief is documented and accessible
+- KPIs from the KPI & OKR Register are connected to active data sources
+- At least one non-technical stakeholder reviews the Signal Log regularly
+- The Problem Statement has been explicitly reviewed in the last 90 days
+
+**Unhealthy operation signs:**
+- The Signal Log has had no new entries in over two weeks during active operation
+- The Context Document hasn't been updated in over 60 days during active operation
+- The same user problems appear in three consecutive cycles without producing a Context Document update
+- No stakeholders from Phases 1-2 have reviewed the Signal Log in the last quarter

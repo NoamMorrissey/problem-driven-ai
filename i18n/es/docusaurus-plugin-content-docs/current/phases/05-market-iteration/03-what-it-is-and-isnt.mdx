@@ -1,0 +1,58 @@
+---
+title: "Qué es Market Iteration y qué no es"
+sidebar_label: "Qué es"
+slug: /fases/market-iteration/que-es-y-que-no-es
+description: "Market Iteration es un proceso continuo de captura, interpretación y acción sobre señales del mercado. No es validación de hipótesis, no es feedback de usuarios, no es un ciclo de sprints."
+sidebar_position: 3
+tags: [fases, market-iteration, definicion, concepto]
+---
+
+# Qué es Market Iteration y qué no es
+
+## Lo que ES
+
+**Un proceso continuo de captura, interpretación y acción sobre señales del mercado.** No ocurre en sprints discretos. Ocurre de forma continua, con cadencias distintas según el tipo de señal.
+
+**El mecanismo de actualización del Context Document.** Las señales del mercado no producen cambios directos en el código. Producen cambios en el contexto, y esos cambios en el contexto guían la siguiente construcción. La cadena siempre pasa por el Context Document.
+
+**La fuente de trazabilidad entre el mercado y el sistema.** Cada cambio en el Context Document tiene una señal del mercado que lo justifica. Esta trazabilidad es lo que distingue la iteración informada de la iteración reactiva.
+
+**Un proceso que puede y debe automatizarse progresivamente.** Las señales de comportamiento de usuario, el movimiento de KPIs y los patrones de uso pueden capturarse y procesarse automáticamente. La interpretación y la decisión de acción siguen siendo humanas, pero el trabajo de síntesis puede delegarse a sistemas de IA bien configurados.
+
+**El momento en que el Context Document se vuelve más inteligente.** Cada señal incorporada hace que el contexto sea más preciso. Un proyecto que lleva doce meses en Fase 5 tiene un Context Document que ninguna cantidad de discovery inicial podría haber producido.
+
+---
+
+## Lo que NO es
+
+**No es un proceso de validación de hipótesis previas.** La Fase 5 no existe para confirmar que el equipo tenía razón. Existe para descubrir dónde estaba equivocado y qué hay que cambiar.
+
+**No es un proceso de recogida de feedback de usuarios.** Preguntar a los usuarios qué quieren es útil. Observar qué hacen realmente es más útil. La Fase 5 prioriza el comportamiento observado sobre la opinión declarada.
+
+**No es un ciclo de sprints de funcionalidades.** Añadir funcionalidades no es iterar. Iterar es aprender del mercado y actualizar el contexto. Algunas iteraciones producen nuevas funcionalidades. Otras producen eliminación de funcionalidades. Otras producen cambios de configuración que no tocan el código.
+
+**No es reactiva por naturaleza.** Una organización que solo reacciona a señales que ya son problemas visibles está aprendiendo tarde. La Fase 5 bien ejecutada es anticipatoria: detecta señales débiles antes de que se conviertan en problemas.
+
+**No es opcional entre ciclos.** No existe un estado del sistema en el que la Fase 5 esté "pausada". Mientras el producto está en el mercado, la Fase 5 está activa. Lo que varía es la intensidad de la intervención, no la continuidad de la observación.
+
+---
+
+## La diferencia clave: el objeto del aprendizaje
+
+| Proceso convencional | Market Iteration |
+|---|---|
+| Aprende sobre el **producto** | Aprende sobre el **problema** |
+| Mejora el **código** | Actualiza el **contexto** |
+| Mide **funcionalidades entregadas** | Mide **asunciones verificadas** |
+| El resultado es un producto mejor | El resultado es una comprensión más precisa |
+| El código es el activo principal | El Context Document es el activo principal |
+
+:::tip[La cadena causal]
+Señal del mercado → Actualización del Context Document → Decisión de construcción → Código.
+
+La cadena nunca es: Señal del mercado → Código. Cuando un equipo salta del mercado al código sin pasar por el Context Document, está iterando sin aprender.
+:::
+
+:::danger[Anti-patrón: confundir actividad con iteración]
+Un equipo que lanza funcionalidades cada dos semanas pero no actualiza su Context Document en tres meses **no está iterando**. Está produciendo. Hay una diferencia fundamental: la producción cambia el sistema, la iteración cambia la comprensión del problema. Solo la segunda produce soluciones cada vez más fieles al problema real.
+:::

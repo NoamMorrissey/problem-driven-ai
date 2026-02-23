@@ -1,0 +1,52 @@
+---
+title: "Progressive automation"
+sidebar_label: "Automation"
+slug: progressive-automation
+description: "Phase 5 is progressively automated: from instrumented observation to a learning system. The precision of the Context Document determines how much automation is viable."
+sidebar_position: 5
+tags: [phases, market-iteration, automation, agents, maturity]
+---
+
+# Progressive automation
+
+One of the principles that distinguishes Phase 5 of the Problem-Driven AI methodology from conventional iteration processes is the explicit expectation of progressive automation. Not everything is automated from day one. It's automated incrementally, starting with the capture layer, advancing toward synthesis, and aspiring, in mature projects, to have a system that detects and proposes context updates autonomously for human review.
+
+## The four maturity levels
+
+| Level | Name | What's automated | What remains human | When it's reached |
+|---|---|---|---|---|
+| 1 | **Instrumented observation** | Capture of behavior events and KPI movement. Real-time dashboards. Automatic alerts when a KPI crosses a threshold. | All analysis, all interpretation, all context updating. | At product launch. Phase 5's initial state. |
+| 2 | **Assisted synthesis** | An AI agent processes the Signal Log and produces structured summaries. Automatically classifies signals by type and affected Context Document element. | Validation of the agent's analysis, cause hypotheses, update decisions. | When the Context Document has sufficient precision. Typically 1-3 months post-launch. |
+| 3 | **Collaborative interpretation** | The agent produces draft Context Document updates based on interpreted signals. The Context Engineer reviews, validates, and approves or rejects each draft. | Validation and approval of each change. Decisions affecting Problem Statement or Solution Brief. | When the Context Document is sufficiently stable. Typically 3-9 months. |
+| 4 | **Learning system** | The agent detects signals, identifies patterns, produces cause hypotheses, proposes context updates, and for minor Rule changes, applies them automatically with notification to the Context Engineer. | High-impact decisions. Returns to Phases 1 and 2. Quarterly strategic validation. | In projects with high operational maturity. Months or years after launch. |
+
+The progression between levels is not automatic. It requires the Context Document to be sufficiently precise for the AI to operate with judgment. A synthesis agent working with a vague Problem Statement produces incorrect classifications. An agent working with a precise Problem Statement, a complete Solution Brief, and a well-defined KPI Register can produce high-value synthesis.
+
+## The virtuous circle
+
+This interdependence creates one of the methodology's most powerful virtuous circles:
+
+1. **Context Document precision** improves automation
+2. **Automation** improves learning speed
+3. **Learning speed** improves Context Document precision
+
+The system becomes more intelligent over time structurally, not accidentally.
+
+:::tip[The automation paradox]
+The better defined the Context Document, the more useful capture automation becomes. A synthesis agent without a precise Problem Statement captures everything with the same weight and produces a Signal Log that requires as much human work as manual capture. Investing in context precision doesn't just improve construction — it improves learning speed.
+:::
+
+## Market Iteration agents
+
+As Phase 5 matures, the Agent system extends to the iteration cycle. Phase 3 Agents are construction agents. Phase 5 Agents are **learning agents**.
+
+| Agent | Function | Input | Output |
+|---|---|---|---|
+| **Signal Synthesis Agent** | Processes the raw Signal Log and produces classified signals with preliminary cause hypotheses. | Signal Log + KPI Register + current Context Document. | Structured Signal Log with classification, urgency, and hypothesis draft. |
+| **Context Update Agent** | Analyzes interpreted signals and produces draft Context Document updates. | Structured Signal Log + Context Document + historical Context Update Record. | Update drafts: Rules to modify, Story Files to adjust, PRD to review. |
+| **KPI Monitoring Agent** | Monitors KPIs in real time. Generates alerts when an indicator crosses thresholds. Detects unforeseen correlations. | KPI & OKR Register + real-time system data. | Automatic alerts + weekly KPI movement report. |
+| **Iteration Brief Agent** | Produces a draft Iteration Brief based on the previous cycle's Signal Log and Context Document updates. | Cycle's Signal Log + Context Update Record + previous Iteration Brief. | Draft Iteration Brief for human review. |
+
+:::danger[Anti-pattern: premature automation]
+Implementing a synthesis agent before the Context Document has sufficient precision produces abundant but incorrectly classified synthesis. The team wastes time validating low-quality output. **Synthesis automation should not be implemented until the Context Document has passed at least one complete manual Market Iteration cycle.** The first manual cycle produces the precision that automation needs.
+:::

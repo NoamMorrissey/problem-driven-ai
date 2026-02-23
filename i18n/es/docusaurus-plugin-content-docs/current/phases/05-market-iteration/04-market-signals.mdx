@@ -1,0 +1,58 @@
+---
+title: "Las señales del mercado"
+sidebar_label: "Señales de mercado"
+slug: /fases/market-iteration/las-senales-del-mercado
+description: "No todas las señales del mercado tienen el mismo valor. La habilidad central de la Fase 5 es leer los datos correctos de la forma correcta y traducirlos en actualizaciones del Context Document."
+sidebar_position: 4
+tags: [fases, market-iteration, senales, kpis, interpretacion]
+---
+
+# Las señales del mercado: qué buscar y cómo leerlas
+
+No todas las señales del mercado tienen el mismo valor. No todas se interpretan de la misma forma. Y no todas requieren la misma urgencia de respuesta. La habilidad central de la Fase 5 no es capturar datos — eso es relativamente fácil. Es leer los datos correctos de la forma correcta y traducirlos en actualizaciones precisas del Context Document.
+
+## La jerarquía de señales
+
+Hay una jerarquía entre los tipos de señales que el mercado produce. No es una jerarquía de importancia — todas importan. Es una jerarquía de **fiabilidad** y de **profundidad** de la información que contienen.
+
+| Nivel | Tipo de señal | Fuente | Lo que revela | Lo que NO revela | Frecuencia |
+|---|---|---|---|---|---|
+| 1 | **Comportamiento de uso** | Analytics: sesiones, flujos, rutas, tiempos, abandonos, patrones de retorno. | Qué hace el usuario en realidad. Qué pasos se saltan. Qué flujos producen abandono. | Por qué lo hace. La motivación es invisible en los datos. | Continua (dashboard). Análisis profundo semanal. |
+| 2 | **Movimiento de KPIs** | KPI & OKR Register conectado a métricas del sistema. | Si el sistema produce el impacto previsto. Confirma o refuta las asunciones del Problem Statement. | Si el impacto es suficiente o podría ser mayor con cambios distintos. | Semanal. Revisión profunda mensual. |
+| 3 | **Feedback cualitativo** | Entrevistas de seguimiento, tickets de soporte, canales de comunicación. | El por qué detrás del comportamiento. Las emociones, frustraciones y necesidades no cubiertas. | Si ese feedback es representativo o es un caso extremo. | Mensual (entrevistas). Continua (tickets). |
+| 4 | **Señales de no-uso** | Usuarios que abandonaron, funcionalidades no usadas, flujos evitados. | Qué no funciona desde la perspectiva del usuario. | Si el no-uso es por diseño, comunicación o irrelevancia del problema. | Mensual. Comparativo trimestral. |
+| 5 | **Señales externas** | Competidores, cambios regulatorios, evolución del mercado, nuevos comportamientos emergentes. | El contexto en el que opera el sistema. Cambios que pueden hacer que una solución correcta hoy sea incorrecta mañana. | Si esos cambios afectan al Problem Statement o solo a la solución. | Mensual. Estratégico trimestral. |
+
+## Síntoma vs. causa: el error que se repite
+
+El mismo error que cometen los equipos en la Fase 1 — confundir el síntoma con el problema — se repite en la Fase 5 cuando se interpretan las señales del mercado. Una tasa de abandono alta en un flujo es un síntoma. La causa puede ser diseño confuso, tiempo de carga excesivo, expectativas no cumplidas o un problema de fondo que la solución no resuelve.
+
+Responder al síntoma sin identificar la causa produce iteraciones que **cambian lo visible sin tocar lo que importa**.
+
+:::tip[Técnica recomendada: la cadena señal-causa-contexto]
+Para cada señal significativa, construye explícitamente la cadena:
+
+1. **Señal observada** → qué se midió o qué se vio
+2. **Comportamiento detrás de la señal** → qué está haciendo el usuario
+3. **Necesidad no cubierta** → qué problema no resuelve la solución
+4. **Elemento del Context Document afectado** → qué parte del Problem Statement, Solution Brief, Regla o Story File no capturaba esa realidad
+
+Si el equipo no puede completar la cadena hasta el elemento del Context Document que debe actualizarse, no tiene suficiente comprensión de la señal para actuar sobre ella.
+:::
+
+## Señales que confirman y señales que refutan
+
+Hay un sesgo natural en los equipos que acaban de lanzar un producto: la tendencia a buscar señales que confirmen que el trabajo fue bien. Este sesgo contamina la lectura del mercado de la misma forma que el sesgo de confirmación contamina el Problem Discovery.
+
+La Fase 5 bien ejecutada requiere una **búsqueda activa de señales que refuten** las asunciones del Context Document. Una asunción refutada no es una mala noticia. Es información que ningún proceso previo podía haber producido.
+
+| Asunción del Context Document | Señal que confirma | Señal que refuta | Qué actualizar |
+|---|---|---|---|
+| **Sobre el problema** (Problem Statement) | Los usuarios describen el problema exactamente como lo documentó el equipo. Las soluciones alternativas desaparecen. | Los usuarios no adoptan la solución aunque la prueben. Siguen usando workarounds. | Regresar a Fase 1. El Problem Statement necesita revisión. |
+| **Sobre la solución** (Solution Brief) | Los usuarios completan los flujos principales sin fricción. El criterio de éxito se alcanza. | Los usuarios encuentran el flujo confuso o la solución no encaja en su proceso. | Regresar a Fase 2. El Solution Brief necesita revisión. |
+| **Sobre el contexto técnico** (Reglas) | El sistema opera dentro de los parámetros previstos. Los KPIs técnicos son coherentes. | El sistema produce resultados técnicamente correctos que no generan el comportamiento esperado. | Actualizar Reglas en el Context Document. Regresar a Fase 3. |
+| **Sobre el impacto** (KPIs) | Los KPIs se mueven en la dirección y magnitud prevista. | Los KPIs no se mueven, se mueven en dirección contraria, o se mueven pero no representan el impacto real. | Revisar si los KPIs estaban bien definidos. Posible regreso a Fase 1. |
+
+:::warning[El sesgo de confirmación en la Fase 5]
+Si en tres meses de operación todas las señales del Signal Log confirman las asunciones del Context Document, la explicación más probable no es que el equipo acertó en todo. Es que el equipo no está buscando señales que refuten.
+:::
