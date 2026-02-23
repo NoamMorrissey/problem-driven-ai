@@ -1,0 +1,98 @@
+---
+title: "Los artefactos de esta fase"
+sidebar_label: "Artefactos"
+slug: /framework/fases/ai-build/artefactos
+description: "Seis artefactos que evidencian la construcción fiel: Decision Log distribuido, grafo actualizado, actas de sincronización, Build Validation Report, Context Document y el Iteration Brief."
+sidebar_position: 3
+tags: [framework, fases, ai-build, artefactos, decision-log, build-validation-report]
+---
+
+# Los artefactos de esta fase
+
+La Fase 4 produce seis artefactos. Cada uno cumple una función específica en la trazabilidad entre lo construido y el problema que motivó el proyecto. En proyectos con construcción paralela, cada artefacto tiene una dimensión adicional que refleja la coordinación entre tracks.
+
+| Artefacto | Cuándo se crea | En construcción paralela, añade... |
+|---|---|---|
+| **Decision Log distribuido** | Desde el primer día. Un log por track, accesible para todo el equipo. | Clasificación de impacto cruzado en cada entrada. Sistema de notificación cuando una entrada cruzada se registra. Proceso de consolidación al cierre de la fase. |
+| **Grafo de dependencias (actualizado)** | Heredado de la Fase 3. Se actualiza cuando la construcción revela dependencias no documentadas. | Es el documento de referencia para activar y desactivar tracks. Cualquier modificación la autoriza el Context Engineer y notifica a todos los Dev Leads. |
+| **Actas de sincronización de integración** | Cada vez que se activa una sincronización de integración. | Registro de contratos de interfaz acordados, decisiones sobre incompatibilidades y tracks afectados. Evidencia del estado del sistema en cada nodo del grafo. |
+| **Build Validation Report** | Al finalizar la Revisión de Fidelidad. | Incluye el resultado del Bloque 0 (coherencia de sistema) además de los bloques de fidelidad al Problem Statement y Solution Brief. Firmado por Tech Lead y stakeholders de Fases 1-2. |
+| **Context Document actualizado** | Al finalizar el Paso 5. | El project-context.md refleja todas las Reglas que emergieron de todos los tracks. El grafo de dependencias actualizado está incorporado. Las decisiones de integración están documentadas. |
+| **Iteration Brief (borrador)** | Al finalizar el Paso 5. | Consolida los aprendizajes abiertos de todos los tracks en una lista única, priorizada por impacto potencial en el mercado. |
+
+## Secuencia de creación
+
+```
+Setup (Paso 1)
+    │
+    ├── Decision Log distribuido ─── [continuo, desde el día 1]
+    │
+    ▼
+Construcción (Paso 2)
+    │
+    ├── Grafo de dependencias ────── [se actualiza cuando surgen dependencias nuevas]
+    │
+    ├── Actas de sincronización ──── [en cada punto de sincronización del grafo]
+    │
+    ▼
+Revisión de Fidelidad (Paso 4)
+    │
+    ├── Build Validation Report ──── [al completar los 4 bloques de revisión]
+    │
+    ▼
+Cierre (Paso 5)
+    │
+    ├── Context Document actualizado
+    │
+    └── Iteration Brief (borrador)
+```
+
+## Artefacto 1: Decision Log distribuido
+
+El registro continuo de cada decisión no prevista durante la construcción.
+
+- **Formato:** Log cronológico con campos: decisión, Story File, track, impacto estimado (local/cruzado/global), urgencia, estado.
+- **Propósito:** Coordinación en tiempo real entre tracks y trazabilidad de cambios.
+- **Consolidación final:** Al cierre de la fase, los logs de todos los tracks se fusionan en un registro único donde las decisiones cruzadas y globales se consolidan en entradas que reflejan la resolución sistémica.
+- **Estados finales válidos:** Resuelto (Regla global), Resuelto (local), Resuelto (coherencia de integración), Abierto (pendiente Fase 5).
+
+## Artefacto 2: Grafo de dependencias actualizado
+
+El mapa de relaciones entre Story Files que determina qué puede construirse en paralelo.
+
+- **Formato:** Grafo dirigido con nodos (Story Files) y aristas (dependencias).
+- **Heredado de:** Fase 3 (SM Agent). Verificado por todos los Dev Leads en el setup.
+- **Actualizaciones:** Cuando la construcción revela dependencias implícitas no documentadas. Cada actualización la autoriza el Context Engineer.
+
+## Artefacto 3: Actas de sincronización de integración
+
+Registro formal de cada sesión de sincronización entre tracks.
+
+- **Formato:** Acta con: fecha, tracks involucrados, contratos de interfaz acordados, decisiones sobre incompatibilidades, track(s) que deben ajustar su output.
+- **Propósito:** Evidencia del estado del sistema en cada punto del grafo de dependencias.
+
+## Artefacto 4: Build Validation Report
+
+El documento que certifica que lo construido es fiel al problema y la solución definidos.
+
+- **Formato:** Documento con resultados de los 4 bloques de la Revisión de Fidelidad.
+- **Firmantes:** Tech Lead (Bloque 0), stakeholders de Fase 1 (Bloque 1), stakeholders de Fase 2 (Bloque 2), Context Engineer (Bloque 3).
+- **Condición de paso:** Los cuatro bloques deben estar aprobados. El Bloque 0 es prerrequisito de los bloques 1 y 2.
+
+## Artefacto 5: Context Document actualizado
+
+El project-context.md que viaja a la Fase 5.
+
+- **Contenido:** Todas las Reglas originales + todas las Reglas que emergieron de la construcción. Grafo de dependencias actualizado. Decisiones de integración documentadas.
+- **Diferencia con la versión de Fase 3:** Refleja lo que realmente se construyó, no lo que se planificó construir.
+
+## Artefacto 6: Iteration Brief (borrador)
+
+Los aprendizajes abiertos que la Fase 5 pondrá a prueba con el mercado.
+
+- **Formato:** Lista priorizada de hipótesis por validar, decisiones pendientes de datos del mercado, y asunciones activas del Problem Statement que la construcción no pudo confirmar ni refutar.
+- **En paralelo:** Consolida aprendizajes de todos los tracks, no solo del más activo.
+
+:::tip La cadena de trazabilidad completa
+**Problem Statement → Solution Brief → PRD → Story Files → Código construido → Build Validation Report.** Si una línea de código no puede trazarse hasta el Problem Statement, es Context Debt. El Decision Log es el registro que hace verificable esta trazabilidad a través de todos los tracks.
+:::

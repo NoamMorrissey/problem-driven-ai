@@ -138,6 +138,12 @@ const config: Config = {
             {en: '/framework/phases/context-engineering/artifacts', es: '/framework/fases/context-engineering/artefactos'},
             {en: '/framework/phases/context-engineering/anti-patterns', es: '/framework/fases/context-engineering/anti-patrones'},
             {en: '/framework/phases/context-engineering/duration-and-effort', es: '/framework/fases/context-engineering/duracion-y-esfuerzo'},
+            // Framework Phase 4
+            {en: '/framework/phases/ai-build/step-by-step-process', es: '/framework/fases/ai-build/proceso-paso-a-paso'},
+            {en: '/framework/phases/ai-build/parallel-build-anatomy', es: '/framework/fases/ai-build/anatomia-de-la-construccion-paralela'},
+            {en: '/framework/phases/ai-build/artifacts', es: '/framework/fases/ai-build/artefactos'},
+            {en: '/framework/phases/ai-build/anti-patterns', es: '/framework/fases/ai-build/anti-patrones'},
+            {en: '/framework/phases/ai-build/duration-and-effort', es: '/framework/fases/ai-build/duracion-y-esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},
