@@ -468,3 +468,52 @@ div[class*='announcementBar'] {
   background-color: var(--pdai-primary);
   color: white;
 }
+
+/* ---------- 20. SECTION HERO CARDS ---------- */
+
+.section-hero {
+  width: 100%;
+  aspect-ratio: 1406 / 379;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--pdai-border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section-hero__title {
+  font-family: var(--pdai-font-family-heading);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--pdai-gray-900);
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+}
+
+.section-hero__subtitle {
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  color: var(--pdai-gray-600);
+  margin: 0;
+  max-width: 380px;
+  line-height: 1.4;
+}
+
+[data-theme='dark'] .section-hero__title {
+  color: var(--pdai-gray-0);
+}
+
+[data-theme='dark'] .section-hero__subtitle {
+  color: var(--pdai-gray-300);
+}
+
+/* Per-page background images */
+.section-hero--overview { background-image: url('/img/vision-general.png'); }
+.section-hero--phases { background-image: url('/img/fases.png'); }
+.section-hero--principles { background-image: url('/img/principios.png'); }
+.section-hero--manifesto { background-image: url('/img/manifiesto.png'); }
+.section-hero--principle { background-image: url('/img/principios-listado.png'); }
