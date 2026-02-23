@@ -110,9 +110,20 @@ Docusaurus strips these for the doc ID.
 - Add `slugMappings` to `docusaurus.config.ts` for every new page
   where EN slug differs from ES slug
 
+#### Step 7b: Preview Server
+- Build and serve for visual review:
+  ```
+  lsof -ti:3000 | xargs kill -9 2>/dev/null
+  npx docusaurus clear && npx docusaurus build
+  npx docusaurus serve --port 3000 &
+  ```
+- Confirm server is running at `http://localhost:3000`
+- This allows the human to navigate the content in-browser before approving
+
 #### Step 8: Present for Human Review
 - Show all methodology pages to user
 - Format: page-by-page, with clear section headers
+- Remind user the preview is live at `http://localhost:3000`
 - Ask: "¿Apruebas este contenido?"
 
 #### Step 9: Human Review Cycle
@@ -166,8 +177,11 @@ Content guidelines:
 #### Step 12: Infrastructure (Framework)
 - Same as Step 7 (category JSON, index, slugMappings)
 
+#### Step 12b: Preview Server
+- Same as Step 7b (rebuild and serve for visual review)
+
 #### Step 13: Present for Human Review
-- Same as Step 8
+- Same as Step 8 (with preview live at `http://localhost:3000`)
 
 #### Step 14: Human Review Cycle
 - Same as Step 9 (approve → commit, reject → iterate → commit)

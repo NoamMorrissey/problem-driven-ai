@@ -113,6 +113,13 @@ const config: Config = {
             {en: '/phases/context-engineering/agents-orchestrators-and-executors', es: '/fases/context-engineering/agentes-orquestadores-y-ejecutores'},
             {en: '/phases/context-engineering/skills-concrete-tasks', es: '/fases/context-engineering/skills-tareas-concretas'},
             {en: '/phases/context-engineering/connection-to-phase-4', es: '/fases/context-engineering/conexion-con-fase-4'},
+            // Phase 4: AI Build (methodology)
+            {en: '/phases/ai-build/why-this-phase-exists', es: '/fases/ai-build/por-que-esta-fase-existe'},
+            {en: '/phases/ai-build/the-cost-inversion', es: '/fases/ai-build/la-inversion-del-coste'},
+            {en: '/phases/ai-build/what-it-is-and-isnt', es: '/fases/ai-build/que-es-y-que-no-es'},
+            {en: '/phases/ai-build/parallel-construction', es: '/fases/ai-build/construccion-paralela'},
+            {en: '/phases/ai-build/who-participates', es: '/fases/ai-build/quien-participa'},
+            {en: '/phases/ai-build/connection-to-phase-5', es: '/fases/ai-build/conexion-con-fase-5'},
             // Framework Phase 1
             {en: '/framework/phases/problem-discovery/step-by-step-process', es: '/framework/fases/problem-discovery/proceso-paso-a-paso'},
             {en: '/framework/phases/problem-discovery/problem-statement-anatomy', es: '/framework/fases/problem-discovery/anatomia-del-problem-statement'},
