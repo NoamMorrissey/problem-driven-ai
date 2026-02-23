@@ -1,0 +1,54 @@
+---
+title: "Reglas: la constitución del proyecto"
+sidebar_label: "Reglas"
+slug: /fases/context-engineering/reglas-la-constitucion
+description: "Las Reglas son las normas que aplican a todo el proyecto. Son lo que convierte un conjunto de Agentes y Skills independientes en un sistema coherente."
+sidebar_position: 4
+tags: [fases, context-engineering, reglas, project-context]
+---
+
+# Reglas: la constitución del proyecto
+
+Las Reglas son el primer elemento que el Context Engineer diseña, porque gobiernan todo lo demás. Un Agente sin Reglas improvisa. Un Skill sin Reglas produce resultados imprevisibles. Las Reglas son lo que convierte un conjunto de Agentes y Skills independientes en un sistema coherente.
+
+## Qué son las Reglas y dónde viven
+
+Las Reglas son las normas que aplican a todo el proyecto. Cualquier decisión que un Agente tome al ejecutar cualquier Skill debe ser compatible con las Reglas. Se materializan en el **project-context.md**: la constitución que todo Agente carga antes de ejecutar cualquier Skill.
+
+El project-context.md no es un documento pasivo que los Agentes "consultan". Es un documento activo que los Agentes cargan como restricción base antes de procesar cualquier Skill. La diferencia es crucial: consultar es opcional; cargar como restricción es obligatorio.
+
+### Contenido del project-context.md
+
+- **Stack tecnológico:** Lenguajes, frameworks, versiones. Restricción innegociable que aplica a todos los Agentes y todos los Skills de desarrollo.
+- **Convenciones de código:** Nomenclatura, estructura de archivos, patrones obligatorios. Un Agente que ejecuta un Skill hereda estas convenciones automáticamente.
+- **Restricciones de seguridad:** Qué está prohibido para todos los Agentes, qué requiere escalación al Context Engineer.
+- **Reglas de integración:** Cómo se comunican los componentes. Cuando un Skill involucra integración, estas Reglas definen el cómo.
+- **Límites de los Agentes:** Qué puede decidir cada Agente autónomamente y qué no. Esto evita que un Agente tome decisiones fuera de su rol mientras ejecuta un Skill.
+- **Protocolo ante gaps:** La Regla más importante: "Cuando un Agente detecta que un Skill no tiene información suficiente, SEÑALA el gap. No lo rellena."
+- **Decisiones globales con justificación:** Cada decisión transversal, con su "por qué". Si un Agente entiende el por qué, puede aplicar la Regla correctamente ante situaciones que el Context Engineer no previó.
+
+:::info[Técnica]
+**La regla de las tres lecturas:** Un Agente que reciba únicamente el project-context.md debería poder responder: ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente? Si alguna respuesta no está, las Reglas están incompletas — y los Skills que los Agentes ejecuten sufrirán esa carencia.
+:::
+
+## Los cinco niveles de precisión
+
+No todas las Reglas requieren la misma rigidez. La clave es calibrar: invertir precisión donde el impacto sobre los Agentes y los Skills es alto, y delegar donde es bajo.
+
+| Nivel | Tipo | Impacto en Agentes y Skills | Ejemplo |
+|---|---|---|---|
+| **5** | Prescriptivo | Restricción absoluta. Ningún Agente puede violarla en ningún Skill. Si un Skill la contradice, el Agente debe escalar. | "Todos los endpoints: JSON &#123; data, error, meta &#125;. Sin excepciones." |
+| **4** | Específico | Cada Skill que toque esta área debe cumplir la Regla. Los Agentes la aplican sin interpretación. | "Alerta push al gerente en menos de 2 min cuando stock bajo umbral." |
+| **3** | Dirigido | Los Agentes siguen la dirección. Los Skills pueden adaptarla al contexto específico. | "Tono informativo, sin tecnicismos. Adaptable según audiencia." |
+| **2** | Orientativo | Preferencia, no mandato. Los Agentes la consideran; los Skills pueden desviarse si lo justifican. | "Preferimos tablas para inventario. Otros formatos aceptables." |
+| **1** | Delegado | El Context Engineer delega explícitamente al Agente. El Skill no prescribe; el Agente decide. | "camelCase para variables. Resto: criterio del Agente." |
+
+Delegar no es olvidar. Es decidir qué no necesita prescripción. Las Reglas de nivel 1-2 son delegaciones conscientes del Context Engineer al Agente. Las de nivel 4-5 son límites que ningún Agente puede cruzar al ejecutar ningún Skill.
+
+:::danger[Anti-patrón: Las Reglas Implícitas]
+**Qué es:** El equipo asume que ciertas normas son "obvias" y no las escribe en el project-context.md. "Todo el mundo sabe que usamos TypeScript." Los Agentes no son "todo el mundo". Si no está en las Reglas, no existe para ellos.
+
+**Qué produce:** Un Agente elige Python en un Skill porque nada lo impedía. Otro Agente usa REST mientras el primero usó GraphQL. Cada Skill produce output correcto aisladamente e incoherente globalmente.
+
+**Cómo prevenirlo:** Si es verdad para todo el proyecto, está en las Reglas. Si no está en las Reglas, los Agentes no lo saben y los Skills no lo respetan.
+:::

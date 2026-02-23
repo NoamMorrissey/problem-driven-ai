@@ -99,12 +99,30 @@ with a clear error message requesting the missing information.
 
 ---
 
+### Rule 9: Locale Switcher Slug Mapping
+
+- **Applies to**: Every `.mdx` file pair (EN + ES) that has different slugs between locales
+- **Requirement**: When a page's EN slug differs from its ES slug, a `slugMappings` entry MUST exist in `createRedirects` inside `docusaurus.config.ts`
+- **Context**: Docusaurus locale switcher does a simple URL prefix swap (adds/removes `/es/`). It does NOT resolve doc IDs. Without explicit slug-level redirects, switching locale on any page with a translated slug produces a 404.
+- **Format**: Each entry maps the full EN path to the full ES path:
+  ```ts
+  {en: '/[en-dir]/[en-slug]', es: '/[es-dir]/[es-slug]'}
+  ```
+  Example: `{en: '/principles/the-problem-is-sacred', es: '/principios/el-problema-es-sagrado'}`
+- **When to add**: Every time a new bilingual page is created (during `sincroniza` or manual creation)
+- **Verification**: After build, confirm the redirect HTML files exist:
+  - `build/es/[en-dir]/[en-slug]/index.html` (for EN→ES switching)
+  - `build/[es-dir]/[es-slug]/index.html` (for ES→EN switching)
+- **Violation**: BLOCK publication. The locale switcher will 404 for that page. Add the missing `slugMappings` entry and rebuild.
+
+---
+
 ## Validation Matrix
 
-| Content Type | Exit Criteria | Anti-pattern | 6 Sections | Bidirectional | Frontmatter |
-|---|---|---|---|---|---|
-| Phase | REQUIRED | REQUIRED | — | REQUIRED | REQUIRED |
-| Principle | — | REQUIRED | — | REQUIRED | REQUIRED |
-| Framework | — | — | — | REQUIRED | REQUIRED |
-| Commercial | — | — | REQUIRED | — | REQUIRED |
-| Resource | — | — | — | — | REQUIRED |
+| Content Type | Exit Criteria | Anti-pattern | 6 Sections | Bidirectional | Frontmatter | Slug Mapping |
+|---|---|---|---|---|---|---|
+| Phase | REQUIRED | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED |
+| Principle | — | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED |
+| Framework | — | — | — | REQUIRED | REQUIRED | REQUIRED |
+| Commercial | — | — | REQUIRED | — | REQUIRED | REQUIRED |
+| Resource | — | — | — | — | REQUIRED | REQUIRED |

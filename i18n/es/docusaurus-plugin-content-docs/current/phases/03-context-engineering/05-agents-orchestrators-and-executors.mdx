@@ -1,0 +1,44 @@
+---
+title: "Agentes: orquestadores y ejecutores de contexto"
+sidebar_label: "Agentes"
+slug: /fases/context-engineering/agentes-orquestadores-y-ejecutores
+description: "Los Agentes son perfiles especializados de IA — no instancias genéricas. Cada uno tiene un rol definido, límites claros y un protocolo para cuando la información es insuficiente."
+sidebar_position: 5
+tags: [fases, context-engineering, agentes, fidelidad]
+---
+
+# Agentes: orquestadores y ejecutores de contexto
+
+Los Agentes son perfiles especializados de IA. No son instancias genéricas. Son roles diseñados para cumplir una función específica dentro del sistema. Cada Agente sabe qué le toca hacer, qué no le toca, qué Reglas gobiernan su comportamiento y qué Skills está preparado para ejecutar.
+
+## Los cinco elementos obligatorios
+
+Cada Agente se define con cinco elementos. Cada elemento conecta con las Reglas y con los Skills que ese Agente ejecutará:
+
+| Elemento | Qué define | Conexión con Reglas y Skills |
+|---|---|---|
+| **Identidad** | Quién es: rol, expertise, perspectiva. | Su identidad determina cómo interpreta las Reglas y desde qué perspectiva ejecuta los Skills. |
+| **Responsabilidades** | Qué le toca: tareas, outputs esperados. | Define qué tipos de Skills puede ejecutar y qué tipo de Reglas le aplican más directamente. |
+| **Límites** | Qué NO puede hacer. | Previene que el Agente viole Reglas de otro Agente o modifique Skills fuera de su ámbito. |
+| **Reglas que aplica** | Referencia explícita al project-context.md. | El Agente sabe qué Reglas cargar antes de ejecutar cualquier Skill. |
+| **Protocolo ante gaps** | Qué hace cuando un Skill tiene información insuficiente. | La Regla más crítica: señalar el gap, no inventar. Protege la integridad de los Skills. |
+
+## Fidelidad descendente: la cadena inquebrantable
+
+La traducción del Solution Brief al sistema de contexto la ejecuta una cadena de Agentes especializados. Cada Agente recibe el output del anterior, lo transforma gobernado por las Reglas, y produce el input del siguiente. El resultado final son los Skills que ejecutarán los Agentes de desarrollo.
+
+Cada Agente transforma el output del anterior, pero **no lo contradice, no lo enriquece con invención y no lo reinterpreta.** Las Reglas de fidelidad aseguran que la cadena no degrada el contexto. Cuando el SM Agent crea los Skills finales, estos son fieles al Problem Statement original porque cada eslabón de la cadena fue gobernado por las mismas Reglas.
+
+:::danger[Anti-patrón: El Agente Creativo]
+**Qué es:** Un Agente que añade funcionalidades o decisiones que no estaban en su input. Viola la Regla de fidelidad porque "tiene sentido".
+
+**Por qué es peligroso:** Cada adición no trazable contamina los Skills que se generarán después. Si el PM Agent añade un caso de uso, el SM Agent generará Skills para algo que nadie validó.
+
+**Cómo prevenirlo:** Regla explícita en la definición de cada Agente: "No añadas información que no provenga de tus inputs. Si detectas un gap, señálalo. No lo rellenes. Los Skills resultantes deben ser 100% trazables."
+:::
+
+:::danger[Anti-patrón: Agentes sin Fronteras]
+**Qué es:** Agentes con identidad y responsabilidades pero sin límites claros. El PM Agent opina sobre arquitectura. El Architect Agent añade funcionalidades. Los roles se solapan, las Reglas no saben a quién aplicarse, y los Skills reflejan decisiones de Agentes equivocados.
+
+**Cómo prevenirlo:** Los límites son tan importantes como las responsabilidades. Cada Agente tiene una sección explícita de "lo que NO hago" que protege la integridad de los Skills que otros Agentes producen.
+:::

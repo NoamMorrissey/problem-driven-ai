@@ -1,0 +1,36 @@
+---
+title: "La diferencia entre contexto y prompt"
+sidebar_label: "Contexto vs prompt"
+slug: /fases/context-engineering/contexto-vs-prompt
+description: "Un prompt es una instrucción puntual. El contexto es una arquitectura de información compuesta por Agentes, Reglas y Skills. Confundirlos es el error más común."
+sidebar_position: 2
+tags: [fases, context-engineering, fundamentos, anti-patrones]
+---
+
+# La diferencia entre contexto y prompt
+
+Hay una confusión que necesitamos resolver: la confusión entre prompt y contexto. Un prompt es una instrucción puntual. El contexto es un sistema compuesto por Agentes que orquestan, Reglas que gobiernan, y Skills que definen el trabajo concreto. No es una instrucción: es una arquitectura de información.
+
+| Dimensión | Prompt | Contexto (Agentes + Reglas + Skills) |
+|---|---|---|
+| **Alcance** | Una interacción, una tarea. | Todo el proyecto. Múltiples Agentes, Reglas transversales, decenas de Skills coordinados. |
+| **Coherencia** | Cada prompt es independiente. | Las Reglas garantizan coherencia entre todos los Agentes y todos los Skills. |
+| **Identidad** | La IA no tiene rol. | Cada Agente tiene identidad, responsabilidades y límites. |
+| **Estructura** | Texto libre. | Sistema arquitectónico: Agentes con identidad, Reglas con jerarquía, Skills con dependencias. |
+| **Evolución** | Se consume y desaparece. | Los Skills se crean y completan; las Reglas evolucionan; los Agentes se calibran. |
+
+## Por qué esta distinción importa
+
+La confusión entre prompt y contexto no es semántica. Es la diferencia entre dar una instrucción puntual a alguien y construir un sistema que produce resultados consistentes a lo largo del tiempo.
+
+Un prompt funciona para tareas aisladas: "resume este documento", "escribe este email", "genera esta imagen". En el momento en que necesitas múltiples interacciones que deben ser coherentes entre sí — que deben compartir convenciones, respetar restricciones y producir outputs que funcionen como sistema — un prompt es insuficiente.
+
+Un proyecto que usa prompts en lugar de contexto produce outputs que son individualmente correctos y colectivamente incoherentes. Cada interacción toma decisiones localmente óptimas que son globalmente contradictorias. Esto no es un fallo de la IA. Es un fallo del contexto.
+
+:::danger[Anti-patrón: El Contexto-Prompt]
+**Qué es:** Un documento largo sin estructura que se copia en cada interacción. No hay Agentes diferenciados, no hay Reglas explícitas, no hay Skills autocontenidos. Parece contexto pero se comporta como un prompt muy largo.
+
+**Qué produce:** Sin Reglas, cada interacción toma decisiones inconsistentes. Sin Skills definidos, las tareas se mezclan. Sin Agentes diferenciados, la IA intenta ser todo a la vez.
+
+**Diagnóstico rápido:** Si tu contexto no puede separarse en "Reglas que aplican a todo", "Agentes que ejecutan" y "Skills que definen tareas", es un prompt largo, no un contexto.
+:::

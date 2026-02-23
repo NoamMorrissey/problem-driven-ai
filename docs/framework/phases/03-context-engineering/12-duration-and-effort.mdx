@@ -1,0 +1,80 @@
+---
+title: "Duration and effort"
+sidebar_label: "Duration"
+slug: /framework/phases/context-engineering/duration-and-effort
+description: "How much time Context Engineering takes depending on project complexity, and how to detect if you're investing too much or too little."
+sidebar_position: 6
+tags: [phases, context-engineering, duration, effort, planning]
+---
+
+# Duration and effort
+
+Context Engineering duration depends on the solution complexity defined in Phase 2. The relationship is proportional: more complex solutions require more Agents, more Rules, and more Skills — and therefore more time to design, validate, and iterate.
+
+## Duration by complexity
+
+| Scenario | Duration | What it includes |
+|---|---|---|
+| **Bounded solution (Q1-2)** | 3-5 days | Base Rules + 4-5 Agents + PRD + Architecture Document + 10-20 Skills. 1-2 validation cycles. |
+| **Medium solution (Q2-3)** | 1-2 weeks | Complete Rules + calibrated Agents + 20-50 Skills. Multiple validations. Active QA at every chain link. |
+| **Complex solution (Q3-4)** | 2-4 weeks | Extensive Rules + specialized Agents + 50+ Skills. Iterative validation with stakeholders. QA at every link. |
+
+The quadrant reference (Q1-Q4) corresponds to the complexity assessment from Phase 2's Solution Brief: Q1 is the simplest (low technical + low organizational complexity), Q4 is the most complex.
+
+## The 30-50% rule
+
+:::tip The proportion that matters
+If Context Engineering consumes **more** time than the construction phase itself, you're over-specifying. Rules are too detailed, Skills are too prescriptive, and Agents have no room to use judgment.
+
+If it consumes **less than a third** of construction time, there are implicit Rules and incomplete Skills. Agents will fill gaps with invention — producing confident, plausible, and wrong outputs.
+
+The optimal proportion: **30-50% of construction time.** For a project that will take 4 weeks to build, invest 1.5-2 weeks in Context Engineering.
+:::
+
+## Where the time goes
+
+Understanding the time distribution helps plan the phase and detect when something is taking too long:
+
+| Activity | % of Phase 3 time | What determines duration |
+|---|---|---|
+| **Establish Rules** | 15-20% | Number of global decisions in the Solution Brief. More constraints = more Rules to make explicit. |
+| **Design Agent Chain** | 10-15% | Number of specialized roles needed. Most projects use the standard 5-Agent chain. |
+| **Generate PRD** | 15-25% | Number of use cases and complexity of the Solution Brief. More use cases = larger PRD. |
+| **Generate Architecture** | 15-25% | Number of technical decisions. More integrations, more AI components = more ADRs. |
+| **Decompose into Skills** | 20-25% | Number of Skills. A Skill takes 15-30 minutes to specify well. 50 Skills = 15-25 hours. |
+| **Validate through Outputs** | 10-20% | Number of validation cycles. First pass rarely succeeds. Budget 2-3 iterations. |
+
+## Signals of under-investment
+
+If the team is spending too little time on Context Engineering, these signals appear:
+
+- **Agents ask frequent questions during Skill execution** — the Skills don't contain enough context.
+- **Outputs are inconsistent across Agents** — the Rules don't cover enough ground.
+- **The QA Agent flags many issues per Skill** — the context system has systematic gaps.
+- **Stakeholders reject outputs as "not what we discussed"** — the traceability chain has breaks.
+- **The team discovers undocumented decisions during construction** — there are implicit Rules.
+
+## Signals of over-investment
+
+If the team is spending too much time, these signals appear:
+
+- **The project-context.md exceeds 10 pages** — you're likely specifying decisions that should be delegated (Level 1-2).
+- **Skills include pseudocode or step-by-step implementation details** — you're doing the Agent's job instead of defining what needs to be done.
+- **Validation cycles produce "perfect" outputs on first pass** — if nothing needs adjustment, the context system is probably over-specified.
+- **Agents produce rigid, mechanical output** — the Over-Context anti-pattern.
+- **The team debates Level 1-2 decisions for hours** — delegation decisions shouldn't consume significant time.
+
+## Team composition during Phase 3
+
+| Role | Dedication | What they do |
+|---|---|---|
+| **Context Engineer** | Full-time (lead) | Designs Rules, Agents, Skills. Runs validation cycles. Owns the Decision Log. |
+| **Technical Lead** | 50-75% | Validates architecture decisions. Reviews the Architect Agent's output. Ensures technical feasibility. |
+| **Product Owner** | 25-50% | Validates PRD. Participates in output validation. Ensures fidelity to Solution Brief. |
+| **Stakeholder representatives** | On-demand | Participate in output validation (Step 5). Their recognition is the Gate Review criterion. |
+
+The Context Engineer is the full-time role. Others contribute at specific moments. The most critical outside participation is stakeholder validation at Step 5 — this is what determines if the Gate Review passes.
+
+:::info Comparison with previous phases
+Phase 1 (Problem Discovery) typically takes 1-3 weeks and requires 15-25% of total project time. Phase 2 (Solution Alignment) takes 1-2 weeks and requires 10-20%. Phase 3 (Context Engineering) takes 3 days to 4 weeks depending on complexity, requiring 15-25% of total project time. The three discovery-and-design phases together consume 40-70% of the project — and this is by design. The more time invested in understanding and structuring, the less time wasted in rework during construction.
+:::

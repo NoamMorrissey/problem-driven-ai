@@ -1,0 +1,44 @@
+---
+title: "Agents: orchestrators and executors of context"
+sidebar_label: "Agents"
+slug: agents-orchestrators-and-executors
+description: "Agents are specialized AI profiles — not generic instances. Each one has a defined role, clear limits, and a protocol for when information is insufficient."
+sidebar_position: 5
+tags: [phases, context-engineering, agents, fidelity]
+---
+
+# Agents: orchestrators and executors of context
+
+Agents are specialized AI profiles. Not generic instances. They are roles designed to fulfill a specific function within the system. Each Agent knows what it's supposed to do, what it's not supposed to do, which Rules govern its behavior, and which Skills it's prepared to execute.
+
+## The five obligatory elements
+
+Each Agent is defined with five elements. Each element connects to the Rules and to the Skills that Agent will execute:
+
+| Element | What it defines | Connection to Rules and Skills |
+|---|---|---|
+| **Identity** | Who it is: role, expertise, perspective. | Its identity determines how it interprets Rules and from what perspective it executes Skills. |
+| **Responsibilities** | What it's supposed to do: tasks, expected outputs. | Defines what types of Skills it can execute and which Rules apply most directly. |
+| **Limits** | What it can NOT do. | Prevents the Agent from violating Rules of another Agent or modifying Skills outside its scope. |
+| **Rules it applies** | Explicit reference to the project-context.md. | The Agent knows which Rules to load before executing any Skill. |
+| **Gap protocol** | What it does when a Skill has insufficient information. | The most critical Rule: flag the gap, don't invent. Protects the integrity of Skills. |
+
+## Descending fidelity: the unbreakable chain
+
+The translation of the Solution Brief into the context system is executed by a chain of specialized Agents. Each Agent receives the output of the previous one, transforms it governed by the Rules, and produces the input for the next. The final result is the Skills that development Agents will execute.
+
+Each Agent transforms the previous one's output, but **it doesn't contradict it, doesn't enrich it with invention, and doesn't reinterpret it.** The fidelity Rules ensure the chain doesn't degrade the context. When the SM Agent creates the final Skills, these are faithful to the original Problem Statement because every link in the chain was governed by the same Rules.
+
+:::danger[Anti-pattern: The Creative Agent]
+**What it is:** An Agent that adds functionalities or decisions that were not in its input. It violates the fidelity Rule because "it makes sense."
+
+**Why it's dangerous:** Each untraceable addition contaminates the Skills that will be generated afterwards. If the PM Agent adds a use case, the SM Agent will generate Skills for something nobody validated.
+
+**How to prevent it:** Explicit Rule in each Agent's definition: "Don't add information that doesn't come from your inputs. If you detect a gap, flag it. Don't fill it. The resulting Skills must be 100% traceable."
+:::
+
+:::danger[Anti-pattern: Agents Without Borders]
+**What it is:** Agents with identity and responsibilities but no clear limits. The PM Agent opines about architecture. The Architect Agent adds functionalities. Roles overlap, Rules don't know who to apply to, and Skills reflect decisions from the wrong Agents.
+
+**How to prevent it:** Limits are as important as responsibilities. Each Agent has an explicit section of "what I do NOT do" that protects the integrity of the Skills other Agents produce.
+:::

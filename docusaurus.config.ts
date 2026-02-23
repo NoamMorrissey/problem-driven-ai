@@ -58,7 +58,10 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath: string) {
-          const mappings = [
+          const redirects: string[] = [];
+
+          // Directory segment translations
+          const dirMappings = [
             {es: '/principios/', en: '/principles/'},
             {es: '/fases/', en: '/phases/'},
             {es: '/framework/fases/', en: '/framework/phases/'},
@@ -71,33 +74,99 @@ const config: Config = {
             {es: '/recursos', en: '/resources'},
           ];
 
-          // ES pages: redirect English-segment URLs → Spanish-segment URLs
-          // e.g. /es/phases/problem-discovery → /es/fases/problem-discovery
-          for (const {es, en} of mappings) {
+          // Page-level slug translations for locale switcher.
+          // Docusaurus locale switcher prepends/removes /es/ but keeps the
+          // source slug, so we need redirects from the full EN path (for ES
+          // pages) and from the full ES path (for EN pages).
+          const slugMappings = [
+            // Principles
+            {en: '/principles/the-problem-is-sacred', es: '/principios/el-problema-es-sagrado'},
+            {en: '/principles/the-client-doesnt-know-what-they-want', es: '/principios/el-cliente-no-sabe-lo-que-quiere'},
+            {en: '/principles/building-is-a-symptom', es: '/principios/la-construccion-es-un-sintoma'},
+            {en: '/principles/context-engineering-is-design', es: '/principios/context-engineering-es-diseno'},
+            {en: '/principles/without-consensus-no-context', es: '/principios/sin-consenso-no-hay-contexto'},
+            {en: '/principles/speed-is-a-reward', es: '/principios/la-velocidad-es-una-recompensa'},
+            {en: '/principles/the-market-always-knows-more', es: '/principios/el-mercado-siempre-sabe-mas'},
+            {en: '/principles/iterating-is-not-repeating', es: '/principios/iterar-no-es-repetir'},
+            {en: '/principles/context-is-a-living-asset', es: '/principios/el-contexto-es-un-activo-vivo'},
+            {en: '/principles/clarity-is-the-only-luxury', es: '/principios/la-claridad-es-el-unico-lujo'},
+            // Phase 1: Problem Discovery (methodology)
+            {en: '/phases/problem-discovery/why-this-phase-exists', es: '/fases/problem-discovery/por-que-esta-fase-existe'},
+            {en: '/phases/problem-discovery/the-solution-trap', es: '/fases/problem-discovery/la-trampa-de-la-solucion'},
+            {en: '/phases/problem-discovery/what-it-is-and-isnt', es: '/fases/problem-discovery/que-es-y-que-no-es'},
+            {en: '/phases/problem-discovery/cognitive-biases', es: '/fases/problem-discovery/sesgos-cognitivos'},
+            {en: '/phases/problem-discovery/who-participates', es: '/fases/problem-discovery/quien-participa'},
+            {en: '/phases/problem-discovery/the-questions', es: '/fases/problem-discovery/las-preguntas'},
+            {en: '/phases/problem-discovery/connection-to-phase-2', es: '/fases/problem-discovery/conexion-con-fase-2'},
+            // Phase 2: Solution Alignment (methodology)
+            {en: '/phases/solution-alignment/why-this-phase-exists', es: '/fases/solution-alignment/por-que-esta-fase-existe'},
+            {en: '/phases/solution-alignment/anatomy-of-a-good-solution', es: '/fases/solution-alignment/anatomia-de-una-buena-solucion'},
+            {en: '/phases/solution-alignment/what-it-is-and-isnt', es: '/fases/solution-alignment/que-es-y-que-no-es'},
+            {en: '/phases/solution-alignment/who-participates', es: '/fases/solution-alignment/quien-participa'},
+            {en: '/phases/solution-alignment/thinking-about-ai', es: '/fases/solution-alignment/pensar-en-la-ia'},
+            {en: '/phases/solution-alignment/connection-to-phase-3', es: '/fases/solution-alignment/conexion-con-fase-3'},
+            // Phase 3: Context Engineering (methodology)
+            {en: '/phases/context-engineering/why-this-phase-exists', es: '/fases/context-engineering/por-que-esta-fase-existe'},
+            {en: '/phases/context-engineering/context-vs-prompt', es: '/fases/context-engineering/contexto-vs-prompt'},
+            {en: '/phases/context-engineering/who-participates', es: '/fases/context-engineering/quien-participa'},
+            {en: '/phases/context-engineering/rules-the-constitution', es: '/fases/context-engineering/reglas-la-constitucion'},
+            {en: '/phases/context-engineering/agents-orchestrators-and-executors', es: '/fases/context-engineering/agentes-orquestadores-y-ejecutores'},
+            {en: '/phases/context-engineering/skills-concrete-tasks', es: '/fases/context-engineering/skills-tareas-concretas'},
+            {en: '/phases/context-engineering/connection-to-phase-4', es: '/fases/context-engineering/conexion-con-fase-4'},
+            // Framework Phase 1
+            {en: '/framework/phases/problem-discovery/step-by-step-process', es: '/framework/fases/problem-discovery/proceso-paso-a-paso'},
+            {en: '/framework/phases/problem-discovery/problem-statement-anatomy', es: '/framework/fases/problem-discovery/anatomia-del-problem-statement'},
+            {en: '/framework/phases/problem-discovery/artifacts', es: '/framework/fases/problem-discovery/artefactos'},
+            {en: '/framework/phases/problem-discovery/anti-patterns', es: '/framework/fases/problem-discovery/anti-patrones'},
+            {en: '/framework/phases/problem-discovery/duration-and-effort', es: '/framework/fases/problem-discovery/duracion-y-esfuerzo'},
+            // Framework Phase 2
+            {en: '/framework/phases/solution-alignment/step-by-step-process', es: '/framework/fases/solution-alignment/proceso-paso-a-paso'},
+            {en: '/framework/phases/solution-alignment/solution-brief-anatomy', es: '/framework/fases/solution-alignment/anatomia-del-solution-brief'},
+            {en: '/framework/phases/solution-alignment/artifacts', es: '/framework/fases/solution-alignment/artefactos'},
+            {en: '/framework/phases/solution-alignment/anti-patterns', es: '/framework/fases/solution-alignment/anti-patrones'},
+            {en: '/framework/phases/solution-alignment/duration-and-effort', es: '/framework/fases/solution-alignment/duracion-y-esfuerzo'},
+            // Framework Phase 3
+            {en: '/framework/phases/context-engineering/step-by-step-process', es: '/framework/fases/context-engineering/proceso-paso-a-paso'},
+            {en: '/framework/phases/context-engineering/context-system-anatomy', es: '/framework/fases/context-engineering/anatomia-del-sistema-de-contexto'},
+            {en: '/framework/phases/context-engineering/artifacts', es: '/framework/fases/context-engineering/artefactos'},
+            {en: '/framework/phases/context-engineering/anti-patterns', es: '/framework/fases/context-engineering/anti-patrones'},
+            {en: '/framework/phases/context-engineering/duration-and-effort', es: '/framework/fases/context-engineering/duracion-y-esfuerzo'},
+            // Resources
+            {en: '/resources/glossary', es: '/recursos/glosario'},
+            {en: '/resources/tools', es: '/recursos/herramientas'},
+          ];
+
+          // Directory-level redirects (translate directory segments)
+          // ES pages: /es/fases/X → also reachable via /es/phases/X
+          for (const {es, en} of dirMappings) {
             if (existingPath.includes(es)) {
-              return [existingPath.replace(es, en)];
+              redirects.push(existingPath.replace(es, en));
+              break;
             }
           }
-          for (const {es, en} of indexMappings) {
-            if (existingPath === es) {
-              return [en];
-            }
-          }
-
-          // EN pages: redirect Spanish-segment URLs → English-segment URLs
-          // Fixes locale switcher: ES→EN tries /fases/x, needs redirect to /phases/x
-          for (const {es, en} of mappings) {
+          // EN pages: /phases/X → also reachable via /fases/X
+          for (const {es, en} of dirMappings) {
             if (existingPath.includes(en)) {
-              return [existingPath.replace(en, es)];
-            }
-          }
-          for (const {es, en} of indexMappings) {
-            if (existingPath === en) {
-              return [es];
+              redirects.push(existingPath.replace(en, es));
+              break;
             }
           }
 
-          return undefined;
+          // Index-level redirects
+          for (const {es, en} of indexMappings) {
+            if (existingPath === es) redirects.push(en);
+            if (existingPath === en) redirects.push(es);
+          }
+
+          // Page-level slug redirects (fixes locale switcher)
+          // existingPath never includes locale prefix (/es/) — the plugin
+          // handles that internally. Both directions use the same pattern.
+          for (const {es, en} of slugMappings) {
+            if (existingPath === es) redirects.push(en);
+            if (existingPath === en) redirects.push(es);
+          }
+
+          return redirects.length > 0 ? redirects : undefined;
         },
       },
     ],

@@ -1,0 +1,80 @@
+---
+title: "Duración y esfuerzo"
+sidebar_label: "Duración"
+slug: /framework/fases/context-engineering/duracion-y-esfuerzo
+description: "Cuánto tiempo lleva el Context Engineering según la complejidad del proyecto, y cómo detectar si estás invirtiendo demasiado o demasiado poco."
+sidebar_position: 6
+tags: [fases, context-engineering, duracion, esfuerzo, planificacion]
+---
+
+# Duración y esfuerzo
+
+La duración del Context Engineering depende de la complejidad de la solución definida en la Fase 2. La relación es proporcional: soluciones más complejas requieren más Agentes, más Reglas y más Skills — y por tanto más tiempo para diseñar, validar e iterar.
+
+## Duración por complejidad
+
+| Escenario | Duración | Qué incluye |
+|---|---|---|
+| **Solución acotada (Q1-2)** | 3-5 días | Reglas base + 4-5 Agentes + PRD + Architecture Document + 10-20 Skills. 1-2 ciclos de validación. |
+| **Solución media (Q2-3)** | 1-2 semanas | Reglas completas + Agentes calibrados + 20-50 Skills. Múltiples validaciones. QA activo en cada eslabón de la cadena. |
+| **Solución compleja (Q3-4)** | 2-4 semanas | Reglas extensas + Agentes especializados + 50+ Skills. Validación iterada con stakeholders. QA en cada eslabón. |
+
+La referencia a cuadrantes (Q1-Q4) corresponde a la evaluación de complejidad del Solution Brief de la Fase 2: Q1 es la más simple (baja complejidad técnica + baja organizacional), Q4 es la más compleja.
+
+## La regla del 30-50%
+
+:::tip La proporción que importa
+Si el Context Engineering consume **más** tiempo que la fase de construcción, estás sobre-especificando. Las Reglas son demasiado detalladas, los Skills demasiado prescriptivos y los Agentes no tienen espacio para usar criterio.
+
+Si consume **menos de un tercio** del tiempo de construcción, hay Reglas implícitas y Skills incompletos. Los Agentes rellenarán gaps con invención — produciendo outputs seguros, plausibles y erróneos.
+
+La proporción óptima: **30-50% del tiempo de construcción.** Para un proyecto que tardará 4 semanas en construirse, invierte 1,5-2 semanas en Context Engineering.
+:::
+
+## A dónde va el tiempo
+
+Entender la distribución del tiempo ayuda a planificar la fase y detectar cuándo algo está tardando demasiado:
+
+| Actividad | % del tiempo de Fase 3 | Qué determina la duración |
+|---|---|---|
+| **Establecer Reglas** | 15-20% | Número de decisiones globales en el Solution Brief. Más restricciones = más Reglas por hacer explícitas. |
+| **Diseñar Cadena de Agentes** | 10-15% | Número de roles especializados necesarios. La mayoría de proyectos usan la cadena estándar de 5 Agentes. |
+| **Generar PRD** | 15-25% | Número de casos de uso y complejidad del Solution Brief. Más casos de uso = PRD más extenso. |
+| **Generar Architecture** | 15-25% | Número de decisiones técnicas. Más integraciones, más componentes de IA = más ADRs. |
+| **Descomponer en Skills** | 20-25% | Número de Skills. Un Skill bien especificado toma 15-30 minutos. 50 Skills = 15-25 horas. |
+| **Validar a través de Outputs** | 10-20% | Número de ciclos de validación. La primera pasada rara vez tiene éxito. Presupuesta 2-3 iteraciones. |
+
+## Señales de inversión insuficiente
+
+Si el equipo está dedicando muy poco tiempo al Context Engineering, estas señales aparecen:
+
+- **Los Agentes hacen preguntas frecuentes durante la ejecución de Skills** — los Skills no contienen suficiente contexto.
+- **Los outputs son inconsistentes entre Agentes** — las Reglas no cubren suficiente terreno.
+- **El QA Agent señala muchos problemas por Skill** — el sistema de contexto tiene gaps sistemáticos.
+- **Los stakeholders rechazan outputs como "no es lo que discutimos"** — la cadena de trazabilidad tiene roturas.
+- **El equipo descubre decisiones no documentadas durante la construcción** — hay Reglas implícitas.
+
+## Señales de sobre-inversión
+
+Si el equipo está dedicando demasiado tiempo, estas señales aparecen:
+
+- **El project-context.md supera 10 páginas** — probablemente estás especificando decisiones que deberían delegarse (Nivel 1-2).
+- **Los Skills incluyen pseudocódigo o detalles paso a paso de implementación** — estás haciendo el trabajo del Agente en vez de definir qué se necesita hacer.
+- **Los ciclos de validación producen outputs "perfectos" en la primera pasada** — si nada necesita ajuste, el sistema de contexto probablemente está sobre-especificado.
+- **Los Agentes producen output rígido y mecánico** — el anti-patrón Over-Context.
+- **El equipo debate decisiones de Nivel 1-2 durante horas** — las decisiones de delegación no deberían consumir tiempo significativo.
+
+## Composición del equipo durante la Fase 3
+
+| Rol | Dedicación | Qué hace |
+|---|---|---|
+| **Context Engineer** | Tiempo completo (líder) | Diseña Reglas, Agentes, Skills. Ejecuta ciclos de validación. Es dueño del Decision Log. |
+| **Technical Lead** | 50-75% | Valida decisiones de arquitectura. Revisa el output del Architect Agent. Asegura viabilidad técnica. |
+| **Product Owner** | 25-50% | Valida el PRD. Participa en validación de outputs. Asegura fidelidad al Solution Brief. |
+| **Representantes de stakeholders** | Bajo demanda | Participan en validación de outputs (Paso 5). Su reconocimiento es el criterio del Gate Review. |
+
+El Context Engineer es el rol a tiempo completo. Los demás contribuyen en momentos específicos. La participación externa más crítica es la validación de stakeholders en el Paso 5 — es lo que determina si el Gate Review se aprueba.
+
+:::info Comparación con fases anteriores
+La Fase 1 (Problem Discovery) típicamente toma 1-3 semanas y requiere 15-25% del tiempo total del proyecto. La Fase 2 (Solution Alignment) toma 1-2 semanas y requiere 10-20%. La Fase 3 (Context Engineering) toma de 3 días a 4 semanas según la complejidad, requiriendo 15-25% del tiempo total del proyecto. Las tres fases de descubrimiento y diseño juntas consumen 40-70% del proyecto — y esto es por diseño. Cuanto más tiempo se invierte en entender y estructurar, menos tiempo se desperdicia en retrabajo durante la construcción.
+:::

@@ -136,30 +136,46 @@ When a new content section is needed:
 - If `_category_.json` doesn't exist in ES mirror, create it
 - If `index.mdx` doesn't exist in the section (new directory), create it in both trees
 
-### 7. Cross-Reference Check
+### 7. Slug Mapping Update (Rule 9)
+- For the page(s) just created, check if the EN slug differs from the ES slug
+- If they differ (which is the normal case for translated slugs), add a `slugMappings` entry in `createRedirects` inside `docusaurus.config.ts`:
+  ```ts
+  {en: '/[en-dir]/[en-slug]', es: '/[es-dir]/[es-slug]'}
+  ```
+- The EN path uses the EN directory prefix and relative slug (e.g., `/phases/problem-discovery/why-this-phase-exists`)
+- The ES path uses the ES directory prefix and ES slug (e.g., `/fases/problem-discovery/por-que-esta-fase-existe`)
+- Place the entry in the appropriate section comment (Principles, Phase N, Framework, Resources)
+- **This step is BLOCKING** — without it, the locale switcher will 404 for the new page
+
+### 8. Cross-Reference Check
 - Scan all internal links `](../path)` in both files
 - Verify links use **file-path references** (e.g., `../principles/01-el-problema-es-sagrado.mdx`), NOT URL paths
 - Exception: `index.mdx` files may use URL paths for category links (e.g., `/principios`, `/fases`)
 - Verify linked files exist in both trees
 
-### 8. Glossary Sync
+### 9. Glossary Sync
 - Detect new canonical terms in the content
 - If found, propose additions to `static/glossary.json` with `term_en` and `term_es`
 
-### 9. Restart Server
+### 10. Restart Server
 - Kill any process on port 3000: `lsof -ti:3000 | xargs kill -9`
 - Clean cache: `npx docusaurus clear`
 - Build both locales: `npx docusaurus build`
 - Serve: `npx docusaurus serve --port 3000`
 - Confirm server is running and report URL `http://localhost:3000`
 
-### 10. Locale Switcher Verification
-- For the page(s) just created or modified, verify locale switching works in both directions:
-  - Curl the EN page URL → 200
-  - Curl the ES page URL → 200
-  - Curl the EN→ES redirect path (`/es/[en-segment]/[slug]`) → 200 (via redirect)
-  - Curl the ES→EN redirect path (`/[es-segment]/[slug]`) → 200 (via redirect)
-- If any redirect returns 404, check that `createRedirects` in `docusaurus.config.ts` includes the mapping for this directory
+### 11. Locale Switcher Verification
+- For the page(s) just created or modified, verify locale switching works in both directions.
+- **Directory-level redirects** (translate `/phases/` ↔ `/fases/`):
+  - `build/es/[en-dir]/[es-slug]/index.html` exists (dir redirect for ES locale)
+  - `build/[es-dir]/[en-slug]/index.html` exists (dir redirect for EN locale)
+- **Page-level slug redirects** (translate `why-this-phase-exists` ↔ `por-que-esta-fase-existe`):
+  - `build/es/[en-dir]/[en-slug]/index.html` exists (slug redirect for EN→ES switching)
+  - `build/[es-dir]/[es-slug]/index.html` exists (slug redirect for ES→EN switching)
+- If any redirect is missing, check that BOTH the `dirMappings` AND `slugMappings` entries exist in `createRedirects` in `docusaurus.config.ts`
+- **Root cause reminder**: Docusaurus locale switcher does a simple URL prefix swap (`/page` → `/es/page`). It does NOT resolve doc IDs. Two levels of redirects are needed:
+  1. Directory-level: translates path segments (`/phases/` ↔ `/fases/`)
+  2. Page-level: translates individual slugs (`why-this-phase-exists` ↔ `por-que-esta-fase-existe`)
 
 ---
 
@@ -192,11 +208,12 @@ When a new content section is needed:
 - Verify `i18n/es/docusaurus-plugin-content-docs/current.json` exists and is valid JSON
 
 ### 6. Redirect Plugin Audit (Bidirectional)
-- Verify every ES prefix in the Path Prefix Map (where EN ≠ ES) has a corresponding entry in `createRedirects` in `docusaurus.config.ts`
-- Verify redirects work in BOTH directions:
-  - For each mapping, check `build/es/[en-segment]/` exists (EN→ES redirect)
-  - For each mapping, check `build/[es-segment]/` exists (ES→EN redirect)
-- Test locale switcher on at least one page per section: EN→ES and ES→EN
+- **Directory-level**: Verify every ES prefix in the Path Prefix Map (where EN ≠ ES) has a corresponding entry in `dirMappings` in `createRedirects`
+- **Page-level (Rule 9)**: For every `.mdx` page pair where the EN slug ≠ ES slug, verify a `slugMappings` entry exists in `createRedirects`
+  - Build the site and check that BOTH redirect HTML files exist:
+    - `build/es/[en-dir]/[en-slug]/index.html` (EN→ES locale switch)
+    - `build/[es-dir]/[es-slug]/index.html` (ES→EN locale switch)
+- **Quick audit method**: Compare `ls build/[en-dir]/[subdir]/` against `ls build/es/[en-dir]/[subdir]/`. Both directories should contain ALL slugs (EN + ES). If only one set appears, page-level slug mappings are missing.
 
 ### 7. Build Verification
 - Run `npx docusaurus build`

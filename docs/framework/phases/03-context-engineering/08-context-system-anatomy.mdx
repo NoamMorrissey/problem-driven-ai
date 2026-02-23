@@ -1,0 +1,244 @@
+---
+title: "The anatomy of the context system"
+sidebar_label: "Anatomy"
+slug: /framework/phases/context-engineering/context-system-anatomy
+description: "The complete structure of the context system: project-context.md template, PRD sections, Architecture Document, Agent definitions, and Skill specifications."
+sidebar_position: 2
+tags: [phases, context-engineering, anatomy, project-context, prd, architecture]
+---
+
+# The anatomy of the context system
+
+In Phase 1, the key deliverable was the Problem Statement — a single document capturing the real problem. In Phase 2, it was the Solution Brief — a consensus document defining the solution. In Phase 3, the deliverable is not one document but a **system**: three interconnected layers that together form the operating system of the AI project.
+
+## The three-layer architecture
+
+The context system has three layers. Each one serves a different purpose, and all three must work together:
+
+| Layer | What it contains | Purpose | Analogy |
+|---|---|---|---|
+| **Global (Rules)** | project-context.md | Norms that apply to everyone, always. | The company constitution — every employee must follow it. |
+| **Strategic (Documents)** | PRD + Architecture Document | What to build and how, at the system level. | The project plan — defines what the company will build this quarter. |
+| **Execution (Skills)** | Story Files | Concrete tasks with everything needed to complete them. | Individual work orders — each one tells a worker exactly what to do. |
+
+The hierarchy is strict: Rules govern everything. Strategic documents operate within Rules. Skills operate within both. If a Skill contradicts a Rule, the Rule wins. If an architecture decision should apply globally, it gets promoted to a Rule.
+
+## The project-context.md: complete structure
+
+The project-context.md is the most important single artifact of this phase. It's the constitution that every Agent loads before doing anything. Here's its complete structure:
+
+### Section 1: Project Identity
+
+```
+Project: [Name]
+Version: [Context version number]
+Last updated: [Date]
+Context Engineer: [Name/Role]
+Source documents: Problem Statement v[X], Solution Brief v[X]
+```
+
+This section establishes traceability. Anyone reading the project-context.md can trace it back to the Phase 1 and Phase 2 artifacts that originated it.
+
+### Section 2: Tech Stack (Level 5 Rules)
+
+```
+Language: TypeScript 5.x (strict mode)
+Framework: Express 4.x (backend), React 18.x (frontend)
+Database: PostgreSQL 16 (primary), Redis 7.x (cache)
+Testing: Vitest (unit), Playwright (e2e)
+Deployment: Docker containers on AWS ECS
+```
+
+Every item here is a Level 5 Rule — prescriptive, no exceptions. An Agent that receives a Skill for backend development knows, before reading the Skill itself, that it must use TypeScript and Express. Period.
+
+### Section 3: Code Conventions (Levels 3-5)
+
+```
+Naming: camelCase for variables and functions, PascalCase for types and classes.
+File structure: feature-based folders (not layer-based).
+API format: JSON { data, error, meta } envelope for all endpoints. [Level 5]
+Error handling: all errors return HTTP status + error object with code and message. [Level 4]
+Comments: only for "why", never for "what". [Level 3]
+```
+
+Notice the precision levels. The API format is Level 5 (no exceptions). Error handling is Level 4 (every Skill must comply). Comments are Level 3 (direction, but the Agent adapts).
+
+### Section 4: Security Constraints (Level 5 Rules)
+
+```
+Authentication: OAuth 2.0 with JWT tokens. No session-based auth.
+Authorization: RBAC with three roles (admin, manager, viewer).
+Data: PII must be encrypted at rest. No PII in logs.
+Dependencies: No new dependencies without explicit approval.
+Escalation: Any security concern → stop execution, flag to Context Engineer.
+```
+
+Security constraints are always Level 5. An Agent that encounters a security question not covered here must escalate — never decide autonomously.
+
+### Section 5: Integration Rules (Level 4-5)
+
+```
+Internal services: REST with JSON envelope. Sync calls only for < 200ms operations.
+Async operations: Event-driven via message queue (SQS). Events follow CloudEvents schema.
+External APIs: All external calls go through an adapter layer. No direct calls from business logic.
+```
+
+### Section 6: Agent Limits
+
+```
+Architect Agent: The ONLY agent that modifies this document.
+Dev Agent: Cannot add new dependencies or modify data model without Architect approval.
+QA Agent: Read-only access to all artifacts. Cannot modify code, only flag issues.
+All Agents: Cannot modify PRD or Solution Brief. These are inputs, not editable documents.
+```
+
+### Section 7: Gap Protocol (The Most Important Rule)
+
+```
+When any Agent detects that a Skill does not contain sufficient information
+to complete the task:
+
+1. STOP execution of the current Skill.
+2. Document the gap: what information is missing, why it's needed, what the impact is.
+3. Flag to Context Engineer with severity (blocking / degrading / cosmetic).
+4. DO NOT fill the gap with assumptions, inference, or "reasonable defaults."
+5. Resume only after the Context Engineer provides the missing information.
+
+Rationale: An Agent that fills gaps with invention produces outputs that are
+confident, plausible, and wrong. The cost of stopping is minutes.
+The cost of silent invention is discovered weeks later.
+```
+
+This section deserves its own heading because it's the single most impactful Rule. Without it, Agents produce outputs that look correct but contain invisible decisions that nobody authorized.
+
+### Section 8: Justified Global Decisions
+
+```
+Decision: All API responses use pagination with cursor-based navigation.
+Rationale: The inventory dataset can exceed 100K items. Offset pagination degrades
+at scale. Cursor-based is O(1) regardless of dataset size.
+Impact: Every Skill that returns a list must implement cursor pagination.
+Source: Architecture Document, ADR-007.
+```
+
+Each decision includes its "why." If an Agent encounters a situation the Context Engineer didn't foresee, understanding the rationale allows it to make a consistent decision.
+
+## The PRD: structure that feeds Agents
+
+The PRD is the bridge between human decisions (Solution Brief) and AI execution (Skills). Each section has a specific consumer:
+
+| PRD section | Content | Primary consumer | What gets produced |
+|---|---|---|---|
+| **Vision and scope** | What the product does, what it explicitly doesn't do, target users. | Architect + SM Agent | Scope boundaries for Rules and Skills. |
+| **User personas** | Behavioral profiles of each user type, goals, pain points. | SM Agent | Context for user-facing Skills. |
+| **Use cases** | Trigger → action → expected result. One per user flow. | SM Agent | Each use case becomes one or more Skills. |
+| **Success criteria** | Measurable KPIs tied to the Problem Statement's success criteria. | QA Agent | Acceptance criteria for validation Skills. |
+| **Constraints** | Technical, business, regulatory, and organizational limits. | Architect Agent | New Rules in project-context.md. |
+| **Active assumptions** | Beliefs taken as true without verification. Each with risk level. | All Agents | Risk flags in affected Skills. |
+| **Priorities** | P0 (must have), P1 (should have), P2 (nice to have). | SM Agent | Skill execution sequence. |
+| **Out of scope** | What will NOT be built. Explicit, not implicit. | All Agents | Prevents scope creep in Skills. |
+
+:::tip The traceability test
+Pick any PRD section. Can you trace it to a specific element of the Problem Statement or Solution Brief? If not, it's either an invention (delete it) or a gap (go back to Phase 2). The PRD adds structure; it never adds content that wasn't in Phase 1 or 2.
+:::
+
+## The Architecture Document: decisions that become Rules
+
+The Architecture Document is unique among Phase 3 artifacts because it **generates Rules**. When the Architect Agent makes a technical decision, that decision isn't just documentation — it becomes a constraint that all Agents must respect.
+
+### ADR format (Architecture Decision Record)
+
+Each significant decision follows this format:
+
+```
+ADR-[number]: [Decision title]
+
+Status: Accepted / Superseded by ADR-[X]
+Context: What situation required this decision.
+Decision: What was decided.
+Alternatives considered: What else was evaluated and why it was rejected.
+Consequences: What this decision means for the project.
+Rule promotion: [Yes/No] — If yes, added to project-context.md as Level [X] Rule.
+```
+
+:::note Practical example: ADR that generates a Rule
+**ADR-003: Authentication mechanism**
+
+**Context:** The system needs user authentication. The Solution Brief specifies role-based access for three user types (admin, manager, viewer).
+
+**Decision:** OAuth 2.0 with JWT tokens. Stateless authentication — no server-side sessions.
+
+**Alternatives considered:** Session-based auth (simpler but doesn't scale with microservices), API keys (insufficient for user-level RBAC).
+
+**Consequences:** Every API endpoint must validate JWT. Token refresh logic needed. Logout is client-side only (token expiry).
+
+**Rule promotion:** Yes — added to project-context.md Section 4 as Level 5 Rule: "Authentication: OAuth 2.0 with JWT tokens. No session-based auth."
+:::
+
+## Agent definition: the template
+
+Each Agent in the system follows this structure:
+
+```
+Agent: [Name]
+
+Identity:
+  Role: [What this Agent is — e.g., Senior Backend Developer]
+  Expertise: [Domain specialization]
+  Perspective: [How it approaches problems]
+
+Responsibilities:
+  - [Task 1 with expected output]
+  - [Task 2 with expected output]
+  - [Task 3 with expected output]
+
+Limits:
+  - Does NOT [action outside scope]
+  - Does NOT [another boundary]
+  - Cannot modify [protected artifacts]
+
+Rules reference:
+  Loads: project-context.md (all sections)
+  Focus areas: [Specific sections most relevant to this Agent]
+
+Gap protocol:
+  When information is insufficient:
+  1. Stop current task.
+  2. Document: what's missing, why it's needed, severity.
+  3. Flag to Context Engineer.
+  4. Do not proceed until gap is resolved.
+```
+
+The limits section is as important as the responsibilities section. An Agent without explicit limits will helpfully step outside its role — producing work that seems useful but that nobody authorized and nobody validated.
+
+## Skill definition: the template
+
+Each Skill (Story File) follows this structure:
+
+```
+Skill: [ID] — [Short title]
+
+Objective:
+  [What must be achieved. Not how — what.]
+
+Context:
+  [Relevant extracts from PRD and Architecture Document.
+   Only what this specific Skill needs.]
+
+Acceptance criteria:
+  - [ ] [Verifiable condition 1]
+  - [ ] [Verifiable condition 2]
+  - [ ] [Verifiable condition 3]
+
+Dependencies:
+  - [Skill ID] — [What it provides that this Skill needs]
+
+Constraints:
+  - [Specific limitation for this task, beyond global Rules]
+
+Rules reference:
+  Applies: project-context.md (loaded automatically)
+  Key Rules: [Specific Rules most relevant to this Skill]
+```
+
+The difference between a good Skill and a poor one is the self-containment test: an Agent reading only this Skill and the project-context.md can complete the task without asking anything. If context from the PRD or Architecture Document is relevant, it's extracted into the Skill — not referenced with "see document X."
