@@ -43,6 +43,7 @@ static/glossary.json         ← Terminological source of truth
   - EN `slug`: relative (e.g., `the-problem-is-sacred`)
   - ES `slug`: absolute with Spanish path prefix (e.g., `/principios/el-problema-es-sagrado`)
   - Path prefix map: `principles→principios | phases→fases | commercial→modelo-comercial | planning→planificacion | resources→recursos | overview→overview | framework→framework`
+- **Locale Switcher (Rule 9)**: Every page with different EN/ES slugs MUST have a `slugMappings` entry in `createRedirects` (`docusaurus.config.ts`). Without it, the locale switcher produces 404s. This is BLOCKING.
 
 ## Sacred Terminology (NEVER translate)
 
