@@ -15,11 +15,14 @@ agents, skills, and rules to build a bilingual methodology in Docusaurus.
 │   ├── cross-reference.md
 │   ├── changelog-agent.md
 │   ├── seo-metadata.md
-│   └── glossary-sync.md
+│   ├── glossary-sync.md
+│   └── phase-builder.md
 ├── skills/                  ← Execution logic
-│   └── i18n-sync.md
+│   ├── i18n-sync.md
+│   └── build-phase.md
 └── rules/                   ← Validation dictionaries
-    └── core-rules.md
+    ├── core-rules.md
+    └── phase-content-rules.md
 
 static/glossary.json         ← Terminological source of truth
 ```
@@ -32,6 +35,7 @@ static/glossary.json         ← Terminological source of truth
 | `invocar [name]` | Mentally load the logic of a saved agent or skill |
 | `sincroniza` | Execute bilingual pipeline on current/open files |
 | `sincroniza todo` | Full parity audit across entire Docusaurus structure |
+| `construir fase [N] [name]` | Build complete phase (methodology + framework) from PDF source with human review |
 
 ## i18n Golden Rule
 
