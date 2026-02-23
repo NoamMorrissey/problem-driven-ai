@@ -113,6 +113,13 @@ const config: Config = {
             {en: '/phases/context-engineering/agents-orchestrators-and-executors', es: '/fases/context-engineering/agentes-orquestadores-y-ejecutores'},
             {en: '/phases/context-engineering/skills-concrete-tasks', es: '/fases/context-engineering/skills-tareas-concretas'},
             {en: '/phases/context-engineering/connection-to-phase-4', es: '/fases/context-engineering/conexion-con-fase-4'},
+            // Phase 4: AI Build (methodology)
+            {en: '/phases/ai-build/why-this-phase-exists', es: '/fases/ai-build/por-que-esta-fase-existe'},
+            {en: '/phases/ai-build/the-cost-inversion', es: '/fases/ai-build/la-inversion-del-coste'},
+            {en: '/phases/ai-build/what-it-is-and-isnt', es: '/fases/ai-build/que-es-y-que-no-es'},
+            {en: '/phases/ai-build/parallel-construction', es: '/fases/ai-build/construccion-paralela'},
+            {en: '/phases/ai-build/who-participates', es: '/fases/ai-build/quien-participa'},
+            {en: '/phases/ai-build/connection-to-phase-5', es: '/fases/ai-build/conexion-con-fase-5'},
             // Framework Phase 1
             {en: '/framework/phases/problem-discovery/step-by-step-process', es: '/framework/fases/problem-discovery/proceso-paso-a-paso'},
             {en: '/framework/phases/problem-discovery/problem-statement-anatomy', es: '/framework/fases/problem-discovery/anatomia-del-problem-statement'},
@@ -131,6 +138,12 @@ const config: Config = {
             {en: '/framework/phases/context-engineering/artifacts', es: '/framework/fases/context-engineering/artefactos'},
             {en: '/framework/phases/context-engineering/anti-patterns', es: '/framework/fases/context-engineering/anti-patrones'},
             {en: '/framework/phases/context-engineering/duration-and-effort', es: '/framework/fases/context-engineering/duracion-y-esfuerzo'},
+            // Framework Phase 4
+            {en: '/framework/phases/ai-build/step-by-step-process', es: '/framework/fases/ai-build/proceso-paso-a-paso'},
+            {en: '/framework/phases/ai-build/parallel-build-anatomy', es: '/framework/fases/ai-build/anatomia-de-la-construccion-paralela'},
+            {en: '/framework/phases/ai-build/artifacts', es: '/framework/fases/ai-build/artefactos'},
+            {en: '/framework/phases/ai-build/anti-patterns', es: '/framework/fases/ai-build/anti-patrones'},
+            {en: '/framework/phases/ai-build/duration-and-effort', es: '/framework/fases/ai-build/duracion-y-esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},

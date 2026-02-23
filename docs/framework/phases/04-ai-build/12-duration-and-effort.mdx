@@ -1,0 +1,69 @@
+---
+title: "Duration and effort"
+sidebar_label: "Duration"
+slug: /framework/phases/ai-build/duration-and-effort
+description: "How long the AI Build takes depending on project complexity, team structure, and construction model (sequential or parallel)."
+sidebar_position: 6
+tags: [framework, phases, ai-build, duration, effort, planning]
+---
+
+# Duration and effort
+
+The AI Build's duration depends on the solution's complexity defined in Phase 3 and the construction structure (sequential or parallel). Parallel construction doesn't necessarily reduce total duration — what it reduces is Story File execution time, at the cost of increased coordination and synchronization time.
+
+## Duration by complexity
+
+| Scenario | Duration | Construction structure | What it includes |
+|---|---|---|---|
+| **Scoped solution (Q1-2)** | 1-3 weeks | 1-2 people. Primarily sequential construction. Minimal parallelization. | 10-20 Story Files. Simple Decision Log. 1 Fidelity Review. Build Validation Report signed by 2-3 stakeholders. |
+| **Medium solution (Q2-3)** | 3-6 weeks | 3-6 people. 2-3 parallel tracks with 1-2 integration points. | 20-50 Story Files across multiple tracks. Distributed Decision Log. 2-4 integration synchronizations. Partial Fidelity Reviews. Final Review with 5-8 stakeholders. |
+| **Complex solution (Q3-4)** | 6-16 weeks | 6-15+ people. 3-6 parallel tracks with multiple integration points and cross-dependencies. | 50+ Story Files. Distributed Decision Log with impact classification. Frequent synchronizations. Active QA Agent on each Story and each integration. Possible partial returns to Phase 3. |
+
+## The Phase 3 / Phase 4 proportion rule
+
+:::tip The proportion that matters
+If Phase 4 consumes **twice or more** the time of Phase 3, the Context Document was insufficient or the parallel construction management was inadequate. Each hour of rework due to track collisions is an investment that should have been made in the dependency graph or schema synchronizations.
+
+If Phase 4 consumes **less than half** the time of Phase 3, either the project was very simple, or the team is taking shortcuts in supervision and coordination that will manifest in the Fidelity Review.
+
+**Optimal Phase 3 / Phase 4 proportion: 1:1 to 1:1.5.** If Context Engineering was exhaustive and the dependency graph was rigorous, construction — even parallel — is predictable and fluid.
+:::
+
+## Where time goes
+
+| Activity | % of time in sequential | % of time in parallel | What determines duration |
+|---|---|---|---|
+| **Setup (Step 1)** | 5-10% | 10-15% | In parallel: graph verification + collective briefing + distributed Decision Log setup. |
+| **Construction (Step 2)** | 55-65% | 40-50% | Time is reduced by parallelization but coordination overhead is added. |
+| **Gap management (Step 3)** | 10-15% | 15-25% | In parallel: cross-track gaps require more time. The escalation protocol is stricter. |
+| **Fidelity review (Step 4)** | 10-15% | 15-20% | In parallel: Block 0 (system coherence) is a significant additional step. |
+| **Closure (Step 5)** | 5-10% | 10-15% | In parallel: consolidation of Decision Logs from multiple tracks. |
+
+## Insufficient investment signals
+
+- The Decision Log has few entries — either there are no decisions (unlikely) or they're not being recorded.
+- The Fidelity Review produces surprises — stakeholders don't recognize what was built.
+- Agents make decisions that should have been Rules — systematic gaps in the context.
+- Integration between tracks fails repeatedly — the dependency graph was insufficient.
+
+## Over-investment signals
+
+- Each Story File takes longer to supervise than to execute — excessive supervision.
+- The Decision Log has trivial entries that don't require classification — bureaucratic overhead.
+- Integration synchronizations produce no findings — the Context Document was so detailed there's no possible ambiguity (may be correct, but verify if there's over-specification).
+- The Context Engineer stops tracks out of precaution without evidence of a real gap.
+
+## Team composition
+
+| Role | Dedication in sequential | Dedication in parallel |
+|---|---|---|
+| **Context Engineer** | 25-50% (supervision) | 75-100% (active coordination between tracks) |
+| **Tech Lead** | 50-75% (technical review) | 75-100% (cross-track coherence + synchronizations) |
+| **Track Dev Leads** | N/A | Full-time (execution + coordination) |
+| **Developers** | Full-time (execution) | Full-time (execution) |
+| **QA Agent** | On demand per Story File | Continuous (validation + cross-track incoherence detection) |
+| **Phase 1-2 Stakeholders** | Final Fidelity Review | Partial Reviews + Final Review |
+
+:::info Comparison with previous phases
+Phase 1 (Problem Discovery) typically takes 1-3 weeks. Phase 2 (Solution Alignment) takes 1-2 weeks. Phase 3 (Context Engineering) takes 3 days to 4 weeks. Phase 4 (AI Build) takes 1 to 16 weeks depending on complexity and construction model. The four phases of discovery, design, and construction together consume 85-95% of the project. Phase 5 (Market Iteration) is continuous and cumulative.
+:::

@@ -1,0 +1,49 @@
+---
+title: "Context Drift: this phase's specific risk"
+sidebar_label: "Context Drift"
+slug: context-drift
+description: "Context Drift is the gradual accumulation of technical decisions that, individually reasonable, silently move the built solution away from the original problem. In parallel construction, it distributes across tracks."
+sidebar_position: 6
+tags: [phases, ai-build, context-drift, risk, parallel]
+---
+
+# Context Drift: this phase's specific risk
+
+There is a specific risk in Phase 4 that doesn't exist in previous phases. It's called **Context Drift**: the gradual accumulation of technical decisions that, individually, seem reasonable, but together silently move the built solution away from the problem it was supposed to solve.
+
+In sequential construction, context drift is relatively visible — a single thread of work drifts and a reviewer can detect it. In parallel construction, it has an especially dangerous variant: **distributed context drift.**
+
+## What distributed context drift is
+
+Distributed context drift occurs when the drift doesn't concentrate in a single track but in multiple tracks evolving in slightly different directions without anyone having visibility of the whole. Each track is faithful to its own local context. The system, considered as a whole, drifts from the global context.
+
+Imagine three teams building in parallel: one develops the prediction engine, another the user interface, and another the alerting system. Each team follows their Story File faithfully. But the prediction team optimizes for accuracy (3-second response times), the interface team optimizes for speed (expects responses under 500ms), and the alerting team optimizes for volume (batch processing, not real-time). Each decision is locally reasonable. The system, once integrated, doesn't work for the user's use case.
+
+## How it's generated
+
+| Mechanism | How it occurs in parallel | Warning signal |
+|---|---|---|
+| **Rule interpretation divergence** | Two tracks interpret the same Rule slightly differently. Each interpretation is plausible. The resulting decisions are incompatible at integration. | The interface synchronization produces more questions than expected about how to interpret a specific Rule. |
+| **Asymmetric context evolution** | The Context Engineer updates a Rule in response to a gap from track A. Track B is not in scope for that gap and doesn't review its previous work against the updated Rule. | Track B's Decision Log has few entries after a global Rule update. Suspicious. |
+| **Locally coherent optimization** | Each track optimizes its component according to its own technical quality criteria. The optimizations are individually correct. Together, they produce a system not optimized for the user's use case. | In the system Fidelity Review, the complete use case has latency or friction that doesn't exist in individual components. |
+| **Implicit assumption accumulation** | Track A assumes B will produce a certain type of output. B assumes A will consume in a certain way. Neither documents it because it seems obvious. At integration, the assumptions are incompatible. | Neither track's Decision Log records the implicit assumption. It only emerges at the integration synchronization. |
+
+## Warning signals
+
+These are the five signals indicating active context drift in a team with parallel construction:
+
+1. A Dev Lead describes their track's output as "improved relative to the original Story File" without a Context Document update justifying that improvement.
+
+2. A track's Decision Log has gone more than two days without entries in an active track. Either there are no decisions — unlikely — or they're not being recorded.
+
+3. Two Dev Leads describe the expected behavior of their tracks' integration differently when asked separately.
+
+4. The Partial Fidelity Review of the combined system reveals that the sum of the tracks doesn't match the sum of its parts as envisioned in the Solution Brief.
+
+5. The QA Agent starts flagging compatibility warnings between Skills from different tracks, even though individual Skills pass their own acceptance criteria.
+
+:::tip Partial System Fidelity Review
+In parallel construction, Partial Fidelity Reviews are not done per track. They are done on the **partial integrated system.** Every time a dependency graph node completes, the Context Engineer reviews the integrated result against the Problem Statement.
+
+The question is not "Does this component meet its Story File?" The question is **"Is the integration of these components producing the system behavior the Problem Statement required?"**
+:::

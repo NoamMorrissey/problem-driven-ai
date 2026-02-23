@@ -1,0 +1,49 @@
+---
+title: "Context Drift: el riesgo específico de esta fase"
+sidebar_label: "Context Drift"
+slug: /fases/ai-build/context-drift
+description: "Context Drift es la acumulación gradual de decisiones técnicas que, individualmente razonables, alejan silenciosamente la solución del problema original. En construcción paralela, se distribuye entre tracks."
+sidebar_position: 6
+tags: [fases, ai-build, context-drift, riesgo, paralelo]
+---
+
+# Context Drift: el riesgo específico de esta fase
+
+Hay un riesgo específico de la Fase 4 que no existe en las fases anteriores. Se llama **Context Drift**: la acumulación gradual de decisiones técnicas que, individualmente, parecen razonables, pero que juntas alejan silenciosamente la solución construida del problema que debía resolver.
+
+En construcción secuencial, el context drift es relativamente visible — un solo hilo de trabajo se desvía y un revisor puede detectarlo. En construcción paralela, tiene una variante especialmente peligrosa: el **context drift distribuido.**
+
+## Qué es el context drift distribuido
+
+El context drift distribuido ocurre cuando el drift no se concentra en un solo track sino en múltiples tracks que evolucionan en direcciones ligeramente distintas sin que nadie tenga visibilidad del conjunto. Cada track es fiel a su propio contexto local. El sistema, considerado como todo, se aleja del contexto global.
+
+Imagina tres equipos construyendo en paralelo: uno desarrolla el motor de predicción, otro la interfaz de usuario, y otro el sistema de alertas. Cada equipo sigue su Story File fielmente. Pero el equipo de predicción optimiza para precisión (tiempos de respuesta de 3 segundos), el de interfaz optimiza para velocidad (espera respuestas en menos de 500ms), y el de alertas optimiza para volumen (procesa lotes, no tiempo real). Cada decisión es localmente razonable. El sistema, una vez integrado, no funciona para el caso de uso del usuario.
+
+## Cómo se genera
+
+| Mecanismo | Cómo ocurre en paralelo | Señal de alerta |
+|---|---|---|
+| **Divergencia de interpretación de Reglas** | Dos tracks interpretan la misma Regla de forma ligeramente distinta. Cada interpretación es plausible. Las decisiones resultantes son incompatibles en la integración. | La sincronización de interfaz produce más preguntas de las esperadas sobre cómo interpretar una Regla. |
+| **Evolución asimétrica del contexto** | El Context Engineer actualiza una Regla en respuesta a un gap del track A. El track B no está en scope y no revisa su trabajo anterior contra la Regla actualizada. | El Decision Log del track B tiene pocas entradas tras una actualización de Regla global. Sospechoso. |
+| **Optimización local coherente** | Cada track optimiza su componente según sus propios criterios de calidad técnica. Las optimizaciones son individualmente correctas. Juntas, no están optimizadas para el caso de uso del usuario. | En la Revisión de Fidelidad, el caso de uso completo tiene latencia o fricción que no existe en los componentes individuales. |
+| **Acumulación de asunciones implícitas** | El track A asume que B producirá cierto tipo de output. B asume que A consumirá de cierta forma. Ninguno lo documenta porque parece obvio. En la integración, las asunciones son incompatibles. | El Decision Log de ningún track registra la asunción. Emerge solo en la sincronización de integración. |
+
+## Señales de alerta
+
+Estas son las cinco señales que indican context drift activo en un equipo con construcción paralela:
+
+1. Un Dev Lead describe el output de su track como "mejorado respecto al Story File original" sin que haya habido una actualización del Context Document que justifique esa mejora.
+
+2. El Decision Log de un track lleva más de dos días sin entradas en un track activo. O bien no hay decisiones — improbable — o bien no se están registrando.
+
+3. Dos Dev Leads describen el comportamiento esperado de la integración de sus tracks de forma distinta cuando se les pregunta por separado.
+
+4. La Revisión de Fidelidad Parcial del conjunto revela que la sumatoria de los tracks no corresponde a la suma de sus partes prevista en el Solution Brief.
+
+5. El QA Agent empieza a señalar warnings de compatibilidad entre Skills de tracks distintos, aunque los Skills individuales pasen sus propios criterios de aceptación.
+
+:::tip La Revisión de Fidelidad Parcial de sistema
+En construcción paralela, las Revisiones de Fidelidad Parciales no se hacen por track. Se hacen sobre el **sistema integrado parcial.** Cada vez que un nodo del grafo de dependencias se completa, el Context Engineer revisa el resultado integrado contra el Problem Statement.
+
+La pregunta no es "¿este componente cumple su Story File?" La pregunta es **"¿la integración de estos componentes está produciendo el comportamiento de sistema que el Problem Statement requería?"**
+:::

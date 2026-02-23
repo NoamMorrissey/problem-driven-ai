@@ -32,7 +32,8 @@ Invoked via command `construir fase [N] [name]` (e.g., `construir fase 4 AI Buil
    - EN: relative slugs; ES: absolute slugs with localized prefix
    - Matching sidebar_position, localized tags
    - slugMappings entries for every page with different EN/ES slugs
-9. Present ALL methodology pages to human for review
+9. Build and serve preview: `npx docusaurus clear && npx docusaurus build && npx docusaurus serve --port 3000 &`
+10. Present ALL methodology pages to human for review (with live preview at localhost:3000)
 
 ### Stage 3: Human Review Cycle (Methodology)
 10. Human reviews content:
@@ -54,7 +55,8 @@ Invoked via command `construir fase [N] [name]` (e.g., `construir fase 4 AI Buil
     - Tables for structured information
     - Templates and checklists where applicable
 13. Apply same i18n rules as Stage 2
-14. Present ALL framework pages to human for review
+14. Rebuild and serve preview for framework pages
+15. Present ALL framework pages to human for review (with live preview at localhost:3000)
 
 ### Stage 5: Human Review Cycle (Framework)
 15. Same cycle as Stage 3: APPROVE → commit, REJECT → iterate → commit

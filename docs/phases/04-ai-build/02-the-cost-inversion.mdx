@@ -1,0 +1,54 @@
+---
+title: "The cost inversion: where the real value lies"
+sidebar_label: "Cost Inversion"
+slug: the-cost-inversion
+description: "Construction contributes only 10% of an AI project's value. The value was already captured in previous phases. Understanding this changes how Phase 4 is managed."
+sidebar_position: 2
+tags: [phases, ai-build, value, cost, speed-theater]
+---
+
+# The cost inversion: where the real value lies
+
+There's an illusion that affects every team using AI to build: the illusion that the difficulty lies in construction. That the hard work happens when the technical team sits down to implement. That previous phases are preparation, and construction is the main act.
+
+This illusion is exactly that: an illusion.
+
+## The real value distribution
+
+In a well-executed project following this methodology, the real distribution of effort and value generated is:
+
+| Phase | % of total effort | % of value generated |
+|---|---|---|
+| **Phase 1 — Problem Discovery** | 20-25% | 40% |
+| **Phase 2 — Solution Alignment** | 20-25% | 30% |
+| **Phase 3 — Context Engineering** | 25-30% | 20% |
+| **Phase 4 — AI Build** | 15-20% | 10% |
+| **Phase 5 — Market Iteration** | Continuous | Cumulative |
+
+This table makes almost everyone uncomfortable the first time they see it. **How can the construction phase contribute only 10% of the value?**
+
+The answer: the value was already captured in previous phases. The precise Problem Statement, the Solution Brief with organizational consensus, the system of Agents, Rules and Skills — **that is the value.** Construction is the way to materialize it.
+
+## What this means for management
+
+Understanding this distribution has a direct consequence: **the team should not optimize construction speed.** It should optimize the fidelity of what's built to the defined context.
+
+Imagine a team using Claude to generate an inventory prediction API. The agent produces the code in 20 minutes. It's functional, tested, deployable. But the naming convention decisions don't follow the project-context.md Rules. The endpoints don't match the contracts defined in the Architecture Document. And the business logic includes three optimizations that "made sense" but nobody had requested.
+
+The speed was impressive. The fidelity was zero. And each unrequested optimization is now Context Debt that someone will have to resolve.
+
+:::danger Anti-pattern: The Speed Trap
+**What it is:** The team has the context ready and feels the temptation to build as fast as possible. AI agents produce code at high speed. Human supervision is reduced. Features not planned in the context are generated. The result looks impressive.
+
+**How to detect it:** The Build Validation Report can't be traced to the Problem Statement. Built features don't appear in Story Files. There are technical decisions that "made sense at the time."
+
+**How to prevent it:** Construction speed is not a KPI. **Fidelity to context is the only KPI of this phase.** Well-managed parallel construction accelerates without sacrificing fidelity. Poorly managed parallel construction produces Context Debt at scale.
+:::
+
+## The efficiency paradox
+
+The paradox is that a team that invests time in supervising fidelity during construction finishes faster than one that builds without supervision. Why? Because rework is the real speed killer.
+
+An AI agent generating code for 3 hours without supervision can produce 10,000 lines. If 20% of those lines violate a project-context.md Rule, the cost of finding and correcting those violations is greater than the cost of supervising in real time.
+
+Phase 4 is not the speed phase. It's the fidelity phase. And fidelity, well managed, produces speed as a side effect.

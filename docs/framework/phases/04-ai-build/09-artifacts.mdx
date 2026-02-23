@@ -1,0 +1,98 @@
+---
+title: "Phase artifacts"
+sidebar_label: "Artifacts"
+slug: /framework/phases/ai-build/artifacts
+description: "Six artifacts that evidence faithful construction: distributed Decision Log, updated graph, synchronization minutes, Build Validation Report, Context Document, and the Iteration Brief."
+sidebar_position: 3
+tags: [framework, phases, ai-build, artifacts, decision-log, build-validation-report]
+---
+
+# Phase artifacts
+
+Phase 4 produces six artifacts. Each one fulfills a specific function in the traceability between what was built and the problem that motivated the project. In projects with parallel construction, each artifact has an additional dimension reflecting coordination between tracks.
+
+| Artifact | When created | In parallel construction, adds... |
+|---|---|---|
+| **Distributed Decision Log** | From day one. One log per track, accessible to the entire team. | Cross-impact classification on each entry. Notification system when a cross-track entry is registered. Consolidation process at phase closure. |
+| **Dependency graph (updated)** | Inherited from Phase 3. Updated when construction reveals undocumented dependencies. | It's the reference document for activating and deactivating tracks. Any modification is authorized by the Context Engineer and notifies all Dev Leads. |
+| **Integration synchronization minutes** | Every time an integration synchronization is activated. | Record of agreed interface contracts, decisions on incompatibilities, and affected tracks. Evidence of system state at each graph node. |
+| **Build Validation Report** | Upon completing the Fidelity Review. | Includes Block 0 results (system coherence) in addition to Problem Statement and Solution Brief fidelity blocks. Signed by Tech Lead and Phase 1-2 stakeholders. |
+| **Updated Context Document** | Upon completing Step 5. | project-context.md reflects all Rules that emerged from all tracks. The updated dependency graph is incorporated. Integration decisions are documented. |
+| **Iteration Brief (draft)** | Upon completing Step 5. | Consolidates open learnings from all tracks into a single list, prioritized by potential market impact. |
+
+## Creation sequence
+
+```
+Setup (Step 1)
+    │
+    ├── Distributed Decision Log ─── [continuous, from day 1]
+    │
+    ▼
+Construction (Step 2)
+    │
+    ├── Dependency graph ────────── [updated when new dependencies emerge]
+    │
+    ├── Synchronization minutes ──── [at each graph synchronization point]
+    │
+    ▼
+Fidelity Review (Step 4)
+    │
+    ├── Build Validation Report ──── [upon completing the 4 review blocks]
+    │
+    ▼
+Closure (Step 5)
+    │
+    ├── Updated Context Document
+    │
+    └── Iteration Brief (draft)
+```
+
+## Artifact 1: Distributed Decision Log
+
+The continuous record of every unforeseen decision during construction.
+
+- **Format:** Chronological log with fields: decision, Story File, track, estimated impact (local/cross-track/global), urgency, status.
+- **Purpose:** Real-time coordination between tracks and change traceability.
+- **Final consolidation:** At phase closure, logs from all tracks are merged into a single registry where cross-track and global decisions are consolidated into entries reflecting the systemic resolution.
+- **Valid final states:** Resolved (global Rule), Resolved (local), Resolved (integration coherence), Open (pending Phase 5).
+
+## Artifact 2: Updated dependency graph
+
+The map of relationships between Story Files that determines what can be built in parallel.
+
+- **Format:** Directed graph with nodes (Story Files) and edges (dependencies).
+- **Inherited from:** Phase 3 (SM Agent). Verified by all Dev Leads during setup.
+- **Updates:** When construction reveals undocumented implicit dependencies. Each update is authorized by the Context Engineer.
+
+## Artifact 3: Integration synchronization minutes
+
+Formal record of each synchronization session between tracks.
+
+- **Format:** Minutes with: date, tracks involved, agreed interface contracts, decisions on incompatibilities, track(s) that must adjust their output.
+- **Purpose:** Evidence of system state at each dependency graph point.
+
+## Artifact 4: Build Validation Report
+
+The document certifying that what was built is faithful to the defined problem and solution.
+
+- **Format:** Document with results from the 4 Fidelity Review blocks.
+- **Signatories:** Tech Lead (Block 0), Phase 1 stakeholders (Block 1), Phase 2 stakeholders (Block 2), Context Engineer (Block 3).
+- **Pass condition:** All four blocks must be approved. Block 0 is a prerequisite for blocks 1 and 2.
+
+## Artifact 5: Updated Context Document
+
+The project-context.md traveling to Phase 5.
+
+- **Contents:** All original Rules + all Rules that emerged from construction. Updated dependency graph. Documented integration decisions.
+- **Difference from Phase 3 version:** Reflects what was actually built, not what was planned to be built.
+
+## Artifact 6: Iteration Brief (draft)
+
+The open learnings that Phase 5 will put to the test with the market.
+
+- **Format:** Prioritized list of hypotheses to validate, decisions pending market data, and active Problem Statement assumptions that construction could neither confirm nor refute.
+- **In parallel:** Consolidates learnings from all tracks, not just the most active one.
+
+:::tip The complete traceability chain
+**Problem Statement → Solution Brief → PRD → Story Files → Built code → Build Validation Report.** If a line of code cannot be traced back to the Problem Statement, it's Context Debt. The Decision Log is the registry that makes this traceability verifiable across all tracks.
+:::
