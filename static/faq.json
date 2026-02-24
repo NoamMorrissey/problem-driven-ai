@@ -1,0 +1,316 @@
+{
+  "faqs": [
+    {
+      "id": "G1",
+      "question_en": "What is Problem-Driven AI and how is it different from other AI methodologies?",
+      "question_es": "¿Qué es Problem-Driven AI y en qué se diferencia de otras metodologías de IA?",
+      "answer_en": "Problem-Driven AI is a 5-phase methodology that puts problem understanding before building. While most AI approaches focus on models and prompts, PDAI focuses on understanding the problem deeply, achieving organizational consensus, and designing precise context before any code is written. The thinking is the product, not the build.",
+      "answer_es": "Problem-Driven AI es una metodología de 5 fases que antepone la comprensión del problema a la construcción. Mientras la mayoría de enfoques de IA se centran en modelos y prompts, PDAI se centra en entender el problema en profundidad, lograr consenso organizacional y diseñar un contexto preciso antes de escribir una sola línea de código. El pensamiento es el producto, no la construcción.",
+      "category": "General"
+    },
+    {
+      "id": "G2",
+      "question_en": "Why does the methodology say 'the problem is sacred'?",
+      "question_es": "¿Por qué la metodología dice que 'el problema es sagrado'?",
+      "answer_en": "Because a misunderstood problem contaminates everything downstream. AI amplifies errors — a poorly defined problem fed into AI produces a perfectly built incorrect answer at scale. You must earn your understanding through genuine Discovery: listening, asking uncomfortable questions, and validating.",
+      "answer_es": "Porque un problema mal comprendido contamina todo lo que viene después. La IA amplifica los errores: un problema mal definido introducido en la IA produce una respuesta incorrecta construida a la perfección, a escala. La comprensión debe ganarse mediante una Discovery genuina: escuchar, hacer preguntas incómodas y validar.",
+      "category": "General"
+    },
+    {
+      "id": "G3",
+      "question_en": "What is Context Engineering and why is it the highest-leverage skill of the AI era?",
+      "question_es": "¿Qué es Context Engineering y por qué es la habilidad de mayor apalancamiento de la era de la IA?",
+      "answer_en": "Context Engineering is the discipline of designing what information an AI receives, how it's structured, and what's deliberately excluded. It's not prompt writing — it's information architecture. The quality of any AI output is determined by context quality, not model power. Better context beats a better model every time.",
+      "answer_es": "Context Engineering es la disciplina de diseñar qué información recibe una IA, cómo está estructurada y qué se excluye deliberadamente. No es redacción de prompts: es arquitectura de información. La calidad de cualquier output de IA está determinada por la calidad del contexto, no por la potencia del modelo. Un mejor contexto supera a un mejor modelo en todo momento.",
+      "category": "General"
+    },
+    {
+      "id": "G4",
+      "question_en": "Does Problem-Driven AI slow down projects?",
+      "question_es": "¿Problem-Driven AI ralentiza los proyectos?",
+      "answer_en": "No. It redirects effort to where it matters. Speed without direction is accelerated entropy. The methodology front-loads thinking so construction becomes predictable and fast. Teams that invest in Discovery and Context Engineering build less but ship the right thing — speed is a reward the system grants when prior phases are done well.",
+      "answer_es": "No. Redirige el esfuerzo hacia donde importa. La velocidad sin dirección es entropía acelerada. La metodología concentra el pensamiento al inicio para que la construcción sea predecible y rápida. Los equipos que invierten en Discovery y Context Engineering construyen menos pero entregan lo correcto: la velocidad es una recompensa que el sistema otorga cuando las fases previas se ejecutan bien.",
+      "category": "General"
+    },
+    {
+      "id": "G5",
+      "question_en": "What is Context Debt and why should my team worry about it?",
+      "question_es": "¿Qué es Context Debt y por qué debería preocuparle a mi equipo?",
+      "answer_en": "Context Debt is the AI equivalent of technical debt. It accumulates when context isn't updated as the project evolves. Outdated context produces outputs that seem correct but are based on obsolete premises. Like technical debt, it's invisible at first and paralyzing at the end.",
+      "answer_es": "Context Debt es el equivalente en IA de la deuda técnica. Se acumula cuando el contexto no se actualiza a medida que el proyecto evoluciona. Un contexto desactualizado produce outputs que parecen correctos pero están basados en premisas obsoletas. Como la deuda técnica, es invisible al principio y paralizante al final.",
+      "category": "General"
+    },
+    {
+      "id": "G6",
+      "question_en": "Who is this methodology for? Do I need to be technical to use it?",
+      "question_es": "¿Para quién es esta metodología? ¿Necesito ser técnico para usarla?",
+      "answer_en": "Problem-Driven AI is for anyone involved in building AI-powered products: product managers, designers, strategists, business stakeholders, and developers. Phases 1 and 2 are entirely non-technical. Phase 3 requires information architecture thinking, not coding. Only Phase 4 involves technical implementation.",
+      "answer_es": "Problem-Driven AI es para cualquier persona involucrada en la construcción de productos con IA: product managers, diseñadores, estrategas, responsables de negocio y desarrolladores. Las fases 1 y 2 son completamente no técnicas. La fase 3 requiere pensamiento de arquitectura de información, no código. Solo la fase 4 implica implementación técnica.",
+      "category": "General"
+    },
+    {
+      "id": "G7",
+      "question_en": "What is Build-First Bias and how do I recognize it in my team?",
+      "question_es": "¿Qué es Build-First Bias y cómo lo reconozco en mi equipo?",
+      "answer_en": "Build-First Bias is the pattern of jumping to implementation because 'we already know what needs to be done.' You recognize it when building speed becomes the primary success metric, when the team celebrates shipping without validating the problem, or when someone says 'let's just build a quick prototype' before the problem is understood.",
+      "answer_es": "Build-First Bias es el patrón de saltar a la implementación porque 'ya sabemos lo que hay que hacer'. Se reconoce cuando la velocidad de construcción se convierte en la métrica principal de éxito, cuando el equipo celebra el lanzamiento sin haber validado el problema, o cuando alguien dice 'hagamos un prototipo rápido' antes de entender el problema.",
+      "category": "General"
+    },
+    {
+      "id": "G8",
+      "question_en": "Can I combine Problem-Driven AI with Agile, Scrum, or Design Thinking?",
+      "question_es": "¿Puedo combinar Problem-Driven AI con Agile, Scrum o Design Thinking?",
+      "answer_en": "Yes. Problem-Driven AI is complementary, not competing. Design Thinking maps naturally to Phases 1-2. Agile ceremonies work within Phases 4-5. The methodology adds what most frameworks lack: a structured bridge between problem understanding and AI-specific execution through Context Engineering.",
+      "answer_es": "Sí. Problem-Driven AI es complementaria, no competidora. Design Thinking encaja de forma natural con las fases 1-2. Las ceremonias de Agile funcionan dentro de las fases 4-5. La metodología aporta lo que la mayoría de frameworks no tienen: un puente estructurado entre la comprensión del problema y la ejecución específica para IA mediante Context Engineering.",
+      "category": "General"
+    },
+    {
+      "id": "P1.1",
+      "question_en": "What is a Problem Statement and what makes a good one?",
+      "question_es": "¿Qué es un Problem Statement y qué lo hace bueno?",
+      "answer_en": "A Problem Statement is a formal declaration of the real problem, maximum half a page. A good one contains seven elements: the gap between current and desired state, who owns it, success criteria, known constraints, affected actors, temporal context, and the cost of not solving it. If it reads like the hypothesis you started with, the Discovery didn't work.",
+      "answer_es": "Un Problem Statement es una declaración formal del problema real, de máximo media página. Uno bueno contiene siete elementos: la brecha entre el estado actual y el deseado, quién es su propietario, los criterios de éxito, las restricciones conocidas, los actores afectados, el contexto temporal y el coste de no resolverlo. Si suena como la hipótesis con la que empezaste, la Discovery no funcionó.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P1.2",
+      "question_en": "How many interviews do I need for a solid Discovery?",
+      "question_es": "¿Cuántas entrevistas necesito para una Discovery sólida?",
+      "answer_en": "A minimum of 5 in-depth interviews with people who live the problem daily, across diverse roles. But quantity alone isn't enough — you need the Actor Map first: who lives it, who decides, who failed before, who benefits from it not being solved. Interview the full ecosystem, not just the obvious stakeholders.",
+      "answer_es": "Un mínimo de 5 entrevistas en profundidad con personas que viven el problema a diario, en roles diversos. Pero la cantidad sola no es suficiente: primero necesitas el Actor Map: quién lo vive, quién decide, quién fracasó antes, quién se beneficia de que no se resuelva. Entrevista al ecosistema completo, no solo a los stakeholders evidentes.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P1.3",
+      "question_en": "What is 'The Solution Trap' and how do I avoid it?",
+      "question_es": "¿Qué es 'La Trampa de la Solución' y cómo la evito?",
+      "answer_en": "The Solution Trap is when your brain generates a solution before the problem is fully understood. Once a solution hypothesis forms, confirmation bias activates and you filter all evidence through it. The antidote: write your starting hypothesis explicitly, then deliberately seek evidence that contradicts it.",
+      "answer_es": "La Trampa de la Solución ocurre cuando tu mente genera una solución antes de que el problema esté completamente comprendido. Una vez que se forma una hipótesis de solución, el sesgo de confirmación se activa y filtra toda la evidencia a través de ella. El antídoto: escribe tu hipótesis inicial de forma explícita y luego busca deliberadamente evidencia que la contradiga.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P1.4",
+      "question_en": "The client already told us what they need. Can I skip Discovery?",
+      "question_es": "El cliente ya nos dijo lo que necesita. ¿Puedo saltarme la Discovery?",
+      "answer_en": "No. When a client says 'I need an app,' they're describing a symptom, not the problem. Clients are experts in their pain, not in your discipline. Skipping Discovery means accepting the 'Inherited Problem Statement' anti-pattern — building exactly what was requested without questioning whether it solves the real problem.",
+      "answer_es": "No. Cuando un cliente dice 'necesito una app', está describiendo un síntoma, no el problema. Los clientes son expertos en su dolor, no en tu disciplina. Saltarse la Discovery significa aceptar el antipatrón del 'Problem Statement Heredado': construir exactamente lo que se pidió sin cuestionar si resuelve el problema real.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P1.5",
+      "question_en": "How do I know when Problem Discovery is complete?",
+      "question_es": "¿Cómo sé cuándo la Discovery del problema está completa?",
+      "answer_en": "When the Problem Statement has been validated directly with users who live the problem — not just the team or the sponsor. The Exit Criteria require explicit agreement within the team on the formulation, validated by the people who experience the problem daily. No validation with real users means Discovery is not complete.",
+      "answer_es": "Cuando el Problem Statement ha sido validado directamente con los usuarios que viven el problema, no solo con el equipo o el patrocinador. Los Exit Criteria exigen acuerdo explícito dentro del equipo sobre la formulación, validada por las personas que experimentan el problema a diario. Sin validación con usuarios reales, la Discovery no está completa.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P1.6",
+      "question_en": "What artifacts does Phase 1 produce and which travel to Phase 2?",
+      "question_es": "¿Qué artefactos produce la Fase 1 y cuáles pasan a la Fase 2?",
+      "answer_en": "Phase 1 produces four artifacts: the Actor Map, Interview Guide, Synthesis Board, and Problem Statement. All four travel together to Phase 2. The success criteria defined in the Problem Statement become the evaluation criteria for solutions — the problem defines what success looks like, not the solution.",
+      "answer_es": "La Fase 1 produce cuatro artefactos: el Actor Map, la Guía de Entrevistas, el Synthesis Board y el Problem Statement. Los cuatro viajan juntos a la Fase 2. Los criterios de éxito definidos en el Problem Statement se convierten en los criterios de evaluación de las soluciones: el problema define cómo se ve el éxito, no la solución.",
+      "category": "Phase 1"
+    },
+    {
+      "id": "P2.1",
+      "question_en": "What is organizational consensus and why isn't a director's 'go ahead' enough?",
+      "question_es": "¿Qué es el consenso organizacional y por qué no basta con el 'adelante' de un director?",
+      "answer_en": "Consensus is not permission, not silence, and not a majority vote — it's a technical prerequisite: internal ambiguity becomes ambiguity in AI output. A director saying 'go ahead' without understanding the solution is granting permission, not consensus. If someone can block the solution after it's built, they must participate in alignment before it's built.",
+      "answer_es": "El consenso no es permiso, ni silencio, ni votación mayoritaria: es un prerrequisito técnico. La ambigüedad interna se convierte en ambigüedad en el output de la IA. Un director que dice 'adelante' sin entender la solución está dando permiso, no consenso. Si alguien puede bloquear la solución después de construirla, debe participar en el alineamiento antes de construirla.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P2.2",
+      "question_en": "What are the four dimensions of an AI solution?",
+      "question_es": "¿Cuáles son las cuatro dimensiones de una solución de IA?",
+      "answer_en": "Every AI solution must be evaluated across four dimensions: Business (economic viability, ROI), Model (type of AI needed — not everything requires an LLM), Architecture (deployment, integration, latency), and Data (quality, accessibility, strategy). A solution that is brilliant in one dimension but unviable in another is not a solution.",
+      "answer_es": "Toda solución de IA debe evaluarse en cuatro dimensiones: Negocio (viabilidad económica, ROI), Modelo (tipo de IA necesaria, no todo requiere un LLM), Arquitectura (despliegue, integración, latencia) y Datos (calidad, accesibilidad, estrategia). Una solución brillante en una dimensión pero inviable en otra no es una solución.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P2.3",
+      "question_en": "What is the Translatability Map and why does it matter?",
+      "question_es": "¿Qué es el Mapa de Traducibilidad y por qué importa?",
+      "answer_en": "The Translatability Map evaluates how precisely a solution can be translated into context for AI. 'Improve the experience' is not translatable. 'Reduce response time from 48h to 4h' is. This step bridges solution design and Context Engineering, catching vague requirements before they become vague context.",
+      "answer_es": "El Mapa de Traducibilidad evalúa con qué precisión una solución puede traducirse en contexto para la IA. 'Mejorar la experiencia' no es traducible. 'Reducir el tiempo de respuesta de 48h a 4h' sí lo es. Este paso conecta el diseño de la solución con Context Engineering, detectando requisitos vagos antes de que se conviertan en contexto vago.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P2.4",
+      "question_en": "What is the Solution Brief and what goes into it?",
+      "question_es": "¿Qué es el Solution Brief y qué contiene?",
+      "answer_en": "The Solution Brief is Phase 2's most important artifact. It contains: the problem it solves, the proposed solution, key decisions with justifications, the four-dimension decomposition, active assumptions, success criteria, constraints, and the Translatability Map. It becomes the entry document for Context Engineering.",
+      "answer_es": "El Solution Brief es el artefacto más importante de la Fase 2. Contiene: el problema que resuelve, la solución propuesta, las decisiones clave con sus justificaciones, la descomposición en cuatro dimensiones, los supuestos activos, los criterios de éxito, las restricciones y el Mapa de Traducibilidad. Se convierte en el documento de entrada para Context Engineering.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P2.5",
+      "question_en": "Who should participate in Solution Alignment?",
+      "question_es": "¿Quién debe participar en el Solution Alignment?",
+      "answer_en": "Everyone who can block the solution after it's built: product team, business stakeholders, technical leads, design and UX, operations, and selected clients. Directors excluded from Phase 1 re-enter here — their organizational perspective is now valuable. The rule is simple: if they can block it later, include them now.",
+      "answer_es": "Todos los que pueden bloquear la solución después de construirla: equipo de producto, stakeholders de negocio, líderes técnicos, diseño y UX, operaciones y clientes seleccionados. Los directores excluidos de la Fase 1 vuelven a entrar aquí: su perspectiva organizacional ahora es valiosa. La regla es simple: si pueden bloquearlo después, inclúyelos ahora.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P2.6",
+      "question_en": "How do I avoid turning Solution Alignment into a political negotiation?",
+      "question_es": "¿Cómo evito que el Solution Alignment se convierta en una negociación política?",
+      "answer_en": "Political negotiation dilutes solutions so everyone is 'happy' instead of precise. The antidote is evidence-based evaluation: the Decision Matrix scores candidates against weighted criteria derived from the Problem Statement. Solutions are evaluated against the problem, not against stakeholder preferences.",
+      "answer_es": "La negociación política diluye las soluciones para que todos estén 'contentos' en lugar de ser precisas. El antídoto es la evaluación basada en evidencia: la Matriz de Decisión puntúa los candidatos contra criterios ponderados derivados del Problem Statement. Las soluciones se evalúan contra el problema, no contra las preferencias de los stakeholders.",
+      "category": "Phase 2"
+    },
+    {
+      "id": "P3.1",
+      "question_en": "What are Rules, Agents, and Skills — the core tripod?",
+      "question_es": "¿Qué son las Reglas, los Agentes y los Skills, el trípode central?",
+      "answer_en": "Rules are global norms that apply to the entire project — the constitution no Agent can contradict. Agents are specialized AI profiles with defined roles, responsibilities, and limits. Skills (Story Files) are self-contained work units with all the context an Agent needs to operate. The three are interdependent: remove one and the system fails.",
+      "answer_es": "Las Reglas son normas globales que aplican a todo el proyecto: la constitución que ningún Agente puede contradecir. Los Agentes son perfiles de IA especializados con roles, responsabilidades y límites definidos. Los Skills (Story Files) son unidades de trabajo autocontenidas con todo el contexto que un Agente necesita para operar. Los tres son interdependientes: elimina uno y el sistema falla.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.2",
+      "question_en": "What is the difference between a prompt and context?",
+      "question_es": "¿Cuál es la diferencia entre un prompt y el contexto?",
+      "answer_en": "A prompt is a point-in-time instruction. Context is an information architecture. A project that relies only on prompts produces outputs that are individually correct but collectively incoherent — each interaction makes locally optimal decisions that are globally contradictory. That is not AI's failure; it is a failure of context design.",
+      "answer_es": "Un prompt es una instrucción puntual. El contexto es una arquitectura de información. Un proyecto que solo usa prompts produce outputs individualmente correctos pero colectivamente incoherentes: cada interacción toma decisiones localmente óptimas que son globalmente contradictorias. Eso no es un fallo de la IA; es un fallo de diseño de contexto.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.3",
+      "question_en": "What is the Gap Protocol and why is it critical?",
+      "question_es": "¿Qué es el Gap Protocol y por qué es crítico?",
+      "answer_en": "The Gap Protocol is the most important Rule in any project: when an Agent detects insufficient information in a Skill, it must FLAG the gap — never fill it. Without this Rule, an Agent facing missing information will invent answers with total confidence. The Gap Protocol turns silent failures into visible signals.",
+      "answer_es": "El Gap Protocol es la Regla más importante de cualquier proyecto: cuando un Agente detecta información insuficiente en un Skill, debe SEÑALAR el vacío, nunca rellenarlo. Sin esta Regla, un Agente con información incompleta inventará respuestas con total confianza. El Gap Protocol convierte los fallos silenciosos en señales visibles.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.4",
+      "question_en": "What does a Context Engineer actually do?",
+      "question_es": "¿Qué hace exactamente un Context Engineer?",
+      "answer_en": "A Context Engineer designs across three dimensions simultaneously: which Agents exist and how they interact, what Rules are non-negotiable, and how the solution decomposes into self-contained Skills. The central paradox: the best Context Engineer is not the one who knows most about AI — it is the one who best understands what the AI does not know.",
+      "answer_es": "Un Context Engineer diseña en tres dimensiones simultáneamente: qué Agentes existen y cómo interactúan, qué Reglas son innegociables, y cómo se descompone la solución en Skills autocontenidos. La paradoja central: el mejor Context Engineer no es quien más sabe sobre IA, sino quien mejor entiende lo que la IA no sabe.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.5",
+      "question_en": "How detailed should my Rules be? What are the five precision levels?",
+      "question_es": "¿Qué tan detalladas deben ser mis Reglas? ¿Cuáles son los cinco niveles de precisión?",
+      "answer_en": "Rules range across five levels: Level 5 (Prescriptive — absolute, no exceptions), Level 4 (Specific — every Skill in scope must comply), Level 3 (Directed — Agents follow direction, Skills adapt), Level 2 (Orientative — preference, not mandate), and Level 1 (Delegated — Agent decides). Over-specifying is as dangerous as under-specifying.",
+      "answer_es": "Las Reglas se distribuyen en cinco niveles: Nivel 5 (Prescriptivo, absoluto, sin excepciones), Nivel 4 (Específico, todo Skill en este ámbito debe cumplirlo), Nivel 3 (Dirigido, los Agentes siguen la dirección, los Skills se adaptan), Nivel 2 (Orientativo, preferencia, no mandato) y Nivel 1 (Delegado, el Agente decide). Sobre-especificar es tan peligroso como sub-especificar.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.6",
+      "question_en": "What is a Story File and how do I know if it's self-contained?",
+      "question_es": "¿Qué es un Story File y cómo sé si es autocontenido?",
+      "answer_en": "A Story File is a Skill — a complete work unit containing an objective, specific context, acceptance criteria, dependencies, and constraints. The self-containment test: can an Agent complete this task by reading only the Story File and the project context document, without asking anything else? If not, context is missing.",
+      "answer_es": "Un Story File es un Skill: una unidad de trabajo completa que contiene objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. El test de autocontención: ¿puede un Agente completar esta tarea leyendo solo el Story File y el documento de contexto del proyecto, sin preguntar nada más? Si no puede, falta contexto.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P3.7",
+      "question_en": "What is the descending fidelity chain?",
+      "question_es": "¿Qué es la cadena de fidelidad descendente?",
+      "answer_en": "It is the chain: Solution Brief → PM Agent → PRD → Architect Agent → Architecture Document → SM Agent → Story Files. Each Agent transforms the previous output without contradicting it, enriching without inventing. When the final Skills remain faithful to the original Problem Statement, the chain worked.",
+      "answer_es": "Es la cadena: Solution Brief → PM Agent → PRD → Architect Agent → Documento de Arquitectura → SM Agent → Story Files. Cada Agente transforma el output anterior sin contradecirlo, enriqueciendo sin inventar. Cuando los Skills finales son fieles al Problem Statement original, la cadena funcionó.",
+      "category": "Phase 3"
+    },
+    {
+      "id": "P4.1",
+      "question_en": "Why does the methodology say construction only contributes 10% of value?",
+      "question_es": "¿Por qué la metodología dice que la construcción solo aporta el 10% del valor?",
+      "answer_en": "Because the value was already captured in Phases 1-3. The precise Problem Statement (40% of value), the Solution Brief with consensus (30%), and the tripod of Agents, Rules, and Skills (20%) — that IS the value. Construction is the way to materialize it. When context is precise, building becomes predictable translation, not creative exploration.",
+      "answer_es": "Porque el valor ya fue capturado en las Fases 1-3. El Problem Statement preciso (40% del valor), el Solution Brief con consenso (30%) y el trípode de Agentes, Reglas y Skills (20%), ESO es el valor. La construcción es la forma de materializarlo. Cuando el contexto es preciso, construir se convierte en traducción predecible, no en exploración creativa.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P4.2",
+      "question_en": "What is Context Drift and what are the warning signals?",
+      "question_es": "¿Qué es Context Drift y cuáles son las señales de advertencia?",
+      "answer_en": "Context Drift is the gradual accumulation of technical decisions that individually seem reasonable but together silently move the solution away from the original problem. Warning signals: a Dev Lead describes their work as 'improved relative to the Story File' without documentation, the Decision Log has gaps, or two Dev Leads describe expected integration behavior differently.",
+      "answer_es": "Context Drift es la acumulación gradual de decisiones técnicas que individualmente parecen razonables pero que en conjunto alejan silenciosamente la solución del problema original. Señales de advertencia: un Dev Lead describe su trabajo como 'mejorado respecto al Story File' sin documentación, el Decision Log tiene huecos, o dos Dev Leads describen de forma distinta el comportamiento de integración esperado.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P4.3",
+      "question_en": "What is Speed Theater?",
+      "question_es": "¿Qué es Speed Theater?",
+      "answer_en": "Speed Theater is using AI generation speed as a productivity metric. Generating 10 versions in an hour seems productive, but if none solve the real problem, it is theater. The temptation intensifies in Phase 4 because AI agents produce code fast — supervision drops, unrequested features accumulate, and fidelity to context drops to zero.",
+      "answer_es": "Speed Theater es usar la velocidad de generación de IA como métrica de productividad. Generar 10 versiones en una hora parece productivo, pero si ninguna resuelve el problema real, es teatro. La tentación se intensifica en la Fase 4 porque los agentes de IA producen código rápido: la supervisión cae, las funcionalidades no solicitadas se acumulan y la fidelidad al contexto llega a cero.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P4.4",
+      "question_en": "How does parallel construction work with AI agents?",
+      "question_es": "¿Cómo funciona la construcción paralela con agentes de IA?",
+      "answer_en": "Two Story Files can be built in parallel if and only if neither depends on the other's output. The dependency graph — not people availability — is the enabling condition. Parallel tracks require a Distributed Decision Log with real-time visibility and cross-track alerts; schema sync, interface sync, and integration sync points prevent distributed Context Drift.",
+      "answer_es": "Dos Story Files pueden construirse en paralelo si y solo si ninguno depende del output del otro. El grafo de dependencias, no la disponibilidad de personas, es la condición habilitante. Los tracks paralelos requieren un Decision Log distribuido con visibilidad en tiempo real y alertas cruzadas; los puntos de sincronización de esquema, interfaz e integración previenen el Context Drift distribuido.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P4.5",
+      "question_en": "What roles exist during the build phase and who can stop a track?",
+      "question_es": "¿Qué roles existen durante la fase de construcción y quién puede detener un track?",
+      "answer_en": "Five functional levels: the Context Engineer (total authority over Rules, can stop any track), Tech Lead (can pause tracks), Track Dev Leads (local decisions only), Developers (within the active Story File only), and QA Agent (can block a Story File). The hierarchy is functional, not bureaucratic — it protects context fidelity.",
+      "answer_es": "Cinco niveles funcionales: el Context Engineer (autoridad total sobre las Reglas, puede detener cualquier track), el Tech Lead (puede pausar tracks), los Track Dev Leads (solo decisiones locales), los Developers (solo dentro del Story File activo) y el QA Agent (puede bloquear un Story File). La jerarquía es funcional, no burocrática: protege la fidelidad al contexto.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P4.6",
+      "question_en": "If Phase 4 is difficult, what does that really mean?",
+      "question_es": "Si la Fase 4 es difícil, ¿qué significa realmente?",
+      "answer_en": "It means the problem is not in Phase 4. A precise Context Document makes construction predictable. Difficulty during build is a sign of Context Debt accumulated in earlier phases: an ambiguous Problem Statement, a Solution Brief without real consensus, or incomplete Rules. The fix is returning to the phase where the debt originated.",
+      "answer_es": "Significa que el problema no está en la Fase 4. Un Context Document preciso hace que la construcción sea predecible. La dificultad durante el build es una señal de Context Debt acumulado en fases anteriores: un Problem Statement ambiguo, un Solution Brief sin consenso real o Reglas incompletas. La solución es regresar a la fase donde se originó la deuda.",
+      "category": "Phase 4"
+    },
+    {
+      "id": "P5.1",
+      "question_en": "When does Phase 5 end?",
+      "question_es": "¿Cuándo termina la Fase 5?",
+      "answer_en": "It doesn't. Phase 5 is the permanent regime in which the product and its Context Document live. What varies is the intensity of intervention, not the continuity of observation. As context matures, the system requires less human intervention — but observation and signal processing never stop.",
+      "answer_es": "No termina. La Fase 5 es el régimen permanente en el que viven el producto y su Context Document. Lo que varía es la intensidad de la intervención, no la continuidad de la observación. A medida que el contexto madura, el sistema requiere menos intervención humana, pero la observación y el procesamiento de señales nunca se detienen.",
+      "category": "Phase 5"
+    },
+    {
+      "id": "P5.2",
+      "question_en": "What is the difference between iterating and repeating?",
+      "question_es": "¿Cuál es la diferencia entre iterar y repetir?",
+      "answer_en": "Each iteration must incorporate new information. If you return to the same point without learning something new, you are going in circles. The difference is documented learning: an Iteration Brief that captures what changed, what was validated, and what assumption was invalidated. Shipping features every two weeks without updating the Context Document is repetition, not iteration.",
+      "answer_es": "Cada iteración debe incorporar información nueva. Si regresas al mismo punto sin haber aprendido algo nuevo, estás dando vueltas en círculos. La diferencia es el aprendizaje documentado: un Iteration Brief que capture qué cambió, qué se validó y qué suposición quedó invalidada. Lanzar funcionalidades cada dos semanas sin actualizar el Context Document es repetición, no iteración.",
+      "category": "Phase 5"
+    },
+    {
+      "id": "P5.3",
+      "question_en": "How do market signals update the Context Document?",
+      "question_es": "¿Cómo actualizan las señales de mercado el Context Document?",
+      "answer_en": "Through a causal chain that must never be skipped: market signal → Context Document update → build decision → code. When a team jumps from signal to code without updating context, they iterate without learning. Each signal is traced through: observed behavior, the unmet need behind it, and the specific Context Document element that must change.",
+      "answer_es": "A través de una cadena causal que nunca debe saltarse: señal de mercado → actualización del Context Document → decisión de build → código. Cuando un equipo salta de la señal al código sin actualizar el contexto, itera sin aprender. Cada señal se traza a través de: comportamiento observado, la necesidad no cubierta detrás de él y el elemento específico del Context Document que debe cambiar.",
+      "category": "Phase 5"
+    },
+    {
+      "id": "P5.4",
+      "question_en": "What are the four levels of progressive automation?",
+      "question_es": "¿Cuáles son los cuatro niveles de automatización progresiva?",
+      "answer_en": "Level 1 (Instrumented): event capture and KPI dashboards at launch. Level 2 (Assisted): AI processes the Signal Log and classifies signals. Level 3 (Collaborative): AI drafts Context Document updates, humans review. Level 4 (Learning system): AI detects, classifies, and applies minor Rule changes automatically. Each level requires the precision built by the previous one.",
+      "answer_es": "Nivel 1 (Instrumentado): captura de eventos y dashboards de KPIs en el lanzamiento. Nivel 2 (Asistido): la IA procesa el Signal Log y clasifica señales. Nivel 3 (Colaborativo): la IA redacta borradores de actualizaciones del Context Document, los humanos revisan. Nivel 4 (Sistema de aprendizaje): la IA detecta, clasifica y aplica cambios menores de Reglas de forma automática. Cada nivel requiere la precisión construida por el anterior.",
+      "category": "Phase 5"
+    },
+    {
+      "id": "P5.5",
+      "question_en": "How often should we review the Problem Statement?",
+      "question_es": "¿Con qué frecuencia debemos revisar el Problem Statement?",
+      "answer_en": "At least quarterly. Problems evolve — a solution that solved the right problem twelve months ago may be solving an irrelevant problem today. The mandatory question is: 'Is the Problem Statement we wrote still the most accurate description of the problem these users need us to solve?' Two monthly conversations with real users provide the answer.",
+      "answer_es": "Al menos trimestralmente. Los problemas evolucionan: una solución que resolvió el problema correcto hace doce meses puede estar resolviendo hoy un problema irrelevante. La pregunta obligatoria es: '¿El Problem Statement que escribimos sigue siendo la descripción más precisa del problema que estos usuarios necesitan que resolvamos?' Dos conversaciones mensuales con usuarios reales proporcionan la respuesta.",
+      "category": "Phase 5"
+    },
+    {
+      "id": "P5.6",
+      "question_en": "What is cosmetic iteration and how do I detect it?",
+      "question_es": "¿Qué es la iteración cosmética y cómo la detecto?",
+      "answer_en": "Cosmetic iteration is always iterating at the implementation layer without ever returning to Phase 1 or 2, despite signals that justify it. You detect it when: all Iteration Briefs propose only code-level changes, the Problem Statement hasn't been reviewed in months, and the team treats market signals as feature requests instead of learning opportunities.",
+      "answer_es": "La iteración cosmética es iterar siempre en la capa de implementación sin regresar nunca a la Fase 1 o 2, a pesar de que las señales lo justifican. La detectas cuando: todos los Iteration Briefs proponen solo cambios a nivel de código, el Problem Statement no se ha revisado en meses y el equipo trata las señales de mercado como solicitudes de funcionalidades en lugar de oportunidades de aprendizaje.",
+      "category": "Phase 5"
+    }
+  ]
+}
