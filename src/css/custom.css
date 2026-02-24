@@ -138,6 +138,25 @@ h4, h5, h6 {
 
 /* ---------- 4. SIDEBAR ---------- */
 
+/* Sidebar logo: show only the icon when navbar hides on scroll.
+   The Logo component gets class sidebarLogo_xxx directly on <a>.
+   Constrain the <a> container and let the image overflow hidden. */
+[class*='sidebarLogo'] {
+  overflow: hidden !important;
+  max-width: fit-content;
+}
+
+[class*='sidebarLogo'] .navbar__logo {
+  width: 30px;
+  overflow: hidden;
+}
+
+[class*='sidebarLogo'] img {
+  height: 30px !important;
+  width: auto !important;
+  top: 0 !important;
+}
+
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--pdai-border-color);
 }
