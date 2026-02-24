@@ -57,7 +57,7 @@ They complement `core-rules.md`.
   4. Artifacts (sidebar_position: 3)
   5. Gate Review (sidebar_position: 4)
   6. Anti-patterns (sidebar_position: 5)
-  7. Duration (sidebar_position: 6)
+  7. Effort (sidebar_position: 6)
 - **Sidebar labels MUST match** existing phases exactly (EN and ES)
 - **Violation**: BLOCK if any of the 6 pages is missing.
 

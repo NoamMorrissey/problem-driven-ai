@@ -31,7 +31,7 @@ El resultado: **deuda de contexto.** Skills que producen outputs correctos aisla
 
 ## La jerarquía: Reglas > Skills
 
-Cada Skill opera dentro del espacio definido por las Reglas. La relación es jerárquica e innegociable: si las Reglas dicen "todos los endpoints devuelven JSON &#123; data, error, meta &#125;", un Skill que define un endpoint hereda esa restricción automáticamente. El Skill no necesita repetirla — pero el Agente que lo ejecuta sí necesita tener las Reglas cargadas.
+Cada Skill opera dentro del espacio definido por las Reglas. La relación es jerárquica e innegociable: si las Reglas dicen "todos los endpoints devuelven JSON &#123; data, error, meta &#125;", un Skill que define un endpoint hereda esa restricción automáticamente. El Skill no necesita repetirla, pero el Agente que lo ejecuta sí necesita tener las Reglas cargadas.
 
 Si un Skill pide algo que contradice una Regla, la Regla gana. Siempre. El Agente debe señalar la contradicción al Context Engineer en lugar de resolver el conflicto por su cuenta. Esta jerarquía es lo que protege la coherencia global.
 
@@ -53,4 +53,8 @@ Si un Skill pide algo que contradice una Regla, la Regla gana. Siempre. El Agent
 **Qué produce:** Outputs inconsistentes. El mismo Skill produce resultados diferentes según qué Agente lo ejecute o en qué momento, porque las Reglas no estaban presentes.
 
 **Cómo prevenirlo:** Cada Skill incluye una referencia explícita: "Reglas aplicables: ver project-context.md." El Agente carga ambos documentos.
+:::
+
+:::tip[El principio de autocontención]
+Un Skill bien escrito es un acto de empatía con el Agente que lo ejecutará. **Si el Agente necesita información que no está en el Skill ni en las Reglas, no la buscará, la inventará.** La autocontención no es burocracia. Es la diferencia entre un output fiel al contexto y un output que parece correcto pero no lo es.
 :::

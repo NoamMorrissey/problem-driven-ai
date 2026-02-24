@@ -28,7 +28,7 @@ El project-context.md no es un documento pasivo que los Agentes "consultan". Es 
 - **Decisiones globales con justificación:** Cada decisión transversal, con su "por qué". Si un Agente entiende el por qué, puede aplicar la Regla correctamente ante situaciones que el Context Engineer no previó.
 
 :::info[Técnica]
-**La regla de las tres lecturas:** Un Agente que reciba únicamente el project-context.md debería poder responder: ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente? Si alguna respuesta no está, las Reglas están incompletas — y los Skills que los Agentes ejecuten sufrirán esa carencia.
+**La regla de las tres lecturas:** Un Agente que reciba únicamente el project-context.md debería poder responder: ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente? Si alguna respuesta no está, las Reglas están incompletas, y los Skills que los Agentes ejecuten sufrirán esa carencia.
 :::
 
 ## Los cinco niveles de precisión
@@ -51,4 +51,8 @@ Delegar no es olvidar. Es decidir qué no necesita prescripción. Las Reglas de 
 **Qué produce:** Un Agente elige Python en un Skill porque nada lo impedía. Otro Agente usa REST mientras el primero usó GraphQL. Cada Skill produce output correcto aisladamente e incoherente globalmente.
 
 **Cómo prevenirlo:** Si es verdad para todo el proyecto, está en las Reglas. Si no está en las Reglas, los Agentes no lo saben y los Skills no lo respetan.
+:::
+
+:::tip[El principio de las Reglas]
+Las Reglas no restringen la creatividad de los Agentes, la canalizan. **Un Agente con Reglas claras toma mejores decisiones que un Agente con libertad total**, porque las Reglas eliminan la ambigüedad que produce incoherencia. La precisión de las Reglas es directamente proporcional a la calidad de los Skills que los Agentes ejecutan.
 :::

@@ -2,7 +2,7 @@
 title: "Agentes: orquestadores y ejecutores de contexto"
 sidebar_label: "Agentes"
 slug: /fases/context-engineering/agentes-orquestadores-y-ejecutores
-description: "Los Agentes son perfiles especializados de IA — no instancias genéricas. Cada uno tiene un rol definido, límites claros y un protocolo para cuando la información es insuficiente."
+description: "Los Agentes son perfiles especializados de IA, no instancias genéricas. Cada uno tiene un rol definido, límites claros y un protocolo para cuando la información es insuficiente."
 sidebar_position: 5
 tags: [fases, context-engineering, agentes, fidelidad]
 ---
@@ -40,5 +40,11 @@ Cada Agente transforma el output del anterior, pero **no lo contradice, no lo en
 :::danger[Anti-patrón: Agentes sin Fronteras]
 **Qué es:** Agentes con identidad y responsabilidades pero sin límites claros. El PM Agent opina sobre arquitectura. El Architect Agent añade funcionalidades. Los roles se solapan, las Reglas no saben a quién aplicarse, y los Skills reflejan decisiones de Agentes equivocados.
 
+**Cómo detectarlo:** Dos Agentes distintos toman decisiones contradictorias sobre el mismo aspecto del sistema. O un Agente produce outputs que contienen decisiones que corresponden al rol de otro. Los Skills resultantes tienen conflictos que solo se detectan en la integración.
+
 **Cómo prevenirlo:** Los límites son tan importantes como las responsabilidades. Cada Agente tiene una sección explícita de "lo que NO hago" que protege la integridad de los Skills que otros Agentes producen.
+:::
+
+:::tip[El principio de la cadena de fidelidad]
+Un sistema de Agentes bien diseñado es invisible. Si funciona, los Skills llegan a la fase de construcción como expresiones fieles del Problem Statement. **La señal de que los Agentes están bien definidos no es que produzcan resultados impresionantes, es que produzcan resultados predecibles y trazables.**
 :::

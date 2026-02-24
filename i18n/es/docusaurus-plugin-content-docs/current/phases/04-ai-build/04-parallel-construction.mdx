@@ -11,7 +11,7 @@ tags: [fases, ai-build, paralelo, dependencias, coordinacion]
 
 En proyectos simples, la construcción ocurre en secuencia: un Skill completado antes de empezar el siguiente. Pero en proyectos de complejidad media o alta, la realidad es otra: varios desarrolladores trabajan simultáneamente, varios agentes de IA ejecutan en paralelo, y varios Story Files están en estados de completitud distintos al mismo tiempo.
 
-La construcción paralela no es un problema que resolver. **Es una capacidad que gestionar.** Bien gestionada, multiplica la velocidad sin sacrificar fidelidad. Mal gestionada, produce el anti-patrón más costoso de esta fase: la **incoherencia sistémica** — un sistema donde cada componente funciona correctamente en aislamiento pero el conjunto no se integra.
+La construcción paralela no es un problema que resolver. **Es una capacidad que gestionar.** Bien gestionada, multiplica la velocidad sin sacrificar fidelidad. Mal gestionada, produce el anti-patrón más costoso de esta fase: la **incoherencia sistémica:** un sistema donde cada componente funciona correctamente en aislamiento pero el conjunto no se integra.
 
 ## El grafo de dependencias
 
@@ -50,13 +50,13 @@ En construcción secuencial, el Decision Log es un registro personal. En constru
 
 1. **Visibilidad en tiempo real:** Todas las entradas de todos los tracks son accesibles para el Context Engineer y el Tech Lead en cuanto se registran. No al final del día. En el momento.
 
-2. **Clasificación por impacto:** Cada entrada indica si la decisión es local al track o si puede afectar a otro track. El desarrollador — que está más cerca de la decisión — hace esta clasificación.
+2. **Clasificación por impacto:** Cada entrada indica si la decisión es local al track o si puede afectar a otro track. El desarrollador (que está más cerca de la decisión) hace esta clasificación.
 
 3. **Protocolo de alerta entre tracks:** Cuando una entrada se clasifica como "posible impacto en otro track", se activa un proceso de revisión cruzada que involucra a los Dev Leads de ambos tracks y al Tech Lead.
 
 ## Sincronizaciones de integración
 
-La construcción paralela necesita puntos de sincronización estructurados — no reuniones de seguimiento, sino sesiones de integración técnica donde los outputs de tracks distintos se ensamblan y se verifica su coherencia.
+La construcción paralela necesita puntos de sincronización estructurados, no reuniones de seguimiento, sino sesiones de integración técnica donde los outputs de tracks distintos se ensamblan y se verifica su coherencia.
 
 Las sincronizaciones no se programan por calendario. **Se programan por el grafo de dependencias:** cuando un conjunto de Skills de distintos tracks alcanza el estado "completado por QA", se activa la sincronización del nodo correspondiente del grafo.
 

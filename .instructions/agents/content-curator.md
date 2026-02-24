@@ -95,7 +95,42 @@ Problem Statement, Context Engineering, Context Document, Context Debt, Context 
 | Risks and anti-patterns | Gestionable, nunca catastrofista | "Señales", "trampas", "drift" — always preventable and detectable. Never "disaster", "failure", "catastrophe". |
 | "Imagina que..." scenarios | Cautelar o diagnóstico | Tests understanding or reveals problems. Never aspirational/positive. |
 
-### Severity: **Media** — report without auto-correcting (requires human judgment).
+### 2.5 Em dash usage (Spanish only)
+
+| Rule | Applies to | What to do |
+|---|---|---|
+| Avoid em dashes (" — ") in Spanish running text | All ES .mdx files | Replace with commas for logical separations, or parentheses for concept groupings. |
+| Exceptions | Admonition titles, quote attributions, template headers | Keep em dashes in `:::tip Title — Subtitle`, `> — Author`, `## Template — [Field]`. |
+
+**Good (ES):** `Las Reglas no restringen la creatividad de los Agentes, la canalizan.`
+**Bad (ES):** `Las Reglas no restringen la creatividad de los Agentes — la canalizan.`
+
+**Good (ES):** `Un Context Document maduro (uno que ha sobrevivido doce meses de Market Iteration) contiene algo que no tiene precio.`
+**Bad (ES):** `Un Context Document maduro — uno que ha sobrevivido doce meses de Market Iteration — contiene algo que no tiene precio.`
+
+**Note:** In English content, em dashes are acceptable and natural. This rule applies only to Spanish text.
+
+### Severity: **Alta** — auto-correct.
+
+### 2.6 No time references: effort over duration
+
+| Rule | Applies to | What to do |
+|---|---|---|
+| Never reference calendar time or durations | All .mdx files (ES + EN) | Replace time references (weeks, days, months, percentages of project time) with effort-based concepts. |
+| Use consistent effort framing | All framework "Effort" pages | Express effort as activities, intensity, and dedication required, not calendar time. |
+| Sidebar labels | Framework duration pages | sidebar_label is "Esfuerzo" (ES) / "Effort" (EN), not "Duración" / "Duration". |
+
+**Bad:** `El Problem Discovery debería ocupar entre 2 y 3 semanas.`
+**Bad:** `Si estás dedicando menos del 15% del tiempo total del proyecto...`
+
+**Good:** `El esfuerzo del Problem Discovery incluye al menos 5 entrevistas de calidad, una síntesis rigurosa y dos niveles de validación.`
+**Good:** `Si el equipo no ha completado las actividades mínimas del Problem Discovery...`
+
+**Why:** Time references create false expectations. Every project's calendar is different. What matters is the effort: the activities that must happen, the depth required, and the signals that indicate sufficient or insufficient investment. The concept of "effort" is sustained consistently across the entire site.
+
+### Severity: **Alta** — report without auto-correcting (requires content rewrite).
+
+### Severity (Section 2 general): **Media** — report without auto-correcting (requires human judgment).
 
 ---
 

@@ -125,25 +125,25 @@ const config: Config = {
             {en: '/framework/phases/problem-discovery/problem-statement-anatomy', es: '/framework/fases/problem-discovery/anatomia-del-problem-statement'},
             {en: '/framework/phases/problem-discovery/artifacts', es: '/framework/fases/problem-discovery/artefactos'},
             {en: '/framework/phases/problem-discovery/anti-patterns', es: '/framework/fases/problem-discovery/anti-patrones'},
-            {en: '/framework/phases/problem-discovery/duration-and-effort', es: '/framework/fases/problem-discovery/duracion-y-esfuerzo'},
+            {en: '/framework/phases/problem-discovery/effort', es: '/framework/fases/problem-discovery/esfuerzo'},
             // Framework Phase 2
             {en: '/framework/phases/solution-alignment/step-by-step-process', es: '/framework/fases/solution-alignment/proceso-paso-a-paso'},
             {en: '/framework/phases/solution-alignment/solution-brief-anatomy', es: '/framework/fases/solution-alignment/anatomia-del-solution-brief'},
             {en: '/framework/phases/solution-alignment/artifacts', es: '/framework/fases/solution-alignment/artefactos'},
             {en: '/framework/phases/solution-alignment/anti-patterns', es: '/framework/fases/solution-alignment/anti-patrones'},
-            {en: '/framework/phases/solution-alignment/duration-and-effort', es: '/framework/fases/solution-alignment/duracion-y-esfuerzo'},
+            {en: '/framework/phases/solution-alignment/effort', es: '/framework/fases/solution-alignment/esfuerzo'},
             // Framework Phase 3
             {en: '/framework/phases/context-engineering/step-by-step-process', es: '/framework/fases/context-engineering/proceso-paso-a-paso'},
             {en: '/framework/phases/context-engineering/context-system-anatomy', es: '/framework/fases/context-engineering/anatomia-del-sistema-de-contexto'},
             {en: '/framework/phases/context-engineering/artifacts', es: '/framework/fases/context-engineering/artefactos'},
             {en: '/framework/phases/context-engineering/anti-patterns', es: '/framework/fases/context-engineering/anti-patrones'},
-            {en: '/framework/phases/context-engineering/duration-and-effort', es: '/framework/fases/context-engineering/duracion-y-esfuerzo'},
+            {en: '/framework/phases/context-engineering/effort', es: '/framework/fases/context-engineering/esfuerzo'},
             // Framework Phase 4
             {en: '/framework/phases/ai-build/step-by-step-process', es: '/framework/fases/ai-build/proceso-paso-a-paso'},
             {en: '/framework/phases/ai-build/parallel-build-anatomy', es: '/framework/fases/ai-build/anatomia-de-la-construccion-paralela'},
             {en: '/framework/phases/ai-build/artifacts', es: '/framework/fases/ai-build/artefactos'},
             {en: '/framework/phases/ai-build/anti-patterns', es: '/framework/fases/ai-build/anti-patrones'},
-            {en: '/framework/phases/ai-build/duration-and-effort', es: '/framework/fases/ai-build/duracion-y-esfuerzo'},
+            {en: '/framework/phases/ai-build/effort', es: '/framework/fases/ai-build/esfuerzo'},
             // Phase 5: Market Iteration (methodology)
             {en: '/phases/market-iteration/why-this-phase-exists', es: '/fases/market-iteration/por-que-esta-fase-existe'},
             {en: '/phases/market-iteration/the-learning-spiral', es: '/fases/market-iteration/la-espiral-de-aprendizaje'},
@@ -157,7 +157,7 @@ const config: Config = {
             {en: '/framework/phases/market-iteration/iteration-cycle-anatomy', es: '/framework/fases/market-iteration/anatomia-del-ciclo-de-iteracion'},
             {en: '/framework/phases/market-iteration/artifacts', es: '/framework/fases/market-iteration/artefactos'},
             {en: '/framework/phases/market-iteration/anti-patterns', es: '/framework/fases/market-iteration/anti-patrones'},
-            {en: '/framework/phases/market-iteration/duration-and-effort', es: '/framework/fases/market-iteration/duracion-y-esfuerzo'},
+            {en: '/framework/phases/market-iteration/effort', es: '/framework/fases/market-iteration/esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},

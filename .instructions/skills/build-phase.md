@@ -42,7 +42,7 @@ Fixed structure — same 6 pages for EVERY phase:
 | 3 | "Artifacts" | "Artefactos" | `09-artifacts.mdx` |
 | 4 | "Gate Review" | "Gate Review" | `10-gate-review.mdx` |
 | 5 | "Anti-patterns" | "Anti-patrones" | `11-anti-patterns.mdx` |
-| 6 | "Duration" | "Duración" | `12-duration-and-effort.mdx` |
+| 6 | "Effort" | "Esfuerzo" | `12-duration-and-effort.mdx` |
 
 Note: Filenames use numeric prefixes (07-12) to sort in the filesystem.
 Docusaurus strips these for the doc ID.

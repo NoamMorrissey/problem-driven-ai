@@ -15,23 +15,23 @@ El Context Engineering no es un ejercicio de escritura creativa. Es un proceso d
 
 *Duración estimada: 1-2 días*
 
-Las Reglas van primero porque todo depende de ellas. Un Agente sin Reglas improvisa. Un Skill sin Reglas produce resultados impredecibles. El project-context.md es la constitución que cada Agente carga antes de ejecutar cualquier Skill — no como referencia a consultar, sino como restricción que condiciona.
+Las Reglas van primero porque todo depende de ellas. Un Agente sin Reglas improvisa. Un Skill sin Reglas produce resultados impredecibles. El project-context.md es la constitución que cada Agente carga antes de ejecutar cualquier Skill, no como referencia a consultar, sino como restricción que condiciona.
 
 ### Por dónde empezar
 
-Toma el Solution Brief de la Fase 2 y extrae cada decisión que aplica globalmente. Las restricciones se convierten en Reglas. Las decisiones tecnológicas se convierten en Reglas. Las convenciones se convierten en Reglas. El Solution Brief contiene estas decisiones implícitamente — tu trabajo es hacerlas explícitas e inequívocas.
+Toma el Solution Brief de la Fase 2 y extrae cada decisión que aplica globalmente. Las restricciones se convierten en Reglas. Las decisiones tecnológicas se convierten en Reglas. Las convenciones se convierten en Reglas. El Solution Brief contiene estas decisiones implícitamente, tu trabajo es hacerlas explícitas e inequívocas.
 
-Piensa en ello como escribir el manual de empleado de una empresa. Los nuevos empleados no tienen años de conocimiento institucional. Necesitan todo por escrito: qué herramientas usar, qué está prohibido, cómo escalar problemas. Los Agentes de IA son empleados nuevos perpetuos — solo saben lo que está en el manual.
+Piensa en ello como escribir el manual de empleado de una empresa. Los nuevos empleados no tienen años de conocimiento institucional. Necesitan todo por escrito: qué herramientas usar, qué está prohibido, cómo escalar problemas. Los Agentes de IA son empleados nuevos perpetuos, solo saben lo que está en el manual.
 
 ### Qué debe contener el project-context.md
 
 | Sección | Qué incluye | Por qué importa |
 |---|---|---|
 | **Stack tecnológico** | Lenguajes, frameworks, versiones. | Un Agente que no conoce el stack podría escribir Python cuando el proyecto usa TypeScript. |
-| **Convenciones de código** | Nomenclatura, estructura de archivos, patrones obligatorios. | Sin convenciones explícitas, dos Agentes producen código inconsistente — ambos correctos individualmente, incoherentes juntos. |
+| **Convenciones de código** | Nomenclatura, estructura de archivos, patrones obligatorios. | Sin convenciones explícitas, dos Agentes producen código inconsistente, ambos correctos individualmente, incoherentes juntos. |
 | **Restricciones de seguridad** | Qué está prohibido, qué requiere escalación. | Una sola violación de seguridad puede comprometer todo el proyecto. Siempre son Reglas de Nivel 5. |
 | **Reglas de integración** | Cómo se comunican los componentes (REST, gRPC, eventos). | Cuando un Skill involucra integración, estas Reglas definen el cómo. |
-| **Límites de Agentes** | Qué puede decidir cada Agente autónomamente y qué requiere escalación. | Previene que los Agentes tomen decisiones fuera de su rol — como un desarrollador que decide cambiar la base de datos sin consultar al arquitecto. |
+| **Límites de Agentes** | Qué puede decidir cada Agente autónomamente y qué requiere escalación. | Previene que los Agentes tomen decisiones fuera de su rol, como un desarrollador que decide cambiar la base de datos sin consultar al arquitecto. |
 | **Protocolo ante gaps** | "Cuando un Agente detecta información insuficiente en un Skill, señala el gap. No lo rellena." | Sin esto, los Agentes inventan respuestas con total confianza, creando Context Debt invisible. Es la Regla más importante. |
 | **Decisiones globales justificadas** | Cada decisión transversal con su "por qué". | Si un Agente entiende *por qué* existe una Regla, puede aplicarla correctamente ante situaciones que el Context Engineer no previó. |
 
@@ -52,24 +52,24 @@ Delegar no es olvidar. Es decidir qué no necesita prescripción. Los niveles 1-
 :::note Ejemplo práctico: Calibrando la precisión para un sistema de inventario
 Una empresa de retail construyendo un sistema de gestión de inventario:
 
-**Nivel 5 (Prescriptivo):** "Todas las cantidades de inventario son enteros. Nunca usar punto flotante para conteos de stock." — Un solo float puede causar errores de redondeo que se propagan por toda la cadena de suministro.
+**Nivel 5 (Prescriptivo):** "Todas las cantidades de inventario son enteros. Nunca usar punto flotante para conteos de stock.", un solo float puede causar errores de redondeo que se propagan por toda la cadena de suministro.
 
-**Nivel 4 (Específico):** "Las alertas de stock bajo se disparan en menos de 2 minutos tras superar el umbral." — El negocio prometió este SLA a los gerentes de tienda.
+**Nivel 4 (Específico):** "Las alertas de stock bajo se disparan en menos de 2 minutos tras superar el umbral.", el negocio prometió este SLA a los gerentes de tienda.
 
-**Nivel 3 (Dirigido):** "Los mensajes de error son comprensibles para el usuario, no técnicos. Adaptar el lenguaje según la audiencia." — Los errores para clientes difieren de los errores para administradores, pero ambos deben ser claros.
+**Nivel 3 (Dirigido):** "Los mensajes de error son comprensibles para el usuario, no técnicos. Adaptar el lenguaje según la audiencia.", los errores para clientes difieren de los errores para administradores, pero ambos deben ser claros.
 
-**Nivel 2 (Orientativo):** "Preferimos actualizaciones en tiempo real vía WebSocket para dashboards. REST aceptable donde WebSocket añade complejidad innecesaria." — Preferencia de rendimiento, no restricción dura.
+**Nivel 2 (Orientativo):** "Preferimos actualizaciones en tiempo real vía WebSocket para dashboards. REST aceptable donde WebSocket añade complejidad innecesaria.", preferencia de rendimiento, no restricción dura.
 
-**Nivel 1 (Delegado):** "Convención de nombres CSS para componentes de UI: criterio del Agente." — Decisión de bajo impacto que no afecta la coherencia del sistema.
+**Nivel 1 (Delegado):** "Convención de nombres CSS para componentes de UI: criterio del Agente.", decisión de bajo impacto que no afecta la coherencia del sistema.
 :::
 
 ### La regla de las tres lecturas
 
 Antes de pasar al Paso 2, aplica esta validación: un Agente que reciba únicamente el project-context.md debería poder responder tres preguntas:
 
-1. **¿Qué tecnologías uso?** — Si la respuesta no está, un Agente podría elegir el stack equivocado.
-2. **¿Qué no puedo hacer?** — Si las prohibiciones no son explícitas, los Agentes tomarán decisiones que parecen razonables localmente pero violan restricciones del proyecto.
-3. **¿Cuál es la convención para cualquier patrón recurrente?** — Si las convenciones de nombres, formato o arquitectura no están documentadas, cada Agente inventará las suyas.
+1. **¿Qué tecnologías uso?** Si la respuesta no está, un Agente podría elegir el stack equivocado.
+2. **¿Qué no puedo hacer?** Si las prohibiciones no son explícitas, los Agentes tomarán decisiones que parecen razonables localmente pero violan restricciones del proyecto.
+3. **¿Cuál es la convención para cualquier patrón recurrente?** Si las convenciones de nombres, formato o arquitectura no están documentadas, cada Agente inventará las suyas.
 
 Si alguna respuesta falta, las Reglas están incompletas.
 
@@ -85,7 +85,7 @@ La mayoría de proyectos usan cinco Agentes en secuencia. Proyectos más simples
 
 | Agente | Input | Qué hace | Output |
 |---|---|---|---|
-| **Analyst Agent** | Problem Statement + Solution Brief | Traduce artefactos humanos a requisitos estructurados. No descubre ni inventa — reformatea. | Documento de requisitos estructurado |
+| **Analyst Agent** | Problem Statement + Solution Brief | Traduce artefactos humanos a requisitos estructurados. No descubre ni inventa, reformatea. | Documento de requisitos estructurado |
 | **PM Agent** | Requisitos estructurados | Genera el PRD: qué construir, para quién, con qué prioridad. Define casos de uso. | PRD completo |
 | **Architect Agent** | PRD | Traduce PRD a decisiones técnicas. Genera nuevas Reglas a partir de decisiones de arquitectura. | Architecture Document + nuevas Reglas en project-context.md |
 | **SM Agent** | PRD + Architecture | Descompone la solución en Skills autocontenidos. Cada Skill incluye todo el contexto para su Agente ejecutor. | Story Files (Skills) |
@@ -95,18 +95,18 @@ La mayoría de proyectos usan cinco Agentes en secuencia. Proyectos más simples
 
 Cada definición de Agente debe incluir cinco elementos. Si falta alguno, se crea un gap que aparecerá durante la ejecución:
 
-1. **Identidad** — Quién es: rol, expertise, perspectiva. Determina cómo interpreta las Reglas y desde qué ángulo aborda los Skills.
-2. **Responsabilidades** — Qué hace: tareas, outputs esperados. Define qué tipos de Skills puede ejecutar.
-3. **Límites** — Qué NO hace. Tan importante como las responsabilidades. Previene que un Agente invada el territorio de otro.
-4. **Reglas que aplica** — Referencia explícita al project-context.md. El Agente sabe qué Reglas cargar antes de ejecutar cualquier Skill.
-5. **Protocolo ante gaps** — Qué hace cuando la información es insuficiente. La Regla crítica: señalar el gap, no inventar.
+1. **Identidad:** Quién es: rol, expertise, perspectiva. Determina cómo interpreta las Reglas y desde qué ángulo aborda los Skills.
+2. **Responsabilidades:** Qué hace: tareas, outputs esperados. Define qué tipos de Skills puede ejecutar.
+3. **Límites:** Qué NO hace. Tan importante como las responsabilidades. Previene que un Agente invada el territorio de otro.
+4. **Reglas que aplica:** Referencia explícita al project-context.md. El Agente sabe qué Reglas cargar antes de ejecutar cualquier Skill.
+5. **Protocolo ante gaps:** Qué hace cuando la información es insuficiente. La Regla crítica: señalar el gap, no inventar.
 
 :::note Ejemplo práctico: Definición del Architect Agent
 **Identidad:** Arquitecto técnico senior especializado en sistemas distribuidos. Piensa en términos de escalabilidad, mantenibilidad y coste operativo.
 
 **Responsabilidades:** Traducir el PRD a decisiones técnicas. Producir el Architecture Document. Generar ADRs (Architecture Decision Records) para cada decisión significativa. Promover decisiones técnicas transversales a Reglas en el project-context.md.
 
-**Límites:** NO añade requisitos funcionales — eso es trabajo del PM Agent. NO modifica el PRD. NO crea Skills — eso es trabajo del SM Agent. Si parece faltar un requisito funcional, lo señala al PM Agent.
+**Límites:** NO añade requisitos funcionales, eso es trabajo del PM Agent. NO modifica el PRD. NO crea Skills, eso es trabajo del SM Agent. Si parece faltar un requisito funcional, lo señala al PM Agent.
 
 **Reglas que aplica:** Todas las Reglas del project-context.md, con foco específico en stack tecnológico, restricciones de seguridad y reglas de integración.
 
@@ -138,13 +138,13 @@ El PRD es la traducción del Solution Brief al lenguaje de los Agentes. Cada sec
 | **Asunciones activas** | Lo dado por cierto sin verificar. | Todos los Agentes | Señales de riesgo en cada Skill afectado. |
 | **Prioridades** | P0, P1, P2. | SM Agent | Secuencia de Skills: P0 primero, luego P1, luego P2. |
 
-:::info Trazabilidad total
+:::tip[Trazabilidad total]
 Cada elemento del PRD tiene una fuente en la Fase 1 o 2. Cada Skill que genera el SM Agent traza al PRD. Cada Regla que genera el Architect traza al PRD. La cadena completa es: **Problem Statement → Solution Brief → PRD → Reglas + Skills.** Si un Skill no puede trazarse hasta el Problem Statement, es invención.
 :::
 
 ### El Architecture Document: decisiones técnicas que se convierten en Reglas
 
-El Architecture Document traduce el PRD a decisiones técnicas. Pero su función más crítica es otra: **las decisiones de arquitectura se convierten en Reglas globales.** Cuando el Architect Agent decide que todos los servicios se comunican vía gRPC, eso no es una decisión local — es una nueva Regla que todos los Agentes deben respetar en todos los Skills.
+El Architecture Document traduce el PRD a decisiones técnicas. Pero su función más crítica es otra: **las decisiones de arquitectura se convierten en Reglas globales.** Cuando el Architect Agent decide que todos los servicios se comunican vía gRPC, eso no es una decisión local, es una nueva Regla que todos los Agentes deben respetar en todos los Skills.
 
 Por eso el Architect Agent es el único Agente que actualiza el project-context.md. Los demás lo leen; el Architect lo escribe.
 
@@ -165,15 +165,15 @@ Este ADR se promueve a **Regla de Nivel 5** en el project-context.md. Ahora cada
 
 *Duración estimada: 2-5 días*
 
-Aquí es donde el SM Agent descompone todo — PRD, Architecture Document, Reglas — en tareas concretas que los Agentes de desarrollo ejecutarán. Cada Skill es una unidad de trabajo autocontenida, como una orden de trabajo que contiene todo lo que el trabajador necesita.
+Aquí es donde el SM Agent descompone todo (PRD, Architecture Document, Reglas) en tareas concretas que los Agentes de desarrollo ejecutarán. Cada Skill es una unidad de trabajo autocontenida, como una orden de trabajo que contiene todo lo que el trabajador necesita.
 
 ### Los cinco elementos de cada Skill
 
-1. **Objetivo** — Qué debe lograrse. No cómo, sino qué. El Agente lo usa para tomar decisiones ante ambigüedades, dentro de las Reglas.
-2. **Contexto específico** — Extractos del PRD y la Arquitectura. Solo lo que *este* Skill necesita. Complementa las Reglas globales con información específica de la tarea.
-3. **Criterios de aceptación** — Condiciones verificables, escritas como assertions. El QA Agent las usa para validar el output.
-4. **Dependencias** — Qué otros Skills deben estar completos antes. Los Agentes no ejecutan Skills fuera de secuencia.
-5. **Restricciones específicas** — Limitaciones para esta tarea, adicionales a las Reglas globales. Si hay conflicto entre una restricción y una Regla, la Regla gana. Siempre.
+1. **Objetivo:** Qué debe lograrse. No cómo, sino qué. El Agente lo usa para tomar decisiones ante ambigüedades, dentro de las Reglas.
+2. **Contexto específico:** Extractos del PRD y la Arquitectura. Solo lo que *este* Skill necesita. Complementa las Reglas globales con información específica de la tarea.
+3. **Criterios de aceptación:** Condiciones verificables, escritas como assertions. El QA Agent las usa para validar el output.
+4. **Dependencias:** Qué otros Skills deben estar completos antes. Los Agentes no ejecutan Skills fuera de secuencia.
+5. **Restricciones específicas:** Limitaciones para esta tarea, adicionales a las Reglas globales. Si hay conflicto entre una restricción y una Regla, la Regla gana. Siempre.
 
 ### Tres tipos de Skills
 
@@ -187,7 +187,7 @@ Aquí es donde el SM Agent descompone todo — PRD, Architecture Document, Regla
 
 Para cada Skill, pregunta: **"¿Un Agente que lea solo este Skill y el project-context.md puede completar la tarea sin preguntar nada?"**
 
-Si la respuesta es no, falta contexto. Añádelo al Skill — no asumas que el Agente ya lo sabe.
+Si la respuesta es no, falta contexto. Añádelo al Skill, no asumas que el Agente ya lo sabe.
 
 :::note Ejemplo práctico: Un Skill bien diseñado vs. uno mal diseñado
 **Skill pobre:** "Construir el endpoint de inventario."
@@ -238,5 +238,5 @@ Cuando los outputs no coinciden con las expectativas, identifica dónde está el
 | **La interacción** | Cada Skill produce output correcto individualmente. El conjunto no funciona. | Revisar dependencias entre Skills y coherencia entre Reglas y Skills. |
 
 :::tip Cuando los outputs sorprenden
-La validación más reveladora es cuando un output es técnicamente correcto pero no "se siente bien" para los stakeholders. Esto suele señalar una Regla que falta, no un Agente roto. El Agente siguió todas las Reglas fielmente — el problema es que las Reglas no capturaban algo que el equipo asumía como obvio. Hazlo explícito, añade la Regla y ejecuta la validación de nuevo.
+La validación más reveladora es cuando un output es técnicamente correcto pero no "se siente bien" para los stakeholders. Esto suele señalar una Regla que falta, no un Agente roto. El Agente siguió todas las Reglas fielmente, el problema es que las Reglas no capturaban algo que el equipo asumía como obvio. Hazlo explícito, añade la Regla y ejecuta la validación de nuevo.
 :::

@@ -1,27 +1,37 @@
 ---
-title: "Duración y esfuerzo"
-sidebar_label: "Duración"
-slug: /framework/fases/problem-discovery/duracion-y-esfuerzo
-description: "Referencias típicas de duración del Problem Discovery: desde 1-2 semanas para problemas simples hasta 3-5 semanas para escenarios complejos con múltiples stakeholders."
+title: "Esfuerzo"
+sidebar_label: "Esfuerzo"
+slug: /framework/fases/problem-discovery/esfuerzo
+description: "El esfuerzo del Problem Discovery se mide en actividades completadas con rigor, no en semanas de calendario. Entrevistas, síntesis y validación son las unidades reales."
 sidebar_position: 6
-tags: [fases, discovery]
+tags: [fases, discovery, esfuerzo]
 ---
 
-# Duración y esfuerzo
+# Esfuerzo
 
-El Problem Discovery no tiene una duración fija porque depende de la complejidad del problema, la accesibilidad de los usuarios y el nivel de conocimiento previo del equipo. Sin embargo, estas son las referencias típicas:
+El Problem Discovery no se mide en semanas. Se mide en actividades completadas con el rigor suficiente para producir un Problem Statement que resista la validación. La complejidad del problema determina la profundidad del esfuerzo, no la duración del calendario.
 
-| Escenario | Duración | Qué incluye |
+## Esfuerzo por complejidad
+
+| Escenario | Actividades mínimas | Profundidad requerida |
 |---|---|---|
-| **Problema simple, usuarios accesibles** | 1-2 semanas | 5 entrevistas + 1 sesión de síntesis + 1 ronda de validación. |
-| **Problema de complejidad media** | 2-3 semanas | 5-8 entrevistas + observación contextual + 2 sesiones de síntesis + validación iterada. |
-| **Problema complejo, múltiples stakeholders** | 3-5 semanas | 8-12 entrevistas con distintos perfiles + análisis cuantitativo + síntesis extendida + validación con múltiples grupos + verificación de restricciones. |
+| **Problema simple, usuarios accesibles** | 5 entrevistas + 1 sesión de síntesis + 1 ronda de validación. | Las entrevistas son directas. La síntesis produce patrones claros. La validación confirma en un ciclo. |
+| **Problema de complejidad media** | 5-8 entrevistas + observación contextual + 2 sesiones de síntesis + validación iterada. | Las entrevistas cubren perspectivas diversas. La síntesis requiere múltiples pasadas. La validación necesita al menos dos ciclos. |
+| **Problema complejo, múltiples stakeholders** | 8-12 entrevistas con distintos perfiles + análisis cuantitativo + síntesis extendida + validación con múltiples grupos + verificación de restricciones. | Las entrevistas abarcan todos los perfiles afectados. La síntesis integra fuentes cualitativas y cuantitativas. La validación incluye verificación con cada grupo de stakeholders. |
 
-**Regla general:** si estás dedicando menos del 15% del tiempo total del proyecto al Problem Discovery, probablemente estás invirtiendo demasiado poco. Si estás dedicando más del 30%, probablemente estás sobreanalizando. El punto óptimo está entre el 15% y el 25% del tiempo total.
+## La regla del esfuerzo mínimo
 
-## Señales de alarma: demasiado poco o demasiado
+:::tip[El esfuerzo se mide en actividades, no en calendario]
+El umbral mínimo de esfuerzo para un Problem Discovery riguroso incluye tres componentes no negociables:
 
-### Señales de que estás invirtiendo demasiado poco
+1. **Al menos 5 entrevistas de calidad** con personas que viven el problema.
+2. **Una síntesis rigurosa** que produzca patrones, tensiones y outliers documentados.
+3. **Dos niveles de validación** (con quien vive el problema y con quien decide si se resuelve).
+
+Un equipo que ha completado estos tres componentes tiene la base para un Problem Statement sólido. Un equipo que no los ha completado, independientemente del calendario, tiene una hipótesis disfrazada de definición.
+:::
+
+## Señales de esfuerzo insuficiente
 
 - Menos de 5 entrevistas realizadas.
 - El Synthesis Board tiene pocas notas y patrones "obvios". No hay outliers ni tensiones.
@@ -29,13 +39,13 @@ El Problem Discovery no tiene una duración fija porque depende de la complejida
 - El equipo no puede articular qué le sorprendió durante el discovery.
 - Las restricciones no han sido verificadas con sus fuentes.
 
-### Señales de que estás sobreanalizando
+## Señales de esfuerzo excesivo
 
 - El equipo sigue añadiendo entrevistas pero los nuevos hallazgos repiten patrones ya identificados.
 - Las sesiones de síntesis producen refinamientos, no nuevos insights.
 - El Problem Statement se ha reescrito más de tres veces sin cambios sustantivos.
 - El equipo está usando el discovery como forma de retrasar la incomodidad de comprometerse con una definición del problema.
 
-### Qué significa la regla del 15-25% en la práctica
-
-Para un proyecto de 12 semanas, el Problem Discovery debería ocupar entre 2 y 3 semanas. Para una iniciativa de 6 meses, entre 4 y 6 semanas. No son números arbitrarios — reflejan el tiempo mínimo necesario para realizar al menos 5 entrevistas de calidad, conducir una síntesis rigurosa y completar dos niveles de validación. Comprimir esto por debajo del umbral casi siempre produce un Problem Statement que parece correcto pero no ha sido sometido a la prueba de la realidad.
+:::tip[El principio del esfuerzo suficiente]
+El esfuerzo correcto no es el máximo posible, es el mínimo necesario para que el Problem Statement sea una expresión fiel de la realidad, no una proyección de las asunciones del equipo. **Cuando las entrevistas dejan de producir sorpresas y la validación confirma sin excepciones, el esfuerzo ha sido suficiente.**
+:::

@@ -9,7 +9,7 @@ tags: [fases, context-engineering, anatomia, project-context, prd, arquitectura]
 
 # Anatomía del sistema de contexto
 
-En la Fase 1, el entregable clave fue el Problem Statement — un único documento capturando el problema real. En la Fase 2, fue el Solution Brief — un documento de consenso definiendo la solución. En la Fase 3, el entregable no es un documento sino un **sistema**: tres capas interconectadas que juntas forman el sistema operativo del proyecto de IA.
+En la Fase 1, el entregable clave fue el Problem Statement, un único documento capturando el problema real. En la Fase 2, fue el Solution Brief, un documento de consenso definiendo la solución. En la Fase 3, el entregable no es un documento sino un **sistema**: tres capas interconectadas que juntas forman el sistema operativo del proyecto de IA.
 
 ## La arquitectura de tres capas
 
@@ -17,9 +17,9 @@ El sistema de contexto tiene tres capas. Cada una cumple un propósito diferente
 
 | Capa | Qué contiene | Propósito | Analogía |
 |---|---|---|---|
-| **Global (Reglas)** | project-context.md | Normas que aplican a todos, siempre. | La constitución de la empresa — todo empleado debe seguirla. |
-| **Estratégica (Documentos)** | PRD + Architecture Document | Qué construir y cómo, a nivel de sistema. | El plan del proyecto — define qué construirá la empresa este trimestre. |
-| **Ejecución (Skills)** | Story Files | Tareas concretas con todo lo necesario para completarlas. | Órdenes de trabajo individuales — cada una dice exactamente qué hacer. |
+| **Global (Reglas)** | project-context.md | Normas que aplican a todos, siempre. | La constitución de la empresa, todo empleado debe seguirla. |
+| **Estratégica (Documentos)** | PRD + Architecture Document | Qué construir y cómo, a nivel de sistema. | El plan del proyecto, define qué construirá la empresa este trimestre. |
+| **Ejecución (Skills)** | Story Files | Tareas concretas con todo lo necesario para completarlas. | Órdenes de trabajo individuales, cada una dice exactamente qué hacer. |
 
 La jerarquía es estricta: las Reglas gobiernan todo. Los documentos estratégicos operan dentro de las Reglas. Los Skills operan dentro de ambos. Si un Skill contradice una Regla, la Regla gana. Si una decisión de arquitectura debería aplicar globalmente, se promueve a Regla.
 
@@ -49,7 +49,7 @@ Testing: Vitest (unit), Playwright (e2e)
 Deployment: Docker containers on AWS ECS
 ```
 
-Cada elemento aquí es una Regla de Nivel 5 — prescriptiva, sin excepciones. Un Agente que recibe un Skill de desarrollo backend sabe, antes de leer el Skill, que debe usar TypeScript y Express. Punto.
+Cada elemento aquí es una Regla de Nivel 5, prescriptiva, sin excepciones. Un Agente que recibe un Skill de desarrollo backend sabe, antes de leer el Skill, que debe usar TypeScript y Express. Punto.
 
 ### Sección 3: Convenciones de código (Niveles 3-5)
 
@@ -73,7 +73,7 @@ Dependencies: No nuevas dependencias sin aprobación explícita.
 Escalation: Cualquier preocupación de seguridad → detener ejecución, señalar al Context Engineer.
 ```
 
-Las restricciones de seguridad son siempre Nivel 5. Un Agente que encuentre una cuestión de seguridad no cubierta aquí debe escalar — nunca decidir autónomamente.
+Las restricciones de seguridad son siempre Nivel 5. Un Agente que encuentre una cuestión de seguridad no cubierta aquí debe escalar, nunca decidir autónomamente.
 
 ### Sección 5: Reglas de integración (Nivel 4-5)
 
@@ -144,7 +144,7 @@ Elige cualquier sección del PRD. ¿Puedes trazarla a un elemento específico de
 
 ## El Architecture Document: decisiones que se convierten en Reglas
 
-El Architecture Document es único entre los artefactos de la Fase 3 porque **genera Reglas**. Cuando el Architect Agent toma una decisión técnica, esa decisión no es solo documentación — se convierte en una restricción que todos los Agentes deben respetar.
+El Architecture Document es único entre los artefactos de la Fase 3 porque **genera Reglas**. Cuando el Architect Agent toma una decisión técnica, esa decisión no es solo documentación, se convierte en una restricción que todos los Agentes deben respetar.
 
 ### Formato ADR (Architecture Decision Record)
 
@@ -166,13 +166,13 @@ Rule promotion: [Sí/No] — Si sí, añadida al project-context.md como Regla N
 
 **Context:** El sistema necesita autenticación de usuarios. El Solution Brief especifica acceso basado en roles para tres tipos de usuario (admin, manager, viewer).
 
-**Decision:** OAuth 2.0 con JWT tokens. Autenticación stateless — sin sesiones del lado del servidor.
+**Decision:** OAuth 2.0 con JWT tokens. Autenticación stateless, sin sesiones del lado del servidor.
 
 **Alternatives considered:** Auth basada en sesiones (más simple pero no escala con microservicios), API keys (insuficiente para RBAC a nivel de usuario).
 
 **Consequences:** Cada endpoint de API debe validar JWT. Se necesita lógica de refresh de tokens. El logout es solo del lado del cliente (expiración de token).
 
-**Rule promotion:** Sí — añadida al project-context.md Sección 4 como Regla Nivel 5: "Authentication: OAuth 2.0 con JWT tokens. No auth basada en sesiones."
+**Rule promotion:** Sí, añadida al project-context.md Sección 4 como Regla Nivel 5: "Authentication: OAuth 2.0 con JWT tokens. No auth basada en sesiones."
 :::
 
 ## Definición de Agente: la plantilla
@@ -209,7 +209,7 @@ Gap protocol:
   4. No proceder hasta que el gap se resuelva.
 ```
 
-La sección de límites es tan importante como la de responsabilidades. Un Agente sin límites explícitos ayudará amablemente más allá de su rol — produciendo trabajo que parece útil pero que nadie autorizó y nadie validó.
+La sección de límites es tan importante como la de responsabilidades. Un Agente sin límites explícitos ayudará amablemente más allá de su rol, produciendo trabajo que parece útil pero que nadie autorizó y nadie validó.
 
 ## Definición de Skill: la plantilla
 
@@ -241,4 +241,4 @@ Rules reference:
   Key Rules: [Reglas específicas más relevantes para este Skill]
 ```
 
-La diferencia entre un buen Skill y uno pobre es el test de autocontención: un Agente que lea solo este Skill y el project-context.md puede completar la tarea sin preguntar nada. Si el contexto del PRD o del Architecture Document es relevante, se extrae dentro del Skill — no se referencia con "ver documento X."
+La diferencia entre un buen Skill y uno pobre es el test de autocontención: un Agente que lea solo este Skill y el project-context.md puede completar la tarea sin preguntar nada. Si el contexto del PRD o del Architecture Document es relevante, se extrae dentro del Skill, no se referencia con "ver documento X."

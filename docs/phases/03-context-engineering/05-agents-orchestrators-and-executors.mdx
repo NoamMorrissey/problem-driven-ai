@@ -40,5 +40,11 @@ Each Agent transforms the previous one's output, but **it doesn't contradict it,
 :::danger[Anti-pattern: Agents Without Borders]
 **What it is:** Agents with identity and responsibilities but no clear limits. The PM Agent opines about architecture. The Architect Agent adds functionalities. Roles overlap, Rules don't know who to apply to, and Skills reflect decisions from the wrong Agents.
 
+**How to detect it:** Two different Agents make contradictory decisions about the same aspect of the system. Or an Agent produces outputs containing decisions that belong to another Agent's role. The resulting Skills have conflicts that are only detected during integration.
+
 **How to prevent it:** Limits are as important as responsibilities. Each Agent has an explicit section of "what I do NOT do" that protects the integrity of the Skills other Agents produce.
+:::
+
+:::tip[The fidelity chain principle]
+A well-designed Agent system is invisible. If it works, Skills arrive at the construction phase as faithful expressions of the Problem Statement. **The sign that Agents are well defined is not that they produce impressive results — it's that they produce predictable and traceable results.**
 :::
