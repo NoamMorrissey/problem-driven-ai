@@ -158,6 +158,9 @@ const config: Config = {
             {en: '/framework/phases/market-iteration/artifacts', es: '/framework/fases/market-iteration/artefactos'},
             {en: '/framework/phases/market-iteration/anti-patterns', es: '/framework/fases/market-iteration/anti-patrones'},
             {en: '/framework/phases/market-iteration/effort', es: '/framework/fases/market-iteration/esfuerzo'},
+            // Framework section indexes
+            {en: '/framework/processes', es: '/framework/procesos'},
+            {en: '/framework/artifacts', es: '/framework/artefactos'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},
