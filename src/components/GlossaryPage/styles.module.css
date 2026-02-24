@@ -1,0 +1,292 @@
+.glossaryContainer {
+  margin-top: 1rem;
+}
+
+/* Search */
+.searchWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius);
+  font-size: 0.9rem;
+  font-family: var(--pdai-font-family-body);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--pdai-gray-400);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.searchRelative {
+  position: relative;
+}
+
+/* Category tabs */
+.categoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.categoryTab {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--pdai-border-color);
+  border-radius: 2rem;
+  font-family: var(--pdai-font-family-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--pdai-gray-500);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.categoryTab:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.categoryTabActive {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Results count */
+.resultsCount {
+  font-size: 0.8rem;
+  color: var(--pdai-gray-500);
+  margin-bottom: 1rem;
+}
+
+/* Term cards */
+.termGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.termCard {
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius);
+  padding: 1.25rem;
+  transition: border-color var(--ifm-transition-fast) ease;
+}
+
+.termCard:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .termCard {
+  border-color: var(--pdai-gray-700);
+}
+
+[data-theme='dark'] .termCard:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+.termHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.termName {
+  font-family: var(--pdai-font-family-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  margin: 0;
+}
+
+.canonicalBadge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  background-color: var(--pdai-accent-bg);
+  color: var(--pdai-accent);
+  font-family: var(--pdai-font-family-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .canonicalBadge {
+  background-color: rgba(217, 119, 6, 0.15);
+}
+
+.termMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--pdai-gray-500);
+}
+
+.metaTag {
+  padding: 0.1rem 0.5rem;
+  background-color: var(--pdai-gray-50);
+  border-radius: 0.25rem;
+  font-family: var(--pdai-font-family-heading);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .metaTag {
+  background-color: var(--pdai-gray-800);
+}
+
+.termDefinition {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.75rem;
+}
+
+.termContext {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--pdai-gray-600);
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+[data-theme='dark'] .termContext {
+  color: var(--pdai-gray-400);
+}
+
+.relatedTerms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+}
+
+.relatedLabel {
+  color: var(--pdai-gray-500);
+  font-family: var(--pdai-font-family-heading);
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+.relatedTerm {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--pdai-border-color);
+  border-radius: 0.25rem;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+  background: transparent;
+  font-size: 0.75rem;
+  font-family: var(--pdai-font-family-body);
+}
+
+.relatedTerm:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+[data-theme='dark'] .relatedTerm {
+  border-color: var(--pdai-gray-700);
+}
+
+.acronymFull {
+  font-size: 0.8rem;
+  color: var(--pdai-gray-500);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--pdai-border-color);
+}
+
+[data-theme='dark'] .pagination {
+  border-color: var(--pdai-gray-700);
+}
+
+.paginationBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius-sm);
+  font-family: var(--pdai-font-family-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pdai-gray-600);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.paginationBtn:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.paginationBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.paginationBtnActive {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.paginationBtnActive:hover:not(:disabled) {
+  color: white;
+}
+
+[data-theme='dark'] .paginationBtn {
+  border-color: var(--pdai-gray-700);
+  color: var(--pdai-gray-400);
+}
+
+[data-theme='dark'] .paginationBtnActive {
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--pdai-gray-500);
+  font-size: 0.9rem;
+}
