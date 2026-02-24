@@ -99,30 +99,65 @@ with a clear error message requesting the missing information.
 
 ---
 
-### Rule 9: Locale Switcher Slug Mapping
+### Rule 9: Locale Switcher — Three Levels of Redirect Mapping
 
-- **Applies to**: Every `.mdx` file pair (EN + ES) that has different slugs between locales
-- **Requirement**: When a page's EN slug differs from its ES slug, a `slugMappings` entry MUST exist in `createRedirects` inside `docusaurus.config.ts`
-- **Context**: Docusaurus locale switcher does a simple URL prefix swap (adds/removes `/es/`). It does NOT resolve doc IDs. Without explicit slug-level redirects, switching locale on any page with a translated slug produces a 404.
-- **Format**: Each entry maps the full EN path to the full ES path:
-  ```ts
-  {en: '/[en-dir]/[en-slug]', es: '/[es-dir]/[es-slug]'}
+- **Applies to**: Every `.mdx` file pair (EN + ES) where the URL path differs between locales
+- **Context**: Docusaurus locale switcher does a simple URL prefix swap (adds/removes `/es/`). It does NOT resolve doc IDs. Without explicit redirects at every level, switching locale produces a 404.
+
+**Three mapping levels must ALL be verified:**
+
+#### 9a. Directory-level (`dirMappings`)
+- **When**: A directory uses a different URL prefix in ES vs EN (e.g., `/phases/` ↔ `/fases/`)
+- **Where**: `dirMappings` array in `createRedirects` inside `docusaurus.config.ts`
+- **Ordering rule**: More specific paths MUST come before less specific (e.g., `/framework/fases/` before `/fases/`) because the matching loop uses `break` on first hit.
+- **Format**: `{es: '/fases/', en: '/phases/'}`
+
+#### 9b. Index-level (`indexMappings`)
+- **When**: A category index page exists at a path that differs between locales (e.g., `/phases` ↔ `/fases`, `/framework/phases` ↔ `/framework/fases`)
+- **Where**: `indexMappings` array in `createRedirects`
+- **Ordering rule**: Same as 9a — more specific first.
+- **Format**: `{es: '/fases', en: '/phases'}`
+
+#### 9c. Page-level (`slugMappings`)
+- **When**: A page's slug differs between EN and ES (the most common case)
+- **Where**: `slugMappings` array in `createRedirects`
+- **Format**: `{en: '/[en-dir]/[en-slug]', es: '/[es-dir]/[es-slug]'}`
+- **Special cases that are easy to miss**:
+  - Root-level pages with different namespaces (e.g., EN `/manifesto` vs ES `/overview/manifiesto`)
+  - Framework section pages (e.g., EN `/framework/processes` vs ES `/framework/procesos`)
+  - Pages where only the directory changes but not the slug (still need dirMapping coverage)
+
+**When to add**: Every time a new bilingual page is created (during `sincroniza` or manual creation). This is BLOCKING — without it, the locale switcher will 404 for that page.
+
+---
+
+### Rule 10: Redirect Build Verification (Pre-Commit Gate)
+
+- **Applies to**: Every `sincroniza todo` execution and every pre-commit audit
+- **Requirement**: After any content or redirect mapping change, run `npm run build` and verify ALL redirect HTML files exist
+- **Verification method**: For EVERY page where EN URL ≠ ES URL, confirm both redirect directions:
+  1. `build/es/[en-path]/index.html` exists (EN→ES locale switch)
+  2. `build/[es-path-without-locale]/index.html` exists (ES→EN locale switch)
+- **Quick audit command**:
+  ```bash
+  # For each directory with translated prefix, both slug sets must appear:
+  ls build/[en-dir]/        # Should contain EN slugs + ES redirect slugs
+  ls build/es/[en-dir]/     # Should contain ES slugs + EN redirect slugs
   ```
-  Example: `{en: '/principles/the-problem-is-sacred', es: '/principios/el-problema-es-sagrado'}`
-- **When to add**: Every time a new bilingual page is created (during `sincroniza` or manual creation)
-- **Verification**: After build, confirm the redirect HTML files exist:
-  - `build/es/[en-dir]/[en-slug]/index.html` (for EN→ES switching)
-  - `build/[es-dir]/[es-slug]/index.html` (for ES→EN switching)
-- **Violation**: BLOCK publication. The locale switcher will 404 for that page. Add the missing `slugMappings` entry and rebuild.
+- **Special attention areas** (historically missed):
+  - Root-level pages (manifesto) — not covered by dirMappings
+  - Nested index pages (e.g., `/framework/phases`) — need indexMappings
+  - New directories — need entries in BOTH `dirMappings` AND `indexMappings`
+- **Violation**: BLOCK commit. Fix missing mappings and rebuild before committing.
 
 ---
 
 ## Validation Matrix
 
-| Content Type | Exit Criteria | Anti-pattern | 6 Sections | Bidirectional | Frontmatter | Slug Mapping |
-|---|---|---|---|---|---|---|
-| Phase | REQUIRED | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED |
-| Principle | — | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED |
-| Framework | — | — | — | REQUIRED | REQUIRED | REQUIRED |
-| Commercial | — | — | REQUIRED | — | REQUIRED | REQUIRED |
-| Resource | — | — | — | — | REQUIRED | REQUIRED |
+| Content Type | Exit Criteria | Anti-pattern | 6 Sections | Bidirectional | Frontmatter | Redirect Mapping | Build Verify |
+|---|---|---|---|---|---|---|---|
+| Phase | REQUIRED | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED | REQUIRED |
+| Principle | — | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED | REQUIRED |
+| Framework | — | — | — | REQUIRED | REQUIRED | REQUIRED | REQUIRED |
+| Commercial | — | — | REQUIRED | — | REQUIRED | REQUIRED | REQUIRED |
+| Resource | — | — | — | — | REQUIRED | REQUIRED | REQUIRED |

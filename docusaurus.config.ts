@@ -63,13 +63,14 @@ const config: Config = {
           // Directory segment translations
           const dirMappings = [
             {es: '/principios/', en: '/principles/'},
-            {es: '/fases/', en: '/phases/'},
             {es: '/framework/fases/', en: '/framework/phases/'},
+            {es: '/fases/', en: '/phases/'},
             {es: '/recursos/', en: '/resources/'},
           ];
 
           const indexMappings = [
             {es: '/principios', en: '/principles'},
+            {es: '/framework/fases', en: '/framework/phases'},
             {es: '/fases', en: '/phases'},
             {es: '/recursos', en: '/resources'},
           ];
@@ -79,6 +80,8 @@ const config: Config = {
           // source slug, so we need redirects from the full EN path (for ES
           // pages) and from the full ES path (for EN pages).
           const slugMappings = [
+            // Manifesto (root-level, different namespace EN vs ES)
+            {en: '/manifesto', es: '/overview/manifiesto'},
             // Principles
             {en: '/principles/the-problem-is-sacred', es: '/principios/el-problema-es-sagrado'},
             {en: '/principles/the-client-doesnt-know-what-they-want', es: '/principios/el-cliente-no-sabe-lo-que-quiere'},

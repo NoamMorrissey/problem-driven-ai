@@ -207,21 +207,50 @@ When a new content section is needed:
 - Verify `i18n/es/docusaurus-theme-classic/footer.json` exists and is valid JSON
 - Verify `i18n/es/docusaurus-plugin-content-docs/current.json` exists and is valid JSON
 
-### 6. Redirect Plugin Audit (Bidirectional)
-- **Directory-level**: Verify every ES prefix in the Path Prefix Map (where EN ≠ ES) has a corresponding entry in `dirMappings` in `createRedirects`
-- **Page-level (Rule 9)**: For every `.mdx` page pair where the EN slug ≠ ES slug, verify a `slugMappings` entry exists in `createRedirects`
-  - Build the site and check that BOTH redirect HTML files exist:
-    - `build/es/[en-dir]/[en-slug]/index.html` (EN→ES locale switch)
-    - `build/[es-dir]/[es-slug]/index.html` (ES→EN locale switch)
-- **Quick audit method**: Compare `ls build/[en-dir]/[subdir]/` against `ls build/es/[en-dir]/[subdir]/`. Both directories should contain ALL slugs (EN + ES). If only one set appears, page-level slug mappings are missing.
+### 6. Redirect Plugin Audit (Rule 9 — Three Levels)
+
+This is the most critical audit step. Every level must be verified independently.
+
+#### 6a. Directory-level (`dirMappings`)
+- Read `docusaurus.config.ts` → `dirMappings` array
+- Verify every ES prefix in the Path Prefix Map (where EN ≠ ES) has a corresponding entry
+- **Ordering check**: more specific paths MUST come before less specific (e.g., `/framework/fases/` before `/fases/`) — the matching loop uses `break` on first hit
+- Flag any missing directory mapping
+
+#### 6b. Index-level (`indexMappings`)
+- Read `docusaurus.config.ts` → `indexMappings` array
+- For every `index.mdx` where the EN path ≠ ES path, verify an entry exists
+- **Common miss**: nested indexes like `/framework/phases` ↔ `/framework/fases`
+- **Ordering check**: same as dirMappings — more specific first
+
+#### 6c. Page-level (`slugMappings`)
+- For EVERY `.mdx` file pair, compute the full EN URL and full ES URL
+- If they differ (after accounting for dirMappings coverage), verify a `slugMappings` entry exists
+- **Special cases that are easy to miss**:
+  - Root-level pages (e.g., `docs/manifiesto.mdx` with EN slug `manifesto` vs ES slug `/overview/manifiesto`)
+  - Framework section pages (e.g., `/framework/processes` vs `/framework/procesos`)
+  - Pages where only the directory path changes (covered by dirMappings) but the slug ALSO changes (needs slugMapping too)
+
+#### 6d. Build verification (Rule 10 — BLOCKING)
+- Run `npm run build`
+- For EVERY page where EN URL ≠ ES URL, verify BOTH redirect HTML files exist:
+  - `build/es/[en-path]/index.html` (EN→ES locale switch)
+  - `build/[es-path-without-locale]/index.html` (ES→EN locale switch)
+- **Quick audit**: For each translated directory, list contents and verify both slug sets appear:
+  ```bash
+  ls build/principles/     # Must contain EN + ES redirect slugs
+  ls build/es/principles/  # Must contain ES + EN redirect slugs
+  ```
+- If ANY redirect HTML file is missing → BLOCK commit, fix the mapping, rebuild
 
 ### 7. Build Verification
-- Run `npx docusaurus build`
+- Run `npx docusaurus build` (if not already done in step 6d)
 - Confirm both locales: `[SUCCESS]`
 - Confirm 0 broken links (footer redirect warnings are acceptable)
 
 ### 8. Report
 - Output structured table with PASS/FAIL per check
+- **Redirect audit must have its own section** with explicit PASS/FAIL for each of the three levels (dir, index, slug)
 - List all fixes applied
 - Suggest Changelog entry
 
