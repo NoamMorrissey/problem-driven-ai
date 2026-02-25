@@ -275,26 +275,21 @@ div[class*=' codeBlockTitle'] {
 /* ---------- 8. DOC CARDS ---------- */
 
 article[class*='cardContainer'] {
-  box-shadow: none;
-  border: 1px solid var(--pdai-border-color);
+  box-shadow: none !important;
+  border: none !important;
   border-radius: var(--pdai-border-radius-lg);
-  transition: border-color var(--ifm-transition-fast) ease,
-              transform var(--ifm-transition-fast) ease;
+  background-color: rgba(76, 76, 221, 0.1) !important;
+  transition: transform var(--ifm-transition-fast) ease;
 }
 
 article[class*='cardContainer']:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: none;
+  box-shadow: none !important;
+  border: none !important;
   transform: translateY(-1px);
 }
 
 [data-theme='dark'] article[class*='cardContainer'] {
-  border-color: var(--pdai-gray-700);
-  background-color: var(--ifm-background-surface-color);
-}
-
-[data-theme='dark'] article[class*='cardContainer']:hover {
-  border-color: var(--pdai-primary);
+  background-color: rgba(76, 76, 221, 0.15) !important;
 }
 
 h2[class*='cardTitle'] {

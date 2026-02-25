@@ -7,24 +7,18 @@
 
 .card {
   box-shadow: none;
-  border: 1px solid var(--pdai-border-color);
+  border: none;
   border-radius: var(--pdai-border-radius-lg);
-  transition: border-color var(--ifm-transition-fast) ease,
-              transform var(--ifm-transition-fast) ease;
+  background-color: rgba(76, 76, 221, 0.1);
+  transition: transform var(--ifm-transition-fast) ease;
 }
 
 .card:hover {
-  border-color: var(--ifm-color-primary);
   transform: translateY(-1px);
 }
 
 [data-theme='dark'] .card {
-  border-color: var(--pdai-gray-700);
-  background-color: var(--ifm-background-surface-color);
-}
-
-[data-theme='dark'] .card:hover {
-  border-color: var(--pdai-primary);
+  background-color: rgba(76, 76, 221, 0.15);
 }
 
 .cardLink {
