@@ -60,7 +60,12 @@ Speed Theater, Discovery, BMAD, Exit Criteria
 - Default locale: `en` — Spanish is the mirror at `/es/`
 - Docs served from root (`routeBasePath: '/'`)
 - 3 sidebars: `methodologySidebar`, `frameworkSidebar`, `resourcesSidebar`
-- Dev server only serves ONE locale — use `npm run start:full` for bilingual testing
+- **CRITICAL**: Docusaurus dev server (`docusaurus start`) only serves ONE locale. The locale switcher appears but produces 404s for the other language.
+- **Scripts**:
+  - `npm run start` → Build + serve (bilingual, locale switcher works, no hot-reload)
+  - `npm run dev` → Dev server with hot-reload (EN only, locale switcher broken by design)
+  - `npm run dev:es` → Dev server with hot-reload (ES only)
+- **Rule**: Always use `npm run start` for testing. Use `npm run dev` only for rapid iteration on a single locale.
 
 ## Content Structure
 

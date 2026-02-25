@@ -152,6 +152,22 @@ with a clear error message requesting the missing information.
 
 ---
 
+### Rule 11: Bilingual Server for Verification
+
+- **Applies to**: Every verification, testing, or pre-commit check
+- **Context**: Docusaurus `docusaurus start` (dev server) only serves ONE locale. The locale switcher appears in the UI but produces 404s for the other language. This is a Docusaurus design limitation, not a project bug.
+- **Requirement**: Always use `npm run start` (build + serve) for any testing that involves locale switching or bilingual verification. NEVER use `npm run dev` for this purpose.
+- **Scripts**:
+  - `npm run start` → `docusaurus build && docusaurus serve` (bilingual, locale switcher works)
+  - `npm run dev` → `docusaurus start` (single locale, hot-reload, locale switcher broken)
+  - `npm run dev:es` → `docusaurus start --locale es` (Spanish only, hot-reload)
+- **When to use each**:
+  - `npm run start`: Pre-commit verification, locale switcher testing, `sincroniza todo` audit
+  - `npm run dev`: Rapid content editing on a single locale (writing, styling, layout)
+- **Violation**: Any verification report that tested locale switching using `npm run dev` is INVALID. Re-run with `npm run start`.
+
+---
+
 ## Validation Matrix
 
 | Content Type | Exit Criteria | Anti-pattern | 6 Sections | Bidirectional | Frontmatter | Redirect Mapping | Build Verify |

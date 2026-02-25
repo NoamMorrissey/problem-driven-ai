@@ -269,7 +269,7 @@ const config: Config = {
           title: 'Methodology',
           items: [
             {label: 'Overview', to: '/overview'},
-            {label: 'Manifesto', to: '/overview/manifiesto'},
+            {label: 'Manifesto', to: '/manifesto'},
             {label: 'Principles', to: '/principles'},
             {label: 'Phases', to: '/phases'},
           ],

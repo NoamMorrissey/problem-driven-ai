@@ -560,8 +560,18 @@ div[class*='announcementBar'] {
 .section-hero--principles { background-image: url('/img/principios.png'); }
 .section-hero--manifesto { background-image: url('/img/manifiesto.png'); }
 .section-hero--principle { background-image: url('/img/principios-listado.png'); }
+.section-hero--principle-01 { background-image: url('/img/The problem is sacred.png'); }
+.section-hero--principle-02 { background-image: url("/img/The client doesn't know what they want, but knows what they feel.png"); }
+.section-hero--principle-03 { background-image: url('/img/Without organizational consensus there is no context.png'); }
+.section-hero--principle-04 { background-image: url('/img/Context Engineering is design, not writing.png'); }
+.section-hero--principle-05 { background-image: url('/img/Building is a symptom, not a goal.png'); }
+.section-hero--principle-06 { background-image: url('/img/Speed is a reward, not a strategy.png'); }
+.section-hero--principle-07 { background-image: url('/img/The market always knows more than you.png'); }
+.section-hero--principle-08 { background-image: url('/img/Iterating is not repeating.png'); }
+.section-hero--principle-09 { background-image: url('/img/Context is a living asset.png'); }
+.section-hero--principle-10 { background-image: url("/img/Clarity is the only luxury you can't afford not to have.png"); }
 
 .section-hero--principle .section-hero__title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
 }

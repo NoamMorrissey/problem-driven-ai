@@ -160,9 +160,9 @@ When a new content section is needed:
 ### 10. Restart Server
 - Kill any process on port 3000: `lsof -ti:3000 | xargs kill -9`
 - Clean cache: `npx docusaurus clear`
-- Build both locales: `npx docusaurus build`
-- Serve: `npx docusaurus serve --port 3000`
+- **ALWAYS use `npm run start`** (build + serve, bilingual). NEVER use `npm run dev` for verification — it only serves one locale and the locale switcher produces 404s.
 - Confirm server is running and report URL `http://localhost:3000`
+- Verify both `http://localhost:3000/` (EN) and `http://localhost:3000/es/` (ES) return 200
 
 ### 11. Locale Switcher Verification
 - For the page(s) just created or modified, verify locale switching works in both directions.
