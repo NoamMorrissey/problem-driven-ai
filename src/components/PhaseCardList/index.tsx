@@ -38,6 +38,30 @@ const icons: Record<string, PhaseIcon> = {
     icon: '/img/market-ico.png',
     iconDark: '/img/market-ico-dark.png',
   },
+  'manifesto': {
+    icon: '/img/manifiesto-ico.png',
+    iconDark: '/img/manifiesto-ico-dark.png',
+  },
+  'manifiesto': {
+    icon: '/img/manifiesto-ico.png',
+    iconDark: '/img/manifiesto-ico-dark.png',
+  },
+  'principles': {
+    icon: '/img/principios-ico.png',
+    iconDark: '/img/principios-ico-dark.png',
+  },
+  'principios': {
+    icon: '/img/principios-ico.png',
+    iconDark: '/img/principios-ico-dark.png',
+  },
+  'phases': {
+    icon: '/img/fases-ico.png',
+    iconDark: '/img/fases-ico-dark.png',
+  },
+  'fases': {
+    icon: '/img/fases-ico.png',
+    iconDark: '/img/fases-ico-dark.png',
+  },
 };
 
 const methodology: Record<string, PhaseText> = {
@@ -86,7 +110,34 @@ const framework: Record<string, PhaseText> = {
   },
 };
 
-const variants = {methodology, framework};
+const overview: Record<string, PhaseText> = {
+  'manifesto': {
+    en: 'The founding declaration: AI doesn\'t solve poorly defined problems faster — it builds them wrong, faster. The value lies in prior thinking.',
+    es: 'La declaración fundacional: la IA no resuelve problemas mal definidos más rápido, los construye mal más rápido. El valor está en el pensamiento previo.',
+  },
+  'manifiesto': {
+    en: 'The founding declaration: AI doesn\'t solve poorly defined problems faster — it builds them wrong, faster. The value lies in prior thinking.',
+    es: 'La declaración fundacional: la IA no resuelve problemas mal definidos más rápido, los construye mal más rápido. El valor está en el pensamiento previo.',
+  },
+  'principles': {
+    en: 'The ten principles that govern every decision within Problem-Driven AI. They are the criteria to know if you\'re on the right track.',
+    es: 'Los diez principios que gobiernan cada decisión dentro de Problem-Driven AI. Son el criterio para saber si vas por buen camino.',
+  },
+  'principios': {
+    en: 'The ten principles that govern every decision within Problem-Driven AI. They are the criteria to know if you\'re on the right track.',
+    es: 'Los diez principios que gobiernan cada decisión dentro de Problem-Driven AI. Son el criterio para saber si vas por buen camino.',
+  },
+  'phases': {
+    en: 'The complete lifecycle in five interdependent phases: from Problem Discovery to Market Iteration. Each phase is the precondition for the next.',
+    es: 'El ciclo de vida completo en cinco fases interdependientes: desde Problem Discovery hasta Market Iteration. Cada fase es la condición de posibilidad de la siguiente.',
+  },
+  'fases': {
+    en: 'The complete lifecycle in five interdependent phases: from Problem Discovery to Market Iteration. Each phase is the precondition for the next.',
+    es: 'El ciclo de vida completo en cinco fases interdependientes: desde Problem Discovery hasta Market Iteration. Cada fase es la condición de posibilidad de la siguiente.',
+  },
+};
+
+const variants = {methodology, framework, overview};
 
 function getPhaseSlug(href: string): string | null {
   const segments = href.replace(/\/$/, '').split('/');
@@ -94,7 +145,7 @@ function getPhaseSlug(href: string): string | null {
 }
 
 interface Props {
-  variant?: 'methodology' | 'framework';
+  variant?: 'methodology' | 'framework' | 'overview';
 }
 
 export default function PhaseCardList({
@@ -150,7 +201,7 @@ export default function PhaseCardList({
                     loading="lazy"
                   />
                 )}
-                {item.label}
+                {'label' in item && item.label}
               </h2>
               {description && (
                 <p className={styles.cardDescription}>{description}</p>
