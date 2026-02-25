@@ -57,6 +57,10 @@ const config: Config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        redirects: [
+          {from: '/framework/phases', to: '/framework'},
+          {from: '/framework/fases', to: '/framework'},
+        ],
         createRedirects(existingPath: string) {
           const redirects: string[] = [];
 
