@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [framework, fases, ai-build-phase, proceso, paso-a-paso]
 ---
 
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
 # Proceso paso a paso
 
 La Fase 4 tiene cinco pasos. Los tres primeros (Setup, Construcción por Story Files y Gestión de Gaps) son el núcleo operativo. Los dos últimos (Revisión de Fidelidad y Cierre del Decision Log) certifican que la fase está completa.
@@ -93,6 +95,22 @@ Los gaps son inevitables. En construcción paralela, un gap en un track puede in
 - **Gap de Reglas:** Stop del Story File. El Context Engineer resuelve antes de que ningún track continúe. Plazo máximo: el mismo día hábil.
 - **Gap de arquitectura:** Stop completo. Regreso a Fase 3.
 - **Gap de coherencia entre tracks:** El Tech Lead convoca sincronización de emergencia en las próximas 2 horas.
+
+### Distribución de gaps
+
+Categorización de fallos bloqueantes detectados por el QA Agent durante la integración.
+
+<EffortChart segments={[
+  {label: 'Especificación', percent: 40, color: 'var(--ifm-color-primary)'},
+  {label: 'Reglas', percent: 30, color: 'var(--ifm-color-danger)'},
+  {label: 'Datos', percent: 20, color: 'var(--ifm-color-success)'},
+  {label: 'Arquitectura', percent: 10, color: 'var(--ifm-color-info)'},
+]} />
+
+- **Gaps de especificación** — El Agente no puede completar el Skill sin ambigüedad. Si afecta a un contrato compartido, todos los tracks que lo usan deben detenerse.
+- **Gaps de reglas** — Skills en diferentes tracks producen inconsistencias invisibles hasta la integración. Se requiere nueva Regla; todos los Agentes recargan.
+- **Gaps de datos** — Datos no disponibles en el formato o calidad esperados. Si son compartidos, todos los tracks consumidores deben detenerse.
+- **Gaps de arquitectura** — Una decisión de arquitectura es inviable. Parada total. Retorno a Fase 3.
 
 :::tip La regla del gap transparente
 En equipos paralelos, un gap que permanece invisible durante más de un día hábil tiene un coste exponencial: cada Story File completado sobre esa base incorrecta multiplica el retrabajo. La cultura del equipo debe hacer que reportar un gap sea un acto de profesionalismo, no una confesión de error.

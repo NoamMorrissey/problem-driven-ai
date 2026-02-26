@@ -1,0 +1,106 @@
+---
+title: "Phase 4 Process"
+slug: /framework/proceso-fase-4
+description: "Build Validation and System Integration: parallel track execution, collision supervision, and final fidelity validation."
+sidebar_position: 4
+tags: [framework, ai-build-phase, process]
+---
+
+import {StatCardGrid, StatCard, ProcessTimeline, RadarChart, EffortChart, WeightChart} from '@site/src/components/ProcessInfographic';
+
+# Build Validation and System Integration
+
+Parallel track execution, technical collision supervision, and final fidelity validation. The critical step before massive deployment.
+
+<StatCardGrid>
+  <StatCard value="5" label="Phase steps" description="From Setup to Closure" />
+  <StatCard value="10" label="Gate Review conditions" description="Integration checklist" />
+  <StatCard value="6" label="Final artifacts" description="Transferred to Phase 5" />
+</StatCardGrid>
+
+## Technical execution and fidelity map
+
+Parallel track management, collision detection, and stakeholder validation.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Integration setup', description: 'Collective briefing, three-read context test, and implicit dependency graph verification.', owner: 'Verified Environment'},
+  {number: 2, title: '2. Multitrack construction', description: 'Agent execution under Dev Lead supervision. Decision classification: Local, Cross-track, or Global.', owner: 'Validated Skills'},
+  {number: 3, title: '3. Gap management', description: 'QA Agent detects inconsistencies. Gap classification: Specification, Rules, Architecture, or Data.', owner: 'Updated Decision Log'},
+  {number: 4, title: '4. Fidelity review', description: 'Triple validation: Technical (system), Phase 1 stakeholders (problem), and Phase 2 stakeholders (solution).', owner: 'Build Validation Report'},
+  {number: 5, title: '5. Closure and iteration', description: 'Decision Log consolidation and Iteration Brief drafting with cross-track learnings.', owner: 'Updated Context Document'},
+]} />
+
+## Decision classification
+
+Impact of unforeseen decisions made during track construction.
+
+<WeightChart bars={[
+  {label: 'Local decisions', percent: 65, color: 'var(--ifm-color-primary-lightest)'},
+  {label: 'Cross-track decisions', percent: 25, color: 'var(--ifm-color-primary-light)'},
+  {label: 'Global decisions', percent: 10, color: 'var(--ifm-color-primary)'},
+]} />
+
+Local decisions stay within a single track. Cross-track decisions affect interface contracts between tracks. Global decisions modify Rules in project-context.md and force all Agents to reload updated context.
+
+## Gap distribution
+
+Categorization of blocking failures detected by the QA Agent during integration.
+
+<EffortChart segments={[
+  {label: 'Specification', percent: 40, color: 'var(--ifm-color-primary)'},
+  {label: 'Rules', percent: 30, color: 'var(--ifm-color-danger)'},
+  {label: 'Data', percent: 20, color: 'var(--ifm-color-success)'},
+  {label: 'Architecture', percent: 10, color: 'var(--ifm-color-info)'},
+]} />
+
+- **Specification gaps** — The Agent cannot complete the Skill without ambiguity. If it affects a shared contract, all tracks using it must stop.
+- **Rules gaps** — Skills in different tracks produce inconsistencies invisible until integration. New Rule required; all Agents reload.
+- **Data gaps** — Data not available in the expected format or quality. If shared, all consuming tracks must stop.
+- **Architecture gaps** — An architecture decision is unfeasible. Full stop. Return to Phase 3.
+
+## Build fidelity triple check
+
+Recognition level of the Build by the stakeholders responsible for each phase.
+
+<RadarChart
+  axes={['Problem fidelity (F1)', 'Solution fidelity (F2)', 'Integration coherence', 'PRD use cases', 'Context Rules']}
+  datasets={[
+    {label: 'Current recognition', values: [90, 95, 88, 100, 92], color: 'var(--ifm-color-success)'},
+    {label: 'Critical threshold', values: [80, 80, 80, 80, 80], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+- **Problem fidelity (F1)** — Phase 1 stakeholders recognize the system as a response to the problem they described.
+- **Solution fidelity (F2)** — Phase 2 stakeholders recognize the system as the solution they approved.
+- **Integration coherence** — Outputs from all tracks are compatible and the integrated system works.
+- **PRD use cases** — End-to-end execution of all PRD use cases without collisions.
+- **Context Rules** — No Decision Log entries contradict the Problem Statement without documented justification.
+
+## The six artifacts
+
+1. **Verified Environment** — Aligned team, verified dependency graph, operational distributed Decision Log. Produced during setup.
+2. **Completed Skills** — All Story Files executed by Agents and validated by the QA Agent against acceptance criteria and global Rules.
+3. **Updated Decision Log** — Consolidated registry from all tracks with cross-impact classification. Every unforeseen decision documented with its scope.
+4. **Build Validation Report** — Signed by the Tech Lead and Phase 1-2 stakeholders after the fidelity review passes all four blocks.
+5. **Updated Context Document** — Rules that emerged during construction incorporated into project-context.md. Dependency graph updated.
+6. **Iteration Brief** — Cross-track learnings, open hypotheses for Phase 5, and assumptions to validate with market data.
+
+:::caution[Gate Review: 10 closure conditions]
+- ✅ **Briefing:** Team answers the 5 key questions after context delivery.
+- ✅ **Graph:** Implicit dependencies documented and verified by all Dev Leads.
+- ✅ **Gaps:** All QA-detected gaps resolved with documented classification.
+- ✅ **Sync:** Integration synchronization minutes signed by all tracks.
+- ✅ **Use cases:** Full PRD execution end-to-end without failures.
+- ✅ **F1 check:** Phase 1 stakeholders recognize the system as a faithful response to the problem.
+- ✅ **F2 check:** Phase 2 stakeholders recognize the system as the approved solution.
+- ✅ **Decision Log:** No decision contradicts the Problem Statement without documented justification.
+- ✅ **Context:** Emergent Rules consolidated into project-context.md.
+- ✅ **Brief:** Iteration Brief drafted with cross-track learnings and ready for Phase 5 transfer.
+- ❌ No advancement if Block 0 (integration coherence) is not approved.
+- ❌ No advancement if cross-track or global Decision Log entries lack resolution status.
+- ❌ No advancement if the Build Validation Report is unsigned by Phase 1-2 stakeholders.
+:::
+
+:::tip[Build Validation complete]
+Build Validation Report signed and transferred. The system is recognized as a faithful expression of the Problem Statement and Solution Brief. Phase 5 (Market Phase) begins with the updated Context Document, the consolidated Decision Log, and the Iteration Brief as its foundation.
+:::
