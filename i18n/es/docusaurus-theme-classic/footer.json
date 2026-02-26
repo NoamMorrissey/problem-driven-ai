@@ -27,10 +27,6 @@
     "message": "Fases",
     "description": "The label of footer link with label=Phases"
   },
-  "link.item.label.Processes": {
-    "message": "Procesos",
-    "description": "The label of footer link with label=Processes linking to /framework/processes"
-  },
   "link.item.label.Artifacts": {
     "message": "Artefactos",
     "description": "The label of footer link with label=Artifacts linking to /framework/artifacts"

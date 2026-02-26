@@ -68,8 +68,6 @@ const config: Config = {
           const dirMappings = [
             {es: '/principios/', en: '/principles/'},
             {es: '/framework/fases/', en: '/framework/phases/'},
-            {es: '/procesos-por-fase/', en: '/phase-processes/'},
-            {es: '/procesos/', en: '/processes/'},
             {es: '/fases/', en: '/phases/'},
             {es: '/recursos/', en: '/resources/'},
           ];
@@ -77,7 +75,6 @@ const config: Config = {
           const indexMappings = [
             {es: '/principios', en: '/principles'},
             {es: '/framework/fases', en: '/framework/phases'},
-            {es: '/framework/procesos', en: '/framework/processes'},
             {es: '/fases', en: '/phases'},
             {es: '/recursos', en: '/resources'},
           ];
@@ -169,7 +166,6 @@ const config: Config = {
             {en: '/framework/phases/market-iteration/anti-patterns', es: '/framework/fases/market-iteration/anti-patrones'},
             {en: '/framework/phases/market-iteration/effort', es: '/framework/fases/market-iteration/esfuerzo'},
             // Framework section indexes
-            {en: '/framework/processes', es: '/framework/procesos'},
             {en: '/framework/artifacts', es: '/framework/artefactos'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
@@ -285,7 +281,6 @@ const config: Config = {
           title: 'Framework',
           items: [
             {label: 'Phases', to: '/framework'},
-            {label: 'Processes', to: '/framework/processes'},
             {label: 'Artifacts', to: '/framework/artifacts'},
           ],
         },
