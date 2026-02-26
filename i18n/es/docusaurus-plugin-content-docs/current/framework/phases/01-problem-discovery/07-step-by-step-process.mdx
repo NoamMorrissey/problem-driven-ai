@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [fases, discovery, investigacion, escucha-activa]
 ---
 
+import {SaturationChart, RadarChart} from '@site/src/components/ProcessInfographic';
+
 # El proceso paso a paso
 
 El Problem Discovery no es una actividad libre. Es un proceso estructurado con cuatro pasos claros, cada uno con un propósito específico y un entregable parcial que alimenta al siguiente. La disciplina en la secuencia es lo que diferencia un discovery riguroso de una conversación bien intencionada.
@@ -80,6 +82,26 @@ Esta pregunta contiene la solución, sugiere la respuesta y hace difícil que la
 **La versión correcta:** "Cuéntame cómo sabes hoy cuánto stock tienes de cada producto. ¿Qué haces cuando necesitas esa información?"
 :::
 
+### Por qué 5 entrevistas
+
+La investigación cualitativa se rige por la ley de rendimientos decrecientes. Para la quinta entrevista, aproximadamente el 85% de los problemas y patrones centrales están identificados. Las entrevistas adicionales aportan valor decreciente.
+
+<SaturationChart
+  data={[
+    {label: '1', value: 35},
+    {label: '2', value: 55},
+    {label: '3', value: 70},
+    {label: '5', value: 85},
+    {label: '8', value: 92},
+    {label: '10', value: 95},
+  ]}
+  yLabel="% de insights totales"
+  thresholdLabel="85%"
+  thresholdValue={85}
+/>
+
+El número 5 no es arbitrario. Proviene de décadas de investigación en usabilidad: después de 5 entrevistas bien conducidas, los patrones centrales se estabilizan. Más entrevistas refinan los matices, pero rara vez cambian los hallazgos fundamentales.
+
 ## Paso 3. Síntesis de hallazgos
 
 *Duración estimada: 1-2 sesiones de 3-4 horas con todo el equipo*
@@ -117,3 +139,17 @@ Si no puedes responder a esta pregunta con una sola frase clara, la síntesis no
 *Duración estimada: 1-2 días de redacción + 2-3 días de validación*
 
 El Problem Statement es el entregable final de esta fase y uno de los documentos más importantes de toda la metodología. No es un resumen del discovery. Es una destilación: la expresión más clara, concisa y precisa del problema real que el equipo ha descubierto.
+
+### El radar de validación
+
+Un problema validado debe puntuar alto en múltiples dimensiones. Comparar un **perfil validado** con una **suposición arriesgada** revela el patrón de fallo típico: alta viabilidad de negocio pero baja resonancia con el usuario.
+
+<RadarChart
+  axes={['Resonancia', 'Frecuencia', 'Disp. a pagar', 'Viab. negocio', 'Viab. técnica']}
+  datasets={[
+    {label: 'Problema validado', values: [90, 85, 80, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'Suposición arriesgada', values: [30, 40, 20, 80, 60], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+El radar hace visible lo que la intuición esconde. Un problema que puntúa 90 en viabilidad de negocio pero 30 en resonancia con el usuario no es un problema validado. Es una hipótesis de negocio disfrazada de necesidad del usuario.

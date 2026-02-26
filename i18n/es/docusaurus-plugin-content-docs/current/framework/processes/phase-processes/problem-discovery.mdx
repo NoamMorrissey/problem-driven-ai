@@ -1,0 +1,107 @@
+---
+title: "Product Discovery y validación del problema"
+sidebar_label: "Problem Discovery"
+slug: /framework/procesos/procesos-por-fase/problem-discovery
+description: "Un proceso riguroso para transformar suposiciones en Problem Statements validados antes de construir."
+sidebar_position: 1
+tags: [framework, procesos, discovery, validación, Problem Statement]
+---
+
+import {StatCardGrid, StatCard, ProcessTimeline, SaturationChart, EffortChart, RadarChart, CostChart} from '@site/src/components/ProcessInfographic';
+
+# Product Discovery y validación del problema
+
+Un proceso riguroso para transformar suposiciones en Problem Statements validados. La inversión en Discovery no es opcional: **es la condición previa para construir algo que merezca existir**.
+
+<StatCardGrid>
+  <StatCard value="5+" label="Entrevistas" description="Mínimo para saturación de patrones" />
+  <StatCard value="2x" label="Ciclos de validación" description="Usuarios + Decision Owner" />
+  <StatCard value="100%" label="Gate Review" description="Todos los criterios deben cumplirse" />
+</StatCardGrid>
+
+## El flujo de Discovery
+
+Esta vista lineal representa el camino central desde la identificación de un problema hasta pasar la Gate Review final. Requiere coordinación entre el Facilitador, el Investigador y el Decision Owner.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Preparación e hipótesis', description: 'Definir alcance, mapear actores y documentar suposiciones iniciales (e hipótesis invertidas).', owner: 'Facilitador'},
+  {number: 2, title: '2. Ejecución de la investigación', description: 'Reclutar mínimo 5 candidatos. Ejecutar entrevistas en profundidad de 45-60 min. Capturar notas en bruto.', owner: 'Investigador'},
+  {number: 3, title: '3. Síntesis y 5 Whys', description: 'Mapear hallazgos en el tablero de síntesis. Identificar causas raíz vs síntomas usando la técnica de los 5 Whys.', owner: 'Facilitador'},
+  {number: 4, title: '4. Validación dual', description: 'Pistas paralelas: validar resonancia con usuarios y viabilidad/coste con el Decision Owner.', owner: 'Compartido'},
+  {number: 5, title: '5. Gate Review', description: 'Lista de verificación final. Si se valida: avanzar a Solution Alignment. Si no: cancelar o pivotar.', owner: 'Facilitador'},
+]} />
+
+## Por qué 5 entrevistas
+
+La investigación cualitativa se rige por la ley de rendimientos decrecientes. Para la quinta entrevista, aproximadamente el 85% de los problemas y patrones centrales están identificados. Las entrevistas adicionales aportan valor decreciente.
+
+<SaturationChart
+  data={[
+    {label: '1', value: 35},
+    {label: '2', value: 55},
+    {label: '3', value: 70},
+    {label: '5', value: 85},
+    {label: '8', value: 92},
+    {label: '10', value: 95},
+  ]}
+  yLabel="% de insights totales"
+  thresholdLabel="85%"
+  thresholdValue={85}
+/>
+
+El número 5 no es arbitrario. Proviene de décadas de investigación en usabilidad: después de 5 entrevistas bien conducidas, los patrones centrales se estabilizan. Más entrevistas refinan los matices, pero rara vez cambian los hallazgos fundamentales.
+
+## Distribución del esfuerzo
+
+Un proceso de Discovery saludable no es solo "hablar con gente". Requiere un esfuerzo significativo en síntesis y validación para evitar el sesgo de confirmación.
+
+<EffortChart segments={[
+  {label: 'Preparación y reclutamiento', percent: 15, color: 'var(--pdai-gray-300)'},
+  {label: 'Ejecución de entrevistas', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Síntesis y análisis', percent: 25, color: 'var(--ifm-color-warning)'},
+  {label: 'Ciclos de validación', percent: 30, color: 'var(--ifm-color-success)'},
+]} />
+
+El error más común es dedicar el 80% del esfuerzo a las entrevistas y el 20% a todo lo demás. La proporción debería ser cercana a 30/70: **30% recogiendo datos, 70% dándoles sentido y validándolos**.
+
+## El radar de validación
+
+Un problema validado debe puntuar alto en múltiples dimensiones. Comparar un **perfil validado** con una **suposición arriesgada** revela el patrón de fallo típico: alta viabilidad de negocio pero baja resonancia con el usuario.
+
+<RadarChart
+  axes={['Resonancia', 'Frecuencia', 'Disp. a pagar', 'Viab. negocio', 'Viab. técnica']}
+  datasets={[
+    {label: 'Problema validado', values: [90, 85, 80, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'Suposición arriesgada', values: [30, 40, 20, 80, 60], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+El radar hace visible lo que la intuición esconde. Un problema que puntúa 90 en viabilidad de negocio pero 30 en resonancia con el usuario no es un problema validado. Es una hipótesis de negocio disfrazada de necesidad del usuario.
+
+## El coste del error
+
+¿Por qué invertir en Discovery? Porque corregir un problema mal entendido en producción cuesta **100 veces más** que corregirlo durante Discovery. Cuanto antes se detecte el error, más barata será la corrección.
+
+<CostChart bars={[
+  {label: 'Discovery', value: '1x', height: 40, color: 'var(--ifm-color-success)'},
+  {label: 'Desarrollo', value: '10x', height: 130, color: 'var(--ifm-color-warning)'},
+  {label: 'Producción', value: '100x', height: 250, color: 'var(--ifm-color-danger)'},
+]} />
+
+Esto no es teoría. Es el hallazgo más consistente en la investigación de ingeniería de software: **el coste del cambio crece exponencialmente con cada fase**. Discovery es el momento más barato para equivocarse.
+
+## Checklist de Gate Review
+
+Antes de avanzar a Solution Alignment, el Problem Statement debe cumplir estas condiciones:
+
+:::tip[Gate Review: condiciones de paso]
+- Problema validado por 5+ usuarios reales
+- Causa raíz identificada (5 Whys aplicados)
+- Criterios de coste/éxito aprobados por el Decision Owner
+- Sin contradicciones de hipótesis pendientes
+- Problem Statement documentado y firmado
+:::
+
+:::warning[Siguiente paso]
+Solo cuando el problema esté validado más allá de toda duda razonable: avanzar a **Solution Alignment**.
+:::

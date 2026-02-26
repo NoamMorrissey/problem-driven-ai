@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [phases, discovery, research, active-listening]
 ---
 
+import {SaturationChart, RadarChart} from '@site/src/components/ProcessInfographic';
+
 # The step-by-step process
 
 Problem Discovery is not a free-form activity. It's a structured process with four clear steps, each with a specific purpose and a partial deliverable that feeds the next. Discipline in the sequence is what differentiates a rigorous discovery from a well-intentioned conversation.
@@ -80,6 +82,26 @@ This question contains the solution, suggests the answer, and makes it difficult
 **The correct version:** "Tell me how you know today how much stock you have of each product. What do you do when you need that information?"
 :::
 
+### Why 5 interviews?
+
+Qualitative research adheres to the law of diminishing returns. By the 5th interview, approximately 85% of core problems and patterns are typically identified. Additional interviews add diminishing value.
+
+<SaturationChart
+  data={[
+    {label: '1', value: 35},
+    {label: '2', value: 55},
+    {label: '3', value: 70},
+    {label: '5', value: 85},
+    {label: '8', value: 92},
+    {label: '10', value: 95},
+  ]}
+  yLabel="% of total insights"
+  thresholdLabel="85%"
+  thresholdValue={85}
+/>
+
+The number 5 is not arbitrary. It comes from decades of usability research: after 5 well-conducted interviews, the core patterns stabilize. More interviews refine the nuances but rarely change the fundamental findings.
+
 ## Step 3. Findings synthesis
 
 *Estimated duration: 1-2 sessions of 3-4 hours with the full team*
@@ -117,3 +139,17 @@ If you can't answer this question with a single clear sentence, the synthesis is
 *Estimated duration: 1-2 days of drafting + 2-3 days of validation*
 
 The Problem Statement is the final deliverable of this phase and one of the most important documents in the entire methodology. It's not a summary of the discovery. It's a distillation: the clearest, most concise, and most precise expression of the real problem the team has discovered.
+
+### The Validation Radar
+
+A validated problem must score high across multiple dimensions. Comparing a **validated profile** against a **risky assumption** reveals the typical failure pattern: high business viability but low user resonance.
+
+<RadarChart
+  axes={['Resonance', 'Frequency', 'Will. to Pay', 'Biz Viability', 'Tech Feasib.']}
+  datasets={[
+    {label: 'Validated Problem', values: [90, 85, 80, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'Risky Assumption', values: [30, 40, 20, 80, 60], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+The radar makes visible what intuition hides. A problem that scores 90 on Business Viability but 30 on User Resonance is not a validated problem. It is a business hypothesis disguised as a user need.

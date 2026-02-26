@@ -7,6 +7,8 @@ sidebar_position: 6
 tags: [fases, discovery, esfuerzo]
 ---
 
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
 # Esfuerzo
 
 El Problem Discovery no se mide en semanas. Se mide en actividades completadas con el rigor suficiente para producir un Problem Statement que resista la validación. La complejidad del problema determina la profundidad del esfuerzo, no la duración del calendario.
@@ -18,6 +20,19 @@ El Problem Discovery no se mide en semanas. Se mide en actividades completadas c
 | **Problema simple, usuarios accesibles** | 5 entrevistas + 1 sesión de síntesis + 1 ronda de validación. | Las entrevistas son directas. La síntesis produce patrones claros. La validación confirma en un ciclo. |
 | **Problema de complejidad media** | 5-8 entrevistas + observación contextual + 2 sesiones de síntesis + validación iterada. | Las entrevistas cubren perspectivas diversas. La síntesis requiere múltiples pasadas. La validación necesita al menos dos ciclos. |
 | **Problema complejo, múltiples stakeholders** | 8-12 entrevistas con distintos perfiles + análisis cuantitativo + síntesis extendida + validación con múltiples grupos + verificación de restricciones. | Las entrevistas abarcan todos los perfiles afectados. La síntesis integra fuentes cualitativas y cuantitativas. La validación incluye verificación con cada grupo de stakeholders. |
+
+## Distribución del esfuerzo
+
+Un proceso de Discovery saludable no es solo "hablar con gente". Requiere un esfuerzo significativo en síntesis y validación para evitar el sesgo de confirmación.
+
+<EffortChart segments={[
+  {label: 'Preparación y reclutamiento', percent: 15, color: 'var(--pdai-gray-300)'},
+  {label: 'Ejecución de entrevistas', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Síntesis y análisis', percent: 25, color: 'var(--ifm-color-warning)'},
+  {label: 'Ciclos de validación', percent: 30, color: 'var(--ifm-color-success)'},
+]} />
+
+El error más común es dedicar el 80% del esfuerzo a las entrevistas y el 20% a todo lo demás. La proporción debería ser cercana a 30/70: **30% recogiendo datos, 70% dándoles sentido y validándolos**.
 
 ## La regla del esfuerzo mínimo
 

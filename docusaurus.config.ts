@@ -68,6 +68,8 @@ const config: Config = {
           const dirMappings = [
             {es: '/principios/', en: '/principles/'},
             {es: '/framework/fases/', en: '/framework/phases/'},
+            {es: '/procesos-por-fase/', en: '/phase-processes/'},
+            {es: '/procesos/', en: '/processes/'},
             {es: '/fases/', en: '/phases/'},
             {es: '/recursos/', en: '/resources/'},
           ];
@@ -75,6 +77,7 @@ const config: Config = {
           const indexMappings = [
             {es: '/principios', en: '/principles'},
             {es: '/framework/fases', en: '/framework/phases'},
+            {es: '/framework/procesos', en: '/framework/processes'},
             {es: '/fases', en: '/phases'},
             {es: '/recursos', en: '/resources'},
           ];

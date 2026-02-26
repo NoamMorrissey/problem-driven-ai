@@ -1,0 +1,345 @@
+/* ===================== STAT CARDS ===================== */
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background: rgba(79, 70, 229, 0.06);
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+[data-theme='dark'] .statCard {
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.statValue {
+  font-size: 2.25rem;
+  font-weight: 800;
+  font-family: var(--pdai-font-family-heading);
+  color: var(--ifm-color-primary);
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  margin-top: 0.25rem;
+}
+
+.statDescription {
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+  margin-top: 0.25rem;
+}
+
+/* ===================== TIMELINE ===================== */
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--pdai-border-color);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+}
+
+.timelineStep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timelineStep:last-child {
+  margin-bottom: 0;
+}
+
+.timelineStepLeft {
+  flex-direction: row;
+}
+
+.timelineStepRight {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .timelineStepLeft,
+  .timelineStepRight {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.timelineContent {
+  width: 42%;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius);
+  padding: 1rem 1.25rem;
+}
+
+.timelineStepLeft .timelineContent {
+  text-align: right;
+}
+
+.timelineStepRight .timelineContent {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .timelineContent {
+    width: calc(100% - 56px);
+    text-align: left !important;
+  }
+}
+
+.timelineTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.35rem;
+}
+
+.timelineDescription {
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.timelineOwner {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ifm-font-color-secondary);
+  opacity: 0.7;
+}
+
+.timelineNumber {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  z-index: 2;
+  margin: 0 1rem;
+  border: 3px solid var(--ifm-background-color);
+  box-shadow: 0 0 0 2px var(--pdai-border-color);
+}
+
+@media (max-width: 768px) {
+  .timelineNumber {
+    margin: 0 0.75rem 0 0;
+    flex-shrink: 0;
+  }
+}
+
+.timelineSpacer {
+  width: 42%;
+}
+
+@media (max-width: 768px) {
+  .timelineSpacer {
+    display: none;
+  }
+}
+
+/* ===================== CHART SHARED ===================== */
+
+.chartContainer {
+  width: 100%;
+  max-width: 540px;
+  margin: 1.5rem auto;
+}
+
+.chartSvg {
+  width: 100%;
+  height: auto;
+  color: var(--ifm-font-color-base);
+}
+
+.chartGrid {
+  stroke: var(--pdai-border-color);
+  stroke-width: 1;
+}
+
+.chartAxisLabel {
+  font-size: 11px;
+  fill: var(--ifm-font-color-secondary);
+  font-family: var(--pdai-font-family-body);
+}
+
+.chartThreshold {
+  stroke: var(--ifm-color-danger);
+  stroke-width: 1.5;
+  stroke-dasharray: 6, 4;
+  opacity: 0.6;
+}
+
+.chartThresholdLabel {
+  font-size: 10px;
+  fill: var(--ifm-color-danger);
+  font-family: var(--pdai-font-family-body);
+}
+
+/* ===================== EFFORT DOUGHNUT ===================== */
+
+.effortWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.effortRing {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.effortHole {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--ifm-background-color);
+}
+
+.effortLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ===================== SHARED LEGEND ===================== */
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+/* ===================== RADAR ===================== */
+
+.radarGrid {
+  fill: none;
+  stroke: var(--pdai-border-color);
+  stroke-width: 1;
+}
+
+.radarAxis {
+  stroke: var(--pdai-border-color);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.radarLabel {
+  font-size: 11px;
+  fill: var(--ifm-font-color-base);
+  font-family: var(--pdai-font-family-body);
+  font-weight: 600;
+}
+
+.radarLegend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+/* ===================== COST BAR ===================== */
+
+.costWrapper {
+  padding: 1rem 0;
+}
+
+.costBars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2rem;
+  height: 280px;
+}
+
+.costColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  max-width: 120px;
+}
+
+.costValue {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.5rem;
+}
+
+.costBar {
+  width: 100%;
+  border-radius: var(--pdai-border-radius-sm) var(--pdai-border-radius-sm) 0 0;
+  transition: height 0.3s ease;
+}
+
+.costLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-secondary);
+  margin-top: 0.5rem;
+  text-align: center;
+}
