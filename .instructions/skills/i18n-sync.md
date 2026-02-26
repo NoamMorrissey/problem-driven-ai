@@ -142,8 +142,8 @@ When a new content section is needed:
   ```ts
   {en: '/[en-dir]/[en-slug]', es: '/[es-dir]/[es-slug]'}
   ```
-- The EN path uses the EN directory prefix and relative slug (e.g., `/phases/problem-discovery/why-this-phase-exists`)
-- The ES path uses the ES directory prefix and ES slug (e.g., `/fases/problem-discovery/por-que-esta-fase-existe`)
+- The EN path uses the EN directory prefix and relative slug (e.g., `/phases/problem-phase/why-this-phase-exists`)
+- The ES path uses the ES directory prefix and ES slug (e.g., `/fases/problem-phase/por-que-esta-fase-existe`)
 - Place the entry in the appropriate section comment (Principles, Phase N, Framework, Resources)
 - **This step is BLOCKING** — without it, the locale switcher will 404 for the new page
 

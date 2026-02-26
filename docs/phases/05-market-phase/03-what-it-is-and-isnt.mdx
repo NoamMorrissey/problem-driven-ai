@@ -1,0 +1,58 @@
+---
+title: "What it is and what it isn't"
+sidebar_label: "What it is"
+slug: what-it-is-and-isnt
+description: "Market Phase is a continuous process of capturing, interpreting, and acting on market signals. It is not hypothesis validation, user feedback collection, or a sprint cycle."
+sidebar_position: 3
+tags: [phases, market-phase, definition, concept]
+---
+
+# What Market Phase is and what it isn't
+
+## What it IS
+
+**A continuous process of capturing, interpreting, and acting on market signals.** It doesn't happen in discrete sprints. It happens continuously, with different cadences depending on the type of signal.
+
+**The mechanism for updating the Context Document.** Market signals don't produce direct changes to code. They produce changes to context, and those context changes guide the next build. The chain always passes through the Context Document.
+
+**The source of traceability between the market and the system.** Every change in the Context Document has a market signal that justifies it. This traceability is what distinguishes informed iteration from reactive iteration.
+
+**A process that can and should be progressively automated.** User behavior signals, KPI movements, and usage patterns can be captured and processed automatically. Interpretation and action decisions remain human, but synthesis work can be delegated to well-configured AI systems.
+
+**The moment when the Context Document becomes more intelligent.** Each incorporated signal makes the context more precise. A project that has been in Phase 5 for twelve months has a Context Document that no amount of initial discovery could have produced.
+
+---
+
+## What it is NOT
+
+**Not a process for validating prior hypotheses.** Phase 5 doesn't exist to confirm the team was right. It exists to discover where it was wrong and what needs to change.
+
+**Not a user feedback collection process.** Asking users what they want is useful. Observing what they actually do is more useful. Phase 5 prioritizes observed behavior over declared opinion.
+
+**Not a feature sprint cycle.** Adding features is not iterating. Iterating is learning from the market and updating the context. Some iterations produce new features. Others produce feature removal. Others produce configuration changes that don't touch the code.
+
+**Not reactive by nature.** An organization that only reacts to signals that are already visible problems is learning late. A well-executed Phase 5 is anticipatory: it detects weak signals before they become problems.
+
+**Not optional between cycles.** There is no system state where Phase 5 is "paused." While the product is in the market, Phase 5 is active. What varies is the intensity of intervention, not the continuity of observation.
+
+---
+
+## The key difference: the object of learning
+
+| Conventional process | Market Phase |
+|---|---|
+| Learns about the **product** | Learns about the **problem** |
+| Improves the **code** | Updates the **context** |
+| Measures **features delivered** | Measures **assumptions verified** |
+| The result is a better product | The result is a more precise understanding |
+| Code is the primary asset | The Context Document is the primary asset |
+
+:::tip[The causal chain]
+Market signal → Context Document update → Build decision → Code.
+
+The chain is never: Market signal → Code. When a team jumps from market to code without going through the Context Document, it's iterating without learning.
+:::
+
+:::danger[Anti-pattern: confusing activity with iteration]
+A team that ships features every two weeks but hasn't updated its Context Document in three months **is not iterating**. It's producing. There is a fundamental difference: production changes the system, iteration changes the understanding of the problem. Only the latter produces solutions that are increasingly faithful to the real problem.
+:::

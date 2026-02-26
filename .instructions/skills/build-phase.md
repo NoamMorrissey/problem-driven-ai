@@ -4,7 +4,7 @@
 
 - Command `construir fase [N] [name]` where:
   - `[N]` = phase number (1-6)
-  - `[name]` = phase name in English (e.g., "AI Build", "Problem Discovery")
+  - `[name]` = phase name in English (e.g., "AI Build Phase", "Problem Phase")
 - Optional: `--pdf [path]` to specify PDF source. If omitted, asks user for path.
 
 ---

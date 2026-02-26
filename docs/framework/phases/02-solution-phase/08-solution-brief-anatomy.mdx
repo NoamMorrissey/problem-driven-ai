@@ -1,0 +1,33 @@
+---
+title: "The anatomy of the Solution Brief"
+sidebar_label: "Anatomy"
+description: "Structure of the Solution Brief: the deliverable that condenses all the phase's work into a single, precise, and actionable document."
+sidebar_position: 3
+slug: /framework/phases/solution-phase/solution-brief-anatomy
+tags: [phases, solution-phase, solution-brief, artifacts]
+---
+
+# The anatomy of the Solution Brief
+
+The Solution Brief is to Phase 2 what the Problem Statement is to Phase 1: the deliverable that condenses all the phase's work into a single, precise, and actionable document. It's the direct input to Phase 3.
+
+## Solution Brief structure
+
+| Section | What it contains | Quality test |
+|---|---|---|
+| **1. The problem it solves** | Direct reference to the Problem Statement. It's not rewritten: it's referenced. If the solution has revealed nuances of the problem, they are documented as addenda. | Is it the same problem from the validated Problem Statement? If it changed, does Phase 1 need revisiting? |
+| **2. The proposed solution** | Functional description of what will be built. Not how it's built (that's Phase 3), but what it does, for whom, and what changes in the user's experience. | Could a user read this and understand what will change in their day-to-day? |
+| **3. Decisions made and discarded** | Each significant decision with its justification: why this solution was chosen, why alternatives were discarded, which criteria weighed most. | If someone reads this in 6 months, do they understand the reasoning without needing anyone to explain it? |
+| **4. Decomposition by dimensions** | The Solution Tree of the chosen solution, with the four dimensions: business, model, architecture, data. | Are all four dimensions covered? Is there any where the answer is "we'll see"? |
+| **5. Active assumptions** | Assumptions that remain unverified, classified by risk, with action plan for high-risk ones. | Are there high-risk assumptions without an action plan? If so, the Solution Brief is not complete. |
+| **6. Success criteria** | The KPIs and metrics that will define whether the solution solved the problem. Inherited from the Problem Statement and refined with the specific solution. | Are they measurable? Is there consensus on them among all stakeholders? |
+| **7. Constraints** | Technical, business, regulatory, temporal. Verified with source. | Does each constraint have a source? Were any assumed without verification? |
+| **8. Translatability Map** | For each dimension: how precise is the definition for its translation to AI context? Identified risk signals. | Are there dimensions where the definition is too vague to translate to context? |
+
+:::danger[Anti-pattern: The Aspirational Solution Brief]
+**What it is:** A document that describes the ideal solution instead of the viable one. It ignores constraints, minimizes risks, assumes everything will go well. It reads like a sales pitch, not a thought engineering document.
+
+**How to detect it:** There are no high-risk assumptions (impossible if the analysis was honest). Constraints are generic or absent. The Translatability Map has everything in green.
+
+**How to prevent it:** The Solution Brief is reviewed by someone who didn't participate in the ideation. Fresh eyes detect the optimism that the team's eyes no longer see.
+:::

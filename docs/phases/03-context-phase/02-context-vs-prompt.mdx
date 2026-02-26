@@ -1,0 +1,36 @@
+---
+title: "The difference between context and prompt"
+sidebar_label: "Context vs prompt"
+slug: context-vs-prompt
+description: "A prompt is a point-in-time instruction. Context is an information architecture composed of Agents, Rules, and Skills. Confusing the two is the most common mistake."
+sidebar_position: 2
+tags: [phases, context-phase, fundamentals, anti-patterns]
+---
+
+# The difference between context and prompt
+
+There is a confusion we need to resolve: the confusion between prompt and context. A prompt is a point-in-time instruction. Context is a system composed of Agents that orchestrate, Rules that govern, and Skills that define concrete work. It's not an instruction — it's an information architecture.
+
+| Dimension | Prompt | Context (Agents + Rules + Skills) |
+|---|---|---|
+| **Scope** | One interaction, one task. | The entire project. Multiple Agents, cross-cutting Rules, dozens of coordinated Skills. |
+| **Coherence** | Each prompt is independent. | Rules guarantee coherence across all Agents and all Skills. |
+| **Identity** | AI has no role. | Each Agent has identity, responsibilities, and limits. |
+| **Structure** | Free text. | Architectural system: Agents with identity, Rules with hierarchy, Skills with dependencies. |
+| **Evolution** | It's consumed and disappears. | Skills are created and completed; Rules evolve; Agents are calibrated. |
+
+## Why this distinction matters
+
+The confusion between prompt and context is not semantic. It's the difference between giving someone a one-time instruction and building a system that produces consistent results over time.
+
+A prompt works for isolated tasks: "summarize this document," "write this email," "generate this image." The moment you need multiple interactions that must be coherent with each other — that must share conventions, respect constraints, and produce outputs that work as a system — a prompt is insufficient.
+
+A project that uses prompts instead of context produces outputs that are individually correct and collectively incoherent. Each interaction makes locally optimal decisions that are globally contradictory. This is not a failure of the AI. It's a failure of the context.
+
+:::danger[Anti-pattern: The Context-Prompt]
+**What it is:** A long document without structure that gets copied into every interaction. There are no differentiated Agents, no explicit Rules, no self-contained Skills. It looks like context but behaves like a very long prompt.
+
+**What it produces:** Without Rules, each interaction makes inconsistent decisions. Without defined Skills, tasks blend together. Without differentiated Agents, AI tries to be everything at once.
+
+**Quick diagnosis:** If your context can't be separated into "Rules that apply to everything," "Agents that execute," and "Skills that define tasks," it's a long prompt, not a context.
+:::

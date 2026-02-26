@@ -1,0 +1,72 @@
+---
+title: "Exit Criteria: the Gate Review"
+sidebar_label: "Gate Review"
+slug: /framework/phases/context-phase/gate-review
+description: "Context Phase is complete when the outputs of the system are recognized as correct by stakeholders — not when the documents look polished."
+sidebar_position: 4
+tags: [phases, context-phase, gate-review, exit-criteria]
+---
+
+# Exit Criteria: the Gate Review
+
+Context Phase is not complete when the documents look polished. It's complete when the **outputs** of the system — Agents executing Skills under Rules — are recognized as correct by the stakeholders who defined the problem and the solution.
+
+:::caution Gate 3 → 4: Passage conditions
+- ✅ The outputs of test runs (Agents executing Skills under Rules) are recognized as correct by stakeholders from Phases 1 and 2. They can look at the output and say: "Yes, this is a faithful expression of what we agreed."
+- ✅ The Rules pass the three-reads test: an Agent reading only the project-context.md can answer — What technologies do I use? What can't I do? What's the convention for any recurring pattern?
+- ✅ Every Agent has the five mandatory elements: identity, responsibilities, limits, Rules reference, and gap protocol.
+- ✅ Every Skill passes the self-containment test: an Agent with the Skill + project-context.md can complete the task without asking anything.
+- ✅ The PRD has total traceability to Phase 1 and 2 artifacts. Every section traces to the Problem Statement or Solution Brief.
+- ✅ The Architecture Document includes ADRs and has generated global Rules in the project-context.md.
+- ✅ The QA Agent has validated every document in the chain: fidelity to inputs, completeness, consistency with Rules.
+- ❌ Do not advance if test outputs are not recognized as faithful to the Problem Statement and the Solution Brief.
+- ❌ Do not advance if there are Skills that depend on implicit context not present in Rules or in the Skill itself.
+- ❌ Do not advance if there are implicit Rules not written in the project-context.md — if the team "knows" something but it isn't documented, it doesn't exist for the Agents.
+:::
+
+These exit criteria exist because Context Phase is the last checkpoint before construction. Every gap that passes this gate becomes invisible context debt during Phase 4: Agents make confident decisions based on incomplete information, producing outputs that look correct but aren't faithful to what stakeholders agreed.
+
+## The validation question
+
+The fundamental question at the Gate Review is not "Are the documents complete?" — it's **"Are the outputs correct?"**
+
+This distinction matters. A project-context.md can look thorough, Agent Definitions can seem well-structured, and Skills can appear detailed. But the only real test is running the system and evaluating what it produces. Documents are the means; outputs are the evidence.
+
+The validation works like this:
+
+1. Select 3-5 representative Skills that cover different areas of the project.
+2. Have the corresponding Agents execute them under the current Rules.
+3. Present the outputs to stakeholders — the same people who validated the Problem Statement and the Solution Brief.
+4. Ask: "Is this recognizable as a faithful expression of what we agreed?"
+5. If yes for all samples: the context system is validated.
+6. If no for any sample: diagnose where the failure is (Rules, Agent, Skill, or interaction) and iterate.
+
+## After the gate: transition to Phase 4
+
+When the team completes the Gate Review, the project transitions from design to execution. But unlike traditional projects, **the construction phase doesn't start with a briefing — it starts with a complete operating system.**
+
+Every development Agent already knows:
+- **What technologies to use** (Rules, Section 2)
+- **What conventions to follow** (Rules, Section 3)
+- **What's prohibited** (Rules, Section 4)
+- **What decisions have been made and why** (Rules, Section 8)
+- **What to do when information is missing** (Rules, Section 7)
+
+And every Skill they'll execute contains:
+- **What to achieve** (Objective)
+- **What they need to know** (Specific context)
+- **How to know they're done** (Acceptance criteria)
+- **What must be complete first** (Dependencies)
+- **What additional limits apply** (Constraints)
+
+This is why, with a well-designed context system, construction tends to be the phase of **least cost and least friction.** The hard work was done in Phases 1-3. Phase 4 is execution.
+
+:::tip The context doesn't freeze
+Passing the Gate Review doesn't mean the context is frozen. During Phase 4, the context continues evolving:
+- Construction reveals ambiguities → Skills are refined.
+- A local decision during a Skill should be global → new Rule.
+- An Agent needs unforeseen capabilities → Agent definition is updated.
+- An active assumption is refuted → affected Rules and Skills are adjusted.
+
+Every change is documented in the Decision Log. The system is alive, but every mutation is deliberate and recorded.
+:::

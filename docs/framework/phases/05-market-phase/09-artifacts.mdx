@@ -1,0 +1,172 @@
+---
+title: "Artifacts"
+sidebar_label: "Artifacts"
+slug: /framework/phases/market-phase/artifacts
+description: "The five Phase 5 artifacts: Signal Log, Context Update Record, Iteration Brief, KPI Dashboard, and living Context Document. With templates and creation sequence."
+sidebar_position: 3
+tags: [framework, phases, market-phase, artifacts, templates]
+---
+
+# Phase 5 artifacts
+
+Phase 5 produces five artifacts that operate as an integrated system. None has value in isolation — their power lies in the connections between them: Signal Log signals feed the Context Update Record, which documents Context Document changes, which are summarized in the Iteration Brief, which defines the next cycle's focus.
+
+## Artifact map
+
+| Artifact | When created | Who maintains it | Update cadence |
+|---|---|---|---|
+| **Signal Log** | At measurement system activation. | Product Lead + Data Lead. | Continuous (automatic layer), weekly-monthly (structured and contextual layers). |
+| **Context Update Record** | At first Context Document update. | Context Engineer. | With every Context Document change. |
+| **Iteration Brief** | At the start of each iteration cycle. | Product Lead with team input. | Monthly or quarterly depending on maturity. |
+| **KPI Dashboard** | At measurement system activation. | Data Lead. | Real time (automatic). |
+| **Context Document (living)** | Inherited from Phases 3 and 4. | Context Engineer. | Continuous based on market signals. |
+
+---
+
+## 1. Signal Log
+
+Phase 5's central artifact. It is the market's memory.
+
+### Entry structure
+
+```
+## Signal #[NNN] — [Date]
+
+**Observed signal:** [Raw data description, no interpretation]
+**Source and method:** [analytics | interview | KPI | ticket | external signal]
+**Signal level:** [1-Behavior | 2-KPI | 3-Feedback | 4-Non-usage | 5-External]
+
+**Cause hypothesis:** [Formulated as a verifiable hypothesis]
+**Affected Context Document element:**
+  [Problem Statement | Solution Brief | Rule | Story File | KPI]
+
+**Urgency:** [Immediate | Normal | Strategic]
+**Proposed action:** [Action description and return phase if applicable]
+
+**Status:** [New | Under analysis | Processed → CUR-NNN | Discarded (reason)]
+```
+
+### Best practices
+
+- Separate observation from interpretation. The "observed signal" field never contains conclusions.
+- Every signal has at least one cause hypothesis, even if preliminary.
+- Discarded signals are kept with documented reason — they may be relevant in another cycle.
+- Link related signals to detect emerging patterns.
+
+---
+
+## 2. Context Update Record
+
+The traceability between market and context. In twelve months, it allows reconstructing **why** the Context Document is the way it is.
+
+### Entry structure
+
+```
+## CUR-[NNN] — [Date]
+
+**Source signal(s):** Signal Log #[NNN], #[NNN]
+**Validated cause hypothesis:** [Description of confirmed root cause]
+
+**Modified element:** [Problem Statement | Solution Brief | Rule | Story File | PRD | KPI]
+**Change made:**
+  - Before: [Previous state]
+  - After: [New state]
+  - Justification: [Why this change responds to the signal]
+
+**Approved by:** [Name, role]
+**Impact on other elements:** [None | List of affected elements]
+```
+
+:::tip[Why traceability matters]
+In six months, new team members can understand why each Rule exists. In regulated environments (banking, healthcare), this traceability is an audit requirement, not an optional best practice.
+:::
+
+---
+
+## 3. Iteration Brief
+
+The bridge between cycles. Without it, each cycle starts from zero instead of where the previous one ended.
+
+### Structure
+
+```
+## Iteration Brief — Cycle [N] → Cycle [N+1]
+## Date: [YYYY-MM-DD]
+
+### 1. Previous cycle learnings
+[List of significant signals with Signal Log references]
+- Confirmed assumptions: [list]
+- Refuted assumptions: [list]
+
+### 2. Context Document state
+[Update summary with Context Update Record references]
+- Modified Rules: [N]
+- Adjusted Story Files: [N]
+- Problem Statement: [No changes | Minor revision | Major revision]
+
+### 3. Open questions
+[Unverified hypotheses, weak signals that could be important]
+
+### 4. Next cycle focus
+[What aspect deserves more attention and why]
+[Return phase if applicable: Phase 1 / 2 / 3 / 4]
+
+### 5. Priority KPIs
+[Indicators to watch and why they're most relevant]
+```
+
+---
+
+## 4. KPI Dashboard
+
+The continuous window into the system's market state. It's the first place the team looks each morning.
+
+### Requirements
+
+| Requirement | Description |
+|---|---|
+| **Connected to verified sources** | Each KPI connected to the data source defined in Phase 3's KPI & OKR Register. |
+| **Real-time updates** | No manual intervention for automatic layer data. |
+| **Visible thresholds** | Each KPI shows the target, alert threshold, and current state. |
+| **Automatic alerts** | Notification when a KPI crosses the alert threshold. |
+| **Accessible history** | Visible trend for detecting gradual movements that don't cross thresholds. |
+
+---
+
+## 5. Context Document (living version)
+
+The most valuable asset the system produces. As Phase 5 progresses, it becomes the deepest knowledge available about the problem and solution in their real context.
+
+### Updated components
+
+| Component | What gets updated in Phase 5 |
+|---|---|
+| **project-context.md** | Rules modified, added, or removed based on market signals. |
+| **PRD** | Use cases adjusted with real adoption learnings. |
+| **Story Files** | Skills adjusted or new ones created for emerging needs. |
+| **KPI & OKR Register** | KPIs recalibrated, new indicators added, obsolete ones retired. |
+
+:::warning[The Context Document as an asset]
+A mature Context Document — one that has survived twelve months of Market Phase — contains the deepest understanding available. It is transferable (new members understand in days), extensible (foundation for new markets), and auditable (every decision has traceability).
+:::
+
+---
+
+## Creation sequence
+
+```
+Go-live
+  │
+  ├─→ KPI Dashboard (day 1)
+  ├─→ Signal Log (day 1)
+  │
+  │   [Weeks 1-4: intensive capture and analysis]
+  │
+  ├─→ Context Update Record (first update)
+  │
+  │   [Week 4: first cycle close]
+  │
+  └─→ First Iteration Brief
+```
+
+After the first cycle, artifacts are continuously fed according to the three iteration cycle loop cadences.

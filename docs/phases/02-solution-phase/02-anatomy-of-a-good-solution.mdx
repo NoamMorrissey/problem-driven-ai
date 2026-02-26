@@ -1,0 +1,53 @@
+---
+title: "The anatomy of a good solution"
+sidebar_label: "Good Solution"
+description: "Thinking before deciding. Decomposing the problem into addressable pieces and examining the four dimensions of every AI solution."
+sidebar_position: 2
+slug: anatomy-of-a-good-solution
+tags: [phases, alignment, decomposition, dimensions]
+---
+
+# The anatomy of a good solution: thinking before deciding
+
+There is a fundamental difference between having ideas and structuring thought. Most teams jump from a validated Problem Statement directly to a brainstorming session. They generate ideas, discuss them, vote, and choose one. This process has a deep flaw: it doesn't examine the problem with enough rigor to know whether the solution space being explored is the right one.
+
+Before generating solutions, there's an intermediate step that separates teams that get it right from those that quickly build the wrong solution: **decomposing the problem into pieces that can be addressed separately.**
+
+## Problem decomposition
+
+The Phase 1 Problem Statement describes the problem as a whole. But a complex problem isn't solved all at once. It's solved by identifying its components, understanding the relationships between them, and deciding which to address, in what order, and with what approach.
+
+Decomposition works on a simple principle: each piece of the problem must be independent of the others (you can't solve the same thing twice) and, together, all pieces must cover the complete problem (you can't leave anything out). If your decomposition leaves gaps, you'll encounter surprises during construction. If it has overlaps, you'll have teams working on the same thing without knowing it.
+
+:::info[Technique]
+**The complete decomposition test:** When you finish decomposing the problem, ask two questions. First: "If we solve all these pieces, does the problem disappear?" If the answer is no, something is missing. Second: "Is there any piece that, when solved, partially solves another?" If the answer is yes, there's overlap. Iterate until both answers are correct.
+:::
+
+## The four dimensions of a solution in the AI era
+
+In an AI project, problem decomposition takes on a particular structure. We've identified that every problem to be solved with AI has four dimensions that must be examined separately. Ignoring any of them produces solutions that fail — not because the AI doesn't work, but because the prior thinking was incomplete.
+
+| Dimension | What it examines | Key questions | Why it matters now |
+|---|---|---|---|
+| **Business** | The impact and economic viability of the solution. | Which Problem Statement KPI will we move? What's the expected ROI? How is the investment monetized or justified? What's the cost of operating the solution over time? | Many AI solutions are technically brilliant and economically unviable. The cost per inference, per token, per API call is not trivial at scale. |
+| **Model** | The type of intelligence the solution requires. | What type of AI do we need? Generative, predictive, classification, semantic search? What level of technical precision defines success? What margin of error is acceptable in this context? | Not all AI solutions need an LLM. Sometimes a regression model solves the problem better. Choosing the right model type here avoids months of work in the wrong direction. |
+| **Architecture** | Where and how the solution will live technically. | Where is it deployed? Cloud, on-premise, hybrid? How does it integrate with the client's current systems? What latency, scalability, and security requirements exist? | Architecture determines 80% of the solution's real constraints. A solution that works in a Jupyter notebook but doesn't integrate with the client's ERP is not a solution. |
+| **Data** | The raw material that will feed the intelligence. | Do we have the data we need? Is it clean, accessible, up-to-date? Are there privacy, GDPR, or regulatory restrictions? What data strategy do we need: RAG, fine-tuning, few-shot? | The quality of any AI solution is limited by the quality of its data. The most sophisticated model in the world produces garbage if fed garbage. |
+
+:::tip[Insight]
+**We're not building anything yet.** This four-dimension analysis is not technical design. It's strategic thinking. We're not choosing technologies or writing code. We're identifying what questions must be answered in each dimension so that the solution we propose is viable. This map ensures that when we reach the Context Phase, there are no blind spots.
+:::
+
+## When you already have a hypothesis vs. when you need to create
+
+Not all problems are solved the same way. There's a distinction many teams ignore that radically determines this phase's approach:
+
+**Problems with a clear hypothesis:** The Problem Statement and decomposition suggest a relatively obvious solution path. "We need to update inventory in real time" points to a technical direction. In these cases, the work is to validate or discard that hypothesis with rigor, not to generate creativity for its own sake.
+
+**Design problems:** There's no obvious solution. The problem is new, ambiguous, or has multiple equally plausible solutions. "How do we make store managers trust AI predictions that contradict their intuition?" is a design problem. Here you need a more creative, more divergent approach, closer to Design Thinking.
+
+The trap is applying the wrong approach to the wrong type of problem. Running a creative brainstorm for a problem that needs analytical validation produces noise. Running cold analysis for a problem that needs lateral thinking produces mediocre solutions.
+
+:::tip[The structured solution principle]
+The quality of a solution is not measured by its creativity or its technological ambition. It's measured by the precision with which it addresses each dimension of the problem. **A solution that brilliantly solves three dimensions and ignores the fourth will fail — and the failure will appear exactly in the dimension nobody examined.**
+:::

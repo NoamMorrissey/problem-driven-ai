@@ -1,0 +1,68 @@
+---
+title: "Phase 02: Solution Phase"
+slug: /framework/phases/solution-phase
+description: "Operational guide: step-by-step process, Solution Brief anatomy, artifacts, gate review, anti-patterns, and effort estimates."
+sidebar_position: 0
+tags: [framework, phases, solution-phase, execution, artifacts]
+---
+
+import DocCardList from '@theme/DocCardList';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+
+# 2. Solution phase
+
+This is the operational guide for executing Solution Phase — the phase where the team finds, structures, and aligns on the right solution before building anything. While the [methodology section](/phases/solution-phase) explains the *why* and the conceptual foundations, this guide covers the *how*: the concrete process to follow, the artifacts to produce, the criteria to meet before moving forward, and the failure patterns to watch for.
+
+<StatCardGrid>
+  <StatCard value="5" label="Structured steps" description="Divergence to Gate Review" />
+  <StatCard value="5" label="Validation criteria" description="for solution candidates" />
+  <StatCard value="6" label="Artifacts" description="Transferred to Phase 3" />
+</StatCardGrid>
+
+## The execution map
+
+Critical steps and deliverables at each stage of the process. The first three steps (Divergence, Structuring, Convergence) are the intellectual work. The last two (External validation, Internal validation) are the alignment work. The Solution Brief packages everything for transfer.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Divergence', description: 'How Might We reformulation and silent ideation. Mandatory discard log with justification.', owner: 'Ideation Board'},
+  {number: 2, title: '2. Structuring', description: 'Decomposition across 4 dimensions (Business, AI Model, Architecture, Data). No advancing until critical assumptions are verified.', owner: 'Trees + Assumptions'},
+  {number: 3, title: '3. Convergence', description: 'Weights fixed before evaluation. Weighted scoring to select the leading solution.', owner: 'Decision Matrix'},
+  {number: 4, title: '4. External validation', description: '"If this existed tomorrow, would anything change in your day-to-day?"', owner: 'Feedback Log (ext.)'},
+  {number: 5, title: '5. Internal validation', description: 'Corridor Consensus Test: unified explanation of the "what" and "why."', owner: 'Feedback Log (int.)'},
+  {number: 6, title: '6. Solution Brief', description: 'Main document packaging the 6 previous artifacts for transfer to Phase 3.', owner: 'Transfer'},
+]} />
+
+## The process at a glance
+
+Solution Phase is a structured process with five steps. The first three (Divergence, Structuring, Convergence) are the intellectual work of finding and defining the solution. The last two (External validation, Internal validation) are the alignment work that turns a good idea into a shared mandate.
+
+| Step | What happens | Duration | Key output |
+|---|---|---|---|
+| **1. Divergence** | Generate the widest possible range of solutions to the defined problem, without filtering or judging. The Problem Statement acts as the frame. | 1-2 sessions (2-3h) | Ideation Board |
+| **2. Structuring** | Decompose each candidate solution across the four dimensions (business, model, architecture, data). Classify assumptions by risk. | 1-2 sessions (3-4h) | Solution Trees + Assumptions Register |
+| **3. Convergence** | Evaluate candidate solutions against weighted criteria using the Decision Matrix. Choose based on evidence, not intuition. | 1 session (2-3h) | Decision Matrix |
+| **4. Client validation** | Present the chosen solution to real users. The key question: "If this existed tomorrow, would anything change in your day-to-day?" | 3-5 sessions (30-45 min) | Feedback Log (external) |
+| **5. Internal validation** | Achieve real organizational consensus — not permission, not silence, not majority vote. | 2-4 sessions (1-2h) | Feedback Log (internal) + Solution Brief |
+
+The sequence matters. Divergence without structuring produces ideas that sound good but haven't been examined. Convergence without structuring produces decisions based on intuition instead of analysis. Validation without convergence produces alignment around the wrong solution. A Solution Brief without real consensus produces a mandate that crumbles at the first difficulty.
+
+## The six artifacts
+
+This phase produces six artifacts that together form the foundation for Phase 3 (Context Phase):
+
+1. **Ideation Board** — Visual record of all generated solutions, grouped, with notes on why non-selected ones were discarded. Organizational memory that prevents reinventing what was already evaluated.
+2. **Solution Trees** — Decomposition of each candidate solution across the four dimensions: business, model, architecture, data. Make visible the real complexity that abstract ideas hide.
+3. **Assumptions Register** — Classified list of all assumptions: verified, low risk, high risk, unknown. With action plans for high-risk ones. Assumptions are invisible risk — this register makes them visible.
+4. **Decision Matrix** — Evaluation of candidate solutions against weighted criteria. Makes explicit the reasons for the choice.
+5. **Feedback Log** — Cumulative record of all client and stakeholder feedback: who said what, how it was incorporated or why it was discarded.
+6. **Solution Brief** — The most important document: problem it solves, proposed solution, decisions and justifications, dimension decomposition, active assumptions, success criteria, constraints, and Translatability Map. It's the entry document to Phase 3.
+
+None of these artifacts is optional. They are the evidence that the work was done rigorously and the memory that feeds everything that follows. When the team passes the Gate Review, these documents travel together to Phase 3 — they contain the defined solution, the reasoning behind it, the evidence that supports it, and the risks that accompany it.
+
+## What this guide covers
+
+<DocCardList />
+
+:::tip The investment in consensus pays for itself
+This phase is the hinge between pure human thinking (Phase 1) and the translation of that thinking into language the AI can process (Phase 3). Everything done poorly here is exponentially amplified when context reaches the AI. A well-aligned solution produces precise context. An ambiguous solution produces context that looks correct but doesn't solve what it was supposed to solve.
+:::

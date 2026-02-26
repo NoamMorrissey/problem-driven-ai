@@ -1,0 +1,66 @@
+---
+title: "Esfuerzo"
+sidebar_label: "Esfuerzo"
+slug: /framework/fases/problem-phase/esfuerzo
+description: "El esfuerzo del Problem Phase se mide en actividades completadas con rigor, no en semanas de calendario. Entrevistas, síntesis y validación son las unidades reales."
+sidebar_position: 6
+tags: [fases, discovery, esfuerzo]
+---
+
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
+# Esfuerzo
+
+El Problem Phase no se mide en semanas. Se mide en actividades completadas con el rigor suficiente para producir un Problem Statement que resista la validación. La complejidad del problema determina la profundidad del esfuerzo, no la duración del calendario.
+
+## Esfuerzo por complejidad
+
+| Escenario | Actividades mínimas | Profundidad requerida |
+|---|---|---|
+| **Problema simple, usuarios accesibles** | 5 entrevistas + 1 sesión de síntesis + 1 ronda de validación. | Las entrevistas son directas. La síntesis produce patrones claros. La validación confirma en un ciclo. |
+| **Problema de complejidad media** | 5-8 entrevistas + observación contextual + 2 sesiones de síntesis + validación iterada. | Las entrevistas cubren perspectivas diversas. La síntesis requiere múltiples pasadas. La validación necesita al menos dos ciclos. |
+| **Problema complejo, múltiples stakeholders** | 8-12 entrevistas con distintos perfiles + análisis cuantitativo + síntesis extendida + validación con múltiples grupos + verificación de restricciones. | Las entrevistas abarcan todos los perfiles afectados. La síntesis integra fuentes cualitativas y cuantitativas. La validación incluye verificación con cada grupo de stakeholders. |
+
+## Distribución del esfuerzo
+
+Un proceso de Discovery saludable no es solo "hablar con gente". Requiere un esfuerzo significativo en síntesis y validación para evitar el sesgo de confirmación.
+
+<EffortChart segments={[
+  {label: 'Preparación y reclutamiento', percent: 15, color: 'var(--pdai-gray-300)'},
+  {label: 'Ejecución de entrevistas', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Síntesis y análisis', percent: 25, color: 'var(--ifm-color-warning)'},
+  {label: 'Ciclos de validación', percent: 30, color: 'var(--ifm-color-success)'},
+]} />
+
+El error más común es dedicar el 80% del esfuerzo a las entrevistas y el 20% a todo lo demás. La proporción debería ser cercana a 30/70: **30% recogiendo datos, 70% dándoles sentido y validándolos**.
+
+## La regla del esfuerzo mínimo
+
+:::tip[El esfuerzo se mide en actividades, no en calendario]
+El umbral mínimo de esfuerzo para un Problem Phase riguroso incluye tres componentes no negociables:
+
+1. **Al menos 5 entrevistas de calidad** con personas que viven el problema.
+2. **Una síntesis rigurosa** que produzca patrones, tensiones y outliers documentados.
+3. **Dos niveles de validación** (con quien vive el problema y con quien decide si se resuelve).
+
+Un equipo que ha completado estos tres componentes tiene la base para un Problem Statement sólido. Un equipo que no los ha completado, independientemente del calendario, tiene una hipótesis disfrazada de definición.
+:::
+
+## Señales de esfuerzo insuficiente
+
+- Menos de 5 entrevistas realizadas.
+- El Synthesis Board tiene pocas notas y patrones "obvios". No hay outliers ni tensiones.
+- El Problem Statement final es idéntico a la hipótesis de partida documentada en el kick-off. Ninguna entrevista cambió nada de lo que el equipo creía al empezar.
+- El equipo no puede articular qué le sorprendió durante el discovery.
+- Las restricciones no han sido verificadas con sus fuentes.
+
+## Señales de esfuerzo excesivo
+
+- El equipo sigue añadiendo entrevistas pero los nuevos hallazgos repiten patrones ya identificados.
+- Las sesiones de síntesis producen refinamientos, no nuevos insights.
+- El Problem Statement se ha reescrito más de tres veces sin cambios sustantivos.
+- El equipo está usando el discovery como forma de retrasar la incomodidad de comprometerse con una definición del problema.
+
+:::tip[El principio del esfuerzo suficiente]
+El esfuerzo correcto no es el máximo posible, es el mínimo necesario para que el Problem Statement sea una expresión fiel de la realidad, no una proyección de las asunciones del equipo. **Cuando las entrevistas dejan de producir sorpresas y la validación confirma sin excepciones, el esfuerzo ha sido suficiente.**
+:::

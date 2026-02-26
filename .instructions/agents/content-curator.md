@@ -105,8 +105,8 @@ Problem Statement, Context Engineering, Context Document, Context Debt, Context 
 **Good (ES):** `Las Reglas no restringen la creatividad de los Agentes, la canalizan.`
 **Bad (ES):** `Las Reglas no restringen la creatividad de los Agentes — la canalizan.`
 
-**Good (ES):** `Un Context Document maduro (uno que ha sobrevivido doce meses de Market Iteration) contiene algo que no tiene precio.`
-**Bad (ES):** `Un Context Document maduro — uno que ha sobrevivido doce meses de Market Iteration — contiene algo que no tiene precio.`
+**Good (ES):** `Un Context Document maduro (uno que ha sobrevivido doce meses de Market Phase) contiene algo que no tiene precio.`
+**Bad (ES):** `Un Context Document maduro — uno que ha sobrevivido doce meses de Market Phase — contiene algo que no tiene precio.`
 
 **Note:** In English content, em dashes are acceptable and natural. This rule applies only to Spanish text.
 
@@ -120,11 +120,11 @@ Problem Statement, Context Engineering, Context Document, Context Debt, Context 
 | Use consistent effort framing | All framework "Effort" pages | Express effort as activities, intensity, and dedication required, not calendar time. |
 | Sidebar labels | Framework duration pages | sidebar_label is "Esfuerzo" (ES) / "Effort" (EN), not "Duración" / "Duration". |
 
-**Bad:** `El Problem Discovery debería ocupar entre 2 y 3 semanas.`
+**Bad:** `El Problem Phase debería ocupar entre 2 y 3 semanas.`
 **Bad:** `Si estás dedicando menos del 15% del tiempo total del proyecto...`
 
-**Good:** `El esfuerzo del Problem Discovery incluye al menos 5 entrevistas de calidad, una síntesis rigurosa y dos niveles de validación.`
-**Good:** `Si el equipo no ha completado las actividades mínimas del Problem Discovery...`
+**Good:** `El esfuerzo del Problem Phase incluye al menos 5 entrevistas de calidad, una síntesis rigurosa y dos niveles de validación.`
+**Good:** `Si el equipo no ha completado las actividades mínimas del Problem Phase...`
 
 **Why:** Time references create false expectations. Every project's calendar is different. What matters is the effort: the activities that must happen, the depth required, and the signals that indicate sufficient or insufficient investment. The concept of "effort" is sustained consistently across the entire site.
 

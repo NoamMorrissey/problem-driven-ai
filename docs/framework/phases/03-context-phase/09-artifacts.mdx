@@ -1,0 +1,117 @@
+---
+title: "The artifacts of this phase"
+sidebar_label: "Artifacts"
+slug: /framework/phases/context-phase/artifacts
+description: "Six artifacts that form the operating system of the AI project: project-context.md, Agent Definitions, PRD, Architecture Document, Story Files, and Decision Log."
+sidebar_position: 3
+tags: [phases, context-phase, artifacts, project-context, prd]
+---
+
+# The artifacts of this phase
+
+Each phase of the Problem-Driven AI methodology produces specific artifacts. They are not optional. They are the evidence that the work was done rigorously and the operating system that powers everything that follows. In Context Phase, the artifacts are six:
+
+| Artifact | Element of the tripod | When it's created | Who produces it | Who consumes it |
+|---|---|---|---|---|
+| **project-context.md** | Rules | First. Base of everything. Updated when the Architect Agent generates new Rules. | Context Engineer (initial), Architect Agent (updates) | All Agents, before every Skill. |
+| **Agent Definitions** | Agents | Together with Rules. Identity, responsibilities, limits, Rules they apply, gap protocol. | Context Engineer | Context Engineer (design), AI (execution). |
+| **PRD** | Strategic document | After initial Rules. Translated from Solution Brief. | PM Agent | Architect Agent, SM Agent, QA Agent. |
+| **Architecture Document** | Strategic (generates new Rules) | After PRD. Technical translation of PRD. | Architect Agent | SM Agent, Dev Agent, QA Agent. |
+| **Story Files (Skills)** | Skills | After PRD + Architecture. Self-contained tasks. | SM Agent | Dev Agent. One Skill per interaction. |
+| **Decision Log** | Cross-cutting (changes to Rules, Agents, Skills) | From the first document. Continuous. | All participants | Context Engineer, QA Agent, everyone. |
+
+## Creation sequence
+
+The artifacts are created in a strict sequence. Each one depends on the previous:
+
+```
+Solution Brief (from Phase 2)
+    │
+    ▼
+1. project-context.md ──────────────────────────┐
+    │                                            │
+    ▼                                            │
+2. Agent Definitions                             │
+    │                                            │ (Architect updates
+    ▼                                            │  with new Rules)
+3. PRD ──────────────────────────────────────────│
+    │                                            │
+    ▼                                            │
+4. Architecture Document ───────────────────────-┘
+    │
+    ▼
+5. Story Files (Skills)
+
+6. Decision Log (continuous, from step 1 onward)
+```
+
+The project-context.md is created first and updated as the Architect Agent makes technical decisions. The Decision Log runs continuously, recording every change from the moment the first artifact is created.
+
+## Artifact 1: project-context.md (Rules)
+
+The constitution of the project. Contains all Rules that apply globally: tech stack, code conventions, security constraints, integration rules, agent limits, gap protocol, and justified global decisions.
+
+- **Format:** Markdown document with clearly separated sections and explicit precision levels for each Rule.
+- **Size:** Typically 2-5 pages. If it exceeds 10 pages, you're likely over-specifying (Level 1-2 decisions that should be delegated).
+- **Validation:** The three-reads test — an Agent reading only this document can answer: What technologies do I use? What can't I do? What's the convention for any recurring pattern?
+- **Lives in:** The project root, accessible to all Agents.
+
+See the [Anatomy page](/framework/phases/context-phase/context-system-anatomy) for the complete structure and template.
+
+## Artifact 2: Agent Definitions
+
+Identity cards for each AI role in the project. Each definition includes five mandatory elements: identity, responsibilities, limits, Rules reference, and gap protocol.
+
+- **Format:** One document per Agent, or a single document with clearly separated sections per Agent.
+- **Standard chain:** Analyst Agent, PM Agent, Architect Agent, SM Agent, QA Agent. Additional Agents as needed (Dev Agent, Design Agent, Data Agent).
+- **Validation:** Each Agent has explicit limits. If the "Limits" section is empty, the definition is incomplete.
+
+## Artifact 3: PRD (Product Requirements Document)
+
+What to build, for whom, and with what priority. Produced by the PM Agent from the Solution Brief.
+
+- **Format:** Structured document with vision, use cases, success criteria, constraints, active assumptions, and priorities.
+- **Traceability:** Every section must trace to the Problem Statement or Solution Brief. If a section can't be traced, it's either invention or a gap.
+- **Key consumer:** The SM Agent uses the PRD to decompose the solution into Skills. The QA Agent uses the success criteria to validate outputs.
+
+## Artifact 4: Architecture Document
+
+Technical decisions that translate the PRD into implementation guidance. Produced by the Architect Agent.
+
+- **Format:** ADRs (Architecture Decision Records), data model, AI strategy, non-functional requirements.
+- **Critical function:** Architecture decisions become new Rules. The Architect Agent is the only Agent that updates the project-context.md.
+- **Traceability:** Every technical decision traces to a PRD requirement. Every Rule promotion traces to an ADR.
+
+## Artifact 5: Story Files (Skills)
+
+Self-contained tasks that development Agents execute. Produced by the SM Agent from the PRD and Architecture Document.
+
+- **Format:** One file per Skill with five elements: objective, specific context, acceptance criteria, dependencies, and constraints.
+- **Self-containment test:** An Agent reading the Skill and the project-context.md can complete the task without asking anything.
+- **Types:** Atomic (one task), Composite (coordinated sub-tasks), Integration (connects other Skills' outputs).
+- **Quantity:** Depends on project complexity. Typically 10-20 for small projects, 20-50 for medium, 50+ for complex.
+
+## Artifact 6: Decision Log
+
+A continuous record of every change to Rules, Agents, or Skills from their creation.
+
+- **Format:** Chronological log with date, what changed, why, who authorized it, and what artifacts were affected.
+- **Purpose:** Traceability. When a question arises about "why is this Rule here?" or "why was this Skill changed?", the answer is in the log.
+- **Key entries:** Rule additions, Rule modifications, Agent limit changes, Skill context updates, gap resolutions, constraint changes.
+
+:::tip The traceability chain
+The complete traceability chain is: **Problem Statement → Solution Brief → PRD → Rules + Skills.** If a Skill can't be traced back to the Problem Statement, it's invention. If a Rule can't be traced to an architecture decision, it's an assumption. The Decision Log is the record that makes this traceability verifiable.
+:::
+
+## What travels to Phase 4
+
+When the Gate Review is passed, all six artifacts travel together to Phase 4 (AI Build Phase):
+
+| What travels | What it contains | How Phase 4 uses it |
+|---|---|---|
+| **project-context.md** | Tech stack, conventions, constraints, agent limits, gap protocol, justified decisions. | Every development Agent loads it before executing any Skill. It's the base constraint. |
+| **Agent Definitions** | Identity, responsibilities, limits, Rules, gap protocol for each Agent. | Each Agent knows its role, its boundaries, and what to do when information is insufficient. |
+| **PRD** | What to build, for whom, use cases, priorities, success criteria. | Guides the sequence and scope of Skills. The QA Agent uses success criteria for validation. |
+| **Architecture Document** | Technical decisions, ADRs, data model, AI strategy, non-functional requirements. | Development Agents apply architecture decisions. Architect Agent decisions are Rules. |
+| **Story Files (Skills)** | Self-contained tasks with objective, context, criteria, dependencies, constraints. | Each Skill is one interaction. The development Agent receives it, applies Rules, produces output. |
+| **Decision Log** | Every change to Rules, Agents, or Skills since their creation. | Traceability. If a question arises about "why this Rule?", the answer is in the log. |

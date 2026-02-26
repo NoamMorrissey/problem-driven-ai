@@ -1,0 +1,68 @@
+---
+title: "The parallel construction model"
+sidebar_label: "Parallel Build"
+slug: parallel-construction
+description: "How to manage simultaneous construction by multiple teams and AI agents without losing coherence. The dependency graph, role hierarchy, and distributed Decision Log."
+sidebar_position: 4
+tags: [phases, ai-build-phase, parallel, dependencies, coordination]
+---
+
+# The parallel construction model
+
+In simple projects, construction happens sequentially: one Skill completed before starting the next. But in medium or high complexity projects, reality is different: multiple developers work simultaneously, multiple AI agents execute in parallel, and multiple Story Files are in different completion states at the same time.
+
+Parallel construction is not a problem to solve. **It is a capability to manage.** Well managed, it multiplies speed without sacrificing fidelity. Poorly managed, it produces the costliest anti-pattern of this phase: **systemic incoherence** — a system where each component works correctly in isolation but the whole doesn't integrate.
+
+## The dependency graph
+
+The enabling condition for parallel construction is not people availability. It is **Story File independence.** Two Story Files can be built in parallel if and only if neither depends on the other's output to complete.
+
+| Relationship type | Parallelizable? | Condition | Example |
+|---|---|---|---|
+| **Independent** | Yes | Neither consumes the other's output. The project-context.md Rules are sufficient. | Prediction model Skill + user interface Skill. |
+| **Direct dependency** | No | Skill B consumes Skill A's output. B cannot start until A is validated. | ERP connector Skill → prediction engine Skill. |
+| **Shared dependency** | Conditionally | Both consume from the same data source. Parallelizable if the schema is defined as a global Rule. | Alerts Skill + dashboard Skill on the same data model. |
+| **Integration dependency** | Not until integration | Both can be built in parallel, but the integration Skill uniting them can only execute when both are validated. | Inventory module + notifications module → e2e integration Skill. |
+
+:::tip The parallelization test
+For any pair of Story Files: *"Can Agent A complete its Skill without knowing the state of B's Skill? And can B complete its Skill without knowing A's state?"* If both answers are yes, they are parallelizable. If either is no, there's a dependency and the sequence must be respected.
+
+A more rigorous test: imagine both Agents have access only to the project-context.md and their respective Story File, and nothing else. Would they produce coherent outputs? If the answer is no, the independence isn't real.
+:::
+
+## The role hierarchy in parallel
+
+When multiple people build in parallel, the organization is not flat. There is a functional hierarchy that ensures parallelization doesn't degrade context coherence:
+
+| Level | Role | Responsibility | Decision-making capacity |
+|---|---|---|---|
+| 1 | **Context Engineer** | Owns the project-context.md. Resolves gaps affecting more than one track. | Total over Rules. Can stop any track. |
+| 2 | **Tech Lead** | Supervises technical coherence between tracks. First escalation line. | Can pause a track. Cannot modify Rules without Context Engineer. |
+| 3 | **Track Dev Leads** | Lead execution of their track's Story Files. Escalate when a decision may affect another track. | Decisions local to their track. |
+| 4 | **Developers** | Execute Story Files with AI agents. Document gaps in real time. | Only within the active Story File. |
+| 5 | **QA Agent** | Validates each output. Detects Rule violations. Flags potential collisions between tracks. | Can block a Story File. |
+
+This hierarchy is not bureaucratic. It is functional. A developer who cannot see the neighboring track should not make decisions that affect it. A Context Engineer who sees all tracks is the only one who can make cross-cutting decisions.
+
+## The distributed Decision Log
+
+In sequential construction, the Decision Log is a personal record. In parallel construction, it is **the team's nervous system.** It needs three additional properties:
+
+1. **Real-time visibility:** All entries from all tracks are accessible to the Context Engineer and Tech Lead as soon as they are recorded. Not at the end of the day. Immediately.
+
+2. **Impact classification:** Each entry indicates whether the decision is local to the track or may affect another track. The developer — who is closest to the decision — makes this classification.
+
+3. **Cross-track alert protocol:** When an entry is classified as "possible impact on another track," a cross-review process is triggered involving the Dev Leads of both tracks and the Tech Lead.
+
+## Integration synchronizations
+
+Parallel construction needs structured synchronization points — not status meetings, but technical integration sessions where outputs from different tracks are assembled and their coherence verified.
+
+Synchronizations are not scheduled by calendar. **They are scheduled by the dependency graph:** when a set of Skills from different tracks reaches "QA-completed" status, the synchronization for the corresponding graph node is triggered.
+
+| Type | When triggered | What is verified |
+|---|---|---|
+| **Schema** | Before starting tracks with shared data dependency. | The schema in the project-context.md is precise enough for both tracks. |
+| **Interface** | When two Skills from different tracks define their communication interface. | The interface contract (API, message schema) is compatible. |
+| **Major integration** | When all Skills in a dependency group are QA-validated. | Outputs integrate without collision. |
+| **Partial fidelity review** | Every 3-4 completed Stories across tracks. | The global project state remains recognizable as an expression of the Problem Statement. |

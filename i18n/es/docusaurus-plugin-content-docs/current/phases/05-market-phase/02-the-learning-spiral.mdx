@@ -1,0 +1,45 @@
+---
+title: "La espiral de aprendizaje"
+sidebar_label: "Espiral de aprendizaje"
+slug: /fases/market-phase/la-espiral-de-aprendizaje
+description: "La Fase 5 no es el final de la metodología. Es la transición de un ciclo lineal a una espiral de aprendizaje donde cada vuelta produce un Context Document más preciso."
+sidebar_position: 2
+tags: [fases, market-phase, espiral, aprendizaje, ciclo]
+---
+
+# La espiral de aprendizaje
+
+La Fase 5 no es el final de la metodología. Es la transición de un ciclo lineal a una espiral de aprendizaje. Cada vuelta de la espiral produce un Context Document más preciso, una solución más fiel al problema real y una comprensión más profunda del mercado.
+
+## La distinción entre ciclo y espiral
+
+La distinción es fundamental: **un ciclo vuelve al mismo punto. Una espiral vuelve a un punto más alto.**
+
+Esto tiene una consecuencia práctica directa. La pregunta no es "¿cuándo termina la Fase 5?". La pregunta correcta es **"¿qué aprendí en esta vuelta que no sabía al empezar?"** Si la respuesta es "nada", no hay espiral. Hay un ciclo estéril.
+
+:::tip[Principio #08]
+**Iterar no es repetir.** Cada iteración debe incorporar nueva información. Si vuelves al mismo punto sin haber aprendido algo nuevo, no estás iterando, estás dando vueltas. Una iteración sin aprendizaje es un coste sin retorno.
+:::
+
+## El mapa de regreso a fases
+
+La espiral de aprendizaje tiene una estructura que determina a qué fase regresa el equipo con cada aprendizaje:
+
+| Tipo de aprendizaje | Qué dice el mercado | A qué fase regresa | Ejemplo |
+|---|---|---|---|
+| **El problema estaba mal definido** | Los usuarios no adoptan la solución porque no resuelve lo que más les duele. El dolor real es distinto al documentado. | Fase 1 — Problem Phase | El dashboard de inventario no se usa. Las entrevistas revelan que el problema real no era la visibilidad sino la confianza en los datos. |
+| **La solución no encaja** | El problema está bien definido. La solución produce el resultado esperado pero la fricción de adopción es demasiado alta. | Fase 2 — Solution Phase | El sistema de alertas funciona pero los gerentes las silencian porque llegan en momentos de alta carga operativa. |
+| **El contexto necesita ajuste** | El comportamiento de usuario es coherente con la solución. Los KPIs se mueven pero no a la velocidad esperada. | Fase 3 — Context Phase | El modelo predictivo funciona pero su umbral genera demasiados falsos positivos. Las Reglas necesitan recalibrarse. |
+| **Optimizaciones de implementación** | Los KPIs se mueven en la dirección correcta. Los usuarios adoptan la solución. Hay mejoras de rendimiento o nuevas integraciones que ampliarían el valor. | Fase 4 — AI Build Phase directa | Los competidores tienen una integración con el sistema de logística que añadiría valor. Se añade como nuevo conjunto de Story Files. |
+
+Este mapa no es un árbol de decisión rígido. Es un marco de pensamiento. El equipo que aprende a leer el tipo de señal que el mercado está enviando (problemas de definición vs. problemas de diseño vs. problemas de calibración) es el equipo que itera con precisión en lugar de iterar a ciegas.
+
+## Cómo la espiral genera precisión acumulativa
+
+Cada vuelta de la espiral produce un Context Document que no podría haberse creado sin la vuelta anterior. Las hipótesis de la Fase 1 se confirman o refutan. Las asunciones de la Fase 3 se calibran con datos reales. Las decisiones de la Fase 4 se evalúan con comportamiento observado.
+
+Un proyecto que lleva doce meses en Fase 5 tiene un Context Document que **ninguna cantidad de discovery inicial podría haber producido**. No porque el discovery fuera insuficiente, sino porque la información que el mercado produce al usar el sistema es de una calidad que ningún proceso previo al lanzamiento puede igualar.
+
+:::warning[Señal de espiral estéril]
+Si después de tres ciclos de iteración el equipo no puede articular qué aprendió que no sabía antes, la espiral no está funcionando. Probable causa: se están haciendo cambios de implementación sin actualizar el Context Document, o se está midiendo actividad (funcionalidades entregadas) en lugar de aprendizaje (asunciones verificadas).
+:::

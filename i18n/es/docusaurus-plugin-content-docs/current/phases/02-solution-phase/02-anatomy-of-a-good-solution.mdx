@@ -1,0 +1,53 @@
+---
+title: "La anatomía de una buena solución"
+sidebar_label: "Buena Solución"
+description: "Pensar antes de decidir. Descomponer el problema en piezas abordables y examinar las cuatro dimensiones de toda solución IA."
+sidebar_position: 2
+slug: /fases/solution-phase/anatomia-de-una-buena-solucion
+tags: [fases, alineacion, descomposicion, dimensiones]
+---
+
+# La anatomía de una buena solución: pensar antes de decidir
+
+Hay una diferencia fundamental entre tener ideas y estructurar el pensamiento. La mayoría de los equipos saltan de un Problem Statement validado directamente a una sesión de brainstorming. Generan ideas, las discuten, votan y eligen una. Este proceso tiene un fallo profundo: no examina el problema con suficiente rigor como para saber si el espacio de soluciones que están explorando es el correcto.
+
+Antes de generar soluciones, hay un paso intermedio que separa a los equipos que aciertan de los que construyen rápido la solución equivocada: **descomponer el problema en piezas que se puedan abordar por separado.**
+
+## La descomposición del problema
+
+El Problem Statement de la Fase 1 describe el problema como una totalidad. Pero un problema complejo no se resuelve de una vez. Se resuelve identificando sus componentes, entendiendo las relaciones entre ellos y decidiendo cuáles abordar, en qué orden y con qué enfoque.
+
+La descomposición funciona con un principio simple: cada pieza del problema debe ser independiente de las demás (no puedes resolver la misma cosa dos veces) y, juntas, todas las piezas deben cubrir el problema completo (no puedes dejar nada fuera). Si tu descomposición deja huecos, te encontrarás con sorpresas durante la construcción. Si tiene solapamientos, tendrás equipos trabajando en lo mismo sin saberlo.
+
+:::info[Técnica]
+**El test de la descomposición completa:** Cuando termines de descomponer el problema, haz dos preguntas. Primera: "Si resolvemos todas estas piezas, ¿desaparece el problema?" Si la respuesta es no, falta algo. Segunda: "¿Hay alguna pieza que, al resolverla, resuelva parcialmente otra?" Si la respuesta es sí, hay solapamiento. Itera hasta que ambas respuestas sean las correctas.
+:::
+
+## Las cuatro dimensiones de una solución en la era de la IA
+
+En un proyecto de IA, la descomposición del problema adquiere una estructura particular. Hemos identificado que todo problema que va a ser resuelto con IA tiene cuatro dimensiones que deben examinarse por separado. Ignorar cualquiera de ellas produce soluciones que fallan, no porque la IA no funcione, sino porque el pensamiento previo fue incompleto.
+
+| Dimensión | Qué examina | Preguntas clave | Por qué importa ahora |
+|---|---|---|---|
+| **Negocio** | El impacto y la viabilidad económica de la solución. | ¿Qué KPI del Problem Statement vamos a mover? ¿Cuál es el ROI esperado? ¿Cómo se monetiza o se justifica la inversión? ¿Cuál es el coste de operar la solución a lo largo del tiempo? | Muchas soluciones de IA son técnicamente brillantes y económicamente inviables. El coste por inferencia, por token, por llamada API no es trivial a escala. |
+| **Modelo** | El tipo de inteligencia que la solución requiere. | ¿Qué tipo de IA necesitamos? ¿Generativa, predictiva, clasificación, búsqueda semántica? ¿Qué nivel de precisión técnica define el éxito? ¿Qué margen de error es aceptable en este contexto? | No todas las soluciones de IA necesitan un LLM. A veces un modelo de regresión resuelve mejor el problema. Elegir el tipo de modelo correcto aquí evita meses de trabajo en la dirección equivocada. |
+| **Arquitectura** | Dónde y cómo vivirá la solución técnicamente. | ¿Dónde se despliega? ¿Cloud, on-premise, híbrido? ¿Cómo se integra con los sistemas actuales del cliente? ¿Qué requisitos de latencia, escalabilidad y seguridad existen? | La arquitectura determina el 80% de las restricciones reales de la solución. Una solución que funciona en un notebook de Jupyter pero no se integra con el ERP del cliente no es una solución. |
+| **Datos** | La materia prima que alimentará la inteligencia. | ¿Tenemos los datos que necesitamos? ¿Están limpios, accesibles, actualizados? ¿Hay restricciones de privacidad, GDPR, regulatorias? ¿Qué estrategia de datos necesitamos: RAG, fine-tuning, few-shot? | La calidad de cualquier solución de IA está limitada por la calidad de sus datos. El modelo más sofisticado del mundo produce basura si se alimenta de basura. |
+
+:::tip[Insight]
+**No estamos construyendo nada todavía.** Este análisis de cuatro dimensiones no es diseño técnico. Es pensamiento estratégico. No estamos eligiendo tecnologías ni escribiendo código. Estamos identificando qué preguntas debemos responder en cada dimensión para que la solución que propongamos sea viable. Este mapa es el que garantiza que, cuando lleguemos a la fase de Context Phase, no haya ángulos muertos.
+:::
+
+## Cuando ya tienes una hipótesis vs. cuando necesitas crear
+
+No todos los problemas se resuelven igual. Hay una distinción que muchos equipos ignoran y que determina radicalmente el enfoque de esta fase:
+
+**Problemas con hipótesis clara:** El Problem Statement y la descomposición sugieren un camino de solución relativamente obvio. "Necesitamos actualizar el inventario en tiempo real" apunta a una dirección técnica. En estos casos, el trabajo es validar o descartar esa hipótesis con rigor, no generar creatividad por generar.
+
+**Problemas de diseño:** No hay una solución obvia. El problema es nuevo, ambiguo o tiene múltiples soluciones igualmente plausibles. "¿Cómo hacemos que los gerentes de tienda confíen en predicciones de IA que contradicen su intuición?" es un problema de diseño. Aquí necesitas un enfoque más creativo, más divergente, más cercano al Design Thinking.
+
+La trampa es aplicar el enfoque equivocado al tipo de problema equivocado. Hacer un brainstorming creativo para un problema que necesita validación analítica produce ruido. Hacer análisis frío para un problema que necesita pensamiento lateral produce soluciones mediocres.
+
+:::tip[El principio de la solución estructurada]
+La calidad de una solución no se mide por su creatividad ni por su ambición tecnológica. Se mide por la precisión con la que responde a cada dimensión del problema. **Una solución que resuelve brillantemente tres dimensiones e ignora la cuarta fracasará, y el fracaso aparecerá exactamente en la dimensión que nadie examinó.**
+:::

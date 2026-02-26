@@ -1,0 +1,62 @@
+---
+title: "Context Debt: el riesgo de la Fase 5"
+sidebar_label: "Deuda de contexto"
+slug: /fases/market-phase/context-debt
+description: "La Context Debt en la Fase 5 se produce cuando el mercado envía señales de cambio y el Context Document no las incorpora. No es técnica, es semántica."
+sidebar_position: 6
+tags: [fases, market-phase, context-debt, riesgo, salud]
+---
+
+# Context Debt: el riesgo específico de la Fase 5
+
+En la Fase 4 se habló del context drift como el riesgo de que las decisiones técnicas alejen silenciosamente la solución del problema original. En la Fase 5 existe un riesgo análogo y más insidioso: la **Context Debt acumulada**, que se produce cuando el mercado envía señales de cambio y el Context Document no las incorpora.
+
+La Context Debt en la Fase 5 no es técnica. Es semántica. El sistema sigue funcionando. Los KPIs pueden seguir moviéndose. Pero el Context Document describe un problema y una solución que ya no reflejan la realidad del mercado. El equipo sigue construyendo e iterando sobre una base que ha perdido precisión.
+
+## Cómo se acumula la Context Debt
+
+| Mecanismo | Cómo ocurre | Señal de que está pasando |
+|---|---|---|
+| **Señales no incorporadas** | El Signal Log crece pero las actualizaciones del Context Document no siguen el ritmo. Las señales se acumulan como pendientes que nadie procesa. | El Signal Log tiene entradas con más de dos semanas sin hipótesis de causa. El Context Update Record no ha tenido entradas en más de un mes. |
+| **Actualizaciones sin trazabilidad** | El Context Document se actualiza en respuesta a señales, pero sin registrar qué señal motivó cada cambio. El equipo sabe qué es el contexto actual pero no por qué. | El Context Update Record está vacío o tiene entradas sin referencia a señales del Signal Log. Nadie puede explicar por qué una Regla existe. |
+| **Problem Statement desactualizado** | El mercado ha evolucionado. El problema que la solución resuelve ya no es el más relevante. Pero el Problem Statement no se revisa porque el sistema técnico sigue funcionando. | Los usuarios usan la solución pero no para el caso de uso principal. El problema que más mencionan no está en el Problem Statement. |
+| **KPIs que ya no miden lo que importa** | Los KPIs se mueven en la dirección correcta, pero el equipo intuye que no capturan el valor real. Nadie los cuestiona porque mostrar KPIs en verde es cómodo. | Los stakeholders ya no celebran cuando los KPIs suben. Los usuarios satisfechos no son los mismos que los que mueven los KPIs. |
+| **Iteración cosmética sistemática** | El equipo itera con frecuencia pero siempre sobre la capa de implementación. Nunca regresa a Fase 1 o 2 aunque las señales lo justificarían. | Los mismos problemas de usuarios aparecen en cada ciclo de feedback. El equipo los discute, los ajusta ligeramente y vuelven al siguiente mes. |
+
+## El test de salud del Context Document
+
+La forma más eficiente de detectar Context Debt antes de que se acumule es hacer el mismo test periódicamente:
+
+> Presentar el Context Document actual (el Problem Statement, los KPIs y el Solution Brief) a tres usuarios que viven el problema a diario, y preguntarles si lo que describe refleja su realidad.
+
+Si lo reconocen, el contexto está sano. Si hay elementos que ya no reconocen, o si hay aspectos de su realidad que el contexto no menciona, hay Context Debt que debe procesarse.
+
+Este test no requiere instrumentación ni dashboards. Requiere **dos conversaciones mensuales con usuarios reales**.
+
+## La revisión trimestral del Problem Statement
+
+El Problem Statement no es permanente. Los problemas evolucionan. Los mercados cambian. Una solución que resolvía el problema correcto hace doce meses puede estar resolviendo un problema que ya no es relevante.
+
+La revisión estratégica trimestral incluye siempre esta pregunta explícita:
+
+:::warning[La pregunta obligatoria]
+*"¿El Problem Statement que escribimos sigue siendo la descripción más precisa del problema que estos usuarios necesitan que resolvamos?"*
+
+Si la respuesta no es un sí rotundo con evidencia del mercado que lo soporte, la revisión estratégica debe incluir un regreso parcial a la Fase 1.
+:::
+
+## Indicadores de salud de la Fase 5
+
+**Operación saludable:**
+- El Signal Log tiene entradas de las últimas dos semanas con hipótesis de causa documentadas
+- El Context Update Record tiene al menos una entrada por cada ciclo de iteración activo
+- El Iteration Brief del ciclo anterior está documentado y accesible
+- Los KPIs del KPI & OKR Register están conectados a fuentes de datos activas
+- Al menos un stakeholder no técnico revisa el Signal Log con regularidad
+- El Problem Statement ha sido revisado explícitamente en los últimos 90 días
+
+**Señales de operación no saludable:**
+- El Signal Log no ha tenido nuevas entradas en más de dos semanas durante operación activa
+- El Context Document no ha sido actualizado en más de 60 días durante operación activa
+- Los mismos problemas de usuario aparecen en tres ciclos consecutivos sin producir una actualización del Context Document
+- Ningún stakeholder de las Fases 1-2 ha revisado el Signal Log en el último trimestre

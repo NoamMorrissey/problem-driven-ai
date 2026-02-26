@@ -1,0 +1,51 @@
+---
+title: "Who participates and how the team organizes"
+sidebar_label: "Who"
+slug: who-participates
+description: "Phase 4 introduces a functional hierarchy with five decision levels. The Context Engineer supervises, the Tech Lead coordinates, Dev Leads execute, and the QA Agent protects."
+sidebar_position: 5
+tags: [phases, ai-build-phase, roles, team, organization]
+---
+
+# Who participates and how the team organizes
+
+In previous phases, team composition organized around a central activity: discovering the problem, aligning the solution, designing the context. In Phase 4, composition organizes around a tension: **how to distribute construction among multiple people and AI agents without losing context coherence.**
+
+## The fundamental shift
+
+In Phase 3, the Context Engineer was the absolute protagonist — designing Agents, Rules and Skills. In Phase 4, the Context Engineer shifts to a supervision role. They no longer create — **they protect.** Their job is ensuring that what's being built remains faithful to what was designed.
+
+The spotlight distributes across developers executing Story Files with AI agents. But that distribution is not flat. There's a functional hierarchy where each level has exactly the visibility and decision-making capacity its position justifies.
+
+## The five levels
+
+| Level | Role | What they do in this phase | What they can decide |
+|---|---|---|---|
+| 1 | **Context Engineer** | Owns the project-context.md. Has visibility into all tracks in real time. Resolves gaps affecting more than one track. | Total over Rules. Can stop any construction track. |
+| 2 | **Tech Lead** | Supervises technical coherence between tracks. Detects decision collisions between teams. First escalation line for integration issues. | Can pause a track. Cannot modify Rules without the Context Engineer. |
+| 3 | **Track Dev Leads** | Lead execution of their Story File group. Maintain the track's Decision Log. Escalate to Tech Lead when a local decision may affect another track. | Decisions local to the track. Cannot make integration decisions. |
+| 4 | **Developers** | Execute Story Files with AI agents under Dev Lead supervision. Document gaps in real time. | Only within the active Story File. Do not make unplanned technical decisions without documenting them. |
+| 5 | **QA Agent** | Validates each Story File output before it moves to "completed." Detects Rule violations. Flags outputs that could collide with other tracks. | Can block a Story File. Cannot approve Rule changes. |
+
+:::tip The hierarchy's logic
+A developer who can't see the neighboring track should not make decisions that affect it. A Context Engineer who sees all tracks is the only one who can make cross-cutting decisions. Each level has access to exactly the information it needs and exactly the decision-making capacity its visibility justifies.
+:::
+
+## Roles returning from previous phases
+
+Stakeholders from Phases 1 and 2 don't participate in daily construction. But they return at two critical moments:
+
+**During Partial Fidelity Reviews** — every 3-4 completed Stories, the Context Engineer presents the integrated project state. Stakeholders assess whether what's being built remains recognizable as a response to the problem they defined.
+
+**During the Final Fidelity Review** — upon completing construction, stakeholders sign the Build Validation Report. Their question isn't "Is the code good?" but "Does this solve the problem we described?"
+
+## In small projects
+
+Not every project needs five levels. In a 1-2 person team with sequential construction:
+
+- The **Context Engineer** and **Tech Lead** are the same person
+- There are no **Track Dev Leads** because there are no parallel tracks
+- The **developer** executes Story Files sequentially and maintains a simple Decision Log
+- The **QA Agent** remains mandatory — it's the validation that protects fidelity
+
+The hierarchy simplifies, but the supervision (Context Engineer) and validation (QA Agent) roles never disappear. Without them, construction loses its anchor to context.

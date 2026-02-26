@@ -1,0 +1,137 @@
+---
+title: "Proceso paso a paso"
+sidebar_label: "Paso a Paso"
+slug: /framework/fases/ai-build-phase/proceso-paso-a-paso
+description: "Los cinco pasos de la Fase 4: setup del entorno, construcción guiada por Story Files, gestión de gaps, revisión de fidelidad y cierre del Decision Log."
+sidebar_position: 1
+tags: [framework, fases, ai-build-phase, proceso, paso-a-paso]
+---
+
+# Proceso paso a paso
+
+La Fase 4 tiene cinco pasos. Los tres primeros (Setup, Construcción por Story Files y Gestión de Gaps) son el núcleo operativo. Los dos últimos (Revisión de Fidelidad y Cierre del Decision Log) certifican que la fase está completa.
+
+## Paso 1: Setup del entorno de construcción
+
+**Duración estimada:** 0,5 a 1 día
+
+El setup no es solo técnico. Es el momento en que el equipo se alinea sobre lo que va a hacer y las reglas del juego. En equipos con construcción paralela, es la única ocasión en que todos los participantes tienen contexto completo antes de que los tracks se separen.
+
+### 1.1 Briefing de contexto
+
+El Context Engineer entrega al equipo completo el sistema de contexto: project-context.md, definiciones de Agentes, PRD, Architecture Document, Story Files y el grafo de dependencias. Este briefing es colectivo, no se hace track a track.
+
+Cada miembro del equipo debe poder responder estas cinco preguntas tras el briefing:
+
+1. ¿Cuál es el problema que este proyecto resuelve? (Problem Statement)
+2. ¿Cuál es la solución que estamos construyendo? (Solution Brief)
+3. ¿Qué Skills forman mi track y cuáles son sus dependencias con otros tracks?
+4. ¿Qué hago cuando una decisión en mi track puede afectar a otro track?
+5. ¿Qué ocurre cuando detecto un gap? (Protocolo de escalación por tipo de impacto)
+
+### 1.2 Asignación de tracks y verificación del grafo
+
+La asignación de desarrolladores a tracks se basa en el grafo de dependencias, no en disponibilidad. Los tracks con dependencias cruzadas frecuentes deben asignarse a desarrolladores que puedan coordinarse con fluidez.
+
+El Context Engineer presenta el grafo y pregunta a cada Dev Lead: *"¿Puedes identificar alguna dependencia implícita que no esté documentada en este grafo?"* Las dependencias implícitas son la fuente principal de colisiones en construcción paralela.
+
+### 1.3 Verificación del Context Document
+
+| Elemento | Criterio estándar | Criterio adicional en paralelo |
+|---|---|---|
+| **project-context.md** | Pasa la regla de las tres lecturas: tecnologías, prohibiciones, convenciones. | Las Reglas son suficientes para que dos Agentes en tracks distintos tomen decisiones coherentes sin comunicación directa. |
+| **Grafo de dependencias** | Las dependencias entre Skills están documentadas. | Las dependencias implícitas han sido identificadas. El grafo ha sido revisado por todos los Dev Leads. |
+| **Story Files de integración** | Cada Skill de integración tiene criterios de aceptación. | Los criterios de aceptación referencian explícitamente los outputs de los Skills que integra. |
+| **Decision Log distribuido** | El Decision Log existe y está accesible. | El formato incluye campos de track, impacto estimado y urgencia. El sistema de visibilidad en tiempo real está operativo. |
+| **Protocolo de sincronización** | — | Las sincronizaciones de integración están programadas en el grafo. Cada Dev Lead conoce cuáles le afectan. |
+
+## Paso 2: Construcción guiada por Story Files
+
+**Duración estimada:** Variable según complejidad
+
+El equipo ejecuta los Story Files según el grafo de dependencias, activando en paralelo los tracks cuya independencia ha sido verificada.
+
+### El ciclo de ejecución de un Story File
+
+Para cada Story File, el ciclo tiene cuatro momentos:
+
+**1. Preparación:** El desarrollador lee el Story File completo y el project-context.md antes de activar el Agente. En construcción paralela, añade un paso: revisar las entradas recientes del Decision Log de otros tracks.
+
+**2. Ejecución con Agente:** El Agente recibe el Story File y el project-context.md. Ejecuta la tarea. El desarrollador supervisa en tiempo real, con atención a las zonas de potencial solapamiento con otros tracks.
+
+**3. Validación del QA Agent:** El QA Agent verifica el output contra los criterios de aceptación del Story File y las Reglas globales. En paralelo, también verifica compatibilidad con los contratos de interfaz.
+
+**4. Registro en Decision Log:** Cualquier decisión no prevista se documenta inmediatamente con su clasificación de impacto (local / cruzada / global). Esta clasificación no puede postergarse.
+
+### Cuándo detener un track
+
+| Situación | Qué ocurre | Acción requerida |
+|---|---|---|
+| **Regla global actualizada** | El project-context.md cambia mientras un track está en ejecución. | Stop del track. Los Agentes cargan el context actualizado. Se revisan Skills completados bajo la Regla anterior. |
+| **Gap cruzado entre tracks** | El Decision Log de A registra un gap que afecta a B. | El Context Engineer notifica al Dev Lead de B inmediatamente. B pausa hasta que el gap sea resuelto. |
+| **Outputs incompatibles** | Dos tracks implementan la misma interfaz de forma distinta. | Stop de ambos tracks. El Context Engineer define la interfaz como nueva Regla. |
+| **Skill de integración falla** | Los Skills individuales están validados pero la integración falla. | Stop del Skill de integración. El Tech Lead convoca sincronización de emergencia. |
+
+## Paso 3: Gestión de gaps durante la construcción
+
+Los gaps son inevitables. En construcción paralela, un gap en un track puede invalidar el trabajo en otro track. La velocidad de detección y comunicación es el factor que más determina el coste total de la fase.
+
+### Tipología de gaps
+
+| Tipo de gap | Impacto en track único | Impacto adicional en paralelo | Protocolo |
+|---|---|---|---|
+| **Gap de especificación** | El Agente no puede completar el Skill sin ambigüedad. | Si afecta a un contrato compartido, todos los tracks que lo usan deben detenerse. | El Agente señala. El desarrollador clasifica. Si es cruzado, el Context Engineer notifica a todos los tracks. |
+| **Gap de Reglas** | Skills del mismo track producen inconsistencias. | Tracks distintos producen inconsistencias entre sí, invisibles hasta la integración. | Stop de todos los tracks afectados. Nueva Regla. Todos los Agentes cargan la versión actualizada. |
+| **Gap de arquitectura** | Una decisión de arquitectura es inviable. | Si afecta a la interfaz entre componentes de distintos tracks, los dependientes no pueden continuar. | Stop completo. Regreso a Fase 3 para actualizar el Architecture Document. |
+| **Gap de datos** | Los datos no están disponibles en el formato o calidad previsto. | Si los datos son compartidos, todos los tracks que los consumen deben detenerse. | Stop inmediato. Escalar al Context Engineer y Product Owner. |
+| **Gap de coherencia entre tracks** | No existe en construcción secuencial. | Dos tracks producen outputs individualmente correctos pero mutuamente incompatibles. | Sincronización de integración de emergencia. El Context Engineer decide la fuente de verdad. |
+
+### Protocolo de escalación
+
+- **Gap local al track:** El Dev Lead resuelve si hay claridad. Decision Log con clasificación "local".
+- **Gap con posible impacto cruzado:** El Dev Lead pausa el Story File. Notifica al Context Engineer y Tech Lead **inmediatamente**. No espera a la sincronización programada.
+- **Gap de Reglas:** Stop del Story File. El Context Engineer resuelve antes de que ningún track continúe. Plazo máximo: el mismo día hábil.
+- **Gap de arquitectura:** Stop completo. Regreso a Fase 3.
+- **Gap de coherencia entre tracks:** El Tech Lead convoca sincronización de emergencia en las próximas 2 horas.
+
+:::tip La regla del gap transparente
+En equipos paralelos, un gap que permanece invisible durante más de un día hábil tiene un coste exponencial: cada Story File completado sobre esa base incorrecta multiplica el retrabajo. La cultura del equipo debe hacer que reportar un gap sea un acto de profesionalismo, no una confesión de error.
+:::
+
+## Paso 4: Revisión de fidelidad
+
+**Duración estimada:** 1-3 días
+
+Cuando todos los Story Files están completados y el Decision Log está al día, el equipo realiza la Revisión de Fidelidad en dos dimensiones:
+
+**Dimensión vertical, fidelidad al origen:** Cada componente se evalúa contra el Problem Statement y el Solution Brief. ¿Resuelve la parte del problema que debía resolver?
+
+**Dimensión horizontal, coherencia del sistema:** El conjunto de componentes de todos los tracks se evalúa como sistema integrado. ¿Producen juntos la solución que el Solution Brief describía?
+
+El orden importa: **la dimensión horizontal va primero.** Presentar a los stakeholders un sistema con incoherencias de integración es un coste evitable.
+
+### Los cuatro bloques de revisión
+
+| Bloque | Qué se revisa | Quién | Criterio de aprobación |
+|---|---|---|---|
+| **Bloque 0 — Coherencia de integración** | Los outputs de todos los tracks son compatibles y el sistema integrado funciona. | Tech Lead + Dev Leads + Context Engineer | Los casos de uso del PRD se ejecutan de principio a fin sin colisiones. |
+| **Bloque 1 — Fidelidad al Problem Statement** | Lo construido resuelve el problema definido. | Stakeholders de la Fase 1 | Reconocen el sistema como respuesta al problema que describieron. |
+| **Bloque 2 — Fidelidad al Solution Brief** | Lo construido refleja la solución acordada. | Stakeholders de la Fase 2 | Reconocen el sistema como la solución que aprobaron. |
+| **Bloque 3 — Revisión del Decision Log** | Las decisiones de todos los tracks que modificaron el contexto son consistentes. | Context Engineer + Tech Lead + stakeholders | No hay decisiones que contradigan el Problem Statement sin justificación documentada. |
+
+## Paso 5: Cierre del Decision Log y preparación para Market Phase
+
+**Duración estimada:** 0,5 a 1 día
+
+### Consolidación del Decision Log
+
+Los Decision Logs de los distintos tracks se fusionan en un registro único. No es una concatenación, es una síntesis. Cada entrada tiene uno de estos estados finales:
+
+- **Resuelto — incorporado a Regla global:** Promovida al project-context.md.
+- **Resuelto — decisión local aceptada:** Coherente con el contexto general, no requiere promoción.
+- **Resuelto — coherencia de integración:** Decisiones de dos tracks resueltas en sincronización.
+- **Abierto — pendiente de Fase 5:** Requiere datos del mercado para consolidarse.
+
+### Preparación del Context Document
+
+El Context Document que entra a la Fase 5 refleja el sistema construido en todos sus tracks. Las Reglas emergidas están incorporadas. El grafo de dependencias está actualizado. El Iteration Brief recoge los aprendizajes abiertos de todos los tracks.

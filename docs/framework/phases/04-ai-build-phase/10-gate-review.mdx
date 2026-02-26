@@ -1,0 +1,49 @@
+---
+title: "Exit criterion: the Gate Review"
+sidebar_label: "Gate Review"
+slug: /framework/phases/ai-build-phase/gate-review
+description: "The AI Build Phase is complete when stakeholders recognize the entire system — not just its components — as faithful to the Problem Statement and Solution Brief."
+sidebar_position: 4
+tags: [framework, phases, ai-build-phase, gate-review, exit-criteria]
+---
+
+# Exit criterion: the Gate Review
+
+The AI Build Phase is not complete when the code works. It's complete when **Phase 1 and 2 stakeholders recognize the entire system** — not just its individual components — as a faithful expression of the Problem Statement and the Solution Brief.
+
+:::caution Gate 4 → 5: Pass conditions
+- ✅ The Build Validation Report has been signed by Phase 1 and 2 stakeholders and the Tech Lead.
+- ✅ All Story Files from all tracks are completed and validated by the QA Agent.
+- ✅ Block 0 of the Fidelity Review is approved: the integrated system executes all PRD use cases.
+- ✅ The distributed Decision Log is consolidated: all entries from all tracks have a resolved status or are input for Phase 5.
+- ✅ No Decision Log entries classified as "cross-track" or "global" remain without documented resolution.
+- ✅ project-context.md has been updated with all Rules that emerged from construction in any track.
+- ✅ The updated dependency graph is incorporated into the Context Document.
+- ✅ Minutes from all integration synchronizations are documented and accessible.
+- ✅ The Iteration Brief (draft) consolidates open learnings from all tracks.
+- ✅ Stakeholders recognize the **complete system**, not just its individual components, as faithful to the Problem Statement and Solution Brief.
+- ❌ No advancement if Block 0 is not approved, even if blocks 1 and 2 are.
+- ❌ No advancement if there are cross-track or global impact Decision Log entries without resolution status.
+- ❌ No advancement if the Build Validation Report has not been signed by those who validated the original problem.
+:::
+
+## The validation question
+
+The fundamental question is not "Does the code work?" — it's **"Does the system solve the problem?"**
+
+A system can work technically and not solve the problem. Each component can pass its unit tests and QA validation, and the integrated whole can fail to produce the behavior stakeholders expected. That's why Block 0 (system coherence) is a prerequisite for blocks 1 and 2 (fidelity to Problem Statement and Solution Brief).
+
+## After the gate: transition to Phase 5
+
+When the team completes the Gate Review, they have something exceptional in their hands: a solution built with complete documentary traceability back to the problem that motivated it.
+
+The transition to Phase 5 is not a leap — it's a continuation. The updated Context Document is the foundation. The Iteration Brief opens the conversation with the market. And the defined KPIs are now activated for the complete system.
+
+:::tip Context doesn't freeze
+Passing the Gate Review doesn't mean the context freezes. Phase 5 will iterate on it with market data:
+- The open hypotheses from the Iteration Brief will be put to the test.
+- Problem Statement assumptions will be confirmed or refuted with real usage.
+- project-context.md Rules will evolve with each learning.
+
+Context is a living asset. The Gate Review marks a transition, not a closure.
+:::

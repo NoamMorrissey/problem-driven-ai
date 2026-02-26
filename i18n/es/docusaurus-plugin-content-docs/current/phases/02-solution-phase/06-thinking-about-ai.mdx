@@ -1,0 +1,44 @@
+---
+title: "Pensar en la IA sin tocar la IA"
+sidebar_label: "Pensar en la IA"
+description: "El equipo empieza a pensar en cómo la IA procesará la solución, sin escribir una sola línea de contexto."
+sidebar_position: 5
+slug: /fases/solution-phase/pensar-en-la-ia
+tags: [fases, alineacion, traducibilidad, context-phase]
+---
+
+# Pensar en la IA sin tocar la IA
+
+Hay algo que ocurre en esta fase que no ocurre en ninguna otra: el equipo empieza a pensar en cómo la IA va a procesar la solución, sin escribir una sola línea de contexto ni configurar un solo agente.
+
+Esto es deliberado. La Fase 3 (Context Phase) es donde se traduce la solución a un lenguaje que la IA pueda procesar. Pero esa traducción es dramáticamente más fácil (y el resultado dramáticamente mejor) si la solución se ha diseñado pensando en que será traducida.
+
+## El Mapa de Traducibilidad
+
+Al finalizar la convergencia y antes de las validaciones, el equipo revisa la solución elegida con una pregunta que no aparece en ningún otro marco de trabajo: **"¿Cómo de fácil será traducir esta solución a un contexto preciso para la IA?"**
+
+Esta pregunta obliga al equipo a pensar en las cuatro dimensiones desde la perspectiva de quien va a escribir el contexto:
+
+| Dimensión | Pregunta de traducibilidad | Señal de riesgo |
+|---|---|---|
+| **Negocio** | ¿Los criterios de éxito son medibles y pueden expresarse como instrucciones? | "Mejorar la experiencia" no es traducible. "Reducir el tiempo de respuesta de 48h a 4h" sí. |
+| **Modelo** | ¿El tipo de IA está definido con suficiente precisión para guiar una decisión técnica? | "Usar IA" no es traducible. "Modelo predictivo sobre datos tabulares de ventas históricas" sí. |
+| **Arquitectura** | ¿Los puntos de integración están identificados y las restricciones son explícitas? | "Se integra con los sistemas del cliente" no es traducible. "Consume la API REST del ERP (SAP) con autenticación OAuth 2.0 y frecuencia de consulta cada 15 min" sí. |
+| **Datos** | ¿La estrategia de datos está definida: fuentes, formato, calidad, accesibilidad? | "Usaremos los datos del cliente" no es traducible. "Histórico de 3 años de transacciones de ventas en formato CSV, granularidad diaria por SKU por tienda, accesible vía SFTP" sí. |
+
+:::tip[Insight]
+**La traducibilidad es un test de precisión.** Si algo no es traducible a un contexto para la IA, generalmente es porque no está definido con suficiente precisión para nadie (ni para la IA ni para un humano). El ejercicio de pensar en la traducción revela ambigüedades que de otra forma llegarían a la Fase 3 y contaminarían el contexto.
+:::
+
+## El Cuadro de Mando Previo a la Ejecución
+
+Para soluciones de alta complejidad, el equipo produce un documento intermedio que llamamos Cuadro de Mando Previo. No es un documento técnico, es un resumen ejecutivo de las decisiones tomadas en cada dimensión que sirve como checkpoint antes de entrar en Context Phase.
+
+| Dimensión | Decisión tomada | Asunciones activas | Riesgo si la asunción es falsa |
+|---|---|---|---|
+| **Negocio** | Definir el business case: presupuesto por inferencia/token, ROI target, KPIs a mover. | [Las asunciones de esta dimensión] | [El impacto si fallan] |
+| **Modelo** | Seleccionar el tipo de modelo y definir métricas de éxito técnicas. | [Las asunciones de esta dimensión] | [El impacto si fallan] |
+| **Arquitectura** | Definir si se requiere infraestructura específica (base de datos vectorial, orquestador, guardrails) y modelo de seguridad. | [Las asunciones de esta dimensión] | [El impacto si fallan] |
+| **Datos** | Completar la auditoría de calidad de datos y definir el pipeline de ingesta. | [Las asunciones de esta dimensión] | [El impacto si fallan] |
+
+Este cuadro viaja a la Fase 3 junto con el Solution Brief. Es el puente entre el pensamiento humano de alineación y el pensamiento de diseño de contexto.

@@ -1,0 +1,155 @@
+---
+title: "El proceso paso a paso"
+sidebar_label: "Paso a Paso"
+slug: /framework/fases/problem-phase/proceso-paso-a-paso
+description: "Un proceso estructurado con cuatro pasos claros: kick-off, entrevistas en profundidad, síntesis de hallazgos y redacción y validación del Problem Statement."
+sidebar_position: 1
+tags: [fases, discovery, investigacion, escucha-activa]
+---
+
+import {SaturationChart, RadarChart} from '@site/src/components/ProcessInfographic';
+
+# El proceso paso a paso
+
+El Problem Phase no es una actividad libre. Es un proceso estructurado con cuatro pasos claros, cada uno con un propósito específico y un entregable parcial que alimenta al siguiente. La disciplina en la secuencia es lo que diferencia un discovery riguroso de una conversación bien intencionada.
+
+## Paso 1. Kick-off de Discovery
+
+*Duración estimada: 1 sesión de 2-3 horas*
+
+El kick-off no es el discovery. Es la preparación del discovery. Su propósito es cuádruple: alinear al equipo sobre el alcance de la investigación, identificar a las personas que serán entrevistadas, explicitar las hipótesis de partida que el equipo trae consigo y construir el Mapa de Actores.
+
+Este último punto es crucial. Todo equipo llega al discovery con hipótesis previas sobre el problema. Fingir que no existen es contraproducente. Lo correcto es hacerlas explícitas, escribirlas y colgarlas en la pared. No para validarlas, sino para que el equipo sea consciente de sus sesgos y pueda desafiarlos activamente durante las entrevistas.
+
+### Actividades del kick-off
+
+1. **Definir el alcance de la investigación:** qué área del problema vamos a explorar y, con igual precisión, qué queda fuera.
+2. **Construir el Mapa de Actores:** quién vive el problema, quién decide, quién se ve afectado, quién ha intentado resolverlo, quién tiene información que no estamos viendo.
+3. **Identificar a los entrevistados:** mínimo 5, seleccionados del Mapa de Actores con diversidad de roles y perspectivas.
+4. **Documentar las hipótesis de partida:** lo que el equipo cree que sabe sobre el problema. Escribir también la hipótesis invertida para cada una.
+5. **Identificar las restricciones conocidas:** presupuesto, tiempo, regulaciones, limitaciones técnicas, política organizacional. No para resolver nada, sino para saber qué condiciona el espacio de soluciones futuras.
+6. **Diseñar la Interview Guide:** la guía de preguntas que estructurará las entrevistas, incluyendo al menos una pregunta diseñada para desafiar la hipótesis principal.
+7. **Asignar roles:** quién entrevista, quién toma notas, quién coordina la logística.
+
+:::note Ejemplo práctico: Kick-off para un proyecto de gestión de inventario
+**Hipótesis de partida:** "Los gerentes de tienda necesitan un dashboard para ver el inventario en tiempo real."
+
+**Hipótesis invertida:** "Los gerentes ya tienen la información que necesitan pero no confían en ella" o "El problema no es la información sino el proceso de reposición."
+
+**Mapa de Actores:**
+- *Viven el problema:* Gerentes de tienda (3 regiones), responsables de almacén.
+- *Deciden:* Director de operaciones retail.
+- *Afectados indirectos:* Equipo de compras (reciben pedidos basados en datos desactualizados), clientes finales.
+- *Intentaron resolver:* El equipo de IT implementó un sistema de alertas hace un año. No funcionó. ¿Por qué?
+- *Saben algo que no vemos:* El equipo de atención al cliente, que recibe quejas diarias sobre stock.
+
+**Restricciones conocidas:** ERP heredado con actualización batch diaria, presupuesto de integración limitado, regulación de stock mínimo en productos sanitarios.
+
+**Alcance:** Explorar el problema de visibilidad de inventario. Fuera de alcance: logística de transporte.
+:::
+
+## Paso 2. Entrevistas en profundidad
+
+*Duración estimada: 45-60 minutos por entrevista × mínimo 5 entrevistas*
+
+Las entrevistas son el corazón del discovery. Son conversaciones estructuradas pero no rígidas, diseñadas para extraer la experiencia real de las personas que viven el problema. No son encuestas. No son cuestionarios. Son conversaciones con una dirección clara y la flexibilidad suficiente para seguir hilos inesperados cuando aparecen.
+
+### La Interview Guide
+
+La guía de entrevista no es un guion. Es una estructura que garantiza que todas las entrevistas cubren las seis preguntas fundamentales pero deja espacio para la exploración. Se organiza en cuatro bloques:
+
+| Bloque | Propósito | Preguntas tipo |
+|---|---|---|
+| **Apertura** (5-10 min) | Establecer confianza y contexto. No es small talk: es entender el rol de la persona, su relación con el problema y su disposición a compartir. | *"Cuéntame sobre tu día a día. ¿Cuál es tu responsabilidad principal? ¿Cómo se relaciona con [el área del problema]?"* |
+| **Exploración del problema** (20-30 min) | El bloque central. Aquí se responden las seis preguntas fundamentales. Se sigue el hilo de la persona, no el orden de la guía. | *"Cuéntame la última vez que te enfrentaste a esto. ¿Qué pasó? ¿Y eso por qué es un problema? ¿Qué has intentado para resolverlo?"* |
+| **Profundidad** (10-15 min) | Seguir los hilos más interesantes. Pedir ejemplos concretos. Cuantificar impactos. Buscar las emociones detrás de las respuestas. | *"¿Puedes darme un ejemplo específico? ¿Cuántas veces pasa al mes? ¿Qué sientes cuando ocurre? ¿Qué harías si esto se resolviera mañana?"* |
+| **Cierre** (5 min) | Dar espacio para lo no preguntado. Frecuentemente, lo más valioso surge aquí, cuando la persona se relaja y añade algo que no sabía cómo decir antes. | *"¿Hay algo que no te he preguntado y que crees que debería saber? ¿Algo más que quieras añadir sobre este tema?"* |
+
+### Reglas de oro de la entrevista
+
+1. **Nunca hagas preguntas cerradas o de confirmación.** "¿Te parece que el inventario es un problema?" no es una pregunta. Es una sugerencia disfrazada. Pregunta en abierto: "¿Qué es lo más difícil de tu día a día?"
+2. **Nunca propongas soluciones durante la entrevista.** Tu trabajo es entender, no resolver. Si propones una solución, la persona dejará de pensar en el problema y empezará a evaluar tu idea.
+3. **Sigue los hilos inesperados.** Si la persona menciona algo que no estaba en tu guía pero parece relevante, sigue ese hilo. Los mejores hallazgos suelen estar fuera del guion.
+4. **Busca historias, no opiniones.** "Cuéntame la última vez que…" produce información mucho más rica que "¿Qué opinas de…?"
+5. **Respeta los silencios.** Cuando la persona se queda callada, no llenes el espacio. Está pensando. Lo que viene después del silencio suele ser lo más honesto.
+6. **Siempre van dos personas: una entrevista, otra toma notas.** Nunca entrevistes solo. La persona que toma notas captura lo que el entrevistador no puede ver mientras conversa.
+
+:::danger Anti-patrón: Las Preguntas Trampa
+*"¿No crees que sería útil tener un dashboard que te muestre el inventario en tiempo real?"*
+
+Esta pregunta contiene la solución, sugiere la respuesta y hace difícil que la persona diga que no. Es el equivalente a preguntar "¿no te gustaría que tu vida fuera mejor?". La respuesta siempre es sí, y la información que obtienes es cero.
+
+**La versión correcta:** "Cuéntame cómo sabes hoy cuánto stock tienes de cada producto. ¿Qué haces cuando necesitas esa información?"
+:::
+
+### Por qué 5 entrevistas
+
+La investigación cualitativa se rige por la ley de rendimientos decrecientes. Para la quinta entrevista, aproximadamente el 85% de los problemas y patrones centrales están identificados. Las entrevistas adicionales aportan valor decreciente.
+
+<SaturationChart
+  data={[
+    {label: '1', value: 35},
+    {label: '2', value: 55},
+    {label: '3', value: 70},
+    {label: '5', value: 85},
+    {label: '8', value: 92},
+    {label: '10', value: 95},
+  ]}
+  yLabel="% de insights totales"
+  thresholdLabel="85%"
+  thresholdValue={85}
+/>
+
+El número 5 no es arbitrario. Proviene de décadas de investigación en usabilidad: después de 5 entrevistas bien conducidas, los patrones centrales se estabilizan. Más entrevistas refinan los matices, pero rara vez cambian los hallazgos fundamentales.
+
+## Paso 3. Síntesis de hallazgos
+
+*Duración estimada: 1-2 sesiones de 3-4 horas con todo el equipo*
+
+La síntesis es el momento en que la información recogida se convierte en conocimiento. El equipo se reúne con todas las notas, transcripciones e impresiones de las entrevistas y trabaja junto para identificar patrones, tensiones y el problema real que emerge del conjunto de los datos.
+
+Esta fase es difícil. Hay información contradictoria. Hay hallazgos que no encajan con las hipótesis previas. Hay momentos de frustración en los que parece que cada entrevistado vive un problema distinto. Eso es normal. El problema real suele aparecer cuando se encuentran los patrones que conectan las diferencias, no los que las ignoran.
+
+### El Synthesis Board
+
+El Synthesis Board es el artefacto central de esta fase. Es un mapa visual donde el equipo coloca los hallazgos individuales y los agrupa por patrones. Puede hacerse en una pizarra física, en Miro, en FigJam o en cualquier herramienta que permita manipulación visual colaborativa. Lo importante no es la herramienta sino tres principios:
+
+1. **Se construye junto.** No lo hace una persona y lo presenta al resto. Todos participan en colocar los hallazgos y en discutir los agrupamientos.
+2. **Empieza por los datos, no por las categorías.** Primero se colocan los hallazgos individuales. Después se buscan los patrones. Si empiezas por las categorías, caes en sesgo de confirmación.
+3. **Los outliers se respetan.** Un hallazgo que no encaja en ningún patrón no se descarta. Se coloca aparte y se mantiene visible. A veces el outlier es la señal más importante.
+
+### Técnicas de síntesis
+
+| Técnica | Qué hace | Cuándo usarla | Cuidado con |
+|---|---|---|---|
+| **Mapa de afinidad** | Agrupar hallazgos por similitud temática. | Descubrimiento inductivo cuando hay muchos datos diversos. | *Funciona mal cuando el equipo agrupa por categorías preexistentes en lugar de dejar emerger los patrones.* |
+| **Jobs To Be Done** | Identificar el "trabajo" que el usuario está intentando hacer y dónde falla. | Problemas donde la persona tiene un objetivo claro pero no logra alcanzarlo. | *Requiere comprensión del contexto funcional, social y emocional del "job".* |
+| **Mapa de empatía** | Organizar lo que la persona dice, piensa, hace y siente. | Capturar la dimensión emocional del problema. | *Útil como complemento, no como técnica principal de síntesis.* |
+| **Análisis de 5 Por Qués** | Llegar a la causa raíz a través de preguntar repetidamente "por qué". | Cuando los síntomas son claros pero las causas no. | *No forzar exactamente 5 niveles. El objetivo es la causa raíz, no el número.* |
+| **Observación contextual** | Observar al usuario en su entorno real mientras realiza su trabajo. | Cuando el problema es de proceso y las entrevistas no lo capturan bien. | *Consume más tiempo pero revela comportamientos que las entrevistas no muestran.* |
+
+### La pregunta de síntesis
+
+Al final de la síntesis, el equipo debe poder responder una única pregunta: **"¿Cuál es el problema real que estas personas viven, expresado de forma que cualquier persona de la organización lo entienda igual?"**
+
+Si no puedes responder a esta pregunta con una sola frase clara, la síntesis no ha terminado.
+
+## Paso 4. Redacción y validación del Problem Statement
+
+*Duración estimada: 1-2 días de redacción + 2-3 días de validación*
+
+El Problem Statement es el entregable final de esta fase y uno de los documentos más importantes de toda la metodología. No es un resumen del discovery. Es una destilación: la expresión más clara, concisa y precisa del problema real que el equipo ha descubierto.
+
+### El radar de validación
+
+Un problema validado debe puntuar alto en múltiples dimensiones. Comparar un **perfil validado** con una **suposición arriesgada** revela el patrón de fallo típico: alta viabilidad de negocio pero baja resonancia con el usuario.
+
+<RadarChart
+  axes={['Resonancia', 'Frecuencia', 'Disp. a pagar', 'Viab. negocio', 'Viab. técnica']}
+  datasets={[
+    {label: 'Problema validado', values: [90, 85, 80, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'Suposición arriesgada', values: [30, 40, 20, 80, 60], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+El radar hace visible lo que la intuición esconde. Un problema que puntúa 90 en viabilidad de negocio pero 30 en resonancia con el usuario no es un problema validado. Es una hipótesis de negocio disfrazada de necesidad del usuario.

@@ -1,0 +1,172 @@
+---
+title: "Artefactos"
+sidebar_label: "Artefactos"
+slug: /framework/fases/market-phase/artefactos
+description: "Los cinco artefactos de la Fase 5: Signal Log, Context Update Record, Iteration Brief, KPI Dashboard y Context Document vivo. Con plantillas y secuencia de creación."
+sidebar_position: 3
+tags: [framework, fases, market-phase, artefactos, plantillas]
+---
+
+# Los artefactos de la Fase 5
+
+La Fase 5 produce cinco artefactos que operan como un sistema integrado. Ninguno tiene valor aislado, su poder está en las conexiones entre ellos: las señales del Signal Log alimentan el Context Update Record, que documenta los cambios del Context Document, que se resume en el Iteration Brief, que define el foco del siguiente ciclo.
+
+## Mapa de artefactos
+
+| Artefacto | Cuándo se crea | Quién lo mantiene | Cadencia de actualización |
+|---|---|---|---|
+| **Signal Log** | Al activar el sistema de medición. | Product Lead + Data Lead. | Continua (capa automática), semanal-mensual (capas estructurada y contextual). |
+| **Context Update Record** | Al realizar la primera actualización del Context Document. | Context Engineer. | Con cada cambio al Context Document. |
+| **Iteration Brief** | Al inicio de cada ciclo de iteración. | Product Lead con input del equipo. | Mensual o trimestral según madurez. |
+| **KPI Dashboard** | Al activar el sistema de medición. | Data Lead. | Tiempo real (automático). |
+| **Context Document (vivo)** | Heredado de Fases 3 y 4. | Context Engineer. | Continua según señales del mercado. |
+
+---
+
+## 1. Signal Log
+
+El artefacto central de la Fase 5. Es la memoria del mercado.
+
+### Estructura de cada entrada
+
+```
+## Señal #[NNN] — [Fecha]
+
+**Señal observada:** [Descripción del dato crudo, sin interpretación]
+**Fuente y método:** [analytics | entrevista | KPI | ticket | señal externa]
+**Nivel de señal:** [1-Comportamiento | 2-KPI | 3-Feedback | 4-No-uso | 5-Externa]
+
+**Hipótesis de causa:** [Formulada como hipótesis verificable]
+**Elemento del Context Document afectado:**
+  [Problem Statement | Solution Brief | Regla | Story File | KPI]
+
+**Urgencia:** [Inmediata | Normal | Estratégica]
+**Acción propuesta:** [Descripción de la acción y fase de regreso si aplica]
+
+**Estado:** [Nueva | En análisis | Procesada → CUR-NNN | Descartada (motivo)]
+```
+
+### Buenas prácticas
+
+- Separar observación de interpretación. El campo "señal observada" nunca contiene conclusiones.
+- Toda señal tiene al menos una hipótesis de causa, aunque sea preliminar.
+- Las señales descartadas se mantienen con motivo documentado, pueden ser relevantes en otro ciclo.
+- Vincular señales relacionadas entre sí para detectar patrones emergentes.
+
+---
+
+## 2. Context Update Record
+
+La trazabilidad entre el mercado y el contexto. En doce meses, permite reconstruir **por qué** el Context Document es como es.
+
+### Estructura de cada entrada
+
+```
+## CUR-[NNN] — [Fecha]
+
+**Señal(es) origen:** Signal Log #[NNN], #[NNN]
+**Hipótesis de causa validada:** [Descripción de la causa raíz confirmada]
+
+**Elemento modificado:** [Problem Statement | Solution Brief | Regla | Story File | PRD | KPI]
+**Cambio realizado:**
+  - Antes: [Estado anterior]
+  - Después: [Estado nuevo]
+  - Justificación: [Por qué este cambio responde a la señal]
+
+**Aprobado por:** [Nombre, rol]
+**Impacto en otros elementos:** [Ninguno | Lista de elementos afectados]
+```
+
+:::tip[Por qué importa la trazabilidad]
+En seis meses, nuevos miembros del equipo pueden entender por qué cada Regla existe. En entornos regulados (banca, salud), esta trazabilidad es un requisito de auditoría, no una buena práctica opcional.
+:::
+
+---
+
+## 3. Iteration Brief
+
+El puente entre ciclos. Sin él, cada ciclo empieza desde cero en lugar de desde donde el anterior terminó.
+
+### Estructura
+
+```
+## Iteration Brief — Ciclo [N] → Ciclo [N+1]
+## Fecha: [YYYY-MM-DD]
+
+### 1. Aprendizajes del ciclo anterior
+[Lista de señales significativas con referencia al Signal Log]
+- Asunciones confirmadas: [lista]
+- Asunciones refutadas: [lista]
+
+### 2. Estado del Context Document
+[Resumen de actualizaciones con referencia al Context Update Record]
+- Reglas modificadas: [N]
+- Story Files ajustados: [N]
+- Problem Statement: [Sin cambios | Revisión menor | Revisión mayor]
+
+### 3. Preguntas abiertas
+[Hipótesis no verificadas, señales débiles que podrían ser importantes]
+
+### 4. Foco del próximo ciclo
+[Qué aspecto merece más atención y por qué]
+[Fase de regreso si aplica: Fase 1 / 2 / 3 / 4]
+
+### 5. KPIs prioritarios
+[Indicadores a observar y por qué son los más relevantes]
+```
+
+---
+
+## 4. KPI Dashboard
+
+La ventana continua al estado del sistema en el mercado. Es el primer lugar donde el equipo mira cada mañana.
+
+### Requisitos
+
+| Requisito | Descripción |
+|---|---|
+| **Conexión a fuentes verificadas** | Cada KPI conectado a la fuente de datos definida en el KPI & OKR Register de la Fase 3. |
+| **Actualización en tiempo real** | Sin intervención manual para datos de la capa automática. |
+| **Umbrales visibles** | Cada KPI muestra el objetivo, el umbral de alerta y el estado actual. |
+| **Alertas automáticas** | Notificación cuando un KPI cruza el umbral de alerta. |
+| **Histórico accesible** | Tendencia visible para detectar movimientos graduales que no cruzan umbrales. |
+
+---
+
+## 5. Context Document (versión viva)
+
+El activo más valioso que el sistema produce. A medida que la Fase 5 avanza, se convierte en el conocimiento más profundo que existe sobre el problema y la solución en su contexto real.
+
+### Componentes actualizados
+
+| Componente | Qué se actualiza en Fase 5 |
+|---|---|
+| **project-context.md** | Reglas modificadas, añadidas o eliminadas según señales del mercado. |
+| **PRD** | Casos de uso ajustados con aprendizajes de adopción real. |
+| **Story Files** | Skills ajustados o nuevos según necesidades emergentes. |
+| **KPI & OKR Register** | KPIs recalibrados, nuevos indicadores añadidos, obsoletos retirados. |
+
+:::warning[El Context Document como activo]
+Un Context Document maduro (uno que ha sobrevivido doce meses de Market Phase) contiene la comprensión más profunda disponible. Es transferible (nuevos miembros entienden en días), extensible (base para nuevos mercados) y auditable (cada decisión tiene trazabilidad).
+:::
+
+---
+
+## Secuencia de creación
+
+```
+Go-live
+  │
+  ├─→ KPI Dashboard (día 1)
+  ├─→ Signal Log (día 1)
+  │
+  │   [Semanas 1-4: captura y análisis intensivo]
+  │
+  ├─→ Context Update Record (primera actualización)
+  │
+  │   [Semana 4: cierre del primer ciclo]
+  │
+  └─→ Primer Iteration Brief
+```
+
+Después del primer ciclo, los artefactos se alimentan continuamente según las cadencias de los tres bucles del ciclo de iteración.

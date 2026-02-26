@@ -1,0 +1,115 @@
+---
+title: "Iteration cycle anatomy"
+sidebar_label: "Anatomy"
+slug: /framework/phases/market-phase/iteration-cycle-anatomy
+description: "The internal structure of the Market Phase cycle: nested loops, cadences, the signal-cause-context chain, and the Context Document update flow."
+sidebar_position: 2
+tags: [framework, phases, market-phase, anatomy, cycle, structure]
+---
+
+# Iteration cycle anatomy
+
+The Market Phase cycle is not a linear process executed once. It's a system of **nested loops** operating at different cadences. Understanding this anatomy is what allows the team to operate Phase 5 without it consuming all available time.
+
+## The three cycle loops
+
+### Inner loop: continuous observation
+
+**Cadence:** Real time → weekly.
+
+| Activity | Frequency | Automation |
+|---|---|---|
+| KPI dashboards updated | Real time | 100% automatic |
+| Threshold crossing alerts | Real time | 100% automatic |
+| Weekly KPI and behavior review | Weekly (45-60 min) | Human with automatic data |
+| Signal Log entries from automatic layer | Continuous | 100% automatic |
+
+**Output:** Raw signals captured and preliminarily classified. Alerts requiring immediate attention.
+
+### Middle loop: synthesis and update
+
+**Cadence:** Monthly.
+
+| Activity | Frequency | Automation |
+|---|---|---|
+| Qualitative feedback synthesis session | Monthly (2-3h) | Human |
+| Ticket and support channel analysis | Weekly-monthly | Partial (AI synthesis) |
+| Rule and Story File updates | As needed | Human (AI proposals at level 3+) |
+| Context Update Record | With each update | Human |
+
+**Output:** Refined Signal Log with cause hypotheses. Updated Context Document. Up-to-date Context Update Record.
+
+### Outer loop: strategic review
+
+**Cadence:** Quarterly.
+
+| Activity | Frequency | Automation |
+|---|---|---|
+| Strategic review with stakeholders | Quarterly (half day) | Human |
+| Problem Statement validity review | Quarterly | Human |
+| External and competitive signal analysis | Monthly-quarterly | Partial |
+| Iteration Brief writing | At each cycle close | AI draft (level 3+) |
+
+**Output:** Next cycle's Iteration Brief. Decision to return to earlier phases if applicable.
+
+---
+
+## The signal-cause-context chain
+
+The chain is the central mechanism that transforms market data into Context Document updates. Each significant signal must traverse the complete chain before producing a change.
+
+```
+┌─────────────────────┐
+│  Observed signal     │ ← Raw market data
+│  (behavior,          │
+│   KPI, feedback)     │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│  Behavior behind     │ ← What is the user doing?
+│  the signal          │
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│  Unmet need or       │ ← What problem doesn't
+│  unresolved problem  │    the current solution solve?
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│  Affected Context    │ ← Which part of the Context
+│  Document element    │    Document didn't capture
+│                      │    this reality?
+└─────────────────────┘
+```
+
+:::warning[Golden rule]
+If the team can't complete the chain to the Context Document element that needs updating, **it doesn't have enough understanding of the signal to act on it**. It needs more data or deeper analysis.
+:::
+
+## The update flow
+
+Not all Context Document updates have the same process or urgency.
+
+| Urgency | Change type | Response time | Approval |
+|---|---|---|---|
+| **Immediate** | Technical Rule affecting production operation | Same day | Context Engineer |
+| **Normal** | Story File adjustment, new Rule from emerging pattern | 1-3 days, next iteration | Context Engineer + Product Lead |
+| **Strategic** | Solution Brief or Problem Statement revision | Weeks. Formal return to Phase 1 or 2. | Full stakeholders |
+
+## Signs of a healthy cycle
+
+- Each turn of the middle loop produces at least one Context Update Record entry
+- The Iteration Brief can articulate concrete learnings linked to specific signals
+- Phase 1-2 stakeholders participate in the outer loop
+- Time spent on manual capture decreases progressively
+- The same problems do NOT appear in consecutive cycles without producing changes
+
+:::danger[Signs of an unhealthy cycle]
+- The inner loop operates but the middle and outer loops don't execute
+- The Signal Log grows but the Context Update Record doesn't
+- Interpretation sessions produce discussions but not updates
+- The Iteration Brief is a copy-paste of the previous one with changed dates
+:::

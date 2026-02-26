@@ -1,0 +1,39 @@
+---
+title: "Esfuerzo"
+sidebar_label: "Esfuerzo"
+description: "El esfuerzo del Solution Phase se mide en la profundidad del consenso alcanzado, no en el calendario invertido. Sesiones de divergencia, estructuración y validación son las unidades reales."
+sidebar_position: 6
+slug: /framework/fases/solution-phase/esfuerzo
+tags: [fases, alineacion, planificacion, esfuerzo]
+---
+
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
+# Esfuerzo
+
+El Solution Phase no se mide en semanas de calendario. Se mide en la profundidad del consenso alcanzado y la rigurosidad con la que se han explorado, estructurado y validado las alternativas de solución.
+
+## Esfuerzo por complejidad
+
+| Escenario | Actividades requeridas | Profundidad |
+|---|---|---|
+| **Solución acotada, pocos stakeholders** | 1 sesión de divergencia + 1 de estructuración + 1 de convergencia + 1-2 rondas de validación. | Las alternativas son pocas y claras. El consenso se alcanza con un ciclo de iteración. |
+| **Solución media, múltiples stakeholders** | 2 sesiones de divergencia + 2 de estructuración con árboles completos + 1-2 de convergencia + 2-3 rondas de validación con clientes + 2-3 de alineación interna. | Las alternativas requieren exploración profunda en las 4 dimensiones. El consenso requiere múltiples iteraciones con grupos distintos. |
+| **Solución compleja, impacto organizacional** | Divergencia extensa + estructuración profunda en 4 dimensiones + verificación de asunciones críticas + múltiples rondas de validación + consenso organizacional formal + Cuadro de Mando Previo. | Cada dimensión tiene ramificaciones que afectan a múltiples stakeholders. El consenso requiere alineación formal y documentada. |
+
+## Distribución del esfuerzo
+
+Un proceso de Alignment saludable dedica un esfuerzo significativo a la estructuración y la validación. Saltarse la estructuración produce decisiones basadas en intuición en lugar de análisis.
+
+<EffortChart segments={[
+  {label: 'Divergencia e ideación', percent: 15, color: 'var(--pdai-gray-300)'},
+  {label: 'Estructuración y análisis', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Convergencia y decisión', percent: 15, color: 'var(--ifm-color-warning)'},
+  {label: 'Validación (ext. + int.)', percent: 40, color: 'var(--ifm-color-success)'},
+]} />
+
+El error más común es dedicar el 80% del esfuerzo a la ideación y la convergencia y el 20% a todo lo demás. La proporción debería ser cercana a 30/70: **30% generando y eligiendo, 70% estructurando, validando y alineando**.
+
+:::tip[El esfuerzo de alineamiento no es proporcional al esfuerzo de discovery]
+Si el esfuerzo invertido en Solution Phase es significativamente menor que el invertido en Problem Phase, probablemente estás subestimando la complejidad del consenso. Si es más del doble, probablemente estás sobreanalizando o tienes un problema de alineación organizacional que esta fase no puede resolver.
+:::

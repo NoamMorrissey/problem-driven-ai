@@ -1,0 +1,68 @@
+---
+title: "El modelo de construcción paralela"
+sidebar_label: "Construcción paralela"
+slug: /fases/ai-build-phase/construccion-paralela
+description: "Cómo gestionar la construcción simultánea por múltiples equipos y agentes de IA sin perder coherencia. El grafo de dependencias, la jerarquía de roles y el Decision Log distribuido."
+sidebar_position: 4
+tags: [fases, ai-build-phase, paralelo, dependencias, coordinacion]
+---
+
+# El modelo de construcción paralela
+
+En proyectos simples, la construcción ocurre en secuencia: un Skill completado antes de empezar el siguiente. Pero en proyectos de complejidad media o alta, la realidad es otra: varios desarrolladores trabajan simultáneamente, varios agentes de IA ejecutan en paralelo, y varios Story Files están en estados de completitud distintos al mismo tiempo.
+
+La construcción paralela no es un problema que resolver. **Es una capacidad que gestionar.** Bien gestionada, multiplica la velocidad sin sacrificar fidelidad. Mal gestionada, produce el anti-patrón más costoso de esta fase: la **incoherencia sistémica:** un sistema donde cada componente funciona correctamente en aislamiento pero el conjunto no se integra.
+
+## El grafo de dependencias
+
+La condición de posibilidad de la construcción paralela no es la disponibilidad de personas. Es la **independencia de los Story Files.** Dos Story Files pueden construirse en paralelo si y solo si ninguno de los dos depende del output del otro para completarse.
+
+| Tipo de relación | ¿Paralelizable? | Condición | Ejemplo |
+|---|---|---|---|
+| **Independientes** | Sí | Ninguno consume output del otro. Las Reglas del project-context.md bastan. | Skill de modelo de predicción + Skill de interfaz de usuario. |
+| **Dependencia directa** | No | Skill B consume el output de Skill A. B no puede iniciarse hasta que A esté validado. | Skill de conector ERP → Skill de motor de predicción. |
+| **Dependencia compartida** | Condicionalmente | Ambos consumen la misma fuente de datos. Paralelizables si el schema está definido como Regla global. | Skill de alertas + Skill de dashboard sobre el mismo modelo de datos. |
+| **Dependencia de integración** | No hasta la integración | Pueden construirse en paralelo, pero el Skill de integración que los une solo puede ejecutarse cuando ambos estén validados. | Módulo de inventario + módulo de notificaciones → Skill de integración e2e. |
+
+:::tip El test de paralelización
+Para cualquier par de Story Files: *"¿Puede el Agente A completar su Skill sin conocer el estado del Skill de B? ¿Y puede B completar el suyo sin conocer el estado de A?"* Si ambas respuestas son sí, son paralelizables. Si cualquiera es no, hay dependencia y debe respetarse la secuencia.
+
+Un test más riguroso: imagina que ambos Agentes tienen acceso únicamente al project-context.md y a su Story File respectivo. ¿Producirían outputs coherentes entre sí? Si la respuesta es no, la independencia no es real.
+:::
+
+## La jerarquía de roles en paralelo
+
+Cuando múltiples personas construyen en paralelo, la organización no es plana. Hay una jerarquía funcional que garantiza que la paralelización no degrade la coherencia del contexto:
+
+| Nivel | Rol | Responsabilidad | Capacidad de decisión |
+|---|---|---|---|
+| 1 | **Context Engineer** | Propietario del project-context.md. Resuelve gaps que afectan a más de un track. | Total sobre Reglas. Puede detener cualquier track. |
+| 2 | **Tech Lead** | Supervisa la coherencia técnica entre tracks. Primera línea de escalación. | Puede pausar un track. No modifica Reglas sin Context Engineer. |
+| 3 | **Dev Leads de track** | Lideran la ejecución de su track de Story Files. Escalan cuando una decisión puede afectar a otro track. | Decisiones locales al track. |
+| 4 | **Desarrolladores** | Ejecutan Story Files con agentes de IA. Documentan gaps en tiempo real. | Solo dentro del Story File activo. |
+| 5 | **QA Agent** | Valida cada output. Detecta violaciones de Reglas. Señala posibles colisiones entre tracks. | Puede bloquear un Story File. |
+
+Esta jerarquía no es burocrática. Es funcional. Un desarrollador que no ve el track vecino no debería tomar decisiones que lo afecten. Un Context Engineer que ve todos los tracks es el único que puede tomar decisiones transversales.
+
+## El Decision Log distribuido
+
+En construcción secuencial, el Decision Log es un registro personal. En construcción paralela, es **el sistema nervioso del equipo.** Necesita tres propiedades adicionales:
+
+1. **Visibilidad en tiempo real:** Todas las entradas de todos los tracks son accesibles para el Context Engineer y el Tech Lead en cuanto se registran. No al final del día. En el momento.
+
+2. **Clasificación por impacto:** Cada entrada indica si la decisión es local al track o si puede afectar a otro track. El desarrollador (que está más cerca de la decisión) hace esta clasificación.
+
+3. **Protocolo de alerta entre tracks:** Cuando una entrada se clasifica como "posible impacto en otro track", se activa un proceso de revisión cruzada que involucra a los Dev Leads de ambos tracks y al Tech Lead.
+
+## Sincronizaciones de integración
+
+La construcción paralela necesita puntos de sincronización estructurados, no reuniones de seguimiento, sino sesiones de integración técnica donde los outputs de tracks distintos se ensamblan y se verifica su coherencia.
+
+Las sincronizaciones no se programan por calendario. **Se programan por el grafo de dependencias:** cuando un conjunto de Skills de distintos tracks alcanza el estado "completado por QA", se activa la sincronización del nodo correspondiente del grafo.
+
+| Tipo | Cuándo se activa | Qué se verifica |
+|---|---|---|
+| **De schema** | Antes de iniciar tracks con dependencia compartida de datos. | El schema en el project-context.md es suficientemente preciso para ambos tracks. |
+| **De interfaz** | Cuando dos Skills de tracks distintos definen su interfaz de comunicación. | El contrato de interfaz (API, schema de mensajes) es compatible. |
+| **De integración mayor** | Cuando todos los Skills de un grupo de dependencia están validados por QA. | Los outputs se integran sin colisión. |
+| **Revisión de fidelidad parcial** | Cada 3-4 Stories completados en el conjunto. | El estado global del proyecto sigue siendo reconocible como expresión del Problem Statement. |

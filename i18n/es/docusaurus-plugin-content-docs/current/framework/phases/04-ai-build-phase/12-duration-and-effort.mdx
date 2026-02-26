@@ -1,0 +1,69 @@
+---
+title: "Esfuerzo"
+sidebar_label: "Esfuerzo"
+slug: /framework/fases/ai-build-phase/esfuerzo
+description: "El esfuerzo del AI Build Phase depende de la complejidad de la solución, la estructura del equipo y el modelo de construcción. Se mide en Story Files completados y calidad de coordinación, no en calendario."
+sidebar_position: 6
+tags: [framework, fases, ai-build-phase, esfuerzo, planificacion]
+---
+
+# Esfuerzo
+
+El esfuerzo del AI Build Phase depende de la complejidad de la solución definida en la Fase 3 y de la estructura de construcción (secuencial o paralela). La construcción paralela no necesariamente reduce el esfuerzo total; lo que reduce es el esfuerzo por Story File individual, a costa de incrementar el esfuerzo de coordinación y sincronización.
+
+## Esfuerzo por complejidad
+
+| Escenario | Volumen de trabajo | Estructura de construcción | Qué incluye |
+|---|---|---|---|
+| **Solución acotada (Q1-2)** | 10-20 Story Files | 1-2 personas. Construcción principalmente secuencial. Paralelización mínima. | Decision Log simple. 1 Revisión de Fidelidad. Build Validation Report firmado por 2-3 stakeholders. |
+| **Solución media (Q2-3)** | 20-50 Story Files | 3-6 personas. 2-3 tracks paralelos con 1-2 puntos de integración. | Decision Log distribuido. 2-4 sincronizaciones de integración. Revisiones de Fidelidad Parciales. Revisión Final con 5-8 stakeholders. |
+| **Solución compleja (Q3-4)** | 50+ Story Files | 6-15+ personas. 3-6 tracks paralelos con múltiples puntos de integración y dependencias cruzadas. | Decision Log distribuido con clasificación de impacto. Sincronizaciones frecuentes. QA Agent activo en cada Story y en cada integración. Posibles regresos parciales a Fase 3. |
+
+## La proporción de esfuerzo Fase 3 / Fase 4
+
+:::tip[La proporción que importa]
+Si el esfuerzo de la Fase 4 **duplica o supera** al esfuerzo de la Fase 3, el Context Document era insuficiente o la gestión de la construcción paralela fue inadecuada. Cada retrabajo por colisión entre tracks es una inversión que debería haberse hecho en el grafo de dependencias o en las sincronizaciones de schema.
+
+Si el esfuerzo de la Fase 4 es **inferior a la mitad** del esfuerzo de la Fase 3, o bien el proyecto era muy simple, o bien el equipo está tomando atajos en la supervisión y la coordinación que se manifestarán en la Revisión de Fidelidad.
+
+**Proporción óptima de esfuerzo Fase 3 / Fase 4: 1:1 a 1:1.5.** Si el Context Phase fue exhaustivo y el grafo de dependencias fue riguroso, la construcción (incluso paralela) es predecible y fluida.
+:::
+
+## Distribución del esfuerzo
+
+| Actividad | Proporción en secuencial | Proporción en paralelo | Qué determina la intensidad |
+|---|---|---|---|
+| **Setup (Paso 1)** | 5-10% | 10-15% | En paralelo: verificación del grafo + briefing colectivo + setup del Decision Log distribuido. |
+| **Construcción (Paso 2)** | 55-65% | 40-50% | El esfuerzo individual se reduce por paralelización pero se añade overhead de coordinación. |
+| **Gestión de gaps (Paso 3)** | 10-15% | 15-25% | En paralelo: los gaps cruzados requieren más esfuerzo de resolución. El protocolo de escalación es más estricto. |
+| **Revisión de fidelidad (Paso 4)** | 10-15% | 15-20% | En paralelo: el Bloque 0 (coherencia de sistema) es un paso adicional significativo. |
+| **Cierre (Paso 5)** | 5-10% | 10-15% | En paralelo: consolidación de Decision Logs de múltiples tracks. |
+
+## Señales de esfuerzo insuficiente
+
+- El Decision Log tiene pocas entradas: o no hay decisiones (improbable) o no se están registrando.
+- La Revisión de Fidelidad produce sorpresas: los stakeholders no reconocen lo construido.
+- Los Agentes toman decisiones que deberían haber sido Reglas: gaps sistemáticos en el contexto.
+- La integración entre tracks falla repetidamente: el grafo de dependencias era insuficiente.
+
+## Señales de esfuerzo excesivo
+
+- Cada Story File requiere más esfuerzo de supervisión que de ejecución: supervisión excesiva.
+- El Decision Log tiene entradas triviales que no requieren clasificación: overhead burocrático.
+- Las sincronizaciones de integración no producen hallazgos: el Context Document era tan detallado que no hay ambigüedad posible (puede ser correcto, pero verificar si hay sobre-especificación).
+- El Context Engineer detiene tracks por precaución sin evidencia de gap real.
+
+## Composición del equipo
+
+| Rol | Dedicación en secuencial | Dedicación en paralelo |
+|---|---|---|
+| **Context Engineer** | Supervisión parcial | Coordinación activa entre tracks (dedicación alta-completa) |
+| **Tech Lead** | Revisión técnica (dedicación alta) | Coherencia entre tracks + sincronizaciones (dedicación completa) |
+| **Dev Leads de track** | N/A | Dedicación completa (ejecución + coordinación) |
+| **Desarrolladores** | Dedicación completa (ejecución) | Dedicación completa (ejecución) |
+| **QA Agent** | Bajo demanda por Story File | Continuo (validación + detección de incoherencias entre tracks) |
+| **Stakeholders Fases 1-2** | Revisión de Fidelidad Final | Revisiones Parciales + Revisión Final |
+
+:::tip[Comparación del esfuerzo entre fases]
+La Fase 1 (Problem Phase) concentra su esfuerzo en investigación y síntesis. La Fase 2 (Solution Phase) en alineamiento y consenso. La Fase 3 (Context Phase) en diseño de sistemas. La Fase 4 (AI Build Phase) en ejecución supervisada y coordinación. Las cuatro fases de descubrimiento, diseño y construcción juntas concentran la mayor parte del esfuerzo del proyecto. La Fase 5 (Market Phase) es continua y acumulativa.
+:::

@@ -1,0 +1,33 @@
+---
+title: "La anatomía del Solution Brief"
+sidebar_label: "Anatomía"
+description: "Estructura del Solution Brief: el entregable que condensa todo el trabajo de la fase en un documento único, preciso y accionable."
+sidebar_position: 3
+slug: /framework/fases/solution-phase/anatomia-del-solution-brief
+tags: [fases, alineacion, solution-brief, artefactos]
+---
+
+# La anatomía del Solution Brief
+
+El Solution Brief es a la Fase 2 lo que el Problem Statement es a la Fase 1: el entregable que condensa todo el trabajo de la fase en un documento único, preciso y accionable. Es el input directo de la Fase 3.
+
+## Estructura del Solution Brief
+
+| Sección | Qué contiene | Test de calidad |
+|---|---|---|
+| **1. El problema que resuelve** | Referencia directa al Problem Statement. No se reescribe: se referencia. Si la solución ha revelado matices del problema, se documentan como addenda. | ¿Es el mismo problema del Problem Statement validado? Si cambió, ¿la Fase 1 necesita revisitarse? |
+| **2. La solución propuesta** | Descripción funcional de lo que se va a construir. No cómo se construye (eso es Fase 3), sino qué hace, para quién y qué cambia en la experiencia del usuario. | ¿Un usuario podría leer esto y entender qué va a cambiar en su día a día? |
+| **3. Decisiones tomadas y descartadas** | Cada decisión significativa con su justificación: por qué se eligió esta solución, por qué se descartaron las alternativas, qué criterios pesaron más. | ¿Si alguien lee esto en 6 meses, entiende el razonamiento sin necesitar a nadie que se lo explique? |
+| **4. Descomposición por dimensiones** | El Árbol de Soluciones de la solución elegida, con las cuatro dimensiones: negocio, modelo, arquitectura, datos. | ¿Las cuatro dimensiones están cubiertas? ¿Hay alguna donde la respuesta sea "ya lo veremos"? |
+| **5. Asunciones activas** | Las asunciones que permanecen sin verificar, clasificadas por riesgo, con plan de acción para las de alto riesgo. | ¿Hay asunciones de alto riesgo sin plan de acción? Si sí, el Solution Brief no está completo. |
+| **6. Criterios de éxito** | Los KPIs y métricas que definirán si la solución resolvió el problema. Heredados del Problem Statement y refinados con la solución específica. | ¿Son medibles? ¿Hay consenso sobre ellos entre todos los stakeholders? |
+| **7. Restricciones** | Técnicas, de negocio, regulatorias, temporales. Verificadas con fuente. | ¿Cada restricción tiene una fuente? ¿Alguna se asumió sin verificar? |
+| **8. Mapa de Traducibilidad** | Para cada dimensión: ¿cómo de precisa es la definición para su traducción a contexto de IA? Señales de riesgo identificadas. | ¿Hay dimensiones donde la definición es demasiado vaga para traducir a contexto? |
+
+:::danger[Anti-patrón: El Solution Brief Aspiracional]
+**Qué es:** Un documento que describe la solución ideal en lugar de la solución viable. Ignora restricciones, minimiza riesgos, asume que todo saldrá bien. Lee como un pitch de ventas, no como un documento de ingeniería de pensamiento.
+
+**Cómo detectarlo:** No hay asunciones de alto riesgo (imposible si el análisis fue honesto). Las restricciones son genéricas o ausentes. El Mapa de Traducibilidad tiene todo en verde.
+
+**Cómo prevenirlo:** El Solution Brief lo revisa alguien que no participó en la ideación. Ojos frescos detectan el optimismo que los ojos del equipo ya no ven.
+:::

@@ -12,8 +12,8 @@
       "id": "G2",
       "question_en": "Why does the methodology say 'the problem is sacred'?",
       "question_es": "¿Por qué la metodología dice que 'el problema es sagrado'?",
-      "answer_en": "Because a misunderstood problem contaminates everything downstream. AI amplifies errors — a poorly defined problem fed into AI produces a perfectly built incorrect answer at scale. You must earn your understanding through genuine Discovery: listening, asking uncomfortable questions, and validating.",
-      "answer_es": "Porque un problema mal comprendido contamina todo lo que viene después. La IA amplifica los errores: un problema mal definido introducido en la IA produce una respuesta incorrecta construida a la perfección, a escala. La comprensión debe ganarse mediante una Discovery genuina: escuchar, hacer preguntas incómodas y validar.",
+      "answer_en": "Because a misunderstood problem contaminates everything downstream. AI amplifies errors — a poorly defined problem fed into AI produces a perfectly built incorrect answer at scale. You must earn your understanding through the Problem Phase: listening, asking uncomfortable questions, and validating.",
+      "answer_es": "Porque un problema mal comprendido contamina todo lo que viene después. La IA amplifica los errores: un problema mal definido introducido en la IA produce una respuesta incorrecta construida a la perfección, a escala. La comprensión debe ganarse mediante el Problem Phase: escuchar, hacer preguntas incómodas y validar.",
       "category": "General"
     },
     {
@@ -28,8 +28,8 @@
       "id": "G4",
       "question_en": "Does Problem-Driven AI slow down projects?",
       "question_es": "¿Problem-Driven AI ralentiza los proyectos?",
-      "answer_en": "No. It redirects effort to where it matters. Speed without direction is accelerated entropy. The methodology front-loads thinking so construction becomes predictable and fast. Teams that invest in Discovery and Context Engineering build less but ship the right thing — speed is a reward the system grants when prior phases are done well.",
-      "answer_es": "No. Redirige el esfuerzo hacia donde importa. La velocidad sin dirección es entropía acelerada. La metodología concentra el pensamiento al inicio para que la construcción sea predecible y rápida. Los equipos que invierten en Discovery y Context Engineering construyen menos pero entregan lo correcto: la velocidad es una recompensa que el sistema otorga cuando las fases previas se ejecutan bien.",
+      "answer_en": "No. It redirects effort to where it matters. Speed without direction is accelerated entropy. The methodology front-loads thinking so construction becomes predictable and fast. Teams that invest in the Problem Phase and Context Phase build less but ship the right thing — speed is a reward the system grants when prior phases are done well.",
+      "answer_es": "No. Redirige el esfuerzo hacia donde importa. La velocidad sin dirección es entropía acelerada. La metodología concentra el pensamiento al inicio para que la construcción sea predecible y rápida. Los equipos que invierten en el Problem Phase y el Context Phase construyen menos pero entregan lo correcto: la velocidad es una recompensa que el sistema otorga cuando las fases previas se ejecutan bien.",
       "category": "General"
     },
     {
@@ -68,14 +68,14 @@
       "id": "P1.1",
       "question_en": "What is a Problem Statement and what makes a good one?",
       "question_es": "¿Qué es un Problem Statement y qué lo hace bueno?",
-      "answer_en": "A Problem Statement is a formal declaration of the real problem, maximum half a page. A good one contains seven elements: the gap between current and desired state, who owns it, success criteria, known constraints, affected actors, temporal context, and the cost of not solving it. If it reads like the hypothesis you started with, the Discovery didn't work.",
-      "answer_es": "Un Problem Statement es una declaración formal del problema real, de máximo media página. Uno bueno contiene siete elementos: la brecha entre el estado actual y el deseado, quién es su propietario, los criterios de éxito, las restricciones conocidas, los actores afectados, el contexto temporal y el coste de no resolverlo. Si suena como la hipótesis con la que empezaste, la Discovery no funcionó.",
+      "answer_en": "A Problem Statement is a formal declaration of the real problem, maximum half a page. A good one contains seven elements: the gap between current and desired state, who owns it, success criteria, known constraints, affected actors, temporal context, and the cost of not solving it. If it reads like the hypothesis you started with, the Problem Phase didn't work.",
+      "answer_es": "Un Problem Statement es una declaración formal del problema real, de máximo media página. Uno bueno contiene siete elementos: la brecha entre el estado actual y el deseado, quién es su propietario, los criterios de éxito, las restricciones conocidas, los actores afectados, el contexto temporal y el coste de no resolverlo. Si suena como la hipótesis con la que empezaste, el Problem Phase no funcionó.",
       "category": "Phase 1"
     },
     {
       "id": "P1.2",
-      "question_en": "How many interviews do I need for a solid Discovery?",
-      "question_es": "¿Cuántas entrevistas necesito para una Discovery sólida?",
+      "question_en": "How many interviews do I need for a solid Problem Phase?",
+      "question_es": "¿Cuántas entrevistas necesito para un Problem Phase sólido?",
       "answer_en": "A minimum of 5 in-depth interviews with people who live the problem daily, across diverse roles. But quantity alone isn't enough — you need the Actor Map first: who lives it, who decides, who failed before, who benefits from it not being solved. Interview the full ecosystem, not just the obvious stakeholders.",
       "answer_es": "Un mínimo de 5 entrevistas en profundidad con personas que viven el problema a diario, en roles diversos. Pero la cantidad sola no es suficiente: primero necesitas el Actor Map: quién lo vive, quién decide, quién fracasó antes, quién se beneficia de que no se resuelva. Entrevista al ecosistema completo, no solo a los stakeholders evidentes.",
       "category": "Phase 1"
@@ -90,18 +90,18 @@
     },
     {
       "id": "P1.4",
-      "question_en": "The client already told us what they need. Can I skip Discovery?",
-      "question_es": "El cliente ya nos dijo lo que necesita. ¿Puedo saltarme la Discovery?",
-      "answer_en": "No. When a client says 'I need an app,' they're describing a symptom, not the problem. Clients are experts in their pain, not in your discipline. Skipping Discovery means accepting the 'Inherited Problem Statement' anti-pattern — building exactly what was requested without questioning whether it solves the real problem.",
-      "answer_es": "No. Cuando un cliente dice 'necesito una app', está describiendo un síntoma, no el problema. Los clientes son expertos en su dolor, no en tu disciplina. Saltarse la Discovery significa aceptar el antipatrón del 'Problem Statement Heredado': construir exactamente lo que se pidió sin cuestionar si resuelve el problema real.",
+      "question_en": "The client already told us what they need. Can I skip the Problem Phase?",
+      "question_es": "El cliente ya nos dijo lo que necesita. ¿Puedo saltarme el Problem Phase?",
+      "answer_en": "No. When a client says 'I need an app,' they're describing a symptom, not the problem. Clients are experts in their pain, not in your discipline. Skipping the Problem Phase means accepting the 'Inherited Problem Statement' anti-pattern — building exactly what was requested without questioning whether it solves the real problem.",
+      "answer_es": "No. Cuando un cliente dice 'necesito una app', está describiendo un síntoma, no el problema. Los clientes son expertos en su dolor, no en tu disciplina. Saltarse el Problem Phase significa aceptar el antipatrón del 'Problem Statement Heredado': construir exactamente lo que se pidió sin cuestionar si resuelve el problema real.",
       "category": "Phase 1"
     },
     {
       "id": "P1.5",
-      "question_en": "How do I know when Problem Discovery is complete?",
-      "question_es": "¿Cómo sé cuándo la Discovery del problema está completa?",
-      "answer_en": "When the Problem Statement has been validated directly with users who live the problem — not just the team or the sponsor. The Exit Criteria require explicit agreement within the team on the formulation, validated by the people who experience the problem daily. No validation with real users means Discovery is not complete.",
-      "answer_es": "Cuando el Problem Statement ha sido validado directamente con los usuarios que viven el problema, no solo con el equipo o el patrocinador. Los Exit Criteria exigen acuerdo explícito dentro del equipo sobre la formulación, validada por las personas que experimentan el problema a diario. Sin validación con usuarios reales, la Discovery no está completa.",
+      "question_en": "How do I know when the Problem Phase is complete?",
+      "question_es": "¿Cómo sé cuándo el Problem Phase está completo?",
+      "answer_en": "When the Problem Statement has been validated directly with users who live the problem — not just the team or the sponsor. The Exit Criteria require explicit agreement within the team on the formulation, validated by the people who experience the problem daily. No validation with real users means the Problem Phase is not complete.",
+      "answer_es": "Cuando el Problem Statement ha sido validado directamente con los usuarios que viven el problema, no solo con el equipo o el patrocinador. Los Exit Criteria exigen acuerdo explícito dentro del equipo sobre la formulación, validada por las personas que experimentan el problema a diario. Sin validación con usuarios reales, el Problem Phase no está completo.",
       "category": "Phase 1"
     },
     {
@@ -146,16 +146,16 @@
     },
     {
       "id": "P2.5",
-      "question_en": "Who should participate in Solution Alignment?",
-      "question_es": "¿Quién debe participar en el Solution Alignment?",
+      "question_en": "Who should participate in the Solution Phase?",
+      "question_es": "¿Quién debe participar en la Solution Phase?",
       "answer_en": "Everyone who can block the solution after it's built: product team, business stakeholders, technical leads, design and UX, operations, and selected clients. Directors excluded from Phase 1 re-enter here — their organizational perspective is now valuable. The rule is simple: if they can block it later, include them now.",
       "answer_es": "Todos los que pueden bloquear la solución después de construirla: equipo de producto, stakeholders de negocio, líderes técnicos, diseño y UX, operaciones y clientes seleccionados. Los directores excluidos de la Fase 1 vuelven a entrar aquí: su perspectiva organizacional ahora es valiosa. La regla es simple: si pueden bloquearlo después, inclúyelos ahora.",
       "category": "Phase 2"
     },
     {
       "id": "P2.6",
-      "question_en": "How do I avoid turning Solution Alignment into a political negotiation?",
-      "question_es": "¿Cómo evito que el Solution Alignment se convierta en una negociación política?",
+      "question_en": "How do I avoid turning the Solution Phase into a political negotiation?",
+      "question_es": "¿Cómo evito que la Solution Phase se convierta en una negociación política?",
       "answer_en": "Political negotiation dilutes solutions so everyone is 'happy' instead of precise. The antidote is evidence-based evaluation: the Decision Matrix scores candidates against weighted criteria derived from the Problem Statement. Solutions are evaluated against the problem, not against stakeholder preferences.",
       "answer_es": "La negociación política diluye las soluciones para que todos estén 'contentos' en lugar de ser precisas. El antídoto es la evaluación basada en evidencia: la Matriz de Decisión puntúa los candidatos contra criterios ponderados derivados del Problem Statement. Las soluciones se evalúan contra el problema, no contra las preferencias de los stakeholders.",
       "category": "Phase 2"

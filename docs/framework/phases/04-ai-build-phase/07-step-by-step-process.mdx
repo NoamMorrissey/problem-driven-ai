@@ -1,0 +1,137 @@
+---
+title: "The step-by-step process"
+sidebar_label: "Step by Step"
+slug: /framework/phases/ai-build-phase/step-by-step-process
+description: "The five steps of Phase 4: environment setup, Story File-driven construction, gap management, fidelity review, and Decision Log closure."
+sidebar_position: 1
+tags: [framework, phases, ai-build-phase, process, step-by-step]
+---
+
+# The step-by-step process
+
+Phase 4 has five steps. The first three — Setup, Story File Construction, and Gap Management — are the operational core. The last two — Fidelity Review and Decision Log Closure — certify that the phase is complete.
+
+## Step 1: Environment setup
+
+**Estimated duration:** 0.5 to 1 day
+
+The setup is not just technical. It's the moment where the team aligns on what they're going to do and the rules of engagement. In teams with parallel construction, it's the only occasion when all participants have full context before the tracks separate.
+
+### 1.1 Context briefing
+
+The Context Engineer delivers the full context system to the entire team: project-context.md, Agent definitions, PRD, Architecture Document, Story Files, and the dependency graph. This briefing is collective — it's not done track by track.
+
+Each team member should be able to answer these five questions after the briefing:
+
+1. What is the problem this project solves? (Problem Statement)
+2. What is the solution we're building? (Solution Brief)
+3. Which Skills make up my track and what are their dependencies with other tracks?
+4. What do I do when a decision in my track may affect another track?
+5. What happens when I detect a gap? (Escalation protocol by impact type)
+
+### 1.2 Track assignment and graph verification
+
+Developer assignment to tracks is based on the dependency graph, not on availability. Tracks with frequent cross-dependencies should be assigned to developers who can coordinate fluidly.
+
+The Context Engineer presents the graph and asks each Dev Lead: *"Can you identify any implicit dependency not documented in this graph?"* Implicit dependencies are the primary source of collisions in parallel construction.
+
+### 1.3 Context Document verification
+
+| Element | Standard criterion | Additional criterion in parallel |
+|---|---|---|
+| **project-context.md** | Passes the three-read rule: technologies, prohibitions, conventions. | Rules are sufficient for two Agents in different tracks to make coherent decisions without direct communication. |
+| **Dependency graph** | Dependencies between Skills are documented. | Implicit dependencies have been identified. The graph has been reviewed by all Dev Leads. |
+| **Integration Story Files** | Each integration Skill has acceptance criteria. | Acceptance criteria explicitly reference the outputs of the Skills they integrate. |
+| **Distributed Decision Log** | The Decision Log exists and is accessible. | The format includes track, estimated impact, and urgency fields. The real-time visibility system is operational. |
+| **Synchronization protocol** | — | Integration synchronizations are scheduled in the graph. Each Dev Lead knows which ones affect them. |
+
+## Step 2: Story File-driven construction
+
+**Estimated duration:** Variable by complexity
+
+The team executes Story Files according to the dependency graph, activating tracks in parallel whose independence has been verified.
+
+### The Story File execution cycle
+
+For each Story File, the cycle has four moments:
+
+**1. Preparation:** The developer reads the complete Story File and project-context.md before activating the Agent. In parallel construction, an additional step is added: reviewing recent Decision Log entries from other tracks.
+
+**2. Agent execution:** The Agent receives the Story File and project-context.md. It executes the task. The developer supervises in real time, paying attention to zones of potential overlap with other tracks.
+
+**3. QA Agent validation:** The QA Agent verifies the output against the Story File's acceptance criteria and global Rules. In parallel, it also verifies compatibility with interface contracts.
+
+**4. Decision Log entry:** Any unforeseen decision is documented immediately with its impact classification (local / cross-track / global). This classification cannot be deferred.
+
+### When to stop a track
+
+| Situation | What happens | Required action |
+|---|---|---|
+| **Global Rule updated** | project-context.md changes while a track is running. | Stop the track. Agents reload the updated context. Review Skills completed under the previous Rule. |
+| **Cross-track gap** | Track A's Decision Log registers a gap that affects B. | The Context Engineer notifies Track B's Dev Lead immediately. B pauses until the gap is resolved. |
+| **Incompatible outputs** | Two tracks implement the same interface differently. | Stop both tracks. The Context Engineer defines the interface as a new Rule. |
+| **Integration Skill fails** | Individual Skills are validated but integration fails. | Stop the integration Skill. The Tech Lead calls an emergency synchronization. |
+
+## Step 3: Gap management during construction
+
+Gaps are inevitable. In parallel construction, a gap in one track can invalidate work in another track. The speed of detection and communication is the factor that most determines the total cost of the phase.
+
+### Gap typology
+
+| Gap type | Single-track impact | Additional parallel impact | Protocol |
+|---|---|---|---|
+| **Specification gap** | The Agent cannot complete the Skill without ambiguity. | If it affects a shared contract, all tracks using it must stop. | The Agent flags it. The developer classifies it. If cross-track, the Context Engineer notifies all tracks. |
+| **Rules gap** | Skills in the same track produce inconsistencies. | Different tracks produce inconsistencies between each other, invisible until integration. | Stop all affected tracks. New Rule. All Agents load the updated version. |
+| **Architecture gap** | An architecture decision is unfeasible. | If it affects the interface between components from different tracks, dependents cannot continue. | Full stop. Return to Phase 3 to update the Architecture Document. |
+| **Data gap** | Data is not available in the expected format or quality. | If data is shared, all consuming tracks must stop. | Immediate stop. Escalate to Context Engineer and Product Owner. |
+| **Cross-track coherence gap** | Does not exist in sequential construction. | Two tracks produce individually correct but mutually incompatible outputs. | Emergency integration synchronization. The Context Engineer decides the source of truth. |
+
+### Escalation protocol
+
+- **Track-local gap:** The Dev Lead resolves if there's clarity. Decision Log with "local" classification.
+- **Gap with potential cross-track impact:** The Dev Lead pauses the Story File. Notifies the Context Engineer and Tech Lead **immediately**. Does not wait for the scheduled synchronization.
+- **Rules gap:** Stop the Story File. The Context Engineer resolves before any track continues. Maximum deadline: the same business day.
+- **Architecture gap:** Full stop. Return to Phase 3.
+- **Cross-track coherence gap:** The Tech Lead calls an emergency synchronization within the next 2 hours.
+
+:::tip The transparent gap rule
+In parallel teams, a gap that remains invisible for more than one business day has exponential cost: every Story File completed on that incorrect foundation multiplies rework. The team culture must make reporting a gap an act of professionalism, not a confession of error.
+:::
+
+## Step 4: Fidelity review
+
+**Estimated duration:** 1-3 days
+
+When all Story Files are completed and the Decision Log is up to date, the team performs the Fidelity Review in two dimensions:
+
+**Vertical dimension — fidelity to origin:** Each component is evaluated against the Problem Statement and Solution Brief. Does it solve the part of the problem it was supposed to solve?
+
+**Horizontal dimension — system coherence:** The set of components from all tracks is evaluated as an integrated system. Do they together produce the solution the Solution Brief described?
+
+The order matters: **the horizontal dimension goes first.** Presenting stakeholders with a system that has integration incoherences is an avoidable cost.
+
+### The four review blocks
+
+| Block | What is reviewed | Who | Approval criterion |
+|---|---|---|---|
+| **Block 0 — Integration coherence** | Outputs from all tracks are compatible and the integrated system works. | Tech Lead + Dev Leads + Context Engineer | PRD use cases execute end-to-end without collisions. |
+| **Block 1 — Problem Statement fidelity** | What was built solves the defined problem. | Phase 1 stakeholders | They recognize the system as a response to the problem they described. |
+| **Block 2 — Solution Brief fidelity** | What was built reflects the agreed solution. | Phase 2 stakeholders | They recognize the system as the solution they approved. |
+| **Block 3 — Decision Log review** | Decisions from all tracks that modified context are consistent. | Context Engineer + Tech Lead + stakeholders | No decisions contradict the Problem Statement without documented justification. |
+
+## Step 5: Decision Log closure and Market Phase preparation
+
+**Estimated duration:** 0.5 to 1 day
+
+### Decision Log consolidation
+
+Decision Logs from the different tracks are merged into a single registry. It's not a concatenation — it's a synthesis. Each entry has one of these final states:
+
+- **Resolved — incorporated into global Rule:** Promoted to project-context.md.
+- **Resolved — local decision accepted:** Coherent with the general context, doesn't require promotion.
+- **Resolved — integration coherence:** Decisions from two tracks resolved in synchronization.
+- **Open — pending Phase 5:** Requires market data to consolidate.
+
+### Context Document preparation
+
+The Context Document entering Phase 5 reflects the system built across all tracks. Emerged Rules are incorporated. The dependency graph is updated. The Iteration Brief captures the open learnings from all tracks.

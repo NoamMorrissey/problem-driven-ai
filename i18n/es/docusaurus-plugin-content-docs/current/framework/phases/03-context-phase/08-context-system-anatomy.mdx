@@ -1,0 +1,244 @@
+---
+title: "Anatomía del sistema de contexto"
+sidebar_label: "Anatomía"
+slug: /framework/fases/context-phase/anatomia-del-sistema-de-contexto
+description: "La estructura completa del sistema de contexto: plantilla del project-context.md, secciones del PRD, Architecture Document, definiciones de Agentes y especificaciones de Skills."
+sidebar_position: 2
+tags: [fases, context-phase, anatomia, project-context, prd, arquitectura]
+---
+
+# Anatomía del sistema de contexto
+
+En la Fase 1, el entregable clave fue el Problem Statement, un único documento capturando el problema real. En la Fase 2, fue el Solution Brief, un documento de consenso definiendo la solución. En la Fase 3, el entregable no es un documento sino un **sistema**: tres capas interconectadas que juntas forman el sistema operativo del proyecto de IA.
+
+## La arquitectura de tres capas
+
+El sistema de contexto tiene tres capas. Cada una cumple un propósito diferente, y las tres deben funcionar juntas:
+
+| Capa | Qué contiene | Propósito | Analogía |
+|---|---|---|---|
+| **Global (Reglas)** | project-context.md | Normas que aplican a todos, siempre. | La constitución de la empresa, todo empleado debe seguirla. |
+| **Estratégica (Documentos)** | PRD + Architecture Document | Qué construir y cómo, a nivel de sistema. | El plan del proyecto, define qué construirá la empresa este trimestre. |
+| **Ejecución (Skills)** | Story Files | Tareas concretas con todo lo necesario para completarlas. | Órdenes de trabajo individuales, cada una dice exactamente qué hacer. |
+
+La jerarquía es estricta: las Reglas gobiernan todo. Los documentos estratégicos operan dentro de las Reglas. Los Skills operan dentro de ambos. Si un Skill contradice una Regla, la Regla gana. Si una decisión de arquitectura debería aplicar globalmente, se promueve a Regla.
+
+## El project-context.md: estructura completa
+
+El project-context.md es el artefacto individual más importante de esta fase. Es la constitución que cada Agente carga antes de hacer cualquier cosa. Esta es su estructura completa:
+
+### Sección 1: Identidad del proyecto
+
+```
+Project: [Nombre]
+Version: [Número de versión del contexto]
+Last updated: [Fecha]
+Context Engineer: [Nombre/Rol]
+Source documents: Problem Statement v[X], Solution Brief v[X]
+```
+
+Esta sección establece trazabilidad. Cualquiera que lea el project-context.md puede trazarlo hasta los artefactos de las Fases 1 y 2 que lo originaron.
+
+### Sección 2: Stack tecnológico (Reglas Nivel 5)
+
+```
+Language: TypeScript 5.x (strict mode)
+Framework: Express 4.x (backend), React 18.x (frontend)
+Database: PostgreSQL 16 (primary), Redis 7.x (cache)
+Testing: Vitest (unit), Playwright (e2e)
+Deployment: Docker containers on AWS ECS
+```
+
+Cada elemento aquí es una Regla de Nivel 5, prescriptiva, sin excepciones. Un Agente que recibe un Skill de desarrollo backend sabe, antes de leer el Skill, que debe usar TypeScript y Express. Punto.
+
+### Sección 3: Convenciones de código (Niveles 3-5)
+
+```
+Naming: camelCase para variables y funciones, PascalCase para tipos y clases.
+File structure: carpetas basadas en features (no en capas).
+API format: JSON { data, error, meta } envelope para todos los endpoints. [Nivel 5]
+Error handling: todos los errores devuelven HTTP status + objeto error con code y message. [Nivel 4]
+Comments: solo para "por qué", nunca para "qué". [Nivel 3]
+```
+
+Observa los niveles de precisión. El formato de API es Nivel 5 (sin excepciones). El manejo de errores es Nivel 4 (cada Skill debe cumplir). Los comentarios son Nivel 3 (dirección, pero el Agente adapta).
+
+### Sección 4: Restricciones de seguridad (Reglas Nivel 5)
+
+```
+Authentication: OAuth 2.0 con JWT tokens. No auth basada en sesiones.
+Authorization: RBAC con tres roles (admin, manager, viewer).
+Data: PII debe estar encriptada en reposo. No PII en logs.
+Dependencies: No nuevas dependencias sin aprobación explícita.
+Escalation: Cualquier preocupación de seguridad → detener ejecución, señalar al Context Engineer.
+```
+
+Las restricciones de seguridad son siempre Nivel 5. Un Agente que encuentre una cuestión de seguridad no cubierta aquí debe escalar, nunca decidir autónomamente.
+
+### Sección 5: Reglas de integración (Nivel 4-5)
+
+```
+Internal services: REST con JSON envelope. Solo llamadas síncronas para operaciones < 200ms.
+Async operations: Event-driven vía message queue (SQS). Eventos siguen esquema CloudEvents.
+External APIs: Todas las llamadas externas pasan por una capa adapter. No llamadas directas desde lógica de negocio.
+```
+
+### Sección 6: Límites de Agentes
+
+```
+Architect Agent: El ÚNICO agente que modifica este documento.
+Dev Agent: No puede añadir nuevas dependencias ni modificar el modelo de datos sin aprobación del Architect.
+QA Agent: Acceso de solo lectura a todos los artefactos. No puede modificar código, solo señalar problemas.
+All Agents: No pueden modificar el PRD ni el Solution Brief. Son inputs, no documentos editables.
+```
+
+### Sección 7: Protocolo ante gaps (La Regla más importante)
+
+```
+Cuando cualquier Agente detecta que un Skill no contiene información suficiente
+para completar la tarea:
+
+1. DETENER la ejecución del Skill actual.
+2. Documentar el gap: qué información falta, por qué se necesita, cuál es el impacto.
+3. Señalar al Context Engineer con severidad (bloqueante / degradante / cosmético).
+4. NO rellenar el gap con asunciones, inferencias o "valores razonables por defecto."
+5. Reanudar solo después de que el Context Engineer proporcione la información que falta.
+
+Razón: Un Agente que rellena gaps con invención produce outputs que son
+seguros, plausibles y erróneos. El coste de detenerse son minutos.
+El coste de la invención silenciosa se descubre semanas después.
+```
+
+Esta sección merece su propio encabezado porque es la Regla de mayor impacto. Sin ella, los Agentes producen outputs que parecen correctos pero contienen decisiones invisibles que nadie autorizó.
+
+### Sección 8: Decisiones globales justificadas
+
+```
+Decision: Todas las respuestas de API usan paginación con navegación basada en cursor.
+Rationale: El dataset de inventario puede superar 100K items. La paginación por offset
+degrada a escala. La basada en cursor es O(1) independientemente del tamaño del dataset.
+Impact: Cada Skill que devuelva una lista debe implementar paginación por cursor.
+Source: Architecture Document, ADR-007.
+```
+
+Cada decisión incluye su "por qué." Si un Agente encuentra una situación que el Context Engineer no previó, entender el razonamiento le permite tomar una decisión consistente.
+
+## El PRD: estructura que alimenta Agentes
+
+El PRD es el puente entre las decisiones humanas (Solution Brief) y la ejecución de la IA (Skills). Cada sección tiene un consumidor específico:
+
+| Sección del PRD | Contenido | Consumidor principal | Qué produce |
+|---|---|---|---|
+| **Visión y alcance** | Qué hace el producto, qué explícitamente no hace, usuarios objetivo. | Architect + SM Agent | Límites de alcance para Reglas y Skills. |
+| **Personas de usuario** | Perfiles de comportamiento de cada tipo de usuario, objetivos, puntos de dolor. | SM Agent | Contexto para Skills orientados al usuario. |
+| **Casos de uso** | Trigger → acción → resultado esperado. Uno por flujo de usuario. | SM Agent | Cada caso de uso genera uno o más Skills. |
+| **Criterios de éxito** | KPIs medibles vinculados a los criterios de éxito del Problem Statement. | QA Agent | Criterios de aceptación para Skills de validación. |
+| **Restricciones** | Técnicas, de negocio, regulatorias y organizacionales. | Architect Agent | Nuevas Reglas en project-context.md. |
+| **Asunciones activas** | Creencias dadas por ciertas sin verificación. Cada una con nivel de riesgo. | Todos los Agentes | Señales de riesgo en Skills afectados. |
+| **Prioridades** | P0 (must have), P1 (should have), P2 (nice to have). | SM Agent | Secuencia de ejecución de Skills. |
+| **Fuera de alcance** | Lo que NO se construirá. Explícito, no implícito. | Todos los Agentes | Previene scope creep en Skills. |
+
+:::tip El test de trazabilidad
+Elige cualquier sección del PRD. ¿Puedes trazarla a un elemento específico del Problem Statement o del Solution Brief? Si no, es una invención (elimínala) o un gap (vuelve a la Fase 2). El PRD añade estructura; nunca añade contenido que no estuviera en las Fases 1 o 2.
+:::
+
+## El Architecture Document: decisiones que se convierten en Reglas
+
+El Architecture Document es único entre los artefactos de la Fase 3 porque **genera Reglas**. Cuando el Architect Agent toma una decisión técnica, esa decisión no es solo documentación, se convierte en una restricción que todos los Agentes deben respetar.
+
+### Formato ADR (Architecture Decision Record)
+
+Cada decisión significativa sigue este formato:
+
+```
+ADR-[número]: [Título de la decisión]
+
+Status: Accepted / Superseded by ADR-[X]
+Context: Qué situación requirió esta decisión.
+Decision: Qué se decidió.
+Alternatives considered: Qué más se evaluó y por qué se rechazó.
+Consequences: Qué significa esta decisión para el proyecto.
+Rule promotion: [Sí/No] — Si sí, añadida al project-context.md como Regla Nivel [X].
+```
+
+:::note Ejemplo práctico: ADR que genera una Regla
+**ADR-003: Mecanismo de autenticación**
+
+**Context:** El sistema necesita autenticación de usuarios. El Solution Brief especifica acceso basado en roles para tres tipos de usuario (admin, manager, viewer).
+
+**Decision:** OAuth 2.0 con JWT tokens. Autenticación stateless, sin sesiones del lado del servidor.
+
+**Alternatives considered:** Auth basada en sesiones (más simple pero no escala con microservicios), API keys (insuficiente para RBAC a nivel de usuario).
+
+**Consequences:** Cada endpoint de API debe validar JWT. Se necesita lógica de refresh de tokens. El logout es solo del lado del cliente (expiración de token).
+
+**Rule promotion:** Sí, añadida al project-context.md Sección 4 como Regla Nivel 5: "Authentication: OAuth 2.0 con JWT tokens. No auth basada en sesiones."
+:::
+
+## Definición de Agente: la plantilla
+
+Cada Agente del sistema sigue esta estructura:
+
+```
+Agent: [Nombre]
+
+Identity:
+  Role: [Qué es este Agente — ej., Senior Backend Developer]
+  Expertise: [Especialización de dominio]
+  Perspective: [Cómo aborda los problemas]
+
+Responsibilities:
+  - [Tarea 1 con output esperado]
+  - [Tarea 2 con output esperado]
+  - [Tarea 3 con output esperado]
+
+Limits:
+  - NO [acción fuera de alcance]
+  - NO [otro límite]
+  - No puede modificar [artefactos protegidos]
+
+Rules reference:
+  Loads: project-context.md (todas las secciones)
+  Focus areas: [Secciones específicas más relevantes para este Agente]
+
+Gap protocol:
+  Cuando la información es insuficiente:
+  1. Detener la tarea actual.
+  2. Documentar: qué falta, por qué se necesita, severidad.
+  3. Señalar al Context Engineer.
+  4. No proceder hasta que el gap se resuelva.
+```
+
+La sección de límites es tan importante como la de responsabilidades. Un Agente sin límites explícitos ayudará amablemente más allá de su rol, produciendo trabajo que parece útil pero que nadie autorizó y nadie validó.
+
+## Definición de Skill: la plantilla
+
+Cada Skill (Story File) sigue esta estructura:
+
+```
+Skill: [ID] — [Título corto]
+
+Objective:
+  [Qué debe lograrse. No cómo — qué.]
+
+Context:
+  [Extractos relevantes del PRD y Architecture Document.
+   Solo lo que este Skill específico necesita.]
+
+Acceptance criteria:
+  - [ ] [Condición verificable 1]
+  - [ ] [Condición verificable 2]
+  - [ ] [Condición verificable 3]
+
+Dependencies:
+  - [Skill ID] — [Qué proporciona que este Skill necesita]
+
+Constraints:
+  - [Limitación específica para esta tarea, más allá de las Reglas globales]
+
+Rules reference:
+  Applies: project-context.md (cargado automáticamente)
+  Key Rules: [Reglas específicas más relevantes para este Skill]
+```
+
+La diferencia entre un buen Skill y uno pobre es el test de autocontención: un Agente que lea solo este Skill y el project-context.md puede completar la tarea sin preguntar nada. Si el contexto del PRD o del Architecture Document es relevante, se extrae dentro del Skill, no se referencia con "ver documento X."

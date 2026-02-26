@@ -1,0 +1,58 @@
+---
+title: "Market signals"
+sidebar_label: "Market signals"
+slug: market-signals
+description: "Not all market signals have the same value. The core skill of Phase 5 is reading the right data the right way and translating it into Context Document updates."
+sidebar_position: 4
+tags: [phases, market-phase, signals, kpis, interpretation]
+---
+
+# Market signals: what to look for and how to read them
+
+Not all market signals have the same value. Not all are interpreted the same way. And not all require the same urgency of response. The core skill of Phase 5 is not capturing data — that's relatively easy. It's reading the right data the right way and translating it into precise Context Document updates.
+
+## The signal hierarchy
+
+There is a hierarchy among the types of signals the market produces. It's not a hierarchy of importance — they all matter. It's a hierarchy of **reliability** and **depth** of the information they contain.
+
+| Level | Signal type | Source | What it reveals | What it does NOT reveal | Frequency |
+|---|---|---|---|---|---|
+| 1 | **Usage behavior** | Analytics: sessions, flows, routes, times, drop-offs, return patterns. | What the user actually does. Which steps are skipped. Which flows produce abandonment. | Why they do it. Motivation is invisible in the data. | Continuous (dashboard). Deep analysis weekly. |
+| 2 | **KPI movement** | KPI & OKR Register connected to system metrics. | Whether the system is producing the expected impact. Confirms or refutes Problem Statement assumptions. | Whether the impact is sufficient or could be greater with different changes. | Weekly. Deep review monthly. |
+| 3 | **Qualitative feedback** | Follow-up interviews, support tickets, communication channels. | The why behind behavior. Emotions, frustrations, and unmet needs. | Whether that feedback is representative or an edge case. | Monthly (interviews). Continuous (tickets). |
+| 4 | **Non-usage signals** | Users who churned, unused features, avoided flows. | What's not working from the user's perspective. | Whether non-usage is due to design, communication, or problem irrelevance. | Monthly. Comparative quarterly. |
+| 5 | **External signals** | Competitors, regulatory changes, market evolution, emerging behaviors. | The context in which the system operates. Changes that could make a correct solution today incorrect tomorrow. | Whether those changes affect the Problem Statement or only the solution. | Monthly. Strategic quarterly. |
+
+## Symptom vs. cause: the recurring mistake
+
+The same mistake teams make in Phase 1 — confusing the symptom with the problem — repeats in Phase 5 when interpreting market signals. A high drop-off rate in a flow is a symptom. The cause could be confusing design, excessive load time, unmet expectations, or a fundamental problem the solution doesn't address.
+
+Responding to the symptom without identifying the cause produces iterations that **change what's visible without touching what matters**.
+
+:::tip[Recommended technique: the signal-cause-context chain]
+For each significant signal, explicitly build the chain:
+
+1. **Observed signal** → what was measured or observed
+2. **Behavior behind the signal** → what the user is doing
+3. **Unmet need** → what problem the solution doesn't solve
+4. **Affected Context Document element** → which part of the Problem Statement, Solution Brief, Rule, or Story File didn't capture that reality
+
+If the team can't complete the chain to the Context Document element that needs updating, it doesn't have enough understanding of the signal to act on it.
+:::
+
+## Signals that confirm and signals that refute
+
+There is a natural bias in teams that have just launched a product: the tendency to seek signals that confirm the work went well. This bias contaminates market reading the same way confirmation bias contaminates Problem Phase.
+
+A well-executed Phase 5 requires an **active search for signals that refute** the Context Document's assumptions. A refuted assumption isn't bad news. It's information that no prior process could have produced.
+
+| Context Document assumption | Confirming signal | Refuting signal | What to update |
+|---|---|---|---|
+| **About the problem** (Problem Statement) | Users describe the problem exactly as the team documented it. Alternative solutions disappear. | Users don't adopt the solution even after trying it. They keep using workarounds. | Return to Phase 1. The Problem Statement needs revision. |
+| **About the solution** (Solution Brief) | Users complete main flows without friction. The success criterion is met. | Users find the flow confusing or the solution doesn't fit their process. | Return to Phase 2. The Solution Brief needs revision. |
+| **About the technical context** (Rules) | The system operates within expected parameters. Technical KPIs are coherent. | The system produces technically correct results that don't generate expected user behavior. | Update Rules in the Context Document. Return to Phase 3. |
+| **About the impact** (KPIs) | KPIs move in the expected direction and magnitude. | KPIs don't move, move in the opposite direction, or move but don't represent real impact. | Review whether KPIs were well defined. Possible return to Phase 1. |
+
+:::warning[Confirmation bias in Phase 5]
+If after three months of operation all Signal Log entries confirm the Context Document's assumptions, the most likely explanation isn't that the team got everything right. It's that the team isn't looking for refuting signals.
+:::

@@ -1,0 +1,39 @@
+---
+title: "Effort"
+sidebar_label: "Effort"
+description: "Solution Phase effort is measured by the depth of consensus achieved, not calendar time invested. Divergence, structuring, and validation sessions are the real units."
+sidebar_position: 6
+slug: /framework/phases/solution-phase/effort
+tags: [phases, solution-phase, planning, effort]
+---
+
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
+# Effort
+
+Solution Phase is not measured in calendar weeks. It's measured by the depth of consensus achieved and the rigor with which alternatives have been explored, structured, and validated.
+
+## Effort by complexity
+
+| Scenario | Required activities | Depth |
+|---|---|---|
+| **Scoped solution, few stakeholders** | 1 divergence session + 1 structuring + 1 convergence + 1-2 validation rounds. | Alternatives are few and clear. Consensus is reached within one iteration cycle. |
+| **Medium solution, multiple stakeholders** | 2 divergence sessions + 2 structuring with complete trees + 1-2 convergence + 2-3 client validation rounds + 2-3 internal alignment. | Alternatives require deep exploration across all 4 dimensions. Consensus requires multiple iterations with different groups. |
+| **Complex solution, organizational impact** | Extensive divergence + deep structuring across 4 dimensions + critical assumption verification + multiple validation rounds + formal organizational consensus + Pre-Execution Scorecard. | Each dimension has ramifications affecting multiple stakeholders. Consensus requires formal, documented alignment. |
+
+## Effort allocation
+
+A healthy Alignment process dedicates significant effort to structuring and validation. Skipping structuring produces decisions based on intuition instead of analysis.
+
+<EffortChart segments={[
+  {label: 'Divergence & Ideation', percent: 15, color: 'var(--pdai-gray-300)'},
+  {label: 'Structuring & Analysis', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Convergence & Decision', percent: 15, color: 'var(--ifm-color-warning)'},
+  {label: 'Validation (ext. + int.)', percent: 40, color: 'var(--ifm-color-success)'},
+]} />
+
+The most common mistake is spending 80% of the effort on ideation and convergence and 20% on everything else. The ratio should be closer to 30/70: **30% generating and choosing, 70% structuring, validating, and aligning**.
+
+:::tip[Alignment effort is not proportional to discovery effort]
+If the effort invested in Solution Phase is significantly less than that invested in Problem Phase, you're probably underestimating the complexity of consensus. If it's more than double, you're probably over-analyzing or have an organizational alignment problem that this phase cannot solve.
+:::

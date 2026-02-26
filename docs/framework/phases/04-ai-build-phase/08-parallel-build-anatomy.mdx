@@ -1,0 +1,89 @@
+---
+title: "Parallel construction anatomy"
+sidebar_label: "Anatomy"
+slug: /framework/phases/ai-build-phase/parallel-build-anatomy
+description: "The internal structure of parallel construction: the dependency graph, the distributed Decision Log, integration synchronizations, and the QA Agent's role."
+sidebar_position: 2
+tags: [framework, phases, ai-build-phase, anatomy, parallel, qa-agent]
+---
+
+# Parallel construction anatomy
+
+Parallel construction is not simply "several people working at once." It's a system with internal structure: a graph that determines what can happen simultaneously, a coordination mechanism that makes visible what's happening in each track, synchronization points that verify coherence, and a validation agent that protects the integrity of the whole.
+
+## Layer 1: The dependency graph
+
+The dependency graph is the document that determines what can be built in parallel and what must wait. It's produced by the SM Agent in Phase 3 and verified by all Dev Leads during Phase 4 setup.
+
+### Graph elements
+
+```
+Story File A ──────────────────────────────── [independent]
+Story File B ──────────────────────────────── [independent]
+Story File C ──→ depends on A ─────────────── [sequential after A]
+Story File D ──→ depends on B ─────────────── [sequential after B]
+Story File E ──→ integration of C + D ─────── [waits for C and D]
+```
+
+Each graph node has:
+- **Story File(s)** that compose it
+- **Track** it's assigned to
+- **Explicit dependencies** (what must be completed before)
+- **Synchronization point** (if it's an integration node)
+
+### Relationship types
+
+| Relationship | Parallelizable? | Condition |
+|---|---|---|
+| **Independent** | Yes | project-context.md Rules are sufficient for both to complete without communication. |
+| **Direct dependency** | No | The output of one is the input of the other. Mandatory sequence. |
+| **Shared data dependency** | Conditionally | Yes, if the data schema is defined as a global Rule in project-context.md. |
+| **Integration dependency** | Parallel until integration | Each is built in its track. The integration Skill waits until both are validated. |
+
+## Layer 2: The distributed Decision Log
+
+In parallel construction, the Decision Log is the team's nervous system. Each entry contains additional fields compared to sequential construction:
+
+| Field | Description | Parallel-specific |
+|---|---|---|
+| **Decision made** | What was decided that wasn't in the Story File. | — |
+| **Affected Story File** | Reference to the Skill. | — |
+| **Construction track** | Track identifier. | Mandatory. Without it, the Context Engineer cannot triage. |
+| **Estimated impact** | Local / Cross-track / Global | The most critical field. Activates different protocols depending on the value. |
+| **Resolution urgency** | Immediate / Deferred / Informative | Determines whether the Context Engineer needs to intervene now. |
+| **Status** | Open / Under review / Resolved (local) / Resolved (global Rule) / Pending Phase 5 | The Context Engineer reviews all "Cross-track" entries before each synchronization. |
+
+### Three properties of the distributed Decision Log
+
+1. **Real-time visibility** — All entries from all tracks are accessible to the Context Engineer and Tech Lead the moment they're registered.
+2. **Track impact classification** — The developer (closest to the decision) classifies whether it's local, cross-track, or global.
+3. **Cross-track alert protocol** — An entry classified as "cross-track" triggers review between Dev Leads of both tracks and the Tech Lead.
+
+:::tip Health indicator
+The most useful health indicator for the Decision Log is not the total number of entries, but the **speed between a gap's occurrence and its registration.** A gap registered in the moment has zero communication cost. A gap registered two days later has the cost of everything built on top of it.
+:::
+
+## Layer 3: Integration synchronizations
+
+Synchronizations are not scheduled by calendar. They're scheduled by the dependency graph.
+
+| Type | When triggered | Who participates | What is verified |
+|---|---|---|---|
+| **Schema** | Before starting tracks with shared data dependency. | Context Engineer + Dev Leads of affected tracks. | The schema in project-context.md is precise enough for both tracks. |
+| **Interface** | When two Skills from different tracks define the communication interface. | Dev Leads + Tech Lead. | The contract (API, message schema, protocol) is compatible. |
+| **Major integration** | When all Skills in a dependency group are QA-validated. | Tech Lead + Dev Leads from all tracks in the group. | Outputs integrate without collision. The integration Skill can execute. |
+| **Partial fidelity review** | Every 3-4 Stories completed across the set. | Context Engineer + representative from each track. | The global state remains recognizable as an expression of the Problem Statement. |
+
+Each synchronization produces **minutes** that document: agreed contracts, decisions on incompatibilities, and affected tracks.
+
+## Layer 4: The QA Agent in parallel construction
+
+In sequential construction, the QA Agent validates Story Files independently. In parallel, it has an additional role: it's the first mechanism for detecting incoherences between tracks.
+
+| Validation type | In sequential | Additional in parallel |
+|---|---|---|
+| **Acceptance criteria** | Verifies all Story File criteria. | No changes. |
+| **Rules conformity** | Verifies the output respects project-context.md. | Verifies the **most recent version**. If it was updated during execution, forces re-execution. |
+| **PRD traceability** | Flags functionalities without PRD reference. | Indicates which track originated the untraced functionality. |
+| **Contract compatibility** | Not applicable. | Verifies the output is compatible with the interface contract defined in the schema synchronization. |
+| **Absence of context drift** | Detects inconsistent patterns within a track. | Detects inconsistent patterns **between tracks** (e.g., different naming conventions across tracks). |

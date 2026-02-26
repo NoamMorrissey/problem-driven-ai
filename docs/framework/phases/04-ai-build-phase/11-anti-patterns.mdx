@@ -1,0 +1,85 @@
+---
+title: "Anti-patterns: what can go wrong"
+sidebar_label: "Anti-patterns"
+slug: /framework/phases/ai-build-phase/anti-patterns
+description: "Six operational anti-patterns of Phase 4: the unsupervised build, optimistic parallelization, late synchronization, siloed Decision Log, track-by-track review, and the technical unanimity gate."
+sidebar_position: 5
+tags: [framework, phases, ai-build-phase, anti-patterns, risks]
+---
+
+# Anti-patterns: what can go wrong
+
+Phase 4 can fail in predictable ways. The [methodology section](/phases/ai-build-phase) already describes the conceptual anti-patterns (the Speed Trap, Context Drift). This section covers the **operational anti-patterns** that emerge during execution, especially in parallel construction.
+
+## Anti-pattern 1: The Unsupervised Build
+
+:::danger Anti-pattern: The Unsupervised Build
+**What it is:** The Context Document is ready. The technical team receives it and starts building with total autonomy. The Context Engineer returns at the end for the Fidelity Review. In parallel construction, multiple tracks evolve without coordination and collisions are discovered during integration.
+
+**How to detect it:** Track Decision Logs have few cross-classification entries. Tracks don't communicate with each other during construction. Integration synchronization produces surprises.
+
+**How to prevent it:** The Context Engineer has real-time visibility into all Decision Logs. Integration synchronizations are planned events, not improvised ones. The dependency graph is the living reference document.
+:::
+
+## Anti-pattern 2: Optimistic Parallelization
+
+:::danger Anti-pattern: Optimistic Parallelization
+**What it is:** The team decides to parallelize everything technically possible without verifying the dependency graph. The logic is that "any collision will be resolved during integration."
+
+**Why it fails:** The cost of resolving a collision during integration is orders of magnitude greater than the cost of detecting the dependency during setup. An undetected implicit dependency can invalidate days of work across two tracks.
+
+**How to prevent it:** Parallelization is explicitly authorized, not assumed. Only tracks whose independence has been verified by the Context Engineer and reviewed by the involved Dev Leads are parallelized.
+:::
+
+## Anti-pattern 3: Synchronization Too Late
+
+:::danger Anti-pattern: Integration Synchronization Too Late
+**What it is:** Tracks build in isolation for weeks and integrate at the end. Each track is internally coherent. Integration reveals accumulated incompatibilities.
+
+**How to detect it:** Integration synchronizations are not on the calendar. The dependency graph doesn't define intermediate synchronization points. Dev Leads have no visibility into other tracks' progress.
+
+**How to prevent it:** Synchronizations are defined in the dependency graph, not the calendar. They occur when graph nodes require them, not when it seems convenient.
+:::
+
+## Anti-pattern 4: Siloed Decision Log by Track
+
+:::danger Anti-pattern: Siloed Decision Log by Track
+**What it is:** Each track maintains its own Decision Log without cross-visibility. The Context Engineer reviews logs at the end of the phase. A decision made in track A during week 2 invalidates three Stories in track B that were completed in week 3.
+
+**How to detect it:** Decision Logs lack cross-impact classification. The Context Engineer has no real-time visibility. Final consolidation reveals cross-entries that should have been escalated.
+
+**How to prevent it:** The distributed Decision Log with real-time visibility is a technical requirement, not a recommendation. Cross-impact classification on each entry is mandatory.
+:::
+
+## Anti-pattern 5: Track-by-Track Fidelity Review
+
+:::danger Anti-pattern: Track-by-Track Fidelity Review
+**What it is:** The team performs the Fidelity Review track by track instead of as an integrated system. Each track correctly validates its component. Nobody validates the whole.
+
+**Why it happens:** Track-based construction creates an organizational tendency to evaluate by track. Each Dev Lead knows their track better than the complete system.
+
+**Why it's a failure:** The user doesn't experience a track. They experience the system. A perfect inventory component and a perfect alerts interface don't produce a solution if the integration between them introduces latency that destroys the Problem Statement's success criterion.
+
+**How to prevent it:** Block 0 of the Fidelity Review is explicitly a system review, not a component review. The Tech Lead must be able to execute the PRD use cases end-to-end, crossing outputs from all tracks.
+:::
+
+## Anti-pattern 6: The Technical Unanimity Gate Review
+
+:::danger Anti-pattern: The Technical Unanimity Gate Review
+**What it is:** The Fidelity Review is performed by developers and the Tech Lead. They conclude the code is excellent and the phase is complete. Phase 1 and 2 stakeholders don't participate.
+
+**Why it's a failure:** Developers can say the system is technically coherent. They cannot say whether it solves the Phase 1 problem. That's the function of those who lived through Problem Phase.
+
+**How to prevent it:** The Gate Review explicitly requires the participation and sign-off of non-technical stakeholders. Block 0 is a condition for blocks 1 and 2, not a substitute for them.
+:::
+
+## Quick reference
+
+| Anti-pattern | Symptom | Root cause | Prevention |
+|---|---|---|---|
+| **Unsupervised Build** | Surprises during integration | Context Engineer absent during construction | Real-time visibility into all Decision Logs |
+| **Optimistic Parallelization** | Collisions between tracks | Unverified dependency graph | Explicit parallelization authorization |
+| **Late Synchronization** | Accumulated incompatibilities | Synchronizations not defined in the graph | Synchronizations by graph, not by calendar |
+| **Siloed Decision Log** | Unescalated cross-track decisions | No visibility between tracks | Distributed Decision Log with impact classification |
+| **Track-by-Track Review** | Incoherent system despite correct components | Tendency to evaluate by track | Mandatory Block 0: system review |
+| **Technical Unanimity Gate** | Technically correct solution that doesn't solve the problem | Stakeholders excluded from gate | Mandatory sign-off from non-technical stakeholders |

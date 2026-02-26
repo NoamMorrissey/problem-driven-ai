@@ -1,0 +1,52 @@
+---
+title: "Automatización progresiva"
+sidebar_label: "Automatización"
+slug: /fases/market-phase/automatizacion-progresiva
+description: "La Fase 5 se automatiza progresivamente: desde la observación instrumentada hasta un sistema que aprende. La precisión del Context Document determina cuánta automatización es viable."
+sidebar_position: 5
+tags: [fases, market-phase, automatizacion, agentes, madurez]
+---
+
+# La automatización progresiva
+
+Uno de los principios que distingue la Fase 5 de la metodología Problem-Driven AI de los procesos de iteración convencionales es la expectativa explícita de automatización progresiva. No se automatiza todo desde el primer día. Se automatiza de forma incremental, empezando por la capa de captura, avanzando hacia la síntesis y aspirando, en proyectos maduros, a tener un sistema que detecta y propone actualizaciones del contexto de forma autónoma para revisión humana.
+
+## Los cuatro niveles de madurez
+
+| Nivel | Nombre | Qué está automatizado | Lo que sigue siendo humano | Cuándo se alcanza |
+|---|---|---|---|---|
+| 1 | **Observación instrumentada** | Captura de eventos de comportamiento y movimiento de KPIs. Dashboards en tiempo real. Alertas automáticas cuando un KPI cruza un umbral. | Todo el análisis, toda la interpretación, toda la actualización del contexto. | Al lanzar el producto. Estado inicial de la Fase 5. |
+| 2 | **Síntesis asistida** | Un agente de IA procesa el Signal Log y produce resúmenes estructurados. Clasifica automáticamente las señales por tipo y por elemento del Context Document afectado. | La validación del análisis del agente, las hipótesis de causa, las decisiones de actualización. | Cuando el Context Document tiene suficiente precisión. Típicamente 1-3 meses post-lanzamiento. |
+| 3 | **Interpretación colaborativa** | El agente produce borradores de actualizaciones del Context Document basados en las señales interpretadas. El Context Engineer revisa, valida y aprueba o rechaza cada borrador. | La validación y aprobación de cada cambio. Las decisiones sobre Problem Statement o Solution Brief. | Cuando el Context Document es suficientemente estable. Típicamente 3-9 meses. |
+| 4 | **Sistema que aprende** | El agente detecta señales, identifica patrones, produce hipótesis de causa, propone actualizaciones del contexto y, para cambios menores de Reglas, los aplica automáticamente con notificación al Context Engineer. | Las decisiones de alto impacto. Los regresos a Fases 1 y 2. La validación estratégica trimestral. | En proyectos con alta madurez operativa. Meses o años después del lanzamiento. |
+
+La progresión entre niveles no es automática. Requiere que el Context Document sea suficientemente preciso para que la IA opere con criterio. Un agente de síntesis que trabaja con un Problem Statement vago produce clasificaciones incorrectas. Un agente que trabaja con un Problem Statement preciso, un Solution Brief completo y un KPI Register bien definido puede producir síntesis de alto valor.
+
+## El círculo virtuoso
+
+Esta interdependencia crea uno de los círculos virtuosos más poderosos de la metodología:
+
+1. La **precisión del Context Document** mejora la automatización
+2. La **automatización** mejora la velocidad de aprendizaje
+3. La **velocidad de aprendizaje** mejora la precisión del Context Document
+
+El sistema se vuelve más inteligente con el tiempo de forma estructural, no accidental.
+
+:::tip[La paradoja de la automatización]
+Cuanto mejor definido está el Context Document, más útil es la automatización de la captura. Un agente de síntesis que no tiene un Problem Statement preciso captura todo con el mismo peso y produce un Signal Log que requiere tanto trabajo humano como la captura manual. La inversión en precisión del contexto no solo mejora la construcción, mejora la velocidad de aprendizaje.
+:::
+
+## Los agentes de Market Phase
+
+A medida que la Fase 5 madura, el sistema de Agentes se extiende al ciclo de iteración. Los Agentes de la Fase 3 son Agentes de construcción. Los Agentes de la Fase 5 son **Agentes de aprendizaje**.
+
+| Agente | Función | Input | Output |
+|---|---|---|---|
+| **Signal Synthesis Agent** | Procesa el Signal Log crudo y produce señales clasificadas con hipótesis de causa preliminares. | Signal Log + KPI Register + Context Document vigente. | Signal Log estructurado con clasificación, urgencia y borrador de hipótesis. |
+| **Context Update Agent** | Analiza señales interpretadas y produce borradores de actualizaciones del Context Document. | Signal Log estructurado + Context Document + Context Update Record histórico. | Borradores de actualizaciones: Reglas a modificar, Story Files a ajustar, PRD a revisar. |
+| **KPI Monitoring Agent** | Monitoriza KPIs en tiempo real. Genera alertas cuando un indicador cruza los umbrales. Detecta correlaciones no previstas. | KPI & OKR Register + datos del sistema en tiempo real. | Alertas automáticas + informe semanal de movimiento de KPIs. |
+| **Iteration Brief Agent** | Produce un borrador del Iteration Brief basado en el Signal Log del ciclo anterior y las actualizaciones del Context Document. | Signal Log del ciclo + Context Update Record + Iteration Brief anterior. | Borrador de Iteration Brief para revisión humana. |
+
+:::danger[Anti-patrón: la automatización prematura]
+Implementar un agente de síntesis antes de que el Context Document tenga suficiente precisión produce síntesis abundante pero incorrectamente clasificada. El equipo pierde tiempo validando output de baja calidad. **La automatización de síntesis no se implementa hasta que el Context Document ha pasado al menos un ciclo completo de Market Phase manual.** El primer ciclo manual produce la precisión que la automatización necesita.
+:::
