@@ -300,6 +300,64 @@
   margin-top: 0.75rem;
 }
 
+/* ===================== WEIGHT BAR (HORIZONTAL) ===================== */
+
+.weightBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.weightRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.weightLabel {
+  width: 140px;
+  min-width: 140px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-secondary);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .weightRow {
+    flex-wrap: wrap;
+  }
+
+  .weightLabel {
+    width: 100%;
+    text-align: left;
+    margin-bottom: -0.25rem;
+  }
+}
+
+.weightTrack {
+  flex: 1;
+  height: 28px;
+  background: var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius-sm);
+  overflow: hidden;
+}
+
+.weightFill {
+  height: 100%;
+  border-radius: var(--pdai-border-radius-sm);
+  transition: width 0.3s ease;
+}
+
+.weightPercent {
+  width: 36px;
+  min-width: 36px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--ifm-font-color-base);
+  text-align: right;
+}
+
 /* ===================== COST BAR ===================== */
 
 .costWrapper {

@@ -7,6 +7,8 @@ slug: /framework/phases/solution-alignment/step-by-step-process
 tags: [phases, alignment, process, divergence, convergence, consensus]
 ---
 
+import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+
 # The step-by-step process
 
 Solution Alignment has five steps. The first three (Divergence, Structuring, Convergence) are the intellectual work of finding and defining the solution. The last two (External validation, Internal validation) are the alignment work that turns a good idea into a shared mandate.
@@ -126,6 +128,29 @@ The Decision Matrix is a table where candidate solutions are evaluated against a
 | **Adoption friction** | 15% | Business dimension + user feedback | How much does it change users' workflow? How much resistance to change is foreseeable? |
 
 Each candidate solution receives a score of 1 to 5 on each criterion. The weighted score produces a ranking. But the ranking is not the decision. It's the input to the decision. If the highest-scoring solution has an unverified high-risk assumption that the second doesn't have, it may be more prudent to choose the second.
+
+### Decision Matrix weights
+
+The Decision Matrix evaluates candidate solutions against weighted criteria. The weights are **always fixed before evaluation** to prevent bias in selection.
+
+<WeightChart bars={[
+  {label: 'Direct impact', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Tech feasibility', percent: 20, color: 'var(--ifm-color-primary-light)'},
+  {label: 'Biz alignment', percent: 20, color: 'var(--ifm-color-primary-lighter)'},
+  {label: 'Risk mitigation', percent: 15, color: 'var(--ifm-color-primary-lightest)'},
+  {label: 'User adoption', percent: 15, color: 'var(--pdai-gray-300)'},
+]} />
+
+### The 4 technical dimensions
+
+Any candidate solution must be decomposed across these 4 critical dimensions. Skipping structuring is the most common mistake: teams go from ideation to voting without understanding real complexity.
+
+<EffortChart segments={[
+  {label: 'Business', percent: 25, color: 'var(--ifm-color-primary)'},
+  {label: 'AI Model', percent: 25, color: 'var(--ifm-color-danger)'},
+  {label: 'Architecture', percent: 25, color: 'var(--ifm-color-info)'},
+  {label: 'Data', percent: 25, color: 'var(--ifm-color-success)'},
+]} />
 
 :::danger[Anti-pattern: The Decorative Matrix]
 **What it is:** The team already knows which solution it wants. It builds the Decision Matrix and adjusts criterion weights until the result confirms the decision already made.

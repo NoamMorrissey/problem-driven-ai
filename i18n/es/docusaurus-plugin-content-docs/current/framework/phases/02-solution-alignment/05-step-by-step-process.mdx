@@ -7,6 +7,8 @@ slug: /framework/fases/solution-alignment/proceso-paso-a-paso
 tags: [fases, alineacion, proceso, divergencia, convergencia, consenso]
 ---
 
+import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+
 # El proceso paso a paso
 
 Solution Alignment tiene cinco pasos. Los tres primeros (Divergencia, Estructuración, Convergencia) son el trabajo intelectual de encontrar y definir la solución. Los dos últimos (Validación externa, Validación interna) son el trabajo de alineación que convierte una buena idea en un mandato compartido.
@@ -126,6 +128,29 @@ La Decision Matrix es una tabla donde las soluciones candidatas se evalúan cont
 | **Fricción de adopción** | 15% | Dimensión Negocio + feedback de usuarios | ¿Cuánto cambia el workflow de los usuarios? ¿Cuánta resistencia al cambio es previsible? |
 
 Cada solución candidata recibe una puntuación de 1 a 5 en cada criterio. La puntuación ponderada produce un ranking. Pero el ranking no es la decisión. Es el input de la decisión. Si la solución con mayor puntuación tiene una asunción de alto riesgo no verificada que la segunda no tiene, puede ser más prudente elegir la segunda.
+
+### Pesos de la Decision Matrix
+
+La Decision Matrix evalúa soluciones candidatas contra criterios ponderados. Los pesos se fijan **siempre antes de la evaluación** para evitar sesgos en la selección.
+
+<WeightChart bars={[
+  {label: 'Impacto directo', percent: 30, color: 'var(--ifm-color-primary)'},
+  {label: 'Viab. técnica', percent: 20, color: 'var(--ifm-color-primary-light)'},
+  {label: 'Alin. negocio', percent: 20, color: 'var(--ifm-color-primary-lighter)'},
+  {label: 'Mitig. riesgo', percent: 15, color: 'var(--ifm-color-primary-lightest)'},
+  {label: 'Adopción usuario', percent: 15, color: 'var(--pdai-gray-300)'},
+]} />
+
+### Las 4 dimensiones técnicas
+
+Cualquier solución candidata debe descomponerse en estas 4 dimensiones. Saltarse la estructuración es el error más frecuente: los equipos pasan de la ideación a la votación sin entender la complejidad real.
+
+<EffortChart segments={[
+  {label: 'Negocio', percent: 25, color: 'var(--ifm-color-primary)'},
+  {label: 'Modelo IA', percent: 25, color: 'var(--ifm-color-danger)'},
+  {label: 'Arquitectura', percent: 25, color: 'var(--ifm-color-info)'},
+  {label: 'Datos', percent: 25, color: 'var(--ifm-color-success)'},
+]} />
 
 :::danger[Anti-patrón: La Matrix Decorativa]
 **Qué es:** El equipo ya sabe qué solución quiere. Construye la Decision Matrix y ajusta los pesos de los criterios hasta que el resultado confirma la decisión que ya estaba tomada.

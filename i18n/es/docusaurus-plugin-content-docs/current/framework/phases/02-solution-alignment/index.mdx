@@ -7,10 +7,30 @@ tags: [framework, fases, alignment, ejecucion, artefactos]
 ---
 
 import DocCardList from '@theme/DocCardList';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 2. Solution alignment
 
 Esta es la guía operativa para ejecutar Solution Alignment — la fase donde el equipo encuentra, estructura y alinea la solución correcta antes de construir nada. Mientras que la [sección de metodología](/fases/solution-alignment) explica el *por qué* y las bases conceptuales, esta guía cubre el *cómo*: el proceso concreto a seguir, los artefactos a producir, los criterios que cumplir antes de avanzar y los patrones de fallo que vigilar.
+
+<StatCardGrid>
+  <StatCard value="5" label="Pasos estructurados" description="De Divergencia a Gate Review" />
+  <StatCard value="5" label="Criterios de validación" description="para candidatos a soluciones" />
+  <StatCard value="6" label="Artefactos" description="Transferidos a Fase 3" />
+</StatCardGrid>
+
+## El mapa de ejecución
+
+Pasos y entregables por cada etapa del proceso. Los tres primeros pasos (Divergencia, Estructuración, Convergencia) son el trabajo intelectual. Los dos últimos (Validación externa, Validación interna) son el trabajo de alineación. El Solution Brief empaqueta todo para la transferencia.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Divergencia', description: 'Reformulación How Might We e ideación silenciosa. Registro obligatorio de descartes con justificación.', owner: 'Ideation Board'},
+  {number: 2, title: '2. Estructuración', description: 'Descomposición en 4 dimensiones (Negocio, Modelo IA, Arquitectura, Datos). No se avanza hasta verificar asunciones críticas.', owner: 'Árboles + Asunciones'},
+  {number: 3, title: '3. Convergencia', description: 'Pesos fijados antes de evaluar. Puntuación ponderada para seleccionar la solución líder.', owner: 'Decision Matrix'},
+  {number: 4, title: '4. Validación externa', description: '"Si esto existiera mañana, ¿cambiaría algo en tu día a día?"', owner: 'Feedback Log (ext.)'},
+  {number: 5, title: '5. Validación interna', description: 'Test del Consenso de Corredor: explicación unificada del "qué" y "por qué".', owner: 'Feedback Log (int.)'},
+  {number: 6, title: '6. Solution Brief', description: 'Documento principal que empaqueta los 6 artefactos previos para transferencia a Fase 3.', owner: 'Transferencia'},
+]} />
 
 ## El proceso a vista de pájaro
 
