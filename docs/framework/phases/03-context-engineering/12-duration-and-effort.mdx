@@ -7,6 +7,8 @@ sidebar_position: 6
 tags: [phases, context-engineering, effort, planning]
 ---
 
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
 # Effort
 
 Context Engineering effort depends on the solution complexity defined in Phase 2. The relationship is proportional: more complex solutions require more Agents, more Rules, and more Skills — and therefore more depth in design, validation, and iteration.
@@ -33,7 +35,18 @@ If the effort is less than a third of construction effort, there are implicit Ru
 
 ## Effort distribution
 
-Understanding how effort distributes across Phase 3 activities helps plan and detect imbalances:
+Understanding how effort distributes across Phase 3 activities helps plan and detect imbalances. The most common mistake is spending the majority of effort on document generation and insufficient effort on validation.
+
+<EffortChart segments={[
+  {label: 'Rules', percent: 17, color: 'var(--pdai-gray-300)'},
+  {label: 'Agent chain', percent: 12, color: 'var(--ifm-color-primary)'},
+  {label: 'PRD generation', percent: 20, color: 'var(--ifm-color-danger)'},
+  {label: 'Architecture', percent: 20, color: 'var(--ifm-color-warning)'},
+  {label: 'Skill decomposition', percent: 16, color: 'var(--ifm-color-info)'},
+  {label: 'Validation', percent: 15, color: 'var(--ifm-color-success)'},
+]} />
+
+The optimal proportion: Context Engineering should represent **between one-third and one-half of total construction effort.** A rigorous context system makes construction predictable and fluid. Less than a third means implicit Rules and incomplete Skills. More than equal means over-specification.
 
 | Activity | Proportion of effort | What determines depth |
 |---|---|---|

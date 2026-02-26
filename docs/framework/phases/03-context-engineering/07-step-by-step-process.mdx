@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [phases, context-engineering, process, agents, rules, skills]
 ---
 
+import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+
 # The step-by-step process
 
 Context Engineering is not a creative writing exercise. It's a structured translation process that converts the human understanding captured in Phases 1 and 2 into a system that AI can process faithfully. Every step has a clear purpose, a concrete deliverable, and a validation criterion.
@@ -37,7 +39,15 @@ Think of it like writing a company employee handbook. New hires don't have years
 
 ### Calibrate precision levels
 
-Not all Rules need the same rigidity. The key is to calibrate: invest precision where the impact on Agents and Skills is high, and delegate where it's low.
+Not all Rules need the same rigidity. The key is to calibrate: invest precision where the impact on Agents and Skills is high, and delegate where it's low. Level 5 is absolute restriction. Level 1 is conscious delegation.
+
+<WeightChart bars={[
+  {label: 'Level 5 — Prescriptive', percent: 100, color: 'var(--ifm-color-danger)'},
+  {label: 'Level 4 — Specific', percent: 80, color: 'var(--ifm-color-warning)'},
+  {label: 'Level 3 — Directed', percent: 60, color: 'var(--ifm-color-primary)'},
+  {label: 'Level 2 — Orientative', percent: 40, color: 'var(--ifm-color-info)'},
+  {label: 'Level 1 — Delegated', percent: 20, color: 'var(--pdai-gray-300)'},
+]} />
 
 | Level | Type | What it means for Agents and Skills | Example |
 |---|---|---|---|
@@ -81,7 +91,21 @@ The translation from Solution Brief to complete context system is executed by a 
 
 ### The standard chain
 
-Most projects use five Agents in sequence. Simpler projects may combine roles; complex ones may add specialists. But the five-Agent chain covers the vast majority of cases:
+Most projects use five Agents in sequence. Each Agent transforms the previous one's output but never contradicts it, never enriches it with invention, and never reinterprets it. Like a relay race: each runner carries the same baton.
+
+<EffortChart segments={[
+  {label: 'Analyst Agent', percent: 20, color: 'var(--ifm-color-primary)'},
+  {label: 'PM Agent', percent: 20, color: 'var(--ifm-color-danger)'},
+  {label: 'Architect Agent', percent: 20, color: 'var(--ifm-color-warning)'},
+  {label: 'SM Agent', percent: 20, color: 'var(--ifm-color-info)'},
+  {label: 'QA Agent', percent: 20, color: 'var(--ifm-color-success)'},
+]} />
+
+- **Analyst Agent** — Translates human artifacts into structured requirements. Does not discover or invent — it reformats.
+- **PM Agent** — Generates the PRD: what to build, for whom, with what priority. Defines use cases and success criteria.
+- **Architect Agent** — Translates PRD into technical decisions. The only Agent that updates the project-context.md with new Rules.
+- **SM Agent** — Decomposes the solution into self-contained Skills. Each Skill includes all context for its executing Agent.
+- **QA Agent** — Validates fidelity, completeness, consistency with Rules. Checks at every chain link, not just the end.
 
 | Agent | Input | What it does | Output |
 |---|---|---|---|

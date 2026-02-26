@@ -7,6 +7,8 @@ sidebar_position: 6
 tags: [fases, context-engineering, esfuerzo, planificacion]
 ---
 
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
 # Esfuerzo
 
 El esfuerzo del Context Engineering depende de la complejidad de la solución definida en la Fase 2. La relación es proporcional: soluciones más complejas requieren más Agentes, más Reglas y más Skills, y por tanto más profundidad en el diseño, la validación y la iteración.
@@ -33,7 +35,18 @@ Si el esfuerzo es inferior a un tercio del esfuerzo de construcción, hay Reglas
 
 ## Distribución del esfuerzo
 
-Entender cómo se distribuye el esfuerzo entre las actividades de la Fase 3 ayuda a planificar y detectar desequilibrios:
+Entender cómo se distribuye el esfuerzo entre las actividades de la Fase 3 ayuda a planificar y detectar desequilibrios. El error más común es dedicar la mayor parte del esfuerzo a la generación de documentos e insuficiente a la validación.
+
+<EffortChart segments={[
+  {label: 'Reglas', percent: 17, color: 'var(--pdai-gray-300)'},
+  {label: 'Cadena de Agentes', percent: 12, color: 'var(--ifm-color-primary)'},
+  {label: 'Generación del PRD', percent: 20, color: 'var(--ifm-color-danger)'},
+  {label: 'Architecture', percent: 20, color: 'var(--ifm-color-warning)'},
+  {label: 'Descomposición en Skills', percent: 16, color: 'var(--ifm-color-info)'},
+  {label: 'Validación', percent: 15, color: 'var(--ifm-color-success)'},
+]} />
+
+La proporción óptima: el Context Engineering debería representar **entre un tercio y la mitad del esfuerzo total de construcción.** Un sistema de contexto riguroso hace que la construcción sea predecible y fluida. Menos de un tercio significa Reglas implícitas y Skills incompletos. Más del mismo equivale a sobre-especificación.
 
 | Actividad | Proporción del esfuerzo | Qué determina la profundidad |
 |---|---|---|

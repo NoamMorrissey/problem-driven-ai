@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [fases, context-engineering, proceso, agentes, reglas, skills]
 ---
 
+import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+
 # El proceso paso a paso
 
 El Context Engineering no es un ejercicio de escritura creativa. Es un proceso de traducción estructurado que convierte la comprensión humana capturada en las Fases 1 y 2 en un sistema que la IA puede procesar fielmente. Cada paso tiene un propósito claro, un entregable concreto y un criterio de validación.
@@ -37,7 +39,15 @@ Piensa en ello como escribir el manual de empleado de una empresa. Los nuevos em
 
 ### Calibrar niveles de precisión
 
-No todas las Reglas necesitan la misma rigidez. La clave es calibrar: invertir precisión donde el impacto sobre Agentes y Skills es alto, y delegar donde es bajo.
+No todas las Reglas necesitan la misma rigidez. La clave es calibrar: invertir precisión donde el impacto sobre Agentes y Skills es alto, y delegar donde es bajo. El Nivel 5 es restricción absoluta. El Nivel 1 es delegación consciente.
+
+<WeightChart bars={[
+  {label: 'Nivel 5 — Prescriptivo', percent: 100, color: 'var(--ifm-color-danger)'},
+  {label: 'Nivel 4 — Específico', percent: 80, color: 'var(--ifm-color-warning)'},
+  {label: 'Nivel 3 — Dirigido', percent: 60, color: 'var(--ifm-color-primary)'},
+  {label: 'Nivel 2 — Orientativo', percent: 40, color: 'var(--ifm-color-info)'},
+  {label: 'Nivel 1 — Delegado', percent: 20, color: 'var(--pdai-gray-300)'},
+]} />
 
 | Nivel | Tipo | Qué significa para Agentes y Skills | Ejemplo |
 |---|---|---|---|
@@ -81,7 +91,21 @@ La traducción del Solution Brief al sistema de contexto completo la ejecuta una
 
 ### La cadena estándar
 
-La mayoría de proyectos usan cinco Agentes en secuencia. Proyectos más simples pueden combinar roles; los más complejos pueden añadir especialistas. Pero la cadena de cinco Agentes cubre la gran mayoría de casos:
+La mayoría de proyectos usan cinco Agentes en secuencia. Cada Agente transforma el output del anterior pero nunca lo contradice, nunca lo enriquece con invención y nunca lo reinterpreta. Como una carrera de relevos: cada corredor lleva el mismo testigo.
+
+<EffortChart segments={[
+  {label: 'Analyst Agent', percent: 20, color: 'var(--ifm-color-primary)'},
+  {label: 'PM Agent', percent: 20, color: 'var(--ifm-color-danger)'},
+  {label: 'Architect Agent', percent: 20, color: 'var(--ifm-color-warning)'},
+  {label: 'SM Agent', percent: 20, color: 'var(--ifm-color-info)'},
+  {label: 'QA Agent', percent: 20, color: 'var(--ifm-color-success)'},
+]} />
+
+- **Analyst Agent** — Traduce artefactos humanos en requisitos estructurados. No descubre ni inventa — reformatea.
+- **PM Agent** — Genera el PRD: qué construir, para quién, con qué prioridad. Define casos de uso y criterios de éxito.
+- **Architect Agent** — Traduce el PRD en decisiones técnicas. El único Agente que actualiza el project-context.md con nuevas Reglas.
+- **SM Agent** — Descompone la solución en Skills autocontenidos. Cada Skill incluye todo el contexto para su Agente ejecutor.
+- **QA Agent** — Valida fidelidad, completitud, consistencia con Reglas. Verifica en cada eslabón de la cadena, no solo al final.
 
 | Agente | Input | Qué hace | Output |
 |---|---|---|---|
