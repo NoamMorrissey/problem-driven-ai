@@ -165,8 +165,6 @@ const config: Config = {
             {en: '/framework/phases/market-phase/artifacts', es: '/framework/fases/market-phase/artefactos'},
             {en: '/framework/phases/market-phase/anti-patterns', es: '/framework/fases/market-phase/anti-patrones'},
             {en: '/framework/phases/market-phase/effort', es: '/framework/fases/market-phase/esfuerzo'},
-            // Framework section indexes
-            {en: '/framework/artifacts', es: '/framework/artefactos'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
             {en: '/resources/tools', es: '/recursos/herramientas'},
@@ -281,7 +279,6 @@ const config: Config = {
           title: 'Framework',
           items: [
             {label: 'Phases', to: '/framework'},
-            {label: 'Artifacts', to: '/framework/artifacts'},
           ],
         },
         {

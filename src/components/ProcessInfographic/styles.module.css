@@ -15,7 +15,7 @@
 
 .statCard {
   background: rgba(79, 70, 229, 0.06);
-  border: 1px solid var(--pdai-border-color);
+  border: none;
   border-radius: var(--pdai-border-radius-lg);
   padding: 1.25rem;
   text-align: center;
