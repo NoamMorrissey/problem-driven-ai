@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [framework, fases, market-phase, proceso, paso-a-paso]
 ---
 
+import {EffortChart, WeightChart, RadarChart} from '@site/src/components/ProcessInfographic';
+
 # Proceso paso a paso
 
 La Fase 5 no tiene un final. Pero sí tiene una estructura que se repite en ciclos de distinta frecuencia. El proceso no es lineal, es un sistema de bucles anidados con diferentes cadencias. El bucle más interno opera de forma continua y automática. El bucle más externo opera trimestralmente y requiere pensamiento estratégico profundo.
@@ -51,6 +53,20 @@ Cada entrada del Signal Log tiene cinco campos:
 
 La captura no es un proceso periódico. Es un sistema que opera de forma continua en el fondo. Lo que es periódico es el análisis e interpretación.
 
+### Capa de captura
+
+Grado de automatización de las señales ingeridas en el sistema.
+
+<EffortChart segments={[
+  {label: 'Automática (KPIs)', percent: 50, color: 'var(--ifm-color-success)'},
+  {label: 'Estructurada (Feedback)', percent: 30, color: 'var(--ifm-color-danger)'},
+  {label: 'Contextual (Mercado)', percent: 20, color: 'var(--ifm-color-primary)'},
+]} />
+
+- **Capa automática (50%)** — KPIs conectados directamente a fuentes de datos. Ingesta 100% automatizada.
+- **Capa estructurada (30%)** — Feedback procesado con IA. Análisis de sentimiento y categorización automática.
+- **Capa contextual (20%)** — Señales de mercado capturadas por humanos. Contexto cualitativo e interpretación experta.
+
 ### Las tres capas de captura
 
 | Capa | Qué captura | Cadencia | Automatización posible |
@@ -85,6 +101,20 @@ Para cada señal significativa del Signal Log, el equipo responde en orden:
 | **Síntesis de feedback** | Mensual. 2-3 horas. | Product Lead + Context Engineer + soporte/ventas + stakeholders Fases 1-2. | ¿Qué dicen los usuarios que no aparece en datos automáticos? | Signal Log actualizado con hallazgos cualitativos. |
 | **Revisión estratégica** | Trimestral. Medio día. | Equipo completo + stakeholders clave. | ¿El Problem Statement sigue siendo correcto? ¿Qué aprendimos? | Iteration Brief. Decisión sobre regreso a Fase 1, 2, 3 o 4. |
 
+### Cadencia de revisión
+
+Tiempo dedicado a la interpretación según el tipo de sesión.
+
+<WeightChart bars={[
+  {label: 'Revisión KPIs (Semanal)', percent: 20, color: 'var(--ifm-color-primary-lightest)'},
+  {label: 'Síntesis Feedback (Mensual)', percent: 55, color: 'var(--ifm-color-primary-light)'},
+  {label: 'Estratégica (Trimestral)', percent: 100, color: 'var(--ifm-color-primary)'},
+]} />
+
+- **Semanal (~1h)** — Revisión rápida de movimientos de KPIs y alertas de umbral.
+- **Mensual (~3h)** — Síntesis de feedback estructurado y señales acumuladas.
+- **Trimestral (~5h)** — Sesión estratégica con análisis profundo y decisiones de foco.
+
 ---
 
 ## Paso 4: Actualización del Context Document
@@ -115,6 +145,24 @@ Elemento modificado: [Problem Statement | Solution Brief | Regla | Story File | 
 Cambio realizado: [Descripción del cambio]
 Aprobado por: [Nombre y rol]
 ```
+
+### Salud operativa de la fase
+
+Nivel de madurez del sistema de aprendizaje continuo.
+
+<RadarChart
+  axes={['Trazabilidad señal', 'Fidelidad contexto', 'Hipótesis validadas', 'Acción sobre Brief', 'Salud del Dashboard']}
+  datasets={[
+    {label: 'Estado operativo', values: [95, 90, 85, 100, 92], color: 'var(--ifm-color-success)'},
+    {label: 'Target de fase', values: [80, 80, 80, 80, 80], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+- **Trazabilidad señal** — Cada cambio en el contexto tiene trazabilidad a la señal de mercado que lo originó.
+- **Fidelidad contexto** — El Context Document refleja fielmente los aprendizajes del mercado.
+- **Hipótesis validadas** — Porcentaje de hipótesis del Iteration Brief verificadas contra datos reales.
+- **Acción sobre Brief** — Todo Iteration Brief produce al menos un cambio tangible en el contexto.
+- **Salud del Dashboard** — Los KPIs están conectados, actualizados y con alertas operativas.
 
 ---
 

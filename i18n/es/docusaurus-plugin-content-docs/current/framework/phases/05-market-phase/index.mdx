@@ -7,6 +7,7 @@ tags: [framework, fases, market-phase, ejecucion, artefactos]
 ---
 
 import DocCardList from '@theme/DocCardList';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 5. Market phase
 
@@ -14,15 +15,23 @@ import DocCardList from '@theme/DocCardList';
 
 Esta sección contiene la guía operativa para ejecutar la Fase 5. Mientras la [sección de metodología](/fases/market-phase) explica el porqué y los conceptos, aquí se detalla el **cómo**: los pasos concretos, las plantillas, los artefactos y los criterios de validación.
 
-### El proceso en cinco pasos
+<StatCardGrid>
+  <StatCard value="5" label="Pasos" description="Proceso operativo" />
+  <StatCard value="3" label="Capas" description="Captura de señales" />
+  <StatCard value="∞" label="Ciclo" description="Aprendizaje continuo" />
+</StatCardGrid>
 
-| Paso | Nombre | Output principal |
-|---|---|---|
-| 1 | **Activación del sistema de medición** | KPIs conectados, Signal Log operativo, dashboards activos |
-| 2 | **Captura de señales** | Signal Log alimentado continuamente por 3 capas |
-| 3 | **Interpretación de señales** | Señales clasificadas con hipótesis de causa validadas |
-| 4 | **Actualización del Context Document** | Context Update Record con trazabilidad completa |
-| 5 | **Iteration Brief** | Puente documentado entre ciclos de aprendizaje |
+## Guía operativa del proceso
+
+Un sistema de bucles anidados para garantizar que el aprendizaje produce acción.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Activación del sistema de medición', description: 'Conexión del KPI Register a fuentes verificadas con fórmulas precisas y umbrales de alerta.', owner: 'KPIs conectados + Signal Log operativo'},
+  {number: 2, title: '2. Captura de señales', description: 'Sistema de fondo operando permanentemente. Alimentación del Signal Log sin interpretación previa.', owner: 'Ingesta de 3 capas'},
+  {number: 3, title: '3. Interpretación de señales', description: '¿Confirma asunción? ¿Qué la causa? ¿Qué debe cambiar? Técnica de los 5 por qués para causa raíz.', owner: 'Señales clasificadas'},
+  {number: 4, title: '4. Actualización del Context Document', description: 'Actualización tangible de Reglas, Story Files o PRD. Si no hay cambio, no hay valor producido.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Definición del foco del próximo ciclo basado en aprendizajes y KPI prioritarios.', owner: 'Apertura de ciclo'},
+]} />
 
 ### Artefactos de esta fase
 

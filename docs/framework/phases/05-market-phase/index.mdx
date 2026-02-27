@@ -7,6 +7,7 @@ tags: [framework, phases, market-phase, execution, artifacts]
 ---
 
 import DocCardList from '@theme/DocCardList';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 5. Market phase
 
@@ -14,15 +15,23 @@ import DocCardList from '@theme/DocCardList';
 
 This section contains the operational guide for executing Phase 5. While the [methodology section](/phases/market-phase) explains the why and the concepts, this guide details the **how**: the concrete steps, templates, artifacts, and validation criteria.
 
-### The process in five steps
+<StatCardGrid>
+  <StatCard value="5" label="Steps" description="Operational process" />
+  <StatCard value="3" label="Layers" description="Signal capture" />
+  <StatCard value="∞" label="Cycle" description="Continuous learning" />
+</StatCardGrid>
 
-| Step | Name | Main output |
-|---|---|---|
-| 1 | **Measurement system activation** | KPIs connected, Signal Log operational, dashboards active |
-| 2 | **Signal capture** | Signal Log continuously fed by 3 layers |
-| 3 | **Signal interpretation** | Classified signals with validated cause hypotheses |
-| 4 | **Context Document update** | Context Update Record with full traceability |
-| 5 | **Iteration Brief** | Documented bridge between learning cycles |
+## Operational process guide
+
+A system of nested loops to ensure that learning produces action.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Measurement system activation', description: 'KPI Register connection to verified sources with precise formulas and alert thresholds.', owner: 'Connected KPIs + operational Signal Log'},
+  {number: 2, title: '2. Signal capture', description: 'Background system operating permanently. Signal Log feeding without prior interpretation.', owner: '3-layer ingestion'},
+  {number: 3, title: '3. Signal interpretation', description: 'Does it confirm the assumption? What causes it? What must change? Five whys technique for root cause.', owner: 'Classified signals'},
+  {number: 4, title: '4. Context Document update', description: 'Tangible update of Rules, Story Files, or PRD. If there is no change, no value was produced.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Next cycle focus definition based on learnings and priority KPIs.', owner: 'Cycle opening'},
+]} />
 
 ### Phase artifacts
 

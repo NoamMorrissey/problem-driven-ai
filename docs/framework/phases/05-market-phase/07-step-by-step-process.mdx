@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [framework, phases, market-phase, process, step-by-step]
 ---
 
+import {EffortChart, WeightChart, RadarChart} from '@site/src/components/ProcessInfographic';
+
 # The step-by-step process
 
 Phase 5 doesn't have an end. But it does have a structure that repeats in cycles of varying frequency. The process is not linear — it's a system of nested loops with different cadences. The innermost loop operates continuously and automatically. The outermost loop operates quarterly and requires deep strategic thinking.
@@ -51,6 +53,20 @@ Each Signal Log entry has five fields:
 
 Capture is not a periodic process. It's a system that operates continuously in the background. What is periodic is the analysis and interpretation.
 
+### Capture layer
+
+Automation degree of signals ingested into the system.
+
+<EffortChart segments={[
+  {label: 'Automatic (KPIs)', percent: 50, color: 'var(--ifm-color-success)'},
+  {label: 'Structured (Feedback)', percent: 30, color: 'var(--ifm-color-danger)'},
+  {label: 'Contextual (Market)', percent: 20, color: 'var(--ifm-color-primary)'},
+]} />
+
+- **Automatic layer (50%)** — KPIs connected directly to data sources. 100% automated ingestion.
+- **Structured layer (30%)** — Feedback processed with AI. Sentiment analysis and automatic categorization.
+- **Contextual layer (20%)** — Market signals captured by humans. Qualitative context and expert interpretation.
+
 ### The three capture layers
 
 | Layer | What it captures | Cadence | Possible automation |
@@ -85,6 +101,20 @@ For each significant Signal Log signal, the team answers in order:
 | **Feedback synthesis** | Monthly. 2-3 hours. | Product Lead + Context Engineer + support/sales + Phase 1-2 stakeholders. | What are users saying that doesn't appear in automated data? | Updated Signal Log with qualitative findings. |
 | **Strategic review** | Quarterly. Half a day. | Full team + key stakeholders. | Is the Problem Statement still correct? What did we learn? | Iteration Brief. Decision on return to Phase 1, 2, 3, or 4. |
 
+### Review cadence
+
+Time dedicated to interpretation by session type.
+
+<WeightChart bars={[
+  {label: 'KPI review (Weekly)', percent: 20, color: 'var(--ifm-color-primary-lightest)'},
+  {label: 'Feedback synthesis (Monthly)', percent: 55, color: 'var(--ifm-color-primary-light)'},
+  {label: 'Strategic (Quarterly)', percent: 100, color: 'var(--ifm-color-primary)'},
+]} />
+
+- **Weekly (~1h)** — Quick review of KPI movements and threshold alerts.
+- **Monthly (~3h)** — Structured feedback synthesis and accumulated signals.
+- **Quarterly (~5h)** — Strategic session with deep analysis and focus decisions.
+
 ---
 
 ## Step 4: Context Document update
@@ -115,6 +145,24 @@ Modified element: [Problem Statement | Solution Brief | Rule | Story File | PRD]
 Change made: [Description of the change]
 Approved by: [Name and role]
 ```
+
+### Phase operational health
+
+Maturity level of the continuous learning system.
+
+<RadarChart
+  axes={['Signal traceability', 'Context fidelity', 'Validated hypotheses', 'Action on Brief', 'Dashboard health']}
+  datasets={[
+    {label: 'Operational status', values: [95, 90, 85, 100, 92], color: 'var(--ifm-color-success)'},
+    {label: 'Phase target', values: [80, 80, 80, 80, 80], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+- **Signal traceability** — Every context change has traceability to the market signal that originated it.
+- **Context fidelity** — The Context Document faithfully reflects market learnings.
+- **Validated hypotheses** — Percentage of Iteration Brief hypotheses verified against real data.
+- **Action on Brief** — Every Iteration Brief produces at least one tangible context change.
+- **Dashboard health** — KPIs are connected, updated, and with operational alerts.
 
 ---
 
