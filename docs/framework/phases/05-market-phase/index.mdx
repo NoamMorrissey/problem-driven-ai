@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, phases, market-phase, execution, artifacts]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 5. Market phase
@@ -61,4 +61,23 @@ This phase produces five artifacts that operate as an integrated system: signals
 
 ## What this guide covers
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/market-phase/step-by-step-process">
+    A five-step continuous process from measurement activation to Iteration Brief. Nested loops with weekly, monthly, and quarterly cadences.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/market-phase/iteration-cycle-anatomy">
+    The structure of the continuous learning cycle. How signals flow from capture to interpretation to context updates.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/market-phase/artifacts">
+    Signal Log, Context Update Record, Iteration Brief, KPI Dashboard, and living Context Document. The integrated measurement system.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/market-phase/gate-review">
+    Seven health criteria for continuous monitoring. Validates that the learning system produces tangible action, not just data.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/market-phase/anti-patterns">
+    Common failure modes in market iteration. From dashboard blindness to signal paralysis and context that never updates.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/market-phase/effort">
+    Time investment by cadence type. Weekly reviews, monthly synthesis, and quarterly strategic sessions calibrated by team size.
+  </GuideCard>
+</GuideCardGrid>

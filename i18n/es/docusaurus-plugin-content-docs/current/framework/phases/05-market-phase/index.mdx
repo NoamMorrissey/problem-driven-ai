@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, fases, market-phase, ejecucion, artefactos]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 5. Market phase
@@ -61,4 +61,23 @@ Esta fase produce cinco artefactos que operan como un sistema integrado: las se�
 
 ## Qué cubre esta guía
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/market-phase/proceso-paso-a-paso">
+    Un proceso continuo en cinco pasos desde la activación de la medición hasta el Iteration Brief. Bucles anidados con cadencias semanal, mensual y trimestral.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/market-phase/anatomia-del-ciclo-de-iteracion">
+    La estructura del ciclo de aprendizaje continuo. Cómo fluyen las señales desde la captura a la interpretación y la actualización del contexto.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/market-phase/artefactos">
+    Signal Log, Context Update Record, Iteration Brief, KPI Dashboard y Context Document vivo. El sistema de medición integrado.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/market-phase/gate-review">
+    Siete criterios de salud para monitorización continua. Valida que el sistema de aprendizaje produce acción tangible, no solo datos.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/market-phase/anti-patrones">
+    Modos de fallo comunes en la iteración de mercado. Desde ceguera de dashboard hasta parálisis por señales y contexto que nunca se actualiza.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/market-phase/esfuerzo">
+    Inversión de tiempo por tipo de cadencia. Revisiones semanales, síntesis mensuales y sesiones estratégicas trimestrales calibradas por tamaño de equipo.
+  </GuideCard>
+</GuideCardGrid>

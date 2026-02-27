@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, phases, problem-phase, execution, artifacts]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, CostChart} from '@site/src/components/ProcessInfographic';
 
 # 1. Problem phase
@@ -64,7 +64,26 @@ This is not theory. It is the most consistent finding in software engineering re
 
 ## What this guide covers
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/problem-phase/step-by-step-process">
+    A structured four-step process from kick-off to validated Problem Statement. Each step produces a deliverable that feeds the next.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/problem-phase/problem-statement-anatomy">
+    The seven mandatory elements of a well-crafted Problem Statement. What each element contributes and how to validate it.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/problem-phase/artifacts">
+    Actor Map, Interview Guide, Synthesis Board, and Problem Statement. Templates, formats, and quality criteria for each deliverable.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/problem-phase/gate-review">
+    Six criteria that must all pass before advancing to Phase 2. The checkpoint that prevents carrying a poorly defined problem forward.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/problem-phase/anti-patterns">
+    The most common failure modes in problem discovery. How to recognize them early and what to do when they appear.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/problem-phase/effort">
+    Time investment ranges for teams of different sizes. How to calibrate effort without over-investing or under-investing.
+  </GuideCard>
+</GuideCardGrid>
 
 :::tip The investment that pays for itself
 Every hour invested in properly understanding the problem saves weeks of misguided building, rework cycles, realignment meetings, and — above all — the erosion of trust that occurs when a team delivers something nobody needed. If you're dedicating less than 15% of the project's total time to Problem Phase, you're probably investing too little. The sweet spot is between 15% and 25%.

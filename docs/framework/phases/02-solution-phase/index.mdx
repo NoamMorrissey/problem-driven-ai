@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, phases, solution-phase, execution, artifacts]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 2. Solution phase
@@ -61,7 +61,26 @@ This phase produces six artifacts that together form the foundation for Phase 3.
 
 ## What this guide covers
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/solution-phase/step-by-step-process">
+    A five-step process from divergence to validated Solution Brief. Generate, structure, converge, and validate with real stakeholders.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/solution-phase/solution-brief-anatomy">
+    The eight mandatory sections of a Solution Brief. The document that packages every decision for transfer to Phase 3.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/solution-phase/artifacts">
+    Ideation Board, Solution Trees, Assumptions Register, Decision Matrix, Feedback Log, and Solution Brief. Complete reference.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/solution-phase/gate-review">
+    Seven criteria that must all pass before advancing to Phase 3. Validates both solution quality and organizational consensus.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/solution-phase/anti-patterns">
+    Common failure modes in solution alignment. From premature convergence to consensus theater and missing assumptions.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/solution-phase/effort">
+    Time investment ranges by team size and solution complexity. Calibrating between too-fast and over-analyzed.
+  </GuideCard>
+</GuideCardGrid>
 
 :::tip The investment in consensus pays for itself
 This phase is the hinge between pure human thinking (Phase 1) and the translation of that thinking into language the AI can process (Phase 3). Everything done poorly here is exponentially amplified when context reaches the AI. A well-aligned solution produces precise context. An ambiguous solution produces context that looks correct but doesn't solve what it was supposed to solve.

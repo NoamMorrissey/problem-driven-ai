@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, fases, discovery, ejecucion, artefactos]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, CostChart} from '@site/src/components/ProcessInfographic';
 
 # 1. Problem phase
@@ -64,7 +64,26 @@ Esto no es teoría. Es el hallazgo más consistente en la investigación de inge
 
 ## Qué cubre esta guía
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/problem-phase/proceso-paso-a-paso">
+    Un proceso estructurado en cuatro pasos desde el kick-off hasta el Problem Statement validado. Cada paso produce un entregable que alimenta al siguiente.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/problem-phase/anatomia-del-problem-statement">
+    Los siete elementos obligatorios de un Problem Statement bien construido. Qué aporta cada elemento y cómo validarlo.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/problem-phase/artefactos">
+    Actor Map, Interview Guide, Synthesis Board y Problem Statement. Plantillas, formatos y criterios de calidad para cada entregable.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/problem-phase/gate-review">
+    Seis criterios que deben cumplirse antes de avanzar a la Fase 2. El checkpoint que impide arrastrar un problema mal definido.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/problem-phase/anti-patrones">
+    Los modos de fallo más frecuentes en el discovery de problemas. Cómo reconocerlos a tiempo y qué hacer cuando aparecen.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/problem-phase/esfuerzo">
+    Rangos de inversión de tiempo para equipos de distintos tamaños. Cómo calibrar el esfuerzo sin sobreinvertir ni infrainvertir.
+  </GuideCard>
+</GuideCardGrid>
 
 :::tip La inversión que se paga sola
 Cada hora invertida en entender bien el problema ahorra semanas de construcción equivocada, ciclos de retrabajo, reuniones de realineación y, sobre todo, la erosión de confianza que se produce cuando un equipo entrega algo que nadie necesitaba. Si estás dedicando menos del 15% del tiempo total del proyecto al Problem Phase, probablemente estás invirtiendo demasiado poco. El punto óptimo está entre el 15% y el 25%.

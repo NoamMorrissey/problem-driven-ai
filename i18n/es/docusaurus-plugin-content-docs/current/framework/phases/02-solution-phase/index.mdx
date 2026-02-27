@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, fases, alignment, ejecucion, artefactos]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 2. Solution phase
@@ -61,7 +61,26 @@ Esta fase produce seis artefactos que juntos forman la base para la Fase 3. Los 
 
 ## Qué cubre esta guía
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/solution-phase/proceso-paso-a-paso">
+    Un proceso en cinco pasos desde la divergencia hasta el Solution Brief validado. Generar, estructurar, converger y validar con stakeholders reales.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/solution-phase/anatomia-del-solution-brief">
+    Las ocho secciones obligatorias del Solution Brief. El documento que empaqueta cada decisión para la transferencia a Fase 3.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/solution-phase/artefactos">
+    Ideation Board, Árboles de Soluciones, Registro de Asunciones, Decision Matrix, Feedback Log y Solution Brief. Referencia completa.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/solution-phase/gate-review">
+    Siete criterios que deben cumplirse antes de avanzar a la Fase 3. Valida la calidad de la solución y el consenso organizacional.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/solution-phase/anti-patrones">
+    Modos de fallo comunes en la alineación de soluciones. Desde convergencia prematura hasta teatro de consenso y asunciones olvidadas.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/solution-phase/esfuerzo">
+    Rangos de inversión de tiempo por tamaño de equipo y complejidad de solución. Calibrar entre rapidez excesiva y sobreanálisis.
+  </GuideCard>
+</GuideCardGrid>
 
 :::tip La inversión en consenso se paga sola
 Esta fase es la bisagra entre el pensamiento humano puro (Fase 1) y la traducción de ese pensamiento a un lenguaje que la IA pueda procesar (Fase 3). Todo lo que se haga mal aquí se amplifica exponencialmente cuando el contexto llega a la IA. Una solución bien alineada produce un contexto preciso. Una solución ambigua produce un contexto que parece correcto pero no resuelve lo que debía resolver.

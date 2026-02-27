@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, fases, context-phase, ejecucion, artefactos]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, RadarChart} from '@site/src/components/ProcessInfographic';
 
 # 3. Context phase
@@ -79,7 +79,26 @@ Un sistema de contexto bien diseñado puntúa alto en las cinco dimensiones de c
 
 ## Qué cubre esta guía
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/context-phase/proceso-paso-a-paso">
+    Un proceso en cinco pasos desde las Reglas hasta el sistema de contexto validado. Cada paso construye sobre el anterior: Reglas, Agentes, Documentos, Skills, Validación.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/context-phase/anatomia-del-sistema-de-contexto">
+    La arquitectura de un sistema de contexto bien diseñado. Cómo se interconectan Reglas, Agentes, Skills y documentos estratégicos.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/context-phase/artefactos">
+    project-context.md, Definiciones de Agentes, PRD, Architecture Document, Story Files y Decision Log. Plantillas y criterios de calidad.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/context-phase/gate-review">
+    Nueve criterios que deben cumplirse antes de avanzar a la Fase 4. Valida fidelidad, completitud y autocontención del sistema de contexto.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/context-phase/anti-patrones">
+    Modos de fallo comunes en el diseño de contexto. Desde Reglas sobre-especificadas hasta Skills sin autocontención y dependencias implícitas.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/context-phase/esfuerzo">
+    Rangos de inversión de tiempo calibrados al tiempo de construcción. La proporción óptima es 30-50% de la duración de la fase de build.
+  </GuideCard>
+</GuideCardGrid>
 
 :::tip La inversión del sistema operativo
 Si el Context Phase consume más tiempo que la fase de construcción, probablemente estás sobre-especificando Reglas o atomizando Skills en exceso. Si consume menos de un tercio del tiempo de construcción, hay Reglas implícitas y Skills incompletos. La proporción óptima es **30-50% del tiempo de construcción.** Para un proyecto que tardará 4 semanas en construirse, invierte 1-2 semanas en Context Phase. El retorno: la construcción se convierte en la fase de menor fricción.

@@ -6,7 +6,7 @@ sidebar_position: 0
 tags: [framework, fases, ai-build-phase, ejecucion, artefactos]
 ---
 
-import DocCardList from '@theme/DocCardList';
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 4. AI build phase
@@ -65,4 +65,23 @@ Esta fase produce seis artefactos que registran las decisiones tomadas durante l
 
 ## Qué cubre esta guía
 
-<DocCardList />
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/ai-build-phase/proceso-paso-a-paso">
+    Un proceso en cinco pasos desde el setup del entorno hasta el cierre. Gestión de tracks paralelos, detección de colisiones y validación de fidelidad.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/ai-build-phase/anatomia-de-la-construccion-paralela">
+    Cómo funciona la construcción paralela con múltiples tracks. Coordinación, sincronización y gestión de colisiones entre equipos.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/ai-build-phase/artefactos">
+    Decision Log, grafo de dependencias, actas de integración, Build Validation Report, Context Document actualizado e Iteration Brief.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/ai-build-phase/gate-review">
+    Diez criterios de integración que validan el sistema completo. Coherencia entre tracks y fidelidad al Problem Statement y Solution Brief.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/ai-build-phase/anti-patrones">
+    Modos de fallo comunes en la construcción asistida por IA. Desde gaps invisibles hasta decisiones aplazadas e integración sin verificación.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/ai-build-phase/esfuerzo">
+    Rangos de inversión de tiempo para construcción secuencial y paralela. Cómo el tamaño del equipo y el número de tracks afectan la duración.
+  </GuideCard>
+</GuideCardGrid>
