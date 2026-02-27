@@ -7,13 +7,14 @@ sidebar_position: 1
 tags: [fases, context-phase, proceso, agentes, reglas, skills]
 ---
 
-import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+import {WeightChart, EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # El proceso paso a paso
 
 El Context Phase no es un ejercicio de escritura creativa. Es un proceso de traducción estructurado que convierte la comprensión humana capturada en las Fases 1 y 2 en un sistema que la IA puede procesar fielmente. Cada paso tiene un propósito claro, un entregable concreto y un criterio de validación.
 
-## Paso 1. Establecer Reglas (project-context.md)
+<StepAccordion>
+<StepAccordionItem number={1} title="Paso 1. Establecer Reglas (project-context.md)" summary="Crear la constitución project-context.md: extraer cada decisión global del Solution Brief y calibrar niveles de precisión.">
 
 *Duración estimada: 1-2 días*
 
@@ -83,7 +84,8 @@ Antes de pasar al Paso 2, aplica esta validación: un Agente que reciba únicame
 
 Si alguna respuesta falta, las Reglas están incompletas.
 
-## Paso 2. Diseñar la Cadena de Agentes
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Paso 2. Diseñar la Cadena de Agentes" summary="Definir la cadena de Agentes especializados que traducirá el Solution Brief en un sistema de contexto completo.">
 
 *Duración estimada: 1-2 días*
 
@@ -143,7 +145,8 @@ Cada Agente transforma el output del anterior, pero nunca lo contradice, nunca l
 
 Piensa en ello como una carrera de relevos: cada corredor lleva el mismo testigo. Puede correr más rápido o más lento, pero no puede cambiar lo que hay dentro del testigo. Cuando el SM Agent crea los Skills finales, son fieles al Problem Statement original porque cada eslabón de la cadena fue gobernado por las mismas Reglas.
 
-## Paso 3. Generar Documentos Estratégicos
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Paso 3. Generar Documentos Estratégicos" summary="Producir el PRD y el Architecture Document — la capa intermedia entre Reglas y Skills.">
 
 *Duración estimada: 2-5 días (depende de la complejidad del proyecto)*
 
@@ -185,7 +188,8 @@ El Architect Agent decide: "Todos los servicios se comunican vía REST con envel
 Este ADR se promueve a **Regla de Nivel 5** en el project-context.md. Ahora cada Agente que construya cualquier Skill de API hereda esta restricción automáticamente. La Regla lleva el "por qué" para que si surge una situación no cubierta, el Agente entienda el razonamiento.
 :::
 
-## Paso 4. Descomponer en Skills
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Paso 4. Descomponer en Skills" summary="Descomponer todo en Skills autocontenidos que los Agentes de desarrollo ejecutarán.">
 
 *Duración estimada: 2-5 días*
 
@@ -225,7 +229,8 @@ Si la respuesta es no, falta contexto. Añádelo al Skill, no asumas que el Agen
 - **Restricciones:** Las cantidades de stock siempre son enteros (Regla Nivel 5). Autenticación OAuth 2.0 requerida (Regla Nivel 5).
 :::
 
-## Paso 5. Validar a través de Outputs
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Paso 5. Validar a través de Outputs" summary="Ejecutar el sistema, juzgar los resultados e iterar hasta que los outputs expresen fielmente el Problem Statement.">
 
 *Duración estimada: 1-3 días*
 
@@ -264,3 +269,6 @@ Cuando los outputs no coinciden con las expectativas, identifica dónde está el
 :::tip Cuando los outputs sorprenden
 La validación más reveladora es cuando un output es técnicamente correcto pero no "se siente bien" para los stakeholders. Esto suele señalar una Regla que falta, no un Agente roto. El Agente siguió todas las Reglas fielmente, el problema es que las Reglas no capturaban algo que el equipo asumía como obvio. Hazlo explícito, añade la Regla y ejecuta la validación de nuevo.
 :::
+
+</StepAccordionItem>
+</StepAccordion>

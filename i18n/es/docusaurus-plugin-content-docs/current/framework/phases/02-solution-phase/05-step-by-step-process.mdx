@@ -7,13 +7,14 @@ slug: /framework/fases/solution-phase/proceso-paso-a-paso
 tags: [fases, alineacion, proceso, divergencia, convergencia, consenso]
 ---
 
-import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+import {WeightChart, EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # El proceso paso a paso
 
 Solution Phase tiene cinco pasos. Los tres primeros (Divergencia, Estructuración, Convergencia) son el trabajo intelectual de encontrar y definir la solución. Los dos últimos (Validación externa, Validación interna) son el trabajo de alineación que convierte una buena idea en un mandato compartido.
 
-## Paso 1. Divergencia: generar sin filtrar
+<StepAccordion>
+<StepAccordionItem number={1} title="Paso 1. Divergencia: generar sin filtrar" summary="Generar el mayor número posible de soluciones sin filtrar, usando técnicas como How Might We, Crazy 8s y reverse brainstorming.">
 
 *Duración estimada: 1-2 sesiones de 2-3 horas*
 
@@ -40,7 +41,8 @@ HiPPO: Highest Paid Person's Opinion. La sesión de ideación se convierte en el
 **Cómo prevenirlo:** Las ideas se generan en silencio e individualmente antes de compartirse. Escritas en post-its, no dichas en voz alta. Se leen todas antes de discutir ninguna. Así la idea del VP tiene el mismo tamaño visual que la del junior.
 :::
 
-## Paso 2. Estructuración: descomponer para entender
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Paso 2. Estructuración: descomponer para entender" summary="Organizar y descomponer ideas en las cuatro dimensiones (negocio, modelo, arquitectura, datos) y clasificar asunciones por nivel de riesgo.">
 
 *Duración estimada: 1-2 sesiones de 3-4 horas*
 
@@ -109,7 +111,8 @@ Durante la estructuración, emergen inevitablemente asunciones: cosas que el equ
 **Desconocida:** "Los datos de demanda no satisfecha (ventas perdidas por falta de stock) pueden estimarse a partir de patrones de búsqueda en la web del retailer." → Nadie ha investigado esto. Si es posible, enriquece enormemente el modelo. Si no, funciona sin ello pero con menos precisión.
 :::
 
-## Paso 3. Convergencia: decidir con criterios explícitos
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Paso 3. Convergencia: decidir con criterios explícitos" summary="Evaluar soluciones candidatas estructuradas contra una Decision Matrix ponderada para seleccionar la mejor opción.">
 
 *Duración estimada: 1 sesión de 2-3 horas*
 
@@ -160,7 +163,8 @@ Cualquier solución candidata debe descomponerse en estas 4 dimensiones. Saltars
 **Cómo prevenirlo:** Los pesos se definen y se fijan antes de evaluar ninguna solución. Se documentan y no se modifican. Si el resultado no es el esperado, la respuesta es examinar por qué, no cambiar los criterios.
 :::
 
-## Paso 4. Validación con clientes
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Paso 4. Validación con clientes" summary="Presentar la solución elegida a usuarios reales e iterar hasta confirmar que resuelve el problema que viven.">
 
 *Duración estimada: 3-5 sesiones de 30-45 minutos*
 
@@ -176,7 +180,8 @@ Las respuestas suelen caer en tres categorías:
 
 Se itera hasta que el feedback confirma que la solución resuelve el problema definido. Esto puede tomar 2-3 rondas.
 
-## Paso 5. Validación con stakeholders internos — el consenso real
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Paso 5. Validación con stakeholders internos — el consenso real" summary="Lograr consenso real donde los stakeholders entienden, aceptan y se comprometen a apoyar la solución.">
 
 *Duración estimada: 2-4 sesiones de 1-2 horas según complejidad*
 
@@ -211,3 +216,6 @@ El cuarto punto es el más importante y el que distingue el consenso del permiso
 No todos los desacuerdos deben resolverse. Algunos son legítimos y deben documentarse. Lo que no es aceptable es el desacuerdo invisible — el que existe pero nadie nombra.
 
 Cuando un stakeholder tiene una objeción que el equipo no puede resolver, se documenta en el Feedback Log con tres elementos: qué dice, por qué lo dice y qué haría falta para resolver su objeción. Este registro no es una concesión. Es honestidad. Las soluciones que se construyen sobre desacuerdos ocultos fracasan de formas que nadie puede predecir.
+
+</StepAccordionItem>
+</StepAccordion>

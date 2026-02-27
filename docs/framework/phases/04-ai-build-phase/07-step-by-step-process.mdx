@@ -7,13 +7,14 @@ sidebar_position: 1
 tags: [framework, phases, ai-build-phase, process, step-by-step]
 ---
 
-import {EffortChart} from '@site/src/components/ProcessInfographic';
+import {EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # The step-by-step process
 
 Phase 4 has five steps. The first three — Setup, Story File Construction, and Gap Management — are the operational core. The last two — Fidelity Review and Decision Log Closure — certify that the phase is complete.
 
-## Step 1: Environment setup
+<StepAccordion>
+<StepAccordionItem number={1} title="Step 1. Environment setup" summary="Align the team, assign tracks based on the dependency graph, and verify the full context system.">
 
 **Estimated duration:** 0.5 to 1 day
 
@@ -47,7 +48,8 @@ The Context Engineer presents the graph and asks each Dev Lead: *"Can you identi
 | **Distributed Decision Log** | The Decision Log exists and is accessible. | The format includes track, estimated impact, and urgency fields. The real-time visibility system is operational. |
 | **Synchronization protocol** | — | Integration synchronizations are scheduled in the graph. Each Dev Lead knows which ones affect them. |
 
-## Step 2: Story File-driven construction
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Step 2. Story File-driven construction" summary="Execute Story Files according to the dependency graph, activating parallel tracks whose independence is verified.">
 
 **Estimated duration:** Variable by complexity
 
@@ -74,7 +76,8 @@ For each Story File, the cycle has four moments:
 | **Incompatible outputs** | Two tracks implement the same interface differently. | Stop both tracks. The Context Engineer defines the interface as a new Rule. |
 | **Integration Skill fails** | Individual Skills are validated but integration fails. | Stop the integration Skill. The Tech Lead calls an emergency synchronization. |
 
-## Step 3: Gap management during construction
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Step 3. Gap management during construction" summary="Detect, classify, and escalate gaps before they cascade across tracks and multiply rework.">
 
 Gaps are inevitable. In parallel construction, a gap in one track can invalidate work in another track. The speed of detection and communication is the factor that most determines the total cost of the phase.
 
@@ -116,7 +119,8 @@ Categorization of blocking failures detected by the QA Agent during integration.
 In parallel teams, a gap that remains invisible for more than one business day has exponential cost: every Story File completed on that incorrect foundation multiplies rework. The team culture must make reporting a gap an act of professionalism, not a confession of error.
 :::
 
-## Step 4: Fidelity review
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Step 4. Fidelity review" summary="Verify fidelity to the Problem Statement and Solution Brief in both vertical and horizontal dimensions.">
 
 **Estimated duration:** 1-3 days
 
@@ -137,7 +141,8 @@ The order matters: **the horizontal dimension goes first.** Presenting stakehold
 | **Block 2 — Solution Brief fidelity** | What was built reflects the agreed solution. | Phase 2 stakeholders | They recognize the system as the solution they approved. |
 | **Block 3 — Decision Log review** | Decisions from all tracks that modified context are consistent. | Context Engineer + Tech Lead + stakeholders | No decisions contradict the Problem Statement without documented justification. |
 
-## Step 5: Decision Log closure and Market Phase preparation
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Step 5. Decision Log closure and Market Phase preparation" summary="Consolidate Decision Logs from all tracks and prepare the Context Document for Market Phase.">
 
 **Estimated duration:** 0.5 to 1 day
 
@@ -153,3 +158,6 @@ Decision Logs from the different tracks are merged into a single registry. It's 
 ### Context Document preparation
 
 The Context Document entering Phase 5 reflects the system built across all tracks. Emerged Rules are incorporated. The dependency graph is updated. The Iteration Brief captures the open learnings from all tracks.
+
+</StepAccordionItem>
+</StepAccordion>

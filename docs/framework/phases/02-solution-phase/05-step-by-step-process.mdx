@@ -7,13 +7,14 @@ slug: /framework/phases/solution-phase/step-by-step-process
 tags: [phases, solution-phase, process, divergence, convergence, consensus]
 ---
 
-import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+import {WeightChart, EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # The step-by-step process
 
 Solution Phase has five steps. The first three (Divergence, Structuring, Convergence) are the intellectual work of finding and defining the solution. The last two (External validation, Internal validation) are the alignment work that turns a good idea into a shared mandate.
 
-## Step 1. Divergence: generate without filtering
+<StepAccordion>
+<StepAccordionItem number={1} title="Step 1. Divergence: generate without filtering" summary="Generate as many solutions as possible without filtering, using techniques like How Might We, Crazy 8s, and reverse brainstorming.">
 
 *Estimated duration: 1-2 sessions of 2-3 hours*
 
@@ -40,7 +41,8 @@ HiPPO: Highest Paid Person's Opinion. The ideation session becomes one person's 
 **How to prevent it:** Ideas are generated in silence and individually before sharing. Written on post-its, not spoken aloud. All are read before any are discussed. This way the VP's idea has the same visual size as the junior's.
 :::
 
-## Step 2. Structuring: decompose to understand
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Step 2. Structuring: decompose to understand" summary="Organize and decompose ideas across four dimensions (business, model, architecture, data), and classify assumptions by risk level.">
 
 *Estimated duration: 1-2 sessions of 3-4 hours*
 
@@ -109,7 +111,8 @@ During structuring, assumptions inevitably emerge: things the team believes are 
 **Unknown:** "Unsatisfied demand data (lost sales due to stock-outs) can be estimated from search patterns on the retailer's website." → Nobody has investigated this. If possible, it enormously enriches the model. If not, it works without it but with less precision.
 :::
 
-## Step 3. Convergence: decide with explicit criteria
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Step 3. Convergence: decide with explicit criteria" summary="Evaluate structured candidate solutions against a weighted Decision Matrix to select the best option.">
 
 *Estimated duration: 1 session of 2-3 hours*
 
@@ -160,7 +163,8 @@ Any candidate solution must be decomposed across these 4 critical dimensions. Sk
 **How to prevent it:** Weights are defined and fixed before evaluating any solution. They are documented and not modified. If the result isn't what was expected, the response is to examine why, not to change the criteria.
 :::
 
-## Step 4. Client validation
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Step 4. Client validation" summary="Present the chosen solution to real users and iterate until they confirm it solves the problem they live with.">
 
 *Estimated duration: 3-5 sessions of 30-45 minutes*
 
@@ -176,7 +180,8 @@ Responses usually fall into three categories:
 
 Iterate until feedback confirms the solution solves the defined problem. This may take 2-3 rounds.
 
-## Step 5. Internal stakeholder validation — real consensus
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Step 5. Internal stakeholder validation — real consensus" summary="Achieve real consensus where stakeholders understand, accept, and commit to supporting the solution.">
 
 *Estimated duration: 2-4 sessions of 1-2 hours depending on complexity*
 
@@ -211,3 +216,6 @@ The fourth point is the most important and what distinguishes consensus from per
 Not all disagreements must be resolved. Some are legitimate and should be documented. What is not acceptable is invisible disagreement — the kind that exists but nobody names.
 
 When a stakeholder has an objection the team cannot resolve, it's documented in the Feedback Log with three elements: what they say, why they say it, and what would be needed to resolve their objection. This record is not a concession. It's honesty. Solutions built on hidden disagreements fail in ways nobody can predict.
+
+</StepAccordionItem>
+</StepAccordion>

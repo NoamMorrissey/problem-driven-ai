@@ -7,15 +7,14 @@ sidebar_position: 1
 tags: [framework, phases, market-phase, process, step-by-step]
 ---
 
-import {EffortChart, WeightChart, RadarChart} from '@site/src/components/ProcessInfographic';
+import {EffortChart, WeightChart, RadarChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # The step-by-step process
 
 Phase 5 doesn't have an end. But it does have a structure that repeats in cycles of varying frequency. The process is not linear — it's a system of nested loops with different cadences. The innermost loop operates continuously and automatically. The outermost loop operates quarterly and requires deep strategic thinking.
 
----
-
-## Step 1: Measurement system activation
+<StepAccordion>
+<StepAccordionItem number={1} title="Step 1. Measurement system activation" summary="Connect the KPI & OKR Register to concrete instrumentation and activate the Signal Log.">
 
 **Duration:** One-time at Phase 5 start. Continuous maintenance.
 
@@ -45,9 +44,8 @@ Each Signal Log entry has five fields:
 | **Affected Context Document element** | What part might need updating: Problem Statement, Solution Brief, Rule, Story File. | The bridge between market signal and context action. |
 | **Urgency and proposed action** | Immediate (this week) / Normal (next iteration) / Strategic (Problem Statement review). | Prioritizes response and defines which process activates. |
 
----
-
-## Step 2: Signal capture
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Step 2. Signal capture" summary="Operate continuous capture across automatic, structured, and contextual layers.">
 
 **Duration:** Continuous. Inner loop operating permanently.
 
@@ -75,9 +73,8 @@ Automation degree of signals ingested into the system.
 | **Structured** | Follow-up interviews with users, periodic support ticket analysis, feedback channel review. | Weekly (tickets) / Monthly (interviews). | Partial. Ticket synthesis can be done with AI. Interviews require humans. |
 | **Contextual** | Competitor movements, regulatory changes, benchmark evolution, emerging ecosystem signals. | Monthly / Quarterly. | Partial with market monitoring tools. Strategic interpretation is human. |
 
----
-
-## Step 3: Signal interpretation
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Step 3. Signal interpretation" summary="Transform raw signals into knowledge through weekly, monthly, and quarterly interpretation sessions.">
 
 **Duration:** Weekly sessions (KPIs), monthly (qualitative feedback), quarterly (strategic signals).
 
@@ -115,9 +112,8 @@ Time dedicated to interpretation by session type.
 - **Monthly (~3h)** — Structured feedback synthesis and accumulated signals.
 - **Quarterly (~5h)** — Strategic session with deep analysis and focus decisions.
 
----
-
-## Step 4: Context Document update
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Step 4. Context Document update" summary="Update the Context Document with full traceability from market signals to context changes.">
 
 **Duration:** Immediate for Rules. 1-3 days for Story Files. Weeks for Problem Statement or Solution Brief.
 
@@ -164,9 +160,8 @@ Maturity level of the continuous learning system.
 - **Action on Brief** — Every Iteration Brief produces at least one tangible context change.
 - **Dashboard health** — KPIs are connected, updated, and with operational alerts.
 
----
-
-## Step 5: The Iteration Brief and the new iteration
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Step 5. The Iteration Brief and the new iteration" summary="Write the Iteration Brief marking the transition between a learning cycle and the next construction cycle.">
 
 **Duration:** 1-2 days to write. Activated at the start of each cycle.
 
@@ -181,3 +176,6 @@ The Iteration Brief marks the transition between a learning cycle and the next c
 | **Open questions** | Unverified hypotheses due to insufficient data. Weak signals that could be important. | Are questions formulated so a team can design actions to answer them? |
 | **Next cycle focus** | What aspect deserves more attention and why. Includes return phase if applicable. | Is the focus justified by cycle learnings? |
 | **Priority KPIs** | Indicators to watch most closely. | Are they different from the previous cycle if learnings justify it? |
+
+</StepAccordionItem>
+</StepAccordion>

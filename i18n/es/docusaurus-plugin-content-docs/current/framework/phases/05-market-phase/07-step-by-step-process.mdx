@@ -7,15 +7,14 @@ sidebar_position: 1
 tags: [framework, fases, market-phase, proceso, paso-a-paso]
 ---
 
-import {EffortChart, WeightChart, RadarChart} from '@site/src/components/ProcessInfographic';
+import {EffortChart, WeightChart, RadarChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # Proceso paso a paso
 
 La Fase 5 no tiene un final. Pero sí tiene una estructura que se repite en ciclos de distinta frecuencia. El proceso no es lineal, es un sistema de bucles anidados con diferentes cadencias. El bucle más interno opera de forma continua y automática. El bucle más externo opera trimestralmente y requiere pensamiento estratégico profundo.
 
----
-
-## Paso 1: Activación del sistema de medición
+<StepAccordion>
+<StepAccordionItem number={1} title="Paso 1. Activación del sistema de medición" summary="Conectar el KPI & OKR Register a instrumentación concreta y activar el Signal Log.">
 
 **Duración:** Único, al inicio de la Fase 5. Mantenimiento continuo.
 
@@ -45,9 +44,8 @@ Cada entrada del Signal Log tiene cinco campos:
 | **Elemento del Context Document afectado** | Qué parte podría necesitar actualización: Problem Statement, Solution Brief, Regla, Story File. | Es el puente entre la señal del mercado y la acción sobre el contexto. |
 | **Urgencia y acción propuesta** | Inmediata (esta semana) / Normal (próxima iteración) / Estratégica (revisión de Problem Statement). | Prioriza la respuesta y define qué proceso se activa. |
 
----
-
-## Paso 2: Captura de señales
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Paso 2. Captura de señales" summary="Operar captura continua en las capas automática, estructurada y contextual.">
 
 **Duración:** Continua. Bucle interno operando permanentemente.
 
@@ -75,9 +73,8 @@ Grado de automatización de las señales ingeridas en el sistema.
 | **Estructurada** | Entrevistas de seguimiento con usuarios, análisis periódico de tickets de soporte, revisión de feedback en canales. | Semanal (tickets) / Mensual (entrevistas). | Parcialmente. La síntesis de tickets puede hacerse con IA. Las entrevistas requieren humanos. |
 | **Contextual** | Movimientos de competidores, cambios regulatorios, evolución de benchmarks, señales emergentes del ecosistema. | Mensual / Trimestral. | Parcialmente con herramientas de monitorización de mercado. La interpretación estratégica es humana. |
 
----
-
-## Paso 3: Interpretación de señales
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Paso 3. Interpretación de señales" summary="Transformar señales brutas en conocimiento mediante sesiones de interpretación semanales, mensuales y trimestrales.">
 
 **Duración:** Sesiones semanales (KPIs), mensuales (feedback cualitativo), trimestrales (señales estratégicas).
 
@@ -115,9 +112,8 @@ Tiempo dedicado a la interpretación según el tipo de sesión.
 - **Mensual (~3h)** — Síntesis de feedback estructurado y señales acumuladas.
 - **Trimestral (~5h)** — Sesión estratégica con análisis profundo y decisiones de foco.
 
----
-
-## Paso 4: Actualización del Context Document
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Paso 4. Actualización del Context Document" summary="Actualizar el Context Document con trazabilidad completa desde señales del mercado hasta cambios en el contexto.">
 
 **Duración:** Inmediata para Reglas. 1-3 días para Story Files. Semanas para Problem Statement o Solution Brief.
 
@@ -164,9 +160,8 @@ Nivel de madurez del sistema de aprendizaje continuo.
 - **Acción sobre Brief** — Todo Iteration Brief produce al menos un cambio tangible en el contexto.
 - **Salud del Dashboard** — Los KPIs están conectados, actualizados y con alertas operativas.
 
----
-
-## Paso 5: El Iteration Brief y la nueva iteración
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Paso 5. El Iteration Brief y la nueva iteración" summary="Redactar el Iteration Brief que marca la transición entre un ciclo de aprendizaje y el siguiente ciclo de construcción.">
 
 **Duración:** 1-2 días de redacción. Se activa al inicio de cada ciclo.
 
@@ -181,3 +176,6 @@ El Iteration Brief marca la transición entre un ciclo de aprendizaje y el sigui
 | **Preguntas abiertas** | Hipótesis no verificadas por falta de datos. Señales débiles que podrían ser importantes. | ¿Las preguntas están formuladas de forma que un equipo puede diseñar acciones para responderlas? |
 | **Foco del próximo ciclo** | Qué aspecto merece más atención y por qué. Incluye fase de regreso si aplica. | ¿El foco está justificado por los aprendizajes del ciclo? |
 | **KPIs prioritarios** | Indicadores que se observarán con más atención. | ¿Son distintos a los del ciclo anterior si los aprendizajes lo justifican? |
+
+</StepAccordionItem>
+</StepAccordion>

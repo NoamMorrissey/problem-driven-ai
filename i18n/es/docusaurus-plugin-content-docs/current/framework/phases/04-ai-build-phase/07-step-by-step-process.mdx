@@ -7,13 +7,14 @@ sidebar_position: 1
 tags: [framework, fases, ai-build-phase, proceso, paso-a-paso]
 ---
 
-import {EffortChart} from '@site/src/components/ProcessInfographic';
+import {EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # Proceso paso a paso
 
 La Fase 4 tiene cinco pasos. Los tres primeros (Setup, Construcción por Story Files y Gestión de Gaps) son el núcleo operativo. Los dos últimos (Revisión de Fidelidad y Cierre del Decision Log) certifican que la fase está completa.
 
-## Paso 1: Setup del entorno de construcción
+<StepAccordion>
+<StepAccordionItem number={1} title="Paso 1. Setup del entorno de construcción" summary="Alinear al equipo, asignar tracks según el grafo de dependencias y verificar el sistema de contexto completo.">
 
 **Duración estimada:** 0,5 a 1 día
 
@@ -47,7 +48,8 @@ El Context Engineer presenta el grafo y pregunta a cada Dev Lead: *"¿Puedes ide
 | **Decision Log distribuido** | El Decision Log existe y está accesible. | El formato incluye campos de track, impacto estimado y urgencia. El sistema de visibilidad en tiempo real está operativo. |
 | **Protocolo de sincronización** | — | Las sincronizaciones de integración están programadas en el grafo. Cada Dev Lead conoce cuáles le afectan. |
 
-## Paso 2: Construcción guiada por Story Files
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Paso 2. Construcción guiada por Story Files" summary="Ejecutar Story Files según el grafo de dependencias, activando en paralelo los tracks cuya independencia se ha verificado.">
 
 **Duración estimada:** Variable según complejidad
 
@@ -74,7 +76,8 @@ Para cada Story File, el ciclo tiene cuatro momentos:
 | **Outputs incompatibles** | Dos tracks implementan la misma interfaz de forma distinta. | Stop de ambos tracks. El Context Engineer define la interfaz como nueva Regla. |
 | **Skill de integración falla** | Los Skills individuales están validados pero la integración falla. | Stop del Skill de integración. El Tech Lead convoca sincronización de emergencia. |
 
-## Paso 3: Gestión de gaps durante la construcción
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Paso 3. Gestión de gaps durante la construcción" summary="Detectar, clasificar y escalar gaps antes de que se propaguen entre tracks y multipliquen el retrabajo.">
 
 Los gaps son inevitables. En construcción paralela, un gap en un track puede invalidar el trabajo en otro track. La velocidad de detección y comunicación es el factor que más determina el coste total de la fase.
 
@@ -116,7 +119,8 @@ Categorización de fallos bloqueantes detectados por el QA Agent durante la inte
 En equipos paralelos, un gap que permanece invisible durante más de un día hábil tiene un coste exponencial: cada Story File completado sobre esa base incorrecta multiplica el retrabajo. La cultura del equipo debe hacer que reportar un gap sea un acto de profesionalismo, no una confesión de error.
 :::
 
-## Paso 4: Revisión de fidelidad
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Paso 4. Revisión de fidelidad" summary="Verificar fidelidad al Problem Statement y Solution Brief en dimensiones vertical y horizontal.">
 
 **Duración estimada:** 1-3 días
 
@@ -137,7 +141,8 @@ El orden importa: **la dimensión horizontal va primero.** Presentar a los stake
 | **Bloque 2 — Fidelidad al Solution Brief** | Lo construido refleja la solución acordada. | Stakeholders de la Fase 2 | Reconocen el sistema como la solución que aprobaron. |
 | **Bloque 3 — Revisión del Decision Log** | Las decisiones de todos los tracks que modificaron el contexto son consistentes. | Context Engineer + Tech Lead + stakeholders | No hay decisiones que contradigan el Problem Statement sin justificación documentada. |
 
-## Paso 5: Cierre del Decision Log y preparación para Market Phase
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Paso 5. Cierre del Decision Log y preparación para Market Phase" summary="Consolidar Decision Logs de todos los tracks y preparar el Context Document para Market Phase.">
 
 **Duración estimada:** 0,5 a 1 día
 
@@ -153,3 +158,6 @@ Los Decision Logs de los distintos tracks se fusionan en un registro único. No 
 ### Preparación del Context Document
 
 El Context Document que entra a la Fase 5 refleja el sistema construido en todos sus tracks. Las Reglas emergidas están incorporadas. El grafo de dependencias está actualizado. El Iteration Brief recoge los aprendizajes abiertos de todos los tracks.
+
+</StepAccordionItem>
+</StepAccordion>

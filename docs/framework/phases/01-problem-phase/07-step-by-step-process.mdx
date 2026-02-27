@@ -7,13 +7,14 @@ sidebar_position: 1
 tags: [phases, problem-phase, research, active-listening]
 ---
 
-import {SaturationChart, RadarChart} from '@site/src/components/ProcessInfographic';
+import {SaturationChart, RadarChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # The step-by-step process
 
 Problem Phase is not a free-form activity. It's a structured process with four clear steps, each with a specific purpose and a partial deliverable that feeds the next. Discipline in the sequence is what differentiates a rigorous discovery from a well-intentioned conversation.
 
-## Step 1. Discovery Kick-off
+<StepAccordion>
+<StepAccordionItem number={1} title="Step 1. Discovery Kick-off" summary="Align scope, build the Actor Map, document starting hypotheses, and design the Interview Guide.">
 
 *Estimated duration: 1 session of 2-3 hours*
 
@@ -48,7 +49,8 @@ This last point is crucial. Every team arrives at discovery with prior hypothese
 **Scope:** Explore the inventory visibility problem. Out of scope: transportation logistics.
 :::
 
-## Step 2. In-depth interviews
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Step 2. In-depth interviews" summary="Structured conversations designed to extract the real experience of the people who live the problem.">
 
 *Estimated duration: 45-60 minutes per interview × minimum 5 interviews*
 
@@ -102,7 +104,8 @@ Qualitative research adheres to the law of diminishing returns. By the 5th inter
 
 The number 5 is not arbitrary. It comes from decades of usability research: after 5 well-conducted interviews, the core patterns stabilize. More interviews refine the nuances but rarely change the fundamental findings.
 
-## Step 3. Findings synthesis
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Step 3. Findings synthesis" summary="The team meets with all notes and works together to identify patterns, tensions, and the real problem.">
 
 *Estimated duration: 1-2 sessions of 3-4 hours with the full team*
 
@@ -134,7 +137,8 @@ At the end of synthesis, the team must be able to answer a single question: **"W
 
 If you can't answer this question with a single clear sentence, the synthesis isn't finished.
 
-## Step 4. Drafting and validating the Problem Statement
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Step 4. Drafting and validating the Problem Statement" summary="The clearest expression of the real problem, validated with users and Decision Owner.">
 
 *Estimated duration: 1-2 days of drafting + 2-3 days of validation*
 
@@ -153,3 +157,6 @@ A validated problem must score high across multiple dimensions. Comparing a **va
 />
 
 The radar makes visible what intuition hides. A problem that scores 90 on Business Viability but 30 on User Resonance is not a validated problem. It is a business hypothesis disguised as a user need.
+
+</StepAccordionItem>
+</StepAccordion>

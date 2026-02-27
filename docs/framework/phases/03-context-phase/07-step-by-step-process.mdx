@@ -7,13 +7,14 @@ sidebar_position: 1
 tags: [phases, context-phase, process, agents, rules, skills]
 ---
 
-import {WeightChart, EffortChart} from '@site/src/components/ProcessInfographic';
+import {WeightChart, EffortChart, StepAccordion, StepAccordionItem} from '@site/src/components/ProcessInfographic';
 
 # The step-by-step process
 
 Context Phase is not a creative writing exercise. It's a structured translation process that converts the human understanding captured in Phases 1 and 2 into a system that AI can process faithfully. Every step has a clear purpose, a concrete deliverable, and a validation criterion.
 
-## Step 1. Establish Rules (project-context.md)
+<StepAccordion>
+<StepAccordionItem number={1} title="Step 1. Establish Rules (project-context.md)" summary="Create the project-context.md constitution: extract every global decision from the Solution Brief and calibrate precision levels.">
 
 *Estimated duration: 1-2 days*
 
@@ -83,7 +84,8 @@ Before moving to Step 2, apply this validation: an Agent that receives only the 
 
 If any answer is missing, the Rules are incomplete.
 
-## Step 2. Design the Agent Chain
+</StepAccordionItem>
+<StepAccordionItem number={2} title="Step 2. Design the Agent Chain" summary="Define the chain of specialized Agents that will translate the Solution Brief into a complete context system.">
 
 *Estimated duration: 1-2 days*
 
@@ -143,7 +145,8 @@ Each Agent transforms the previous one's output, but never contradicts it, never
 
 Think of it like a relay race: each runner carries the same baton. They can run their leg faster or slower, but they can't change what's in the baton. When the SM Agent creates the final Skills, they're faithful to the original Problem Statement because every link in the chain was governed by the same Rules.
 
-## Step 3. Generate Strategic Documents
+</StepAccordionItem>
+<StepAccordionItem number={3} title="Step 3. Generate Strategic Documents" summary="Produce the PRD and Architecture Document — the intermediate layer between Rules and Skills.">
 
 *Estimated duration: 2-5 days (depends on project complexity)*
 
@@ -185,7 +188,8 @@ The Architect Agent decides: "All services communicate via REST with JSON &#123;
 This ADR gets promoted to a **Level 5 Rule** in project-context.md. Now every Agent building any API Skill automatically inherits this constraint. The Rule carries the "why" so that if a future situation isn't covered, the Agent understands the reasoning.
 :::
 
-## Step 4. Decompose into Skills
+</StepAccordionItem>
+<StepAccordionItem number={4} title="Step 4. Decompose into Skills" summary="Break everything into self-contained Skills that development Agents will execute.">
 
 *Estimated duration: 2-5 days*
 
@@ -225,7 +229,8 @@ If the answer is no, context is missing. Add it to the Skill — don't assume th
 - **Constraints:** Stock quantities are always integers (Level 5 Rule). OAuth 2.0 authentication required (Level 5 Rule).
 :::
 
-## Step 5. Validate through Outputs
+</StepAccordionItem>
+<StepAccordionItem number={5} title="Step 5. Validate through Outputs" summary="Run the system, judge the results, and iterate until outputs faithfully express the Problem Statement.">
 
 *Estimated duration: 1-3 days*
 
@@ -264,3 +269,6 @@ When outputs don't match expectations, identify where the problem lies:
 :::tip When outputs surprise you
 The most revealing validation is when an output is technically correct but doesn't "feel right" to stakeholders. This usually signals a Rule that's missing, not an Agent that's broken. The Agent followed all Rules faithfully — the problem is that the Rules didn't capture something the team assumed was obvious. Make it explicit, add the Rule, and run the validation again.
 :::
+
+</StepAccordionItem>
+</StepAccordion>
