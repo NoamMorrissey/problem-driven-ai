@@ -8,6 +8,7 @@ tags: [framework, fases, market-phase, ejecucion, artefactos]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 5. Market phase
 
@@ -37,25 +38,43 @@ Market Phase opera como un sistema de bucles anidados con diferentes cadencias: 
 
 Esta fase produce cinco artefactos que operan como un sistema integrado: las señales se capturan, se interpretan, actualizan el Context Document con trazabilidad completa y alimentan el siguiente ciclo a través del Iteration Brief.
 
-1. **Signal Log** — Registro estructurado de señales del mercado: señal observada, fuente, nivel (1-5), hipótesis de causa, elemento del Context Document afectado, urgencia, acción propuesta y estado.
-   **Formato:** Registro estructurado con plantilla (Google Sheets).
-   **Construye:** Product Lead + Data Lead. Alimentación continua y semanal-mensual.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Signal Log">
+    Registro estructurado de señales del mercado: señal observada, fuente, nivel (1-5), hipótesis de causa, elemento del Context Document afectado, urgencia, acción propuesta y estado.
 
-2. **Context Update Record** — Trazabilidad entre señales y cambios en el Context Document: señales de origen, hipótesis validada, elemento modificado, cambio (antes/después/justificación), aprobado por, impacto.
-   **Formato:** Registro cronológico con plantilla (hoja de cálculo).
-   **Construye:** Context Engineer. Se genera con cada cambio al Context Document.
+    **Formato:** Registro estructurado con plantilla (Google Sheets).
 
-3. **Iteration Brief** — Documento que cierra el ciclo: qué se aprendió, estado del Context Document, preguntas abiertas, foco del próximo ciclo, KPIs prioritarios.
-   **Formato:** Documento estructurado con plantilla (Google Docs).
-   **Construye:** Product Lead con input del equipo. Cadencia mensual o trimestral.
+    **Construye:** Product Lead + Data Lead. Alimentación continua y semanal-mensual.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Update Record">
+    Trazabilidad entre señales y cambios en el Context Document: señales de origen, hipótesis validada, elemento modificado, cambio (antes/después/justificación), aprobado por, impacto.
 
-4. **KPI Dashboard** — Visualización en tiempo real del movimiento de KPIs con alertas automáticas cuando se cruzan umbrales definidos.
-   **Formato:** Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets).
-   **Construye:** Data Lead. Actualización automática en tiempo real.
+    **Formato:** Registro cronológico con plantilla (hoja de cálculo).
 
-5. **Context Document (versión viva)** — project-context.md, PRD, Story Files y KPI Register actualizados continuamente basándose en señales del mercado.
-   **Formato:** Archivos Markdown (misma estructura que Fases 3-4).
-   **Construye:** Context Engineer + Product Lead. Actualización continua.
+    **Construye:** Context Engineer. Se genera con cada cambio al Context Document.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief">
+    Documento que cierra el ciclo: qué se aprendió, estado del Context Document, preguntas abiertas, foco del próximo ciclo, KPIs prioritarios.
+
+    **Formato:** Documento estructurado con plantilla (Google Docs).
+
+    **Construye:** Product Lead con input del equipo. Cadencia mensual o trimestral.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="KPI Dashboard">
+    Visualización en tiempo real del movimiento de KPIs con alertas automáticas cuando se cruzan umbrales definidos.
+
+    **Formato:** Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets).
+
+    **Construye:** Data Lead. Actualización automática en tiempo real.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Document (versión viva)">
+    project-context.md, PRD, Story Files y KPI Register actualizados continuamente basándose en señales del mercado.
+
+    **Formato:** Archivos Markdown (misma estructura que Fases 3-4).
+
+    **Construye:** Context Engineer + Product Lead. Actualización continua.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ---
 

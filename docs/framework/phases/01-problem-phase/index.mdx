@@ -8,6 +8,7 @@ tags: [framework, phases, problem-phase, execution, artifacts]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, CostChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 1. Problem phase
 
@@ -34,21 +35,36 @@ Problem Phase is a structured four-step process that guides the team from identi
 
 This phase produces four artifacts that together form the foundation for Phase 2. Each one captures a distinct type of knowledge: who surrounds the problem, what questions to ask, what patterns emerge from listening, and what the distilled definition of the real problem is.
 
-1. **Actor Map** — Visual map of everyone who touches the problem: who lives it, who decides whether it gets solved, who is affected by the solution, and who has information the team isn't seeing.
-   **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
-   **Built by:** The full team during the kick-off.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Actor Map">
+    Visual map of everyone who touches the problem: who lives it, who decides whether it gets solved, who is affected by the solution, and who has information the team isn't seeing.
 
-2. **Interview Guide** — Open question guide in four blocks (opening, exploration, depth, closing), including at least one question designed to challenge the team's main hypothesis.
-   **Format:** Document (Google Docs).
-   **Built by:** The team during the kick-off, after the Actor Map.
+    **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
 
-3. **Synthesis Board** — Visual map of anonymized findings grouped by patterns, with affinities, tensions, outliers, and hypotheses explicitly confirmed or refuted.
-   **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
-   **Built by:** The full team in the synthesis session.
+    **Built by:** The full team during the kick-off.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Interview Guide">
+    Open question guide in four blocks (opening, exploration, depth, closing), including at least one question designed to challenge the team's main hypothesis.
 
-4. **Problem Statement** — Problem definition of no more than half a page with seven elements: the gap, the owner, the success criteria, the constraints, the actors, the temporal context, and the cost of inaction.
-   **Format:** Half-page maximum document (Google Docs).
-   **Built by:** The team. Validated by users and Decision Owner.
+    **Format:** Document (Google Docs).
+
+    **Built by:** The team during the kick-off, after the Actor Map.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Synthesis Board">
+    Visual map of anonymized findings grouped by patterns, with affinities, tensions, outliers, and hypotheses explicitly confirmed or refuted.
+
+    **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
+
+    **Built by:** The full team in the synthesis session.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Problem Statement">
+    Problem definition of no more than half a page with seven elements: the gap, the owner, the success criteria, the constraints, the actors, the temporal context, and the cost of inaction.
+
+    **Format:** Half-page maximum document (Google Docs).
+
+    **Built by:** The team. Validated by users and Decision Owner.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ## The cost of error
 

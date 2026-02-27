@@ -8,6 +8,7 @@ tags: [framework, fases, context-phase, ejecucion, artefactos]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, RadarChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 3. Context phase
 
@@ -35,29 +36,50 @@ Context Phase traduce la comprensión humana en un sistema que la IA puede proce
 
 Esta fase produce seis artefactos que juntos forman el sistema operativo para la Fase 4. A diferencia de las fases anteriores, aquí los artefactos los producen tanto humanos como Agentes de IA, y cada uno tiene productores y consumidores definidos dentro de la cadena.
 
-1. **project-context.md (Reglas)** — La constitución del proyecto. Normas globales que cada Agente carga antes de ejecutar cualquier Skill: stack, convenciones, restricciones, límites de Agentes, protocolo ante gaps, decisiones justificadas.
-   **Formato:** Archivo Markdown, 2-5 páginas. Vive en la raíz del proyecto.
-   **Construye:** Context Engineer (versión inicial). Architect Agent (actualizaciones).
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="project-context.md (Reglas)">
+    La constitución del proyecto. Normas globales que cada Agente carga antes de ejecutar cualquier Skill: stack, convenciones, restricciones, límites de Agentes, protocolo ante gaps, decisiones justificadas.
 
-2. **Definiciones de Agentes** — Fichas de identidad para cada rol de IA: quiénes son, qué hacen, qué no pueden hacer, qué Reglas los gobiernan, qué hacer cuando falta información.
-   **Formato:** Un documento Markdown por Agente o documento único con secciones separadas.
-   **Construye:** Context Engineer.
+    **Formato:** Archivo Markdown, 2-5 páginas. Vive en la raíz del proyecto.
 
-3. **PRD (Product Requirements Document)** — Qué construir, para quién, casos de uso, criterios de éxito, prioridades. Traducción del Solution Brief al lenguaje de producto.
-   **Formato:** Documento estructurado (Markdown, Google Docs).
-   **Construye:** PM Agent a partir del Solution Brief.
+    **Construye:** Context Engineer (versión inicial). Architect Agent (actualizaciones).
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Definiciones de Agentes">
+    Fichas de identidad para cada rol de IA: quiénes son, qué hacen, qué no pueden hacer, qué Reglas los gobiernan, qué hacer cuando falta información.
 
-4. **Architecture Document** — Decisiones técnicas (ADRs), modelo de datos, estrategia de IA, requisitos no funcionales. Sus decisiones se convierten en nuevas Reglas.
-   **Formato:** Documento con ADRs (Architecture Decision Records).
-   **Construye:** Architect Agent. Decisiones promovidas a project-context.md.
+    **Formato:** Un documento Markdown por Agente o documento único con secciones separadas.
 
-5. **Story Files (Skills)** — Tareas autocontenidas con objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. Cada Skill es una interacción entre un Agente y su trabajo.
-   **Formato:** Un archivo Markdown por Skill, cinco elementos obligatorios.
-   **Construye:** SM Agent.
+    **Construye:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="PRD (Product Requirements Document)">
+    Qué construir, para quién, casos de uso, criterios de éxito, prioridades. Traducción del Solution Brief al lenguaje de producto.
 
-6. **Decision Log** — Cada cambio a Reglas, Agentes o Skills desde su creación: fecha, qué cambió, por qué, quién autorizó, qué artefactos se vieron afectados.
-   **Formato:** Registro cronológico (Markdown, hoja de cálculo).
-   **Construye:** Todos los participantes. Continuo desde el primer documento.
+    **Formato:** Documento estructurado (Markdown, Google Docs).
+
+    **Construye:** PM Agent a partir del Solution Brief.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Architecture Document">
+    Decisiones técnicas (ADRs), modelo de datos, estrategia de IA, requisitos no funcionales. Sus decisiones se convierten en nuevas Reglas.
+
+    **Formato:** Documento con ADRs (Architecture Decision Records).
+
+    **Construye:** Architect Agent. Decisiones promovidas a project-context.md.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Story Files (Skills)">
+    Tareas autocontenidas con objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. Cada Skill es una interacción entre un Agente y su trabajo.
+
+    **Formato:** Un archivo Markdown por Skill, cinco elementos obligatorios.
+
+    **Construye:** SM Agent.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Log">
+    Cada cambio a Reglas, Agentes o Skills desde su creación: fecha, qué cambió, por qué, quién autorizó, qué artefactos se vieron afectados.
+
+    **Formato:** Registro cronológico (Markdown, hoja de cálculo).
+
+    **Construye:** Todos los participantes. Continuo desde el primer documento.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ## Calidad del sistema de contexto
 

@@ -8,6 +8,7 @@ tags: [framework, fases, alignment, ejecucion, artefactos]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 2. Solution phase
 
@@ -35,29 +36,50 @@ Solution Phase estructura en cinco pasos el camino desde la idea hasta el mandat
 
 Esta fase produce seis artefactos que juntos forman la base para la Fase 3. Los tres primeros capturan el trabajo intelectual de generar y evaluar soluciones. Los tres últimos registran la validación y empaquetan todo para la transferencia.
 
-1. **Ideation Board** — Registro visual de todas las soluciones generadas, agrupadas, con notas de por qué se descartaron las no seleccionadas. Memoria organizacional que evita reinventar lo ya evaluado.
-   **Formato:** Tablero visual colaborativo (Miro, FigJam, post-its).
-   **Construye:** El equipo completo durante la Divergencia.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Ideation Board">
+    Registro visual de todas las soluciones generadas, agrupadas, con notas de por qué se descartaron las no seleccionadas. Memoria organizacional que evita reinventar lo ya evaluado.
 
-2. **Árboles de Soluciones** — Descomposición de cada solución candidata en las cuatro dimensiones: negocio, modelo, arquitectura, datos. Hacen visible la complejidad que las ideas abstractas ocultan.
-   **Formato:** Tablero visual colaborativo o documento estructurado.
-   **Construye:** El equipo durante la Estructuración.
+    **Formato:** Tablero visual colaborativo (Miro, FigJam, post-its).
 
-3. **Registro de Asunciones** — Lista clasificada de todas las asunciones: verificadas, bajo riesgo, alto riesgo, desconocidas. Con planes de acción para las de alto riesgo.
-   **Formato:** Tabla (Google Sheets).
-   **Construye:** El equipo. Se inicia en la Estructuración y se actualiza en cada paso.
+    **Construye:** El equipo completo durante la Divergencia.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Árboles de Soluciones">
+    Descomposición de cada solución candidata en las cuatro dimensiones: negocio, modelo, arquitectura, datos. Hacen visible la complejidad que las ideas abstractas ocultan.
 
-4. **Decision Matrix** — Evaluación de soluciones candidatas contra criterios ponderados fijados antes de evaluar. Hace explícitas las razones de la elección.
-   **Formato:** Tabla con puntuaciones 1-5 y pesos por criterio (Google Sheets).
-   **Construye:** El equipo durante la Convergencia. Pesos fijados por el Decision Owner.
+    **Formato:** Tablero visual colaborativo o documento estructurado.
 
-5. **Feedback Log** — Registro acumulativo de todo el feedback de clientes y stakeholders: quién dijo qué, cómo se incorporó o por qué se descartó.
-   **Formato:** Registro cronológico (Google Docs, hoja de cálculo).
-   **Construye:** El facilitador durante las validaciones externa e interna.
+    **Construye:** El equipo durante la Estructuración.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Registro de Asunciones">
+    Lista clasificada de todas las asunciones: verificadas, bajo riesgo, alto riesgo, desconocidas. Con planes de acción para las de alto riesgo.
 
-6. **Solution Brief** — Documento de entrada a Fase 3: problema que resuelve, solución propuesta, decisiones y justificaciones, descomposición por dimensiones, asunciones activas, criterios de éxito, restricciones y Mapa de Traducibilidad.
-   **Formato:** Documento estructurado en 8 secciones (Google Docs).
-   **Construye:** PM / Product Owner con input del equipo.
+    **Formato:** Tabla (Google Sheets).
+
+    **Construye:** El equipo. Se inicia en la Estructuración y se actualiza en cada paso.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Matrix">
+    Evaluación de soluciones candidatas contra criterios ponderados fijados antes de evaluar. Hace explícitas las razones de la elección.
+
+    **Formato:** Tabla con puntuaciones 1-5 y pesos por criterio (Google Sheets).
+
+    **Construye:** El equipo durante la Convergencia. Pesos fijados por el Decision Owner.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Feedback Log">
+    Registro acumulativo de todo el feedback de clientes y stakeholders: quién dijo qué, cómo se incorporó o por qué se descartó.
+
+    **Formato:** Registro cronológico (Google Docs, hoja de cálculo).
+
+    **Construye:** El facilitador durante las validaciones externa e interna.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Solution Brief">
+    Documento de entrada a Fase 3: problema que resuelve, solución propuesta, decisiones y justificaciones, descomposición por dimensiones, asunciones activas, criterios de éxito, restricciones y Mapa de Traducibilidad.
+
+    **Formato:** Documento estructurado en 8 secciones (Google Docs).
+
+    **Construye:** PM / Product Owner con input del equipo.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ## Qué cubre esta guía
 

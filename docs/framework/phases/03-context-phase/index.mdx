@@ -8,6 +8,7 @@ tags: [framework, phases, context-phase, execution, artifacts]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, RadarChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 3. Context phase
 
@@ -35,29 +36,50 @@ Context Phase translates human understanding into a system that AI can process f
 
 This phase produces six artifacts that together form the operating system for Phase 4. Unlike previous phases, here artifacts are produced by both humans and AI Agents, and each has defined producers and consumers within the chain.
 
-1. **project-context.md (Rules)** — The project constitution. Global norms that every Agent loads before executing any Skill: stack, conventions, constraints, Agent limits, gap protocol, justified decisions.
-   **Format:** Markdown file, 2-5 pages. Lives in the project root.
-   **Built by:** Context Engineer (initial version). Architect Agent (updates).
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="project-context.md (Rules)">
+    The project constitution. Global norms that every Agent loads before executing any Skill: stack, conventions, constraints, Agent limits, gap protocol, justified decisions.
 
-2. **Agent Definitions** — Identity cards for each AI role: who they are, what they do, what they can't do, which Rules govern them, what to do when information is missing.
-   **Format:** One Markdown document per Agent or single document with separated sections.
-   **Built by:** Context Engineer.
+    **Format:** Markdown file, 2-5 pages. Lives in the project root.
 
-3. **PRD (Product Requirements Document)** — What to build, for whom, use cases, success criteria, priorities. Translation of the Solution Brief into product language.
-   **Format:** Structured document (Markdown, Google Docs).
-   **Built by:** PM Agent from the Solution Brief.
+    **Built by:** Context Engineer (initial version). Architect Agent (updates).
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Agent Definitions">
+    Identity cards for each AI role: who they are, what they do, what they can't do, which Rules govern them, what to do when information is missing.
 
-4. **Architecture Document** — Technical decisions (ADRs), data model, AI strategy, non-functional requirements. Its decisions become new Rules.
-   **Format:** Document with ADRs (Architecture Decision Records).
-   **Built by:** Architect Agent. Decisions promoted to project-context.md.
+    **Format:** One Markdown document per Agent or single document with separated sections.
 
-5. **Story Files (Skills)** — Self-contained tasks with objective, specific context, acceptance criteria, dependencies, and constraints. Each Skill is one interaction between an Agent and its work.
-   **Format:** One Markdown file per Skill, five mandatory elements.
-   **Built by:** SM Agent.
+    **Built by:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="PRD (Product Requirements Document)">
+    What to build, for whom, use cases, success criteria, priorities. Translation of the Solution Brief into product language.
 
-6. **Decision Log** — Every change to Rules, Agents, or Skills from their creation: date, what changed, why, who authorized it, which artifacts were affected.
-   **Format:** Chronological log (Markdown, spreadsheet).
-   **Built by:** All participants. Continuous from the first document.
+    **Format:** Structured document (Markdown, Google Docs).
+
+    **Built by:** PM Agent from the Solution Brief.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Architecture Document">
+    Technical decisions (ADRs), data model, AI strategy, non-functional requirements. Its decisions become new Rules.
+
+    **Format:** Document with ADRs (Architecture Decision Records).
+
+    **Built by:** Architect Agent. Decisions promoted to project-context.md.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Story Files (Skills)">
+    Self-contained tasks with objective, specific context, acceptance criteria, dependencies, and constraints. Each Skill is one interaction between an Agent and its work.
+
+    **Format:** One Markdown file per Skill, five mandatory elements.
+
+    **Built by:** SM Agent.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Log">
+    Every change to Rules, Agents, or Skills from their creation: date, what changed, why, who authorized it, which artifacts were affected.
+
+    **Format:** Chronological log (Markdown, spreadsheet).
+
+    **Built by:** All participants. Continuous from the first document.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ## Context system quality
 

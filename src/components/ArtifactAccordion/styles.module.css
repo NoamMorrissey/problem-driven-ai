@@ -1,0 +1,81 @@
+.accordion {
+  margin: 1.5rem 0;
+}
+
+.accordionItem {
+  border-bottom: 1px solid var(--pdai-border-color);
+}
+
+.accordionItemLast {
+  border-bottom: none;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.75rem 0;
+  text-align: left;
+  gap: 0.5rem;
+  border-radius: var(--pdai-border-radius-sm);
+}
+
+.accordionHeader:hover .accordionTitle {
+  color: var(--ifm-color-primary);
+}
+
+.accordionHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.accordionIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.accordionTitle {
+  font-family: var(--pdai-font-family-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.accordionChevron {
+  font-size: 1.5rem;
+  color: var(--ifm-font-color-secondary);
+  transition: transform 0.2s ease;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.accordionChevronOpen {
+  transform: rotate(90deg);
+}
+
+.accordionContent {
+  padding: 0 0 1rem 2.4rem;
+}
+
+.accordionContent > :first-child {
+  margin-top: 0;
+}
+
+.accordionContent p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
+  margin: 0 0 0.4rem;
+}

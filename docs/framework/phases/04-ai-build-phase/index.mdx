@@ -8,6 +8,7 @@ tags: [framework, phases, ai-build-phase, execution, artifacts]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 4. AI build phase
 
@@ -37,29 +38,50 @@ AI Build Phase executes construction in five steps that manage parallel tracks, 
 
 This phase produces six artifacts that record decisions made during construction, discovered dependencies, and validation that what was built is faithful to the original problem and solution.
 
-1. **Distributed Decision Log** — Chronological log of decisions per track with impact classification: local, cross-track, or global. One log per track, accessible to the entire team.
-   **Format:** Chronological log per track (Google Sheets, spreadsheet). Consolidated at closure.
-   **Built by:** Dev Leads per track. Context Engineer consolidates at closure.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Distributed Decision Log">
+    Chronological log of decisions per track with impact classification: local, cross-track, or global. One log per track, accessible to the entire team.
 
-2. **Updated dependency graph** — Directed graph with nodes (Story Files) and edges (dependencies). Inherited from Phase 3, updated when construction reveals undocumented dependencies.
-   **Format:** Directed graph (Miro, draw.io, diagramming tool).
-   **Built by:** SM Agent (Phase 3 origin). Updates authorized by Context Engineer.
+    **Format:** Chronological log per track (Google Sheets, spreadsheet). Consolidated at closure.
 
-3. **Integration synchronization minutes** — Interface contracts and resolutions when there are incompatibilities between tracks.
-   **Format:** Meeting minutes (Google Docs).
-   **Built by:** Tech Lead convenes. Context Engineer documents.
+    **Built by:** Dev Leads per track. Context Engineer consolidates at closure.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Updated dependency graph">
+    Directed graph with nodes (Story Files) and edges (dependencies). Inherited from Phase 3, updated when construction reveals undocumented dependencies.
 
-4. **Build Validation Report** — Fidelity review result across 4 blocks: integration coherence, Problem Statement fidelity, Solution Brief fidelity, and Decision Log review.
-   **Format:** Structured document in 4 blocks, signed.
-   **Built by:** Team. Signatories: Tech Lead, Phase 1-2 stakeholders, Context Engineer.
+    **Format:** Directed graph (Miro, draw.io, diagramming tool).
 
-5. **Updated Context Document** — project-context.md with all Rules emerged from construction, plus updated dependency graph and integration decisions.
-   **Format:** Markdown files (same structure as Phase 3).
-   **Built by:** Context Engineer.
+    **Built by:** SM Agent (Phase 3 origin). Updates authorized by Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Integration synchronization minutes">
+    Interface contracts and resolutions when there are incompatibilities between tracks.
 
-6. **Iteration Brief (draft)** — Hypotheses to validate, decisions pending market data, and assumptions that construction could neither confirm nor refute.
-   **Format:** Structured document (Google Docs).
-   **Built by:** Context Engineer / Product Lead with learnings from all tracks.
+    **Format:** Meeting minutes (Google Docs).
+
+    **Built by:** Tech Lead convenes. Context Engineer documents.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Build Validation Report">
+    Fidelity review result across 4 blocks: integration coherence, Problem Statement fidelity, Solution Brief fidelity, and Decision Log review.
+
+    **Format:** Structured document in 4 blocks, signed.
+
+    **Built by:** Team. Signatories: Tech Lead, Phase 1-2 stakeholders, Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Updated Context Document">
+    project-context.md with all Rules emerged from construction, plus updated dependency graph and integration decisions.
+
+    **Format:** Markdown files (same structure as Phase 3).
+
+    **Built by:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief (draft)">
+    Hypotheses to validate, decisions pending market data, and assumptions that construction could neither confirm nor refute.
+
+    **Format:** Structured document (Google Docs).
+
+    **Built by:** Context Engineer / Product Lead with learnings from all tracks.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ---
 

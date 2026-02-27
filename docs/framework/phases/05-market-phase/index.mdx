@@ -8,6 +8,7 @@ tags: [framework, phases, market-phase, execution, artifacts]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 5. Market phase
 
@@ -37,25 +38,43 @@ Market Phase operates as a system of nested loops with different cadences: the i
 
 This phase produces five artifacts that operate as an integrated system: signals are captured, interpreted, update the Context Document with full traceability, and feed the next cycle through the Iteration Brief.
 
-1. **Signal Log** — Structured record of market signals: observed signal, source, level (1-5), cause hypothesis, affected Context Document element, urgency, proposed action, and status.
-   **Format:** Structured log with template (Google Sheets).
-   **Built by:** Product Lead + Data Lead. Continuous and weekly-monthly feeding.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Signal Log">
+    Structured record of market signals: observed signal, source, level (1-5), cause hypothesis, affected Context Document element, urgency, proposed action, and status.
 
-2. **Context Update Record** — Traceability between signals and Context Document changes: source signals, validated hypothesis, modified element, change (before/after/justification), approved by, impact.
-   **Format:** Chronological log with template (spreadsheet).
-   **Built by:** Context Engineer. Generated with every Context Document change.
+    **Format:** Structured log with template (Google Sheets).
 
-3. **Iteration Brief** — Document closing the cycle: what was learned, Context Document state, open questions, next cycle focus, priority KPIs.
-   **Format:** Structured document with template (Google Docs).
-   **Built by:** Product Lead with team input. Monthly or quarterly cadence.
+    **Built by:** Product Lead + Data Lead. Continuous and weekly-monthly feeding.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Update Record">
+    Traceability between signals and Context Document changes: source signals, validated hypothesis, modified element, change (before/after/justification), approved by, impact.
 
-4. **KPI Dashboard** — Real-time KPI movement visualization with automatic alerts when defined thresholds are crossed.
-   **Format:** Dashboard connected to verified sources (Looker, Metabase, Google Sheets).
-   **Built by:** Data Lead. Automatic real-time updates.
+    **Format:** Chronological log with template (spreadsheet).
 
-5. **Context Document (living version)** — project-context.md, PRD, Story Files, and KPI Register continuously updated based on market signals.
-   **Format:** Markdown files (same structure as Phases 3-4).
-   **Built by:** Context Engineer + Product Lead. Continuous updates.
+    **Built by:** Context Engineer. Generated with every Context Document change.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief">
+    Document closing the cycle: what was learned, Context Document state, open questions, next cycle focus, priority KPIs.
+
+    **Format:** Structured document with template (Google Docs).
+
+    **Built by:** Product Lead with team input. Monthly or quarterly cadence.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="KPI Dashboard">
+    Real-time KPI movement visualization with automatic alerts when defined thresholds are crossed.
+
+    **Format:** Dashboard connected to verified sources (Looker, Metabase, Google Sheets).
+
+    **Built by:** Data Lead. Automatic real-time updates.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Document (living version)">
+    project-context.md, PRD, Story Files, and KPI Register continuously updated based on market signals.
+
+    **Format:** Markdown files (same structure as Phases 3-4).
+
+    **Built by:** Context Engineer + Product Lead. Continuous updates.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ---
 

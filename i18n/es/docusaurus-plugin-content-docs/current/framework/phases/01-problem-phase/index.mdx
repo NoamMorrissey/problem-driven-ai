@@ -8,6 +8,7 @@ tags: [framework, fases, discovery, ejecucion, artefactos]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline, CostChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 1. Problem phase
 
@@ -34,21 +35,36 @@ El Problem Phase es un proceso estructurado en cuatro pasos que guían al equipo
 
 Esta fase produce cuatro artefactos que juntos forman la base para la Fase 2. Cada uno captura un tipo de conocimiento distinto: quién rodea el problema, qué preguntas hacerle, qué patrones emergen de escuchar, y cuál es la definición destilada del problema real.
 
-1. **Mapa de Actores** — Mapa visual de todos los que tocan el problema: quién lo vive, quién decide si se resuelve, quién se ve afectado por la solución y quién tiene información que el equipo no está viendo.
-   **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
-   **Construye:** El equipo completo durante el kick-off.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Mapa de Actores">
+    Mapa visual de todos los que tocan el problema: quién lo vive, quién decide si se resuelve, quién se ve afectado por la solución y quién tiene información que el equipo no está viendo.
 
-2. **Interview Guide** — Guía de preguntas abiertas en cuatro bloques (apertura, exploración, profundidad, cierre), incluyendo al menos una pregunta diseñada para desafiar la hipótesis principal del equipo.
-   **Formato:** Documento (Google Docs).
-   **Construye:** El equipo durante el kick-off, después del Mapa de Actores.
+    **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
 
-3. **Synthesis Board** — Mapa visual de hallazgos anonimizados agrupados por patrones, con afinidades, tensiones, outliers e hipótesis explícitamente confirmadas o refutadas.
-   **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
-   **Construye:** El equipo completo en la sesión de síntesis.
+    **Construye:** El equipo completo durante el kick-off.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Interview Guide">
+    Guía de preguntas abiertas en cuatro bloques (apertura, exploración, profundidad, cierre), incluyendo al menos una pregunta diseñada para desafiar la hipótesis principal del equipo.
 
-4. **Problem Statement** — Definición del problema de no más de media página con siete elementos: la brecha, el dueño, el criterio de éxito, las restricciones, los actores, el contexto temporal y el coste de la inacción.
-   **Formato:** Documento de media página máximo (Google Docs).
-   **Construye:** El equipo. Validado por usuarios y Decision Owner.
+    **Formato:** Documento (Google Docs).
+
+    **Construye:** El equipo durante el kick-off, después del Mapa de Actores.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Synthesis Board">
+    Mapa visual de hallazgos anonimizados agrupados por patrones, con afinidades, tensiones, outliers e hipótesis explícitamente confirmadas o refutadas.
+
+    **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
+
+    **Construye:** El equipo completo en la sesión de síntesis.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Problem Statement">
+    Definición del problema de no más de media página con siete elementos: la brecha, el dueño, el criterio de éxito, las restricciones, los actores, el contexto temporal y el coste de la inacción.
+
+    **Formato:** Documento de media página máximo (Google Docs).
+
+    **Construye:** El equipo. Validado por usuarios y Decision Owner.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ## El coste del error
 

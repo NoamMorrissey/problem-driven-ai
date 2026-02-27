@@ -8,6 +8,7 @@ tags: [framework, fases, ai-build-phase, ejecucion, artefactos]
 
 import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
 import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
 
 # 4. AI build phase
 
@@ -37,29 +38,50 @@ AI Build Phase ejecuta la construcción en cinco pasos que gestionan tracks para
 
 Esta fase produce seis artefactos que registran las decisiones tomadas durante la construcción, las dependencias descubiertas y la validación de que lo construido es fiel al problema y la solución originales.
 
-1. **Decision Log distribuido** — Registro cronológico de decisiones por track con clasificación de impacto: local, cruzado o global. Un log por track, accesible para todo el equipo.
-   **Formato:** Registro cronológico por track (Google Sheets, hoja de cálculo). Se consolidan al cierre.
-   **Construye:** Dev Leads por track. Context Engineer consolida al cierre.
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Decision Log distribuido">
+    Registro cronológico de decisiones por track con clasificación de impacto: local, cruzado o global. Un log por track, accesible para todo el equipo.
 
-2. **Grafo de dependencias actualizado** — Grafo dirigido con nodos (Story Files) y aristas (dependencias). Heredado de Fase 3, actualizado cuando la construcción revela dependencias no documentadas.
-   **Formato:** Grafo dirigido (Miro, draw.io, herramienta de diagramas).
-   **Construye:** SM Agent (origen Fase 3). Actualizaciones autorizadas por Context Engineer.
+    **Formato:** Registro cronológico por track (Google Sheets, hoja de cálculo). Se consolidan al cierre.
 
-3. **Actas de sincronización de integración** — Contratos de interfaz y resoluciones cuando hay incompatibilidades entre tracks.
-   **Formato:** Acta de reunión (Google Docs).
-   **Construye:** Tech Lead convoca. Context Engineer documenta.
+    **Construye:** Dev Leads por track. Context Engineer consolida al cierre.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Grafo de dependencias actualizado">
+    Grafo dirigido con nodos (Story Files) y aristas (dependencias). Heredado de Fase 3, actualizado cuando la construcción revela dependencias no documentadas.
 
-4. **Build Validation Report** — Resultado de la revisión de fidelidad en 4 bloques: coherencia de integración, fidelidad al Problem Statement, fidelidad al Solution Brief y revisión del Decision Log.
-   **Formato:** Documento estructurado en 4 bloques, firmado.
-   **Construye:** Equipo. Firman: Tech Lead, stakeholders Fase 1-2, Context Engineer.
+    **Formato:** Grafo dirigido (Miro, draw.io, herramienta de diagramas).
 
-5. **Context Document actualizado** — project-context.md con todas las Reglas emergidas de la construcción, más grafo de dependencias e integraciones actualizados.
-   **Formato:** Archivos Markdown (misma estructura que Fase 3).
-   **Construye:** Context Engineer.
+    **Construye:** SM Agent (origen Fase 3). Actualizaciones autorizadas por Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Actas de sincronización de integración">
+    Contratos de interfaz y resoluciones cuando hay incompatibilidades entre tracks.
 
-6. **Iteration Brief (borrador)** — Hipótesis a validar, decisiones pendientes de datos de mercado y asunciones que la construcción no pudo confirmar ni refutar.
-   **Formato:** Documento estructurado (Google Docs).
-   **Construye:** Context Engineer / Product Lead con aprendizajes de todos los tracks.
+    **Formato:** Acta de reunión (Google Docs).
+
+    **Construye:** Tech Lead convoca. Context Engineer documenta.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Build Validation Report">
+    Resultado de la revisión de fidelidad en 4 bloques: coherencia de integración, fidelidad al Problem Statement, fidelidad al Solution Brief y revisión del Decision Log.
+
+    **Formato:** Documento estructurado en 4 bloques, firmado.
+
+    **Construye:** Equipo. Firman: Tech Lead, stakeholders Fase 1-2, Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Document actualizado">
+    project-context.md con todas las Reglas emergidas de la construcción, más grafo de dependencias e integraciones actualizados.
+
+    **Formato:** Archivos Markdown (misma estructura que Fase 3).
+
+    **Construye:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief (borrador)">
+    Hipótesis a validar, decisiones pendientes de datos de mercado y asunciones que la construcción no pudo confirmar ni refutar.
+
+    **Formato:** Documento estructurado (Google Docs).
+
+    **Construye:** Context Engineer / Product Lead con aprendizajes de todos los tracks.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
 
 ---
 
