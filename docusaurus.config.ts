@@ -227,6 +227,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
     image: 'img/social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
