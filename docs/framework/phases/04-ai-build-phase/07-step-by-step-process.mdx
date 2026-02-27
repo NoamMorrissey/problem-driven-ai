@@ -7,6 +7,8 @@ sidebar_position: 1
 tags: [framework, phases, ai-build-phase, process, step-by-step]
 ---
 
+import {EffortChart} from '@site/src/components/ProcessInfographic';
+
 # The step-by-step process
 
 Phase 4 has five steps. The first three — Setup, Story File Construction, and Gap Management — are the operational core. The last two — Fidelity Review and Decision Log Closure — certify that the phase is complete.
@@ -93,6 +95,22 @@ Gaps are inevitable. In parallel construction, a gap in one track can invalidate
 - **Rules gap:** Stop the Story File. The Context Engineer resolves before any track continues. Maximum deadline: the same business day.
 - **Architecture gap:** Full stop. Return to Phase 3.
 - **Cross-track coherence gap:** The Tech Lead calls an emergency synchronization within the next 2 hours.
+
+### Gap distribution
+
+Categorization of blocking failures detected by the QA Agent during integration.
+
+<EffortChart segments={[
+  {label: 'Specification', percent: 40, color: 'var(--ifm-color-primary)'},
+  {label: 'Rules', percent: 30, color: 'var(--ifm-color-danger)'},
+  {label: 'Data', percent: 20, color: 'var(--ifm-color-success)'},
+  {label: 'Architecture', percent: 10, color: 'var(--ifm-color-info)'},
+]} />
+
+- **Specification gaps** — The Agent cannot complete the Skill without ambiguity. If it affects a shared contract, all tracks using it must stop.
+- **Rules gaps** — Skills in different tracks produce inconsistencies invisible until integration. New Rule required; all Agents reload.
+- **Data gaps** — Data not available in the expected format or quality. If shared, all consuming tracks must stop.
+- **Architecture gaps** — An architecture decision is unfeasible. Full stop. Return to Phase 3.
 
 :::tip The transparent gap rule
 In parallel teams, a gap that remains invisible for more than one business day has exponential cost: every Story File completed on that incorrect foundation multiplies rework. The team culture must make reporting a gap an act of professionalism, not a confession of error.

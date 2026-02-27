@@ -37,11 +37,6 @@ const sidebars: SidebarsConfig = {
       id: 'framework/artifacts',
       label: 'Artifacts',
     },
-    {
-      type: 'doc',
-      id: 'framework/proceso-fase-4',
-      label: 'Phase 4 Process',
-    },
   ],
   resourcesSidebar: [
     {

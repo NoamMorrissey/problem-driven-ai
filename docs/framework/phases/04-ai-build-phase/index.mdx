@@ -7,6 +7,7 @@ tags: [framework, phases, ai-build-phase, execution, artifacts]
 ---
 
 import DocCardList from '@theme/DocCardList';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
 
 # 4. AI build phase
 
@@ -14,15 +15,23 @@ import DocCardList from '@theme/DocCardList';
 
 This section contains the operational guide for executing Phase 4. While the [methodology section](/phases/ai-build-phase) explains the why and the concepts, this guide details the **how**: the concrete steps, templates, artifacts, and validation criteria.
 
-### The process in five steps
+<StatCardGrid>
+  <StatCard value="5" label="Phase steps" description="From Setup to Closure" />
+  <StatCard value="10" label="Gate Review conditions" description="Integration checklist" />
+  <StatCard value="6" label="Final artifacts" description="Transferred to Phase 5" />
+</StatCardGrid>
 
-| Step | Name | Main output |
-|---|---|---|
-| 1 | **Environment setup** | Aligned team, verified graph, operational Decision Log |
-| 2 | **Story File construction** | Story Files completed and validated by QA |
-| 3 | **Gap management** | Gaps classified and resolved, Rules updated |
-| 4 | **Fidelity review** | Signed Build Validation Report |
-| 5 | **Decision Log closure** | Consolidated Decision Log, Iteration Brief |
+## Technical execution and fidelity map
+
+Parallel track management, collision detection, and stakeholder validation.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Environment setup', description: 'Collective briefing, three-read context test, and implicit dependency graph verification.', owner: 'Verified Environment'},
+  {number: 2, title: '2. Story File construction', description: 'Agent execution under Dev Lead supervision. Decision classification: Local, Cross-track, or Global.', owner: 'Validated Skills'},
+  {number: 3, title: '3. Gap management', description: 'QA Agent detects inconsistencies. Gap classification: Specification, Rules, Architecture, or Data.', owner: 'Updated Decision Log'},
+  {number: 4, title: '4. Fidelity review', description: 'Triple validation: Technical (system), Phase 1 stakeholders (problem), and Phase 2 stakeholders (solution).', owner: 'Build Validation Report'},
+  {number: 5, title: '5. Decision Log closure', description: 'Decision Log consolidation and Iteration Brief drafting with cross-track learnings.', owner: 'Updated Context Document'},
+]} />
 
 ### Phase artifacts
 
