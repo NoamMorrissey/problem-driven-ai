@@ -21,25 +21,41 @@ This section contains the operational guide for executing Phase 5. While the [me
   <StatCard value="∞" label="Cycle" description="Continuous learning" />
 </StatCardGrid>
 
-## Operational process guide
+## The Market Phase workflow
 
-A system of nested loops to ensure that learning produces action.
+Market Phase operates as a system of nested loops with different cadences: the innermost captures signals continuously and automatically, the middle one interprets them weekly and monthly, and the outermost reviews strategy quarterly. The five steps ensure that market learning produces tangible action: each signal is captured, interpreted, updates the Context Document with full traceability, and feeds the next cycle through the Iteration Brief.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Measurement system activation', description: 'KPI Register connection to verified sources with precise formulas and alert thresholds.', owner: 'Connected KPIs + operational Signal Log'},
-  {number: 2, title: '2. Signal capture', description: 'Background system operating permanently. Signal Log feeding without prior interpretation.', owner: '3-layer ingestion'},
-  {number: 3, title: '3. Signal interpretation', description: 'Does it confirm the assumption? What causes it? What must change? Five whys technique for root cause.', owner: 'Classified signals'},
-  {number: 4, title: '4. Context Document update', description: 'Tangible update of Rules, Story Files, or PRD. If there is no change, no value was produced.', owner: 'Context Update Record'},
-  {number: 5, title: '5. Iteration Brief', description: 'Next cycle focus definition based on learnings and priority KPIs.', owner: 'Cycle opening'},
+  {number: 1, title: '1. Measurement system activation', description: 'KPI Register connection to verified data sources with precise formulas and defined alert thresholds.', owner: 'Connected KPIs + operational Signal Log'},
+  {number: 2, title: '2. Signal capture', description: 'Continuous background system. Three ingestion layers: automatic (KPIs), structured (feedback), and contextual (market).', owner: 'Fed Signal Log'},
+  {number: 3, title: '3. Signal interpretation', description: 'Does it confirm or refute an assumption? What causes it? What context element must change? Five whys technique.', owner: 'Classified signals'},
+  {number: 4, title: '4. Context Document update', description: 'Tangible update of Rules, Story Files, or PRD with full traceability to the originating signal.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Document closing the learning cycle: what was learned, what changed, and what the next cycle focus is.', owner: 'New cycle opening'},
 ]} />
 
 ### Phase artifacts
 
-- **Signal Log** — Structured record of market signals with source, hypothesis, and urgency
-- **Context Update Record** — Traceability between market signals and context changes
-- **Iteration Brief** — Cycle learnings, Context Document state, next cycle focus
-- **KPI Dashboard** — Real-time KPI movement visualization with alerts
-- **Context Document (living version)** — Updated project-context.md, PRD, Story Files, and KPI Register
+This phase produces five artifacts that operate as an integrated system: signals are captured, interpreted, update the Context Document with full traceability, and feed the next cycle through the Iteration Brief.
+
+1. **Signal Log** — Structured record of market signals: observed signal, source, level (1-5), cause hypothesis, affected Context Document element, urgency, proposed action, and status.
+   **Format:** Structured log with template (Google Sheets).
+   **Built by:** Product Lead + Data Lead. Continuous and weekly-monthly feeding.
+
+2. **Context Update Record** — Traceability between signals and Context Document changes: source signals, validated hypothesis, modified element, change (before/after/justification), approved by, impact.
+   **Format:** Chronological log with template (spreadsheet).
+   **Built by:** Context Engineer. Generated with every Context Document change.
+
+3. **Iteration Brief** — Document closing the cycle: what was learned, Context Document state, open questions, next cycle focus, priority KPIs.
+   **Format:** Structured document with template (Google Docs).
+   **Built by:** Product Lead with team input. Monthly or quarterly cadence.
+
+4. **KPI Dashboard** — Real-time KPI movement visualization with automatic alerts when defined thresholds are crossed.
+   **Format:** Dashboard connected to verified sources (Looker, Metabase, Google Sheets).
+   **Built by:** Data Lead. Automatic real-time updates.
+
+5. **Context Document (living version)** — project-context.md, PRD, Story Files, and KPI Register continuously updated based on market signals.
+   **Format:** Markdown files (same structure as Phases 3-4).
+   **Built by:** Context Engineer + Product Lead. Continuous updates.
 
 ---
 

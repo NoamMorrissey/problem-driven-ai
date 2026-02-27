@@ -21,25 +21,41 @@ Esta sección contiene la guía operativa para ejecutar la Fase 5. Mientras la [
   <StatCard value="∞" label="Ciclo" description="Aprendizaje continuo" />
 </StatCardGrid>
 
-## Guía operativa del proceso
+## El flujo de Market Phase
 
-Un sistema de bucles anidados para garantizar que el aprendizaje produce acción.
+Market Phase opera como un sistema de bucles anidados con diferentes cadencias: el más interno captura señales de forma continua y automática, el intermedio las interpreta semanal y mensualmente, y el más externo revisa la estrategia cada trimestre. Los cinco pasos garantizan que el aprendizaje del mercado produce acción tangible: cada señal se captura, se interpreta, actualiza el Context Document con trazabilidad completa, y alimenta el siguiente ciclo a través del Iteration Brief.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Activación del sistema de medición', description: 'Conexión del KPI Register a fuentes verificadas con fórmulas precisas y umbrales de alerta.', owner: 'KPIs conectados + Signal Log operativo'},
-  {number: 2, title: '2. Captura de señales', description: 'Sistema de fondo operando permanentemente. Alimentación del Signal Log sin interpretación previa.', owner: 'Ingesta de 3 capas'},
-  {number: 3, title: '3. Interpretación de señales', description: '¿Confirma asunción? ¿Qué la causa? ¿Qué debe cambiar? Técnica de los 5 por qués para causa raíz.', owner: 'Señales clasificadas'},
-  {number: 4, title: '4. Actualización del Context Document', description: 'Actualización tangible de Reglas, Story Files o PRD. Si no hay cambio, no hay valor producido.', owner: 'Context Update Record'},
-  {number: 5, title: '5. Iteration Brief', description: 'Definición del foco del próximo ciclo basado en aprendizajes y KPI prioritarios.', owner: 'Apertura de ciclo'},
+  {number: 1, title: '1. Activación del sistema de medición', description: 'Conexión del KPI Register a fuentes de datos verificadas con fórmulas precisas y umbrales de alerta definidos.', owner: 'KPIs conectados + Signal Log operativo'},
+  {number: 2, title: '2. Captura de señales', description: 'Sistema continuo operando en segundo plano. Tres capas de ingesta: automática (KPIs), estructurada (feedback) y contextual (mercado).', owner: 'Signal Log alimentado'},
+  {number: 3, title: '3. Interpretación de señales', description: '¿Confirma o refuta una asunción? ¿Qué la causa? ¿Qué elemento del contexto debe cambiar? Técnica de los 5 por qués.', owner: 'Señales clasificadas'},
+  {number: 4, title: '4. Actualización del Context Document', description: 'Actualización tangible de Reglas, Story Files o PRD con trazabilidad completa a la señal de origen.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Documento que cierra el ciclo de aprendizaje: qué se aprendió, qué cambió y cuál es el foco del próximo ciclo.', owner: 'Apertura de nuevo ciclo'},
 ]} />
 
 ### Artefactos de esta fase
 
-- **Signal Log:** Registro estructurado de señales del mercado con fuente, hipótesis y urgencia
-- **Context Update Record:** Trazabilidad entre señales del mercado y cambios del contexto
-- **Iteration Brief:** Aprendizajes del ciclo, estado del Context Document, foco del próximo ciclo
-- **KPI Dashboard:** Visualización en tiempo real del movimiento de KPIs con alertas
-- **Context Document (versión viva):** project-context.md, PRD, Story Files y KPI Register actualizados
+Esta fase produce cinco artefactos que operan como un sistema integrado: las señales se capturan, se interpretan, actualizan el Context Document con trazabilidad completa y alimentan el siguiente ciclo a través del Iteration Brief.
+
+1. **Signal Log** — Registro estructurado de señales del mercado: señal observada, fuente, nivel (1-5), hipótesis de causa, elemento del Context Document afectado, urgencia, acción propuesta y estado.
+   **Formato:** Registro estructurado con plantilla (Google Sheets).
+   **Construye:** Product Lead + Data Lead. Alimentación continua y semanal-mensual.
+
+2. **Context Update Record** — Trazabilidad entre señales y cambios en el Context Document: señales de origen, hipótesis validada, elemento modificado, cambio (antes/después/justificación), aprobado por, impacto.
+   **Formato:** Registro cronológico con plantilla (hoja de cálculo).
+   **Construye:** Context Engineer. Se genera con cada cambio al Context Document.
+
+3. **Iteration Brief** — Documento que cierra el ciclo: qué se aprendió, estado del Context Document, preguntas abiertas, foco del próximo ciclo, KPIs prioritarios.
+   **Formato:** Documento estructurado con plantilla (Google Docs).
+   **Construye:** Product Lead con input del equipo. Cadencia mensual o trimestral.
+
+4. **KPI Dashboard** — Visualización en tiempo real del movimiento de KPIs con alertas automáticas cuando se cruzan umbrales definidos.
+   **Formato:** Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets).
+   **Construye:** Data Lead. Actualización automática en tiempo real.
+
+5. **Context Document (versión viva)** — project-context.md, PRD, Story Files y KPI Register actualizados continuamente basándose en señales del mercado.
+   **Formato:** Archivos Markdown (misma estructura que Fases 3-4).
+   **Construye:** Context Engineer + Product Lead. Actualización continua.
 
 ---
 

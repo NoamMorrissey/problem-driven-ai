@@ -19,41 +19,36 @@ Esta es la guía operativa para ejecutar el Problem Phase, la fase en la que el 
   <StatCard value="100%" label="Gate Review" description="Todos los criterios deben cumplirse" />
 </StatCardGrid>
 
-## El flujo de Discovery
+## El flujo de Problem Phase
 
-Esta vista lineal representa el camino central desde la identificación de un problema hasta pasar la Gate Review final. Requiere coordinación entre el Facilitador, el Investigador y el Decision Owner.
+El Problem Phase es un proceso estructurado en cuatro pasos que guían al equipo desde la identificación de un problema hasta su definición validada. Cada paso produce un entregable que alimenta al siguiente: el kick-off establece el mapa de actores y las hipótesis, las entrevistas generan hallazgos en bruto, la síntesis convierte esos hallazgos en patrones, y el Problem Statement destila todo en una definición que tanto usuarios como el Decision Owner reconocen como real. La disciplina en la secuencia es lo que diferencia un discovery riguroso de una conversación bien intencionada.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Preparación e hipótesis', description: 'Definir alcance, mapear actores y documentar suposiciones iniciales (e hipótesis invertidas).', owner: 'Facilitador'},
-  {number: 2, title: '2. Ejecución de la investigación', description: 'Reclutar mínimo 5 candidatos. Ejecutar entrevistas en profundidad de 45-60 min. Capturar notas en bruto.', owner: 'Investigador'},
-  {number: 3, title: '3. Síntesis y 5 Whys', description: 'Mapear hallazgos en el tablero de síntesis. Identificar causas raíz vs síntomas usando la técnica de los 5 Whys.', owner: 'Facilitador'},
-  {number: 4, title: '4. Validación dual', description: 'Pistas paralelas: validar resonancia con usuarios y viabilidad/coste con el Decision Owner.', owner: 'Compartido'},
-  {number: 5, title: '5. Gate Review', description: 'Lista de verificación final. Si se valida: avanzar a Solution Phase. Si no: cancelar o pivotar.', owner: 'Facilitador'},
+  {number: 1, title: '1. Kick-off de Discovery', description: 'Alinear alcance, construir el Mapa de Actores, documentar hipótesis de partida y diseñar la Interview Guide.', owner: 'Mapa de Actores + Interview Guide'},
+  {number: 2, title: '2. Entrevistas en profundidad', description: 'Conversaciones estructuradas de 45-60 min con mínimo 5 personas que viven el problema. Captura de notas literales sin interpretación.', owner: 'Hallazgos en bruto'},
+  {number: 3, title: '3. Síntesis de hallazgos', description: 'El equipo agrupa hallazgos por patrones, identifica tensiones y outliers, y destila el problema real que emerge de los datos.', owner: 'Synthesis Board'},
+  {number: 4, title: '4. Redacción y validación del Problem Statement', description: 'Destilación del problema en un documento de media página. Validación dual: resonancia con usuarios y viabilidad con el Decision Owner.', owner: 'Problem Statement validado'},
 ]} />
-
-## El proceso de un vistazo
-
-El Problem Phase es un proceso estructurado con cuatro pasos claros. Cada paso tiene un propósito específico y produce un entregable parcial que alimenta al siguiente. La disciplina en la secuencia es lo que diferencia un discovery riguroso de una conversación bien intencionada.
-
-| Paso | Qué ocurre | Duración | Resultado clave |
-|---|---|---|---|
-| **1. Kick-off de Discovery** | Alinear alcance, construir el Mapa de Actores, documentar hipótesis de partida y sus inversiones, diseñar la Interview Guide, asignar roles. | 1 sesión (2-3h) | Mapa de Actores + Interview Guide |
-| **2. Entrevistas en profundidad** | Conversaciones estructuradas con las personas que viven el problema. Mínimo 5 entrevistas con diversidad de roles y perspectivas. | 45-60 min × 5+ entrevistas | Hallazgos en bruto (notas literales, sin interpretación aún) |
-| **3. Síntesis de hallazgos** | El equipo completo agrupa hallazgos anonimizados por patrones, identifica tensiones y outliers, y destila el problema real que emerge de los datos. | 1-2 sesiones (3-4h cada una) | Synthesis Board |
-| **4. Problem Statement** | Redactar, iterar y validar la definición del problema a dos niveles: con usuarios que lo viven y con el dueño de la decisión. | 1-2 días de redacción + 2-3 días de validación | Problem Statement (validado) |
-
-La secuencia importa. Un kick-off sin Mapa de Actores produce entrevistas con puntos ciegos. Entrevistas sin guía producen datos inconsistentes. Síntesis antes de completar todas las entrevistas produce conclusiones ancladas. Un Problem Statement sin validación externa produce falsa confianza.
 
 ## Los cuatro artefactos
 
-Esta fase produce cuatro artefactos que juntos forman la base para la Fase 2 (Solution Phase):
+Esta fase produce cuatro artefactos que juntos forman la base para la Fase 2. Cada uno captura un tipo de conocimiento distinto: quién rodea el problema, qué preguntas hacerle, qué patrones emergen de escuchar, y cuál es la definición destilada del problema real.
 
-1. **Mapa de Actores:** Mapa visual de todos los que tocan el problema: quién lo vive, quién decide si se resuelve, quién se ve afectado por la solución, quién ha intentado resolverlo antes y quién tiene información que el equipo no está viendo.
-2. **Interview Guide:** Guía de preguntas abiertas estructurada en cuatro bloques (apertura, exploración, profundidad, cierre), incluyendo al menos una pregunta diseñada para desafiar la hipótesis principal del equipo.
-3. **Synthesis Board:** Mapa visual de hallazgos anonimizados agrupados por patrones, con agrupaciones por afinidad, tensiones identificadas, outliers e hipótesis explícitamente confirmadas o refutadas.
-4. **Problem Statement:** Definición del problema de no más de media página con siete elementos: la brecha, el dueño, el criterio de éxito, las restricciones, los actores, el contexto temporal y el coste de la inacción.
+1. **Mapa de Actores** — Mapa visual de todos los que tocan el problema: quién lo vive, quién decide si se resuelve, quién se ve afectado por la solución y quién tiene información que el equipo no está viendo.
+   **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
+   **Construye:** El equipo completo durante el kick-off.
 
-Ninguno de estos artefactos es opcional. Son la evidencia de que el trabajo se hizo con rigor y la memoria que alimenta todo lo que viene después. Cuando el equipo pasa el Gate Review, estos cuatro documentos viajan juntos a la Fase 2, contienen el problema definido, las personas que lo rodean, la evidencia que lo sustenta y el método con el que se descubrió.
+2. **Interview Guide** — Guía de preguntas abiertas en cuatro bloques (apertura, exploración, profundidad, cierre), incluyendo al menos una pregunta diseñada para desafiar la hipótesis principal del equipo.
+   **Formato:** Documento (Google Docs).
+   **Construye:** El equipo durante el kick-off, después del Mapa de Actores.
+
+3. **Synthesis Board** — Mapa visual de hallazgos anonimizados agrupados por patrones, con afinidades, tensiones, outliers e hipótesis explícitamente confirmadas o refutadas.
+   **Formato:** Tablero visual colaborativo (Miro, FigJam o pizarra física).
+   **Construye:** El equipo completo en la sesión de síntesis.
+
+4. **Problem Statement** — Definición del problema de no más de media página con siete elementos: la brecha, el dueño, el criterio de éxito, las restricciones, los actores, el contexto temporal y el coste de la inacción.
+   **Formato:** Documento de media página máximo (Google Docs).
+   **Construye:** El equipo. Validado por usuarios y Decision Owner.
 
 ## El coste del error
 

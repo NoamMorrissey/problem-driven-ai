@@ -21,26 +21,45 @@ This section contains the operational guide for executing Phase 4. While the [me
   <StatCard value="6" label="Final artifacts" description="Transferred to Phase 5" />
 </StatCardGrid>
 
-## Technical execution and fidelity map
+## The AI Build Phase workflow
 
-Parallel track management, collision detection, and stakeholder validation.
+AI Build Phase executes construction in five steps that manage parallel tracks, detect collisions between them, and validate the result with the original stakeholders. The environment is verified before building anything. Agents execute Story Files under human supervision. Gaps are classified and resolved in real time. The fidelity review confirms that what was built solves the original problem and respects the agreed solution. Closure consolidates learnings for the market cycle.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Environment setup', description: 'Collective briefing, three-read context test, and implicit dependency graph verification.', owner: 'Verified Environment'},
-  {number: 2, title: '2. Story File construction', description: 'Agent execution under Dev Lead supervision. Decision classification: Local, Cross-track, or Global.', owner: 'Validated Skills'},
-  {number: 3, title: '3. Gap management', description: 'QA Agent detects inconsistencies. Gap classification: Specification, Rules, Architecture, or Data.', owner: 'Updated Decision Log'},
-  {number: 4, title: '4. Fidelity review', description: 'Triple validation: Technical (system), Phase 1 stakeholders (problem), and Phase 2 stakeholders (solution).', owner: 'Build Validation Report'},
-  {number: 5, title: '5. Decision Log closure', description: 'Decision Log consolidation and Iteration Brief drafting with cross-track learnings.', owner: 'Updated Context Document'},
+  {number: 1, title: '1. Environment setup', description: 'Collective briefing, three-read context test, and implicit dependency graph verification between Story Files.', owner: 'Verified environment'},
+  {number: 2, title: '2. Story File-driven construction', description: 'Agent execution under Dev Lead supervision. Decision classification: Local, Cross-track, or Global.', owner: 'Completed Skills'},
+  {number: 3, title: '3. Gap management during construction', description: 'QA Agent detects inconsistencies between built output and context. Classification: Specification, Rules, Architecture, or Data.', owner: 'Updated Decision Log'},
+  {number: 4, title: '4. Fidelity review', description: 'Triple validation: Technical (system works), Phase 1 (solves the problem), and Phase 2 (implements the agreed solution).', owner: 'Build Validation Report'},
+  {number: 5, title: '5. Decision Log closure', description: 'Decision Log consolidation across all tracks and Iteration Brief drafting with cross-track learnings.', owner: 'Updated Context Document'},
 ]} />
 
 ### Phase artifacts
 
-- **Distributed Decision Log** — One log per track with cross-impact classification
-- **Updated dependency graph** — Reference document for activating/deactivating tracks
-- **Integration synchronization minutes** — Interface contracts and resolutions
-- **Build Validation Report** — Signed by Tech Lead and Phase 1-2 stakeholders
-- **Updated Context Document** — Rules emerged during construction incorporated
-- **Iteration Brief (draft)** — Open learnings for Phase 5
+This phase produces six artifacts that record decisions made during construction, discovered dependencies, and validation that what was built is faithful to the original problem and solution.
+
+1. **Distributed Decision Log** — Chronological log of decisions per track with impact classification: local, cross-track, or global. One log per track, accessible to the entire team.
+   **Format:** Chronological log per track (Google Sheets, spreadsheet). Consolidated at closure.
+   **Built by:** Dev Leads per track. Context Engineer consolidates at closure.
+
+2. **Updated dependency graph** — Directed graph with nodes (Story Files) and edges (dependencies). Inherited from Phase 3, updated when construction reveals undocumented dependencies.
+   **Format:** Directed graph (Miro, draw.io, diagramming tool).
+   **Built by:** SM Agent (Phase 3 origin). Updates authorized by Context Engineer.
+
+3. **Integration synchronization minutes** — Interface contracts and resolutions when there are incompatibilities between tracks.
+   **Format:** Meeting minutes (Google Docs).
+   **Built by:** Tech Lead convenes. Context Engineer documents.
+
+4. **Build Validation Report** — Fidelity review result across 4 blocks: integration coherence, Problem Statement fidelity, Solution Brief fidelity, and Decision Log review.
+   **Format:** Structured document in 4 blocks, signed.
+   **Built by:** Team. Signatories: Tech Lead, Phase 1-2 stakeholders, Context Engineer.
+
+5. **Updated Context Document** — project-context.md with all Rules emerged from construction, plus updated dependency graph and integration decisions.
+   **Format:** Markdown files (same structure as Phase 3).
+   **Built by:** Context Engineer.
+
+6. **Iteration Brief (draft)** — Hypotheses to validate, decisions pending market data, and assumptions that construction could neither confirm nor refute.
+   **Format:** Structured document (Google Docs).
+   **Built by:** Context Engineer / Product Lead with learnings from all tracks.
 
 ---
 

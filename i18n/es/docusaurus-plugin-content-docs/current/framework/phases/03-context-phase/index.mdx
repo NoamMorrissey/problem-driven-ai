@@ -19,44 +19,45 @@ Esta es la guía operativa para ejecutar el Context Phase — la fase en la que 
   <StatCard value="6" label="Artefactos" description="Transferidos a Fase 4" />
 </StatCardGrid>
 
-## El mapa de ejecución
+## El flujo de Context Phase
 
-Cinco pasos en secuencia estricta. Cada paso se construye sobre el anterior — los artefactos posteriores dependen de decisiones anteriores. Las Reglas van primero porque todo lo demás depende de ellas. La validación va al final porque prueba el sistema completo.
+Context Phase traduce la comprensión humana en un sistema que la IA puede procesar fielmente, a través de cinco pasos en secuencia estricta. Las Reglas van primero porque todo lo demás depende de ellas. Los Agentes se diseñan antes que los Skills porque los Skills necesitan saber quién los ejecutará. Los documentos estratégicos van antes de la descomposición porque los Skills se derivan de ellos. La validación va al final porque prueba el sistema completo, no las piezas individuales.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Establecer Reglas', description: 'Definir la constitución del proyecto: stack tecnológico, convenciones, restricciones, límites de Agentes, protocolo ante gaps. Todas las decisiones globales.', owner: 'project-context.md'},
-  {number: 2, title: '2. Diseñar Cadena de Agentes', description: 'Definir qué Agentes existen, qué hace cada uno y cómo se pasan el trabajo. Cada uno con identidad, responsabilidades, límites, reglas y protocolo ante gaps.', owner: 'Definiciones de Agentes'},
-  {number: 3, title: '3. Documentos Estratégicos', description: 'El PM Agent produce el PRD a partir del Solution Brief. El Architect Agent produce el Architecture Document y promueve nuevas Reglas.', owner: 'PRD + Architecture'},
+  {number: 1, title: '1. Establecer Reglas', description: 'Definir la constitución del proyecto: stack, convenciones, restricciones, límites de Agentes y protocolo ante gaps. Todas las decisiones globales.', owner: 'project-context.md'},
+  {number: 2, title: '2. Diseñar la Cadena de Agentes', description: 'Definir qué Agentes existen, qué hace cada uno y cómo se pasan el trabajo. Cada uno con identidad, responsabilidades, límites y protocolo ante gaps.', owner: 'Definiciones de Agentes'},
+  {number: 3, title: '3. Generar Documentos Estratégicos', description: 'El PM Agent produce el PRD a partir del Solution Brief. El Architect Agent produce el Architecture Document y promueve nuevas Reglas.', owner: 'PRD + Architecture Document'},
   {number: 4, title: '4. Descomponer en Skills', description: 'El SM Agent descompone la solución en tareas autocontenidas con todo el contexto que un Agente necesita para completarlas.', owner: 'Story Files'},
-  {number: 5, title: '5. Validar a través de Outputs', description: 'Los Agentes ejecutan Skills de muestra bajo las Reglas. Los stakeholders verifican: "¿Es esto reconocible como una expresión fiel de lo que acordamos?"', owner: 'Sistema Validado'},
+  {number: 5, title: '5. Validar a través de Outputs', description: 'Los Agentes ejecutan Skills de muestra bajo las Reglas. Los stakeholders verifican que el output sea una expresión fiel de lo acordado.', owner: 'Sistema de contexto validado'},
 ]} />
-
-## El proceso de un vistazo
-
-El Context Phase es un proceso estructurado con cinco pasos. Cada paso se construye sobre el anterior — la secuencia importa porque los artefactos posteriores dependen de decisiones anteriores.
-
-| Paso | Qué sucede | Duración | Output clave |
-|---|---|---|---|
-| **1. Establecer Reglas** | Definir la constitución del proyecto: stack tecnológico, convenciones, restricciones, límites de Agentes, protocolo ante gaps. Todas las decisiones que aplican globalmente. | 1-2 días | project-context.md (v1) |
-| **2. Diseñar la Cadena de Agentes** | Definir qué Agentes existen, qué hace cada uno y cómo se pasan el trabajo entre sí. Cada uno con identidad, responsabilidades, límites, reglas y protocolo ante gaps. | 1-2 días | Definiciones de Agentes |
-| **3. Generar Documentos Estratégicos** | El PM Agent produce el PRD a partir del Solution Brief; el Architect Agent produce el Architecture Document y promueve nuevas Reglas. | 2-5 días | PRD + Architecture Document + Reglas actualizadas |
-| **4. Descomponer en Skills** | El SM Agent descompone la solución en tareas autocontenidas con todo el contexto que un Agente necesita para completarlas. | 2-5 días | Story Files (Skills) |
-| **5. Validar a través de Outputs** | Los Agentes ejecutan Skills de muestra bajo las Reglas. Los stakeholders verifican: "¿Es esto reconocible como una expresión fiel de lo que acordamos?" | 1-3 días | Sistema de contexto validado |
-
-La secuencia es estricta. Las Reglas van primero porque todo lo demás depende de ellas. Los Agentes van antes que los Skills porque los Skills necesitan saber qué Agente los ejecutará. Los documentos estratégicos van antes que los Skills porque los Skills se descomponen a partir de ellos. La validación va al final porque prueba el sistema completo, no las piezas individuales.
 
 ## Los seis artefactos
 
-Esta fase produce seis artefactos que juntos forman el sistema operativo para la Fase 4 (AI Build Phase):
+Esta fase produce seis artefactos que juntos forman el sistema operativo para la Fase 4. A diferencia de las fases anteriores, aquí los artefactos los producen tanto humanos como Agentes de IA, y cada uno tiene productores y consumidores definidos dentro de la cadena.
 
-1. **project-context.md (Reglas)** — La constitución. Normas globales que cada Agente carga antes de ejecutar cualquier Skill: stack tecnológico, convenciones, restricciones, límites de Agentes, protocolo ante gaps, decisiones justificadas.
+1. **project-context.md (Reglas)** — La constitución del proyecto. Normas globales que cada Agente carga antes de ejecutar cualquier Skill: stack, convenciones, restricciones, límites de Agentes, protocolo ante gaps, decisiones justificadas.
+   **Formato:** Archivo Markdown, 2-5 páginas. Vive en la raíz del proyecto.
+   **Construye:** Context Engineer (versión inicial). Architect Agent (actualizaciones).
+
 2. **Definiciones de Agentes** — Fichas de identidad para cada rol de IA: quiénes son, qué hacen, qué no pueden hacer, qué Reglas los gobiernan, qué hacer cuando falta información.
-3. **PRD (Product Requirements Document)** — Qué construir, para quién, casos de uso, criterios de éxito, prioridades. Producido por el PM Agent a partir del Solution Brief.
-4. **Architecture Document** — Decisiones técnicas (ADRs), modelo de datos, estrategia de IA, requisitos no funcionales. Producido por el Architect Agent — y críticamente, sus decisiones se convierten en nuevas Reglas.
-5. **Story Files (Skills)** — Tareas autocontenidas con objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. Cada Skill es una interacción entre un Agente y su trabajo.
-6. **Decision Log** — Cada cambio a Reglas, Agentes o Skills desde su creación. Trazabilidad continua.
+   **Formato:** Un documento Markdown por Agente o documento único con secciones separadas.
+   **Construye:** Context Engineer.
 
-Ninguno de estos artefactos funciona solo. El project-context.md sin Definiciones de Agentes es un manual de políticas sin nadie que lo aplique. Las Definiciones de Agentes sin Skills son roles sin trabajo. Los Skills sin Reglas son tareas sin estándares.
+3. **PRD (Product Requirements Document)** — Qué construir, para quién, casos de uso, criterios de éxito, prioridades. Traducción del Solution Brief al lenguaje de producto.
+   **Formato:** Documento estructurado (Markdown, Google Docs).
+   **Construye:** PM Agent a partir del Solution Brief.
+
+4. **Architecture Document** — Decisiones técnicas (ADRs), modelo de datos, estrategia de IA, requisitos no funcionales. Sus decisiones se convierten en nuevas Reglas.
+   **Formato:** Documento con ADRs (Architecture Decision Records).
+   **Construye:** Architect Agent. Decisiones promovidas a project-context.md.
+
+5. **Story Files (Skills)** — Tareas autocontenidas con objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. Cada Skill es una interacción entre un Agente y su trabajo.
+   **Formato:** Un archivo Markdown por Skill, cinco elementos obligatorios.
+   **Construye:** SM Agent.
+
+6. **Decision Log** — Cada cambio a Reglas, Agentes o Skills desde su creación: fecha, qué cambió, por qué, quién autorizó, qué artefactos se vieron afectados.
+   **Formato:** Registro cronológico (Markdown, hoja de cálculo).
+   **Construye:** Todos los participantes. Continuo desde el primer documento.
 
 ## Calidad del sistema de contexto
 

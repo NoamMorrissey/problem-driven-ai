@@ -21,26 +21,45 @@ Esta sección contiene la guía operativa para ejecutar la Fase 4. Mientras la [
   <StatCard value="6" label="Artefactos finales" description="Transferidos a Fase 5" />
 </StatCardGrid>
 
-## Mapa de ejecución técnica y fidelidad
+## El flujo de AI Build Phase
 
-Gestión de tracks paralelos, detección de colisiones y validación de stakeholders.
+AI Build Phase ejecuta la construcción en cinco pasos que gestionan tracks paralelos, detectan colisiones entre ellos y validan el resultado con los stakeholders originales. El entorno se verifica antes de construir nada. Los Agentes ejecutan Story Files bajo supervisión humana. Los gaps se clasifican y resuelven en tiempo real. La revisión de fidelidad confirma que lo construido resuelve el problema original y respeta la solución acordada. El cierre consolida los aprendizajes para el ciclo de mercado.
 
 <ProcessTimeline steps={[
-  {number: 1, title: '1. Setup del entorno', description: 'Briefing colectivo, test de 3 lecturas del contexto y verificación del grafo de dependencias implícitas.', owner: 'Entorno verificado'},
-  {number: 2, title: '2. Construcción por Story Files', description: 'Ejecución de agentes bajo supervisión de Dev Leads. Clasificación de decisiones: Locales, Cruzadas o Globales.', owner: 'Skills validados'},
-  {number: 3, title: '3. Gestión de gaps', description: 'QA Agent detecta inconsistencias. Clasificación de gaps: Especificación, Reglas, Arquitectura o Datos.', owner: 'Decision Log actualizado'},
-  {number: 4, title: '4. Revisión de fidelidad', description: 'Triple validación: Técnica (sistema), Stakeholders Fase 1 (problema) y Fase 2 (solución).', owner: 'Build Validation Report'},
-  {number: 5, title: '5. Cierre del Decision Log', description: 'Consolidación de Decision Logs y redacción del Iteration Brief con aprendizajes transversales.', owner: 'Context Document actualizado'},
+  {number: 1, title: '1. Setup del entorno de construcción', description: 'Briefing colectivo, test de 3 lecturas del contexto y verificación del grafo de dependencias implícitas entre Story Files.', owner: 'Entorno verificado'},
+  {number: 2, title: '2. Construcción guiada por Story Files', description: 'Ejecución de Agentes bajo supervisión de Dev Leads. Clasificación de decisiones en Locales, Cruzadas o Globales.', owner: 'Skills completados'},
+  {number: 3, title: '3. Gestión de gaps durante la construcción', description: 'QA Agent detecta inconsistencias entre lo construido y el contexto. Clasificación: Especificación, Reglas, Arquitectura o Datos.', owner: 'Decision Log actualizado'},
+  {number: 4, title: '4. Revisión de fidelidad', description: 'Triple validación: Técnica (sistema funciona), Fase 1 (resuelve el problema) y Fase 2 (implementa la solución acordada).', owner: 'Build Validation Report'},
+  {number: 5, title: '5. Cierre del Decision Log', description: 'Consolidación de Decision Logs de todos los tracks y redacción del Iteration Brief con aprendizajes transversales.', owner: 'Context Document actualizado'},
 ]} />
 
 ### Artefactos de esta fase
 
-- **Decision Log distribuido:** Un log por track con clasificación de impacto cruzado
-- **Grafo de dependencias actualizado:** Documento de referencia para activar/desactivar tracks
-- **Actas de sincronización de integración:** Contratos de interfaz y resoluciones
-- **Build Validation Report:** Firmado por Tech Lead y stakeholders de Fases 1-2
-- **Context Document actualizado:** Reglas emergidas de la construcción incorporadas
-- **Iteration Brief (borrador):** Aprendizajes abiertos para la Fase 5
+Esta fase produce seis artefactos que registran las decisiones tomadas durante la construcción, las dependencias descubiertas y la validación de que lo construido es fiel al problema y la solución originales.
+
+1. **Decision Log distribuido** — Registro cronológico de decisiones por track con clasificación de impacto: local, cruzado o global. Un log por track, accesible para todo el equipo.
+   **Formato:** Registro cronológico por track (Google Sheets, hoja de cálculo). Se consolidan al cierre.
+   **Construye:** Dev Leads por track. Context Engineer consolida al cierre.
+
+2. **Grafo de dependencias actualizado** — Grafo dirigido con nodos (Story Files) y aristas (dependencias). Heredado de Fase 3, actualizado cuando la construcción revela dependencias no documentadas.
+   **Formato:** Grafo dirigido (Miro, draw.io, herramienta de diagramas).
+   **Construye:** SM Agent (origen Fase 3). Actualizaciones autorizadas por Context Engineer.
+
+3. **Actas de sincronización de integración** — Contratos de interfaz y resoluciones cuando hay incompatibilidades entre tracks.
+   **Formato:** Acta de reunión (Google Docs).
+   **Construye:** Tech Lead convoca. Context Engineer documenta.
+
+4. **Build Validation Report** — Resultado de la revisión de fidelidad en 4 bloques: coherencia de integración, fidelidad al Problem Statement, fidelidad al Solution Brief y revisión del Decision Log.
+   **Formato:** Documento estructurado en 4 bloques, firmado.
+   **Construye:** Equipo. Firman: Tech Lead, stakeholders Fase 1-2, Context Engineer.
+
+5. **Context Document actualizado** — project-context.md con todas las Reglas emergidas de la construcción, más grafo de dependencias e integraciones actualizados.
+   **Formato:** Archivos Markdown (misma estructura que Fase 3).
+   **Construye:** Context Engineer.
+
+6. **Iteration Brief (borrador)** — Hipótesis a validar, decisiones pendientes de datos de mercado y asunciones que la construcción no pudo confirmar ni refutar.
+   **Formato:** Documento estructurado (Google Docs).
+   **Construye:** Context Engineer / Product Lead con aprendizajes de todos los tracks.
 
 ---
 
