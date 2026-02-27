@@ -9,16 +9,16 @@ tags: [fases, context-phase, artefactos, project-context, prd]
 
 # Los artefactos de esta fase
 
-Cada fase de la metodología Problem-Driven AI produce artefactos específicos. No son opcionales. Son la evidencia de que el trabajo se hizo con rigor y el sistema operativo que impulsa todo lo que viene después. En el Context Phase, los artefactos son seis:
+Cada fase de la metodología Problem-Driven AI produce artefactos específicos. No son opcionales. Son la evidencia de que el trabajo se hizo con rigor y el sistema operativo que impulsa todo lo que viene después. A diferencia de fases anteriores, en Context Phase los artefactos son producidos tanto por humanos como por Agentes de IA, y cada uno tiene productores y consumidores definidos dentro de la cadena.
 
-| Artefacto | Elemento del trípode | Cuándo se crea | Quién lo produce | Quién lo consume |
-|---|---|---|---|---|
-| **project-context.md** | Reglas | Primero. Base de todo. Se actualiza cuando el Architect Agent genera nuevas Reglas. | Context Engineer (inicial), Architect Agent (actualizaciones) | Todos los Agentes, antes de cada Skill. |
-| **Definiciones de Agentes** | Agentes | Junto con las Reglas. Identidad, responsabilidades, límites, Reglas que aplican, protocolo ante gaps. | Context Engineer | Context Engineer (diseño), IA (ejecución). |
-| **PRD** | Documento estratégico | Después de las Reglas iniciales. Traducido del Solution Brief. | PM Agent | Architect Agent, SM Agent, QA Agent. |
-| **Architecture Document** | Estratégico (genera nuevas Reglas) | Después del PRD. Traducción técnica del PRD. | Architect Agent | SM Agent, Dev Agent, QA Agent. |
-| **Story Files (Skills)** | Skills | Después de PRD + Architecture. Tareas autocontenidas. | SM Agent | Dev Agent. Un Skill por interacción. |
-| **Decision Log** | Transversal (cambios en Reglas, Agentes, Skills) | Desde el primer documento. Continuo. | Todos los participantes | Context Engineer, QA Agent, todos. |
+| Artefacto | Formato | Construye |
+|---|---|---|
+| **project-context.md** | Archivo Markdown, 2-5 páginas. Raíz del proyecto | Context Engineer (inicial), Architect Agent (actualizaciones) |
+| **Definiciones de Agentes** | Un documento Markdown por Agente o único documento con secciones separadas | Context Engineer |
+| **PRD** | Documento estructurado (Markdown, Google Docs) | PM Agent a partir del Solution Brief |
+| **Architecture Document** | Documento con ADRs (Architecture Decision Records) | Architect Agent. Decisiones promovidas a project-context.md |
+| **Story Files (Skills)** | Un archivo Markdown por Skill, cinco elementos obligatorios | SM Agent |
+| **Decision Log** | Log cronológico (Markdown, hoja de cálculo) | Todos los participantes. Continuo desde el primer documento |
 
 ## Secuencia de creación
 
@@ -47,55 +47,66 @@ Solution Brief (de la Fase 2)
 
 El project-context.md se crea primero y se actualiza conforme el Architect Agent toma decisiones técnicas. El Decision Log corre de forma continua, registrando cada cambio desde el momento en que se crea el primer artefacto.
 
-## Artefacto 1: project-context.md (Reglas)
+## 1. project-context.md (Reglas)
 
 La constitución del proyecto. Contiene todas las Reglas que aplican globalmente: stack tecnológico, convenciones de código, restricciones de seguridad, reglas de integración, límites de Agentes, protocolo ante gaps y decisiones globales justificadas.
 
 - **Formato:** Documento Markdown con secciones claramente separadas y niveles de precisión explícitos para cada Regla.
+- **Construye:** Context Engineer (versión inicial). Architect Agent (actualizaciones cuando las decisiones técnicas generan nuevas Reglas).
+- **Consume:** Todos los Agentes, antes de cada Skill.
 - **Tamaño:** Típicamente 2-5 páginas. Si supera 10 páginas, probablemente estás sobre-especificando (decisiones de Nivel 1-2 que deberían delegarse).
 - **Validación:** La regla de las tres lecturas — un Agente que lea solo este documento puede responder: ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente?
 - **Ubicación:** La raíz del proyecto, accesible para todos los Agentes.
 
 Consulta la [página de Anatomía](/framework/fases/context-phase/anatomia-del-sistema-de-contexto) para la estructura completa y la plantilla.
 
-## Artefacto 2: Definiciones de Agentes
+## 2. Definiciones de Agentes
 
 Fichas de identidad para cada rol de IA en el proyecto. Cada definición incluye cinco elementos obligatorios: identidad, responsabilidades, límites, referencia a Reglas y protocolo ante gaps.
 
 - **Formato:** Un documento por Agente, o un único documento con secciones claramente separadas por Agente.
+- **Construye:** Context Engineer.
+- **Consume:** Context Engineer (diseño), IA (ejecución).
 - **Cadena estándar:** Analyst Agent, PM Agent, Architect Agent, SM Agent, QA Agent. Agentes adicionales según necesidad (Dev Agent, Design Agent, Data Agent).
 - **Validación:** Cada Agente tiene límites explícitos. Si la sección "Límites" está vacía, la definición está incompleta.
 
-## Artefacto 3: PRD (Product Requirements Document)
+## 3. PRD (Product Requirements Document)
 
 Qué construir, para quién y con qué prioridad. Producido por el PM Agent a partir del Solution Brief.
 
 - **Formato:** Documento estructurado con visión, casos de uso, criterios de éxito, restricciones, asunciones activas y prioridades.
+- **Construye:** PM Agent a partir del Solution Brief.
+- **Consume:** Architect Agent, SM Agent, QA Agent.
 - **Trazabilidad:** Cada sección debe trazarse al Problem Statement o al Solution Brief. Si una sección no se puede trazar, es invención o un gap.
-- **Consumidor clave:** El SM Agent usa el PRD para descomponer la solución en Skills. El QA Agent usa los criterios de éxito para validar outputs.
 
-## Artefacto 4: Architecture Document
+## 4. Architecture Document
 
 Decisiones técnicas que traducen el PRD en guía de implementación. Producido por el Architect Agent.
 
 - **Formato:** ADRs (Architecture Decision Records), modelo de datos, estrategia de IA, requisitos no funcionales.
+- **Construye:** Architect Agent.
+- **Consume:** SM Agent, Dev Agent, QA Agent.
 - **Función crítica:** Las decisiones de arquitectura se convierten en nuevas Reglas. El Architect Agent es el único Agente que actualiza el project-context.md.
 - **Trazabilidad:** Cada decisión técnica traza a un requisito del PRD. Cada promoción a Regla traza a un ADR.
 
-## Artefacto 5: Story Files (Skills)
+## 5. Story Files (Skills)
 
 Tareas autocontenidas que los Agentes de desarrollo ejecutan. Producidos por el SM Agent a partir del PRD y el Architecture Document.
 
 - **Formato:** Un archivo por Skill con cinco elementos: objetivo, contexto específico, criterios de aceptación, dependencias y restricciones.
+- **Construye:** SM Agent.
+- **Consume:** Dev Agent. Un Skill por interacción.
 - **Test de autocontención:** Un Agente que lea el Skill y el project-context.md puede completar la tarea sin preguntar nada.
 - **Tipos:** Atómico (una tarea), Compuesto (sub-tareas coordinadas), De integración (conecta outputs de otros Skills).
 - **Cantidad:** Depende de la complejidad del proyecto. Típicamente 10-20 para proyectos pequeños, 20-50 para medianos, 50+ para complejos.
 
-## Artefacto 6: Decision Log
+## 6. Decision Log
 
 Un registro continuo de cada cambio a Reglas, Agentes o Skills desde su creación.
 
 - **Formato:** Log cronológico con fecha, qué cambió, por qué, quién lo autorizó y qué artefactos se vieron afectados.
+- **Construye:** Todos los participantes. Continuo desde el primer documento.
+- **Consume:** Context Engineer, QA Agent, todos.
 - **Propósito:** Trazabilidad. Cuando surge una pregunta sobre "¿por qué existe esta Regla?" o "¿por qué se cambió este Skill?", la respuesta está en el log.
 - **Entradas clave:** Adiciones de Reglas, modificaciones de Reglas, cambios en límites de Agentes, actualizaciones de contexto de Skills, resoluciones de gaps, cambios en restricciones.
 

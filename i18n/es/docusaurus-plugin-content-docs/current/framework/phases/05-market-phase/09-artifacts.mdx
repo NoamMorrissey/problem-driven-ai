@@ -11,21 +11,42 @@ tags: [framework, fases, market-phase, artefactos, plantillas]
 
 La Fase 5 produce cinco artefactos que operan como un sistema integrado. Ninguno tiene valor aislado, su poder está en las conexiones entre ellos: las señales del Signal Log alimentan el Context Update Record, que documenta los cambios del Context Document, que se resume en el Iteration Brief, que define el foco del siguiente ciclo.
 
-## Mapa de artefactos
+| Artefacto | Formato | Construye |
+|---|---|---|
+| **Signal Log** | Registro estructurado con plantilla (Google Sheets) | Product Lead + Data Lead |
+| **Context Update Record** | Registro cronológico con plantilla (hoja de cálculo) | Context Engineer |
+| **Iteration Brief** | Documento estructurado con plantilla (Google Docs) | Product Lead con input del equipo |
+| **KPI Dashboard** | Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets) | Data Lead |
+| **Context Document (vivo)** | Archivos Markdown (misma estructura que Fases 3-4) | Context Engineer + Product Lead |
 
-| Artefacto | Cuándo se crea | Quién lo mantiene | Cadencia de actualización |
-|---|---|---|---|
-| **Signal Log** | Al activar el sistema de medición. | Product Lead + Data Lead. | Continua (capa automática), semanal-mensual (capas estructurada y contextual). |
-| **Context Update Record** | Al realizar la primera actualización del Context Document. | Context Engineer. | Con cada cambio al Context Document. |
-| **Iteration Brief** | Al inicio de cada ciclo de iteración. | Product Lead con input del equipo. | Mensual o trimestral según madurez. |
-| **KPI Dashboard** | Al activar el sistema de medición. | Data Lead. | Tiempo real (automático). |
-| **Context Document (vivo)** | Heredado de Fases 3 y 4. | Context Engineer. | Continua según señales del mercado. |
+## Secuencia de creación
+
+```
+Go-live
+  │
+  ├─→ KPI Dashboard (día 1)
+  ├─→ Signal Log (día 1)
+  │
+  │   [Semanas 1-4: captura y análisis intensivo]
+  │
+  ├─→ Context Update Record (primera actualización)
+  │
+  │   [Semana 4: cierre del primer ciclo]
+  │
+  └─→ Primer Iteration Brief
+```
+
+Después del primer ciclo, los artefactos se alimentan continuamente según las cadencias de los tres bucles del ciclo de iteración.
 
 ---
 
 ## 1. Signal Log
 
 El artefacto central de la Fase 5. Es la memoria del mercado.
+
+- **Formato:** Registro estructurado con plantilla (Google Sheets).
+- **Construye:** Product Lead + Data Lead. Alimentación continua (capa automática), semanal-mensual (capas estructurada y contextual).
+- **Cuándo se crea:** Al activar el sistema de medición (día 1).
 
 ### Estructura de cada entrada
 
@@ -59,6 +80,10 @@ El artefacto central de la Fase 5. Es la memoria del mercado.
 
 La trazabilidad entre el mercado y el contexto. En doce meses, permite reconstruir **por qué** el Context Document es como es.
 
+- **Formato:** Registro cronológico con plantilla (hoja de cálculo).
+- **Construye:** Context Engineer. Se genera con cada cambio al Context Document.
+- **Cuándo se crea:** Al realizar la primera actualización del Context Document.
+
 ### Estructura de cada entrada
 
 ```
@@ -86,6 +111,10 @@ En seis meses, nuevos miembros del equipo pueden entender por qué cada Regla ex
 ## 3. Iteration Brief
 
 El puente entre ciclos. Sin él, cada ciclo empieza desde cero en lugar de desde donde el anterior terminó.
+
+- **Formato:** Documento estructurado con plantilla (Google Docs).
+- **Construye:** Product Lead con input del equipo. Cadencia mensual o trimestral según madurez.
+- **Cuándo se crea:** Al inicio de cada ciclo de iteración.
 
 ### Estructura
 
@@ -121,6 +150,10 @@ El puente entre ciclos. Sin él, cada ciclo empieza desde cero en lugar de desde
 
 La ventana continua al estado del sistema en el mercado. Es el primer lugar donde el equipo mira cada mañana.
 
+- **Formato:** Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets).
+- **Construye:** Data Lead. Actualización automática en tiempo real.
+- **Cuándo se crea:** Al activar el sistema de medición (día 1).
+
 ### Requisitos
 
 | Requisito | Descripción |
@@ -137,6 +170,10 @@ La ventana continua al estado del sistema en el mercado. Es el primer lugar dond
 
 El activo más valioso que el sistema produce. A medida que la Fase 5 avanza, se convierte en el conocimiento más profundo que existe sobre el problema y la solución en su contexto real.
 
+- **Formato:** Archivos Markdown (misma estructura que Fases 3-4).
+- **Construye:** Context Engineer + Product Lead. Actualización continua según señales del mercado.
+- **Cuándo se crea:** Heredado de Fases 3 y 4.
+
 ### Componentes actualizados
 
 | Componente | Qué se actualiza en Fase 5 |
@@ -149,24 +186,3 @@ El activo más valioso que el sistema produce. A medida que la Fase 5 avanza, se
 :::warning[El Context Document como activo]
 Un Context Document maduro (uno que ha sobrevivido doce meses de Market Phase) contiene la comprensión más profunda disponible. Es transferible (nuevos miembros entienden en días), extensible (base para nuevos mercados) y auditable (cada decisión tiene trazabilidad).
 :::
-
----
-
-## Secuencia de creación
-
-```
-Go-live
-  │
-  ├─→ KPI Dashboard (día 1)
-  ├─→ Signal Log (día 1)
-  │
-  │   [Semanas 1-4: captura y análisis intensivo]
-  │
-  ├─→ Context Update Record (primera actualización)
-  │
-  │   [Semana 4: cierre del primer ciclo]
-  │
-  └─→ Primer Iteration Brief
-```
-
-Después del primer ciclo, los artefactos se alimentan continuamente según las cadencias de los tres bucles del ciclo de iteración.

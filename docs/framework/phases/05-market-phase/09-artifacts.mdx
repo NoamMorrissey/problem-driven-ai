@@ -11,21 +11,42 @@ tags: [framework, phases, market-phase, artifacts, templates]
 
 Phase 5 produces five artifacts that operate as an integrated system. None has value in isolation — their power lies in the connections between them: Signal Log signals feed the Context Update Record, which documents Context Document changes, which are summarized in the Iteration Brief, which defines the next cycle's focus.
 
-## Artifact map
+| Artifact | Format | Built by |
+|---|---|---|
+| **Signal Log** | Structured log with template (Google Sheets) | Product Lead + Data Lead |
+| **Context Update Record** | Chronological log with template (spreadsheet) | Context Engineer |
+| **Iteration Brief** | Structured document with template (Google Docs) | Product Lead with team input |
+| **KPI Dashboard** | Dashboard connected to verified sources (Looker, Metabase, Google Sheets) | Data Lead |
+| **Context Document (living)** | Markdown files (same structure as Phases 3-4) | Context Engineer + Product Lead |
 
-| Artifact | When created | Who maintains it | Update cadence |
-|---|---|---|---|
-| **Signal Log** | At measurement system activation. | Product Lead + Data Lead. | Continuous (automatic layer), weekly-monthly (structured and contextual layers). |
-| **Context Update Record** | At first Context Document update. | Context Engineer. | With every Context Document change. |
-| **Iteration Brief** | At the start of each iteration cycle. | Product Lead with team input. | Monthly or quarterly depending on maturity. |
-| **KPI Dashboard** | At measurement system activation. | Data Lead. | Real time (automatic). |
-| **Context Document (living)** | Inherited from Phases 3 and 4. | Context Engineer. | Continuous based on market signals. |
+## Creation sequence
+
+```
+Go-live
+  │
+  ├─→ KPI Dashboard (day 1)
+  ├─→ Signal Log (day 1)
+  │
+  │   [Weeks 1-4: intensive capture and analysis]
+  │
+  ├─→ Context Update Record (first update)
+  │
+  │   [Week 4: first cycle close]
+  │
+  └─→ First Iteration Brief
+```
+
+After the first cycle, artifacts are continuously fed according to the three iteration cycle loop cadences.
 
 ---
 
 ## 1. Signal Log
 
 Phase 5's central artifact. It is the market's memory.
+
+- **Format:** Structured log with template (Google Sheets).
+- **Built by:** Product Lead + Data Lead. Continuous feeding (automatic layer), weekly-monthly (structured and contextual layers).
+- **When it's created:** At measurement system activation (day 1).
 
 ### Entry structure
 
@@ -59,6 +80,10 @@ Phase 5's central artifact. It is the market's memory.
 
 The traceability between market and context. In twelve months, it allows reconstructing **why** the Context Document is the way it is.
 
+- **Format:** Chronological log with template (spreadsheet).
+- **Built by:** Context Engineer. Generated with every Context Document change.
+- **When it's created:** At the first Context Document update.
+
 ### Entry structure
 
 ```
@@ -86,6 +111,10 @@ In six months, new team members can understand why each Rule exists. In regulate
 ## 3. Iteration Brief
 
 The bridge between cycles. Without it, each cycle starts from zero instead of where the previous one ended.
+
+- **Format:** Structured document with template (Google Docs).
+- **Built by:** Product Lead with team input. Monthly or quarterly cadence depending on maturity.
+- **When it's created:** At the start of each iteration cycle.
 
 ### Structure
 
@@ -121,6 +150,10 @@ The bridge between cycles. Without it, each cycle starts from zero instead of wh
 
 The continuous window into the system's market state. It's the first place the team looks each morning.
 
+- **Format:** Dashboard connected to verified sources (Looker, Metabase, Google Sheets).
+- **Built by:** Data Lead. Automatic real-time updates.
+- **When it's created:** At measurement system activation (day 1).
+
 ### Requirements
 
 | Requirement | Description |
@@ -137,6 +170,10 @@ The continuous window into the system's market state. It's the first place the t
 
 The most valuable asset the system produces. As Phase 5 progresses, it becomes the deepest knowledge available about the problem and solution in their real context.
 
+- **Format:** Markdown files (same structure as Phases 3-4).
+- **Built by:** Context Engineer + Product Lead. Continuous updates based on market signals.
+- **When it's created:** Inherited from Phases 3 and 4.
+
 ### Updated components
 
 | Component | What gets updated in Phase 5 |
@@ -149,24 +186,3 @@ The most valuable asset the system produces. As Phase 5 progresses, it becomes t
 :::warning[The Context Document as an asset]
 A mature Context Document — one that has survived twelve months of Market Phase — contains the deepest understanding available. It is transferable (new members understand in days), extensible (foundation for new markets), and auditable (every decision has traceability).
 :::
-
----
-
-## Creation sequence
-
-```
-Go-live
-  │
-  ├─→ KPI Dashboard (day 1)
-  ├─→ Signal Log (day 1)
-  │
-  │   [Weeks 1-4: intensive capture and analysis]
-  │
-  ├─→ Context Update Record (first update)
-  │
-  │   [Week 4: first cycle close]
-  │
-  └─→ First Iteration Brief
-```
-
-After the first cycle, artifacts are continuously fed according to the three iteration cycle loop cadences.

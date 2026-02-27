@@ -9,11 +9,65 @@ tags: [phases, solution-phase, artifacts, solution-brief]
 
 # The artifacts of this phase
 
-| Artifact | When it's created | What it contains | Why it matters |
-|---|---|---|---|
-| **Ideation Board** | Built in Step 1 (Divergence). | Visual record of all generated solutions, grouped and with notes on why non-selected ones were discarded. | Memory of explored options. Prevents the team from reinventing what it already discarded with reason. |
-| **Solution Trees** | Built in Step 2 (Structuring). | Decomposition of each candidate solution across the four dimensions: business, model, architecture, data. | Make visible the real complexity of each solution. Reveal gaps and dependencies that the abstract idea doesn't show. |
-| **Assumptions Register** | Started in Step 2 and updated throughout the process. | Classified list of all assumptions: verified, low risk, high risk, unknown. With action plan for high-risk ones. | Assumptions are invisible risk. This register makes them visible and manageable. |
-| **Decision Matrix** | Built in Step 3 (Convergence). | Evaluation of candidate solutions against weighted criteria: impact, technical viability, business viability, assumption risk, adoption friction. | Makes explicit the reasons for the choice. Prevents the decision from being made by intuition, politics, or authority. |
-| **Feedback Log** | Started in Step 4 and updated in Step 5. | Cumulative record of all client and stakeholder feedback: who said it, what they said, how it was incorporated or why it was discarded. | Total traceability of the alignment process. If someone asks "why was this chosen," the answer is here. |
-| **Solution Brief** | Written after Step 5 when consensus exists. | The most important document of this phase: problem it solves, solution description, decisions made and justifications, active assumptions, agreed success criteria, constraints, actors, Scorecard by dimensions. | It's the entry document to Phase 3 (Context Phase). Everything the AI does afterwards is based on this document. |
+Each phase of the Problem-Driven AI methodology produces specific artifacts. They are not optional. They are the evidence that the work was done rigorously and the decisions that power everything that follows. In Solution Phase, the six artifacts ensure that every solution is generated without judging, decomposed across four dimensions, tested against explicit assumptions, evaluated with traceable criteria, validated with stakeholders, and consolidated into a single document that feeds Phase 3.
+
+| Artifact | Format | Built by |
+|---|---|---|
+| **Ideation Board** | Collaborative visual board (Miro, FigJam, post-its) | The full team during Divergence |
+| **Solution Trees** | Collaborative visual board or structured document | The team during Structuring |
+| **Assumptions Register** | Table (Google Sheets) | The team. Started during Structuring, updated at each step |
+| **Decision Matrix** | Table with 1-5 scores and weights per criterion (Google Sheets) | The team during Convergence. Weights set by the Decision Owner |
+| **Feedback Log** | Chronological log (Google Docs, spreadsheet) | The facilitator during external and internal validation |
+| **Solution Brief** | Structured document in 8 sections (Google Docs) | PM / Product Owner with team input |
+
+## 1. Ideation Board
+
+Visual record of all generated solutions, grouped and with notes on why non-selected ones were discarded. It is the memory of explored options — it prevents the team from reinventing what it already discarded with reason.
+
+- **Format:** Collaborative visual board (Miro, FigJam, post-its).
+- **Built by:** The full team during Divergence. Product Lead facilitates the session.
+- **When it's created:** Step 1 (Divergence). First artifact of the phase.
+
+## 2. Solution Trees
+
+Decomposition of each candidate solution across the four dimensions: business, model, architecture, and data. They make visible the real complexity of each solution, revealing gaps and dependencies that the abstract idea doesn't show.
+
+- **Format:** Collaborative visual board or structured document.
+- **Built by:** The team during Structuring. Product Lead + Tech Lead per candidate solution.
+- **When it's created:** Step 2 (Structuring). After divergence narrows to candidate solutions.
+
+## 3. Assumptions Register
+
+Classified list of all assumptions: verified, low risk, high risk, and unknown. With an action plan for high-risk ones. Assumptions are invisible risk — this register makes them visible and manageable.
+
+- **Format:** Table (Google Sheets).
+- **Built by:** The team. Product Lead initiates the register, the entire team feeds it throughout the process.
+- **When it's created:** Started in Step 2 (Structuring) and updated continuously throughout the phase.
+
+## 4. Decision Matrix
+
+Evaluation of candidate solutions against weighted criteria: impact, technical viability, business viability, assumption risk, and adoption friction. It makes explicit the reasons for the choice, preventing the decision from being made by intuition, politics, or authority.
+
+- **Format:** Table with 1-5 scores and weights per criterion (Google Sheets).
+- **Built by:** The team during Convergence. Weights are set by the Decision Owner before scoring begins.
+- **When it's created:** Step 3 (Convergence). After Solution Trees expose the real complexity.
+
+## 5. Feedback Log
+
+Cumulative record of all client and stakeholder feedback: who said it, what they said, how it was incorporated, or why it was discarded. It provides total traceability of the alignment process — if someone asks "why was this chosen," the answer is here.
+
+- **Format:** Chronological log (Google Docs, spreadsheet).
+- **Built by:** The facilitator during external and internal validation sessions.
+- **When it's created:** Started in Step 4 (Client validation) and updated through Step 5 (Internal stakeholder validation).
+
+## 6. Solution Brief
+
+The most important document of this phase. Contains: the problem it solves, solution description, decisions made and justifications, dimension decomposition, active assumptions, agreed success criteria, constraints, actors, and Translatability Map. It is the entry document to Phase 3 (Context Phase) — everything the AI does afterwards is based on this document.
+
+- **Format:** Structured document in 8 sections (Google Docs).
+- **Built by:** PM / Product Owner drafts the document with team input. The team validates it.
+- **When it's created:** Written after Step 5 when consensus exists. It consolidates the entire phase into a single document.
+
+:::tip The solution as a living document
+The Solution Brief is not a static document — it is the starting point for the AI's work. Any ambiguity, contradiction, or omission in this document will propagate to every artifact built in Phase 3. Take the time to make it precise.
+:::
