@@ -1,0 +1,118 @@
+.accordion {
+  margin: 2rem 0;
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+/* Vertical connector line */
+.left::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--ifm-color-danger-contrast-background);
+  transform: translateX(-50%);
+}
+
+.itemLast .left::after {
+  display: none;
+}
+
+.number {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-danger);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  z-index: 2;
+  flex-shrink: 0;
+  border: 3px solid var(--ifm-background-color);
+  box-shadow: 0 0 0 2px var(--ifm-color-danger-contrast-background);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.numberActive {
+  background: var(--ifm-color-danger);
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--ifm-color-danger);
+}
+
+.right {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 1.5rem;
+}
+
+.itemLast .right {
+  padding-bottom: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  text-align: left;
+  gap: 0.5rem;
+  border-radius: var(--pdai-border-radius-sm);
+}
+
+.header:hover .title {
+  color: var(--ifm-color-danger);
+}
+
+.title {
+  font-size: var(--ifm-h3-font-size);
+  font-weight: var(--ifm-heading-font-weight);
+  font-family: var(--ifm-heading-font-family);
+  line-height: var(--ifm-heading-line-height);
+  color: var(--ifm-heading-color);
+  margin: 0;
+}
+
+.chevron {
+  font-size: 1.5rem;
+  color: var(--ifm-color-danger);
+  transition: transform 0.2s ease;
+  line-height: 1;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+.content {
+  margin-top: 0.75rem;
+}
+
+.content > :first-child {
+  margin-top: 0;
+}

@@ -7,6 +7,8 @@ sidebar_position: 5
 tags: [framework, fases, market-phase, anti-patrones, riesgos]
 ---
 
+import {AntiPatternAccordion, AntiPatternAccordionItem} from '@site/src/components/AntiPatternAccordion';
+
 # Anti-patrones: lo que puede salir mal
 
 La Fase 5 tiene seis anti-patrones operativos recurrentes. A diferencia de las fases anteriores, estos anti-patrones no se manifiestan de forma inmediata, se acumulan silenciosamente durante semanas o meses hasta que el desajuste entre el mercado y el Context Document es demasiado grande para ignorarlo.
@@ -24,77 +26,52 @@ La Fase 5 tiene seis anti-patrones operativos recurrentes. A diferencia de las f
 
 ---
 
-## 1. El lanzamiento como llegada
+<AntiPatternAccordion>
+  <AntiPatternAccordionItem number={1} title="El lanzamiento como llegada">
+    **Qué es:** El equipo celebra el go-live como si fuera el final del proyecto. La Fase 5 se activa pero nadie la gobierna. El Signal Log no recibe entradas. El Context Document no se actualiza. El sistema aprende solo a través del deterioro.
 
-:::danger[Anti-patrón]
-**Qué es:** El equipo celebra el go-live como si fuera el final del proyecto. La Fase 5 se activa pero nadie la gobierna. El Signal Log no recibe entradas. El Context Document no se actualiza. El sistema aprende solo a través del deterioro.
+    **Cómo detectarlo:** Tres meses después del lanzamiento, el Context Document es idéntico al que existía en el go-live. El Signal Log está vacío o lleno de entradas sin procesar.
 
-**Cómo detectarlo:** Tres meses después del lanzamiento, el Context Document es idéntico al que existía en el go-live. El Signal Log está vacío o lleno de entradas sin procesar.
+    **Cómo prevenirlo:** La Fase 5 tiene un propietario designado **antes** del go-live. El primer Iteration Brief está planificado para la cuarta semana después del lanzamiento. El go-live se celebra como el inicio de la iteración, no como el final del proyecto.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={2} title="La iteración cosmética sistemática">
+    **Qué es:** El equipo itera con frecuencia y entusiasmo, pero siempre sobre la capa de implementación. Los ciclos de Fase 4 se suceden. El Context Document de la capa de construcción se actualiza. El Problem Statement y el Solution Brief nunca se revisan aunque las señales del mercado los estén poniendo en cuestión.
 
-**Cómo prevenirlo:** La Fase 5 tiene un propietario designado **antes** del go-live. El primer Iteration Brief está planificado para la cuarta semana después del lanzamiento. El go-live se celebra como el inicio de la iteración, no como el final del proyecto.
-:::
+    **Por qué ocurre:** Regresar a la Fase 1 o 2 tiene un coste organizacional significativo. Es más cómodo añadir una funcionalidad que cuestionar si el problema original estaba bien definido.
 
----
+    **Cómo detectarlo:** Los mismos temas de fricción de usuario aparecen en cada ciclo de feedback. Los KPIs se mueven pero el equipo no siente que el sistema esté resolviendo lo correcto.
 
-## 2. La iteración cosmética sistemática
+    **Cómo prevenirlo:** La revisión estratégica trimestral incluye una pregunta explícita y obligatoria: *"¿Hay señales que justifiquen un regreso a la Fase 1 o 2?"* Si la respuesta es siempre no, probablemente no se está haciendo la pregunta correctamente.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={3} title="Los KPIs como objetivo en lugar de input">
+    **Qué es:** El equipo optimiza los KPIs en lugar de usarlos como señal del estado del sistema. Se toman decisiones para subir los KPIs en lugar de tomar decisiones basadas en lo que los KPIs dicen.
 
-:::danger[Anti-patrón]
-**Qué es:** El equipo itera con frecuencia y entusiasmo, pero siempre sobre la capa de implementación. Los ciclos de Fase 4 se suceden. El Context Document de la capa de construcción se actualiza. El Problem Statement y el Solution Brief nunca se revisan aunque las señales del mercado los estén poniendo en cuestión.
+    **Cómo detectarlo:** Los KPIs suben consistentemente pero las entrevistas con usuarios revelan que el problema no está siendo resuelto mejor. El equipo discute cómo mejorar los KPIs, no qué están diciendo.
 
-**Por qué ocurre:** Regresar a la Fase 1 o 2 tiene un coste organizacional significativo. Es más cómodo añadir una funcionalidad que cuestionar si el problema original estaba bien definido.
+    **Cómo prevenirlo:** Los KPIs se revisan siempre en paralelo con señales cualitativas. Un KPI que sube pero que los usuarios no reconocen como mejora real es una señal de que el KPI estaba mal definido o de que el equipo lo está manipulando.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={4} title="La señal sin hipótesis de causa">
+    **Qué es:** El equipo recoge señales abundantes del mercado pero no construye hipótesis de causa. Las señales se acumulan en el Signal Log como observaciones sin interpretación. Las actualizaciones del Context Document son arbitrarias.
 
-**Cómo detectarlo:** Los mismos temas de fricción de usuario aparecen en cada ciclo de feedback. Los KPIs se mueven pero el equipo no siente que el sistema esté resolviendo lo correcto.
+    **Cómo detectarlo:** El Signal Log tiene muchas entradas pero el Context Update Record tiene pocas. Las actualizaciones del Context Document no tienen referencia a señales específicas.
 
-**Cómo prevenirlo:** La revisión estratégica trimestral incluye una pregunta explícita y obligatoria: *"¿Hay señales que justifiquen un regreso a la Fase 1 o 2?"* Si la respuesta es siempre no, probablemente no se está haciendo la pregunta correctamente.
-:::
+    **Cómo prevenirlo:** Ninguna señal entra al Signal Log sin al menos una hipótesis de causa preliminar. La hipótesis puede ser incorrecta (se revisa con más datos) pero debe existir. Una señal sin hipótesis de causa es una observación que nadie sabe cómo usar.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={5} title="La actualización sin trazabilidad">
+    **Qué es:** El Context Document se actualiza con frecuencia pero sin registrar qué señal motivó cada cambio. El equipo actúa sobre sus intuiciones. El Context Update Record está vacío o lleno de entradas vagas.
 
----
+    **Por qué es destructivo a largo plazo:** En seis meses, nadie sabe por qué el Context Document es como es. Las Reglas que existen no tienen justificación documentada. Los nuevos miembros del equipo no pueden distinguir las decisiones bien fundamentadas de las arbitrarias.
 
-## 3. Los KPIs como objetivo en lugar de input
+    **Cómo prevenirlo:** No se actualiza el Context Document sin una entrada correspondiente en el Context Update Record con la señal que lo motivó. La trazabilidad no es opcional, es la condición de que el Context Document sea un activo organizacional y no un documento personal del Context Engineer.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={6} title="El Context Document congelado">
+    **Qué es:** El mercado envía señales. El equipo las lee. Pero el Context Document no se actualiza porque "ya está bien como está" o porque "los cambios son menores". La distancia entre lo que el mercado dice y lo que el Context Document describe crece silenciosamente.
 
-:::danger[Anti-patrón]
-**Qué es:** El equipo optimiza los KPIs en lugar de usarlos como señal del estado del sistema. Se toman decisiones para subir los KPIs en lugar de tomar decisiones basadas en lo que los KPIs dicen.
+    **Por qué es el anti-patrón más peligroso de la Fase 5:** No se detecta hasta que el desajuste es tan grande que la solución ya no es relevante para el mercado. El sistema sigue funcionando. El código sigue compilando. Pero el problema que resuelve ya no es el problema que los usuarios necesitan que se resuelva.
 
-**Cómo detectarlo:** Los KPIs suben consistentemente pero las entrevistas con usuarios revelan que el problema no está siendo resuelto mejor. El equipo discute cómo mejorar los KPIs, no qué están diciendo.
-
-**Cómo prevenirlo:** Los KPIs se revisan siempre en paralelo con señales cualitativas. Un KPI que sube pero que los usuarios no reconocen como mejora real es una señal de que el KPI estaba mal definido o de que el equipo lo está manipulando.
-:::
-
----
-
-## 4. La señal sin hipótesis de causa
-
-:::danger[Anti-patrón]
-**Qué es:** El equipo recoge señales abundantes del mercado pero no construye hipótesis de causa. Las señales se acumulan en el Signal Log como observaciones sin interpretación. Las actualizaciones del Context Document son arbitrarias.
-
-**Cómo detectarlo:** El Signal Log tiene muchas entradas pero el Context Update Record tiene pocas. Las actualizaciones del Context Document no tienen referencia a señales específicas.
-
-**Cómo prevenirlo:** Ninguna señal entra al Signal Log sin al menos una hipótesis de causa preliminar. La hipótesis puede ser incorrecta (se revisa con más datos) pero debe existir. Una señal sin hipótesis de causa es una observación que nadie sabe cómo usar.
-:::
-
----
-
-## 5. La actualización sin trazabilidad
-
-:::danger[Anti-patrón]
-**Qué es:** El Context Document se actualiza con frecuencia pero sin registrar qué señal motivó cada cambio. El equipo actúa sobre sus intuiciones. El Context Update Record está vacío o lleno de entradas vagas.
-
-**Por qué es destructivo a largo plazo:** En seis meses, nadie sabe por qué el Context Document es como es. Las Reglas que existen no tienen justificación documentada. Los nuevos miembros del equipo no pueden distinguir las decisiones bien fundamentadas de las arbitrarias.
-
-**Cómo prevenirlo:** No se actualiza el Context Document sin una entrada correspondiente en el Context Update Record con la señal que lo motivó. La trazabilidad no es opcional, es la condición de que el Context Document sea un activo organizacional y no un documento personal del Context Engineer.
-:::
-
----
-
-## 6. El Context Document congelado
-
-:::danger[Anti-patrón]
-**Qué es:** El mercado envía señales. El equipo las lee. Pero el Context Document no se actualiza porque "ya está bien como está" o porque "los cambios son menores". La distancia entre lo que el mercado dice y lo que el Context Document describe crece silenciosamente.
-
-**Por qué es el anti-patrón más peligroso de la Fase 5:** No se detecta hasta que el desajuste es tan grande que la solución ya no es relevante para el mercado. El sistema sigue funcionando. El código sigue compilando. Pero el problema que resuelve ya no es el problema que los usuarios necesitan que se resuelva.
-
-**Cómo prevenirlo:** El indicador de salud más simple: si el Context Document no se ha actualizado en 60 días de operación activa, hay Context Debt acumulada que debe procesarse antes del siguiente ciclo de construcción.
-:::
+    **Cómo prevenirlo:** El indicador de salud más simple: si el Context Document no se ha actualizado en 60 días de operación activa, hay Context Debt acumulada que debe procesarse antes del siguiente ciclo de construcción.
+  </AntiPatternAccordionItem>
+</AntiPatternAccordion>
 
 ---
 

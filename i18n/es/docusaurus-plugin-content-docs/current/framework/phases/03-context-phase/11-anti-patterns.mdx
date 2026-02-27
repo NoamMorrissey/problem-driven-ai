@@ -7,98 +7,88 @@ sidebar_position: 5
 tags: [fases, context-phase, anti-patrones, context-debt]
 ---
 
+import {AntiPatternAccordion, AntiPatternAccordionItem} from '@site/src/components/AntiPatternAccordion';
+
 # Anti-patrones: qué puede salir mal
 
 El Context Phase puede fallar de formas predecibles. Conocer estos patrones de antemano permite al equipo detectarlos pronto y corregir el rumbo antes de que el daño se acumule. La [sección de metodología](/fases/context-phase) ya describe los anti-patrones a nivel conceptual (el Contexto-Prompt, las Reglas Implícitas, el Agente Creativo, los Agentes sin Fronteras, el Skill Huérfano). Esta sección cubre los **anti-patrones operativos** que emergen durante la ejecución del proceso del framework.
 
-## Anti-patrón 1: Over-Context
+<AntiPatternAccordion>
+  <AntiPatternAccordionItem number={1} title="Over-Context">
+    **Qué es:** Reglas tan detalladas y Skills tan prescriptivos que los Agentes no tienen espacio para resolver problemas. Cada decisión está pre-tomada. Cada detalle de implementación está especificado. El sistema de contexto se convierte en una receta paso a paso que no deja margen para la inteligencia.
 
-:::danger Anti-patrón: Over-Context
-**Qué es:** Reglas tan detalladas y Skills tan prescriptivos que los Agentes no tienen espacio para resolver problemas. Cada decisión está pre-tomada. Cada detalle de implementación está especificado. El sistema de contexto se convierte en una receta paso a paso que no deja margen para la inteligencia.
+    **Cómo se manifiesta en la práctica:**
+    - El project-context.md supera las 10 páginas.
+    - Los Skills incluyen pseudocódigo o detalles de implementación en vez de objetivos y criterios de aceptación.
+    - Se usan Reglas de Nivel 4-5 para decisiones que deberían ser Nivel 1-2.
+    - Los Agentes producen output técnicamente correcto pero mecánicamente rígido — funcional pero sin inteligencia.
 
-**Cómo se manifiesta en la práctica:**
-- El project-context.md supera las 10 páginas.
-- Los Skills incluyen pseudocódigo o detalles de implementación en vez de objetivos y criterios de aceptación.
-- Se usan Reglas de Nivel 4-5 para decisiones que deberían ser Nivel 1-2.
-- Los Agentes producen output técnicamente correcto pero mecánicamente rígido — funcional pero sin inteligencia.
+    **Por qué es peligroso:** El output sigue las Reglas al pie de la letra pero produce código que ningún desarrollador experimentado escribiría. Es el equivalente a microgestionar a un ingeniero senior: consigues cumplimiento, no artesanía. Los Agentes dejan de pensar y empiezan a copiar.
 
-**Por qué es peligroso:** El output sigue las Reglas al pie de la letra pero produce código que ningún desarrollador experimentado escribiría. Es el equivalente a microgestionar a un ingeniero senior: consigues cumplimiento, no artesanía. Los Agentes dejan de pensar y empiezan a copiar.
+    **Cómo detectarlo:** Si el output de un Skill parece generado rellenando una plantilla — todas las piezas correctas pero sin criterio de ingeniería — estás sobre-especificando.
 
-**Cómo detectarlo:** Si el output de un Skill parece generado rellenando una plantilla — todas las piezas correctas pero sin criterio de ingeniería — estás sobre-especificando.
+    **Cómo prevenirlo:** Los Niveles 1-2 existen por una razón. Úsalos. Los Skills definen el "qué", no el "cómo". Si un Skill incluye pseudocódigo, probablemente estás sobre-especificando. Confía en que un Agente bien definido con Reglas claras puede tomar decisiones de implementación.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={2} title="El Agente Silencioso">
+    **Qué es:** Un Agente que detecta un gap en un Skill — información faltante, requisito ambiguo, restricción poco clara — y lo rellena con invención en lugar de señalarlo. El Agente produce output que parece completo y seguro, pero contiene decisiones que nadie autorizó.
 
-**Cómo prevenirlo:** Los Niveles 1-2 existen por una razón. Úsalos. Los Skills definen el "qué", no el "cómo". Si un Skill incluye pseudocódigo, probablemente estás sobre-especificando. Confía en que un Agente bien definido con Reglas claras puede tomar decisiones de implementación.
-:::
+    **Cómo se manifiesta en la práctica:**
+    - Los outputs incluyen funcionalidades o comportamientos no mencionados en el Skill.
+    - Las decisiones de implementación se toman sin trazabilidad a Reglas o restricciones del Skill.
+    - El QA Agent encuentra outputs internamente consistentes pero que no coinciden con el PRD.
+    - El equipo descubre "funcionalidades fantasma" durante la revisión — cosas que nadie pidió.
 
-## Anti-patrón 2: El Agente Silencioso
+    **Por qué es peligroso:** Context drift. El proyecto diverge silenciosamente del Problem Statement y del Solution Brief. Para cuando alguien lo nota, decenas de Skills se han ejecutado basándose en asunciones no autorizadas. El coste de corrección es enorme.
 
-:::danger Anti-patrón: El Agente Silencioso
-**Qué es:** Un Agente que detecta un gap en un Skill — información faltante, requisito ambiguo, restricción poco clara — y lo rellena con invención en lugar de señalarlo. El Agente produce output que parece completo y seguro, pero contiene decisiones que nadie autorizó.
+    **Cómo detectarlo:** Compara outputs con los criterios de aceptación del Skill. Si el output contiene elementos no cubiertos por los criterios, un Agente rellenó un gap silenciosamente.
 
-**Cómo se manifiesta en la práctica:**
-- Los outputs incluyen funcionalidades o comportamientos no mencionados en el Skill.
-- Las decisiones de implementación se toman sin trazabilidad a Reglas o restricciones del Skill.
-- El QA Agent encuentra outputs internamente consistentes pero que no coinciden con el PRD.
-- El equipo descubre "funcionalidades fantasma" durante la revisión — cosas que nadie pidió.
+    **Cómo prevenirlo:** El protocolo ante gaps debe estar en la definición de cada Agente Y en el project-context.md como Regla de Nivel 5. La Regla es simple: "Cuando la información es insuficiente, detente, documenta y señala. Nunca inventes." Es la Regla más importante de todo el sistema.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={3} title="El Contexto Aspiracional">
+    **Qué es:** Reglas que describen el proyecto ideal en lugar del real. Skills que ignoran las restricciones del Solution Brief. El sistema de contexto pinta una imagen de lo que el equipo desearía estar construyendo en vez de lo que acordó construir.
 
-**Por qué es peligroso:** Context drift. El proyecto diverge silenciosamente del Problem Statement y del Solution Brief. Para cuando alguien lo nota, decenas de Skills se han ejecutado basándose en asunciones no autorizadas. El coste de corrección es enorme.
+    **Cómo se manifiesta en la práctica:**
+    - Las Reglas especifican mejores prácticas de referencia que exceden las restricciones del proyecto (presupuesto, tiempo, capacidad del equipo).
+    - Los Skills asumen recursos o capacidades que no existen.
+    - La brecha entre el sistema de contexto y la realidad se amplía conforme avanza la construcción.
+    - Los Agentes producen outputs elegantes pero inviables.
 
-**Cómo detectarlo:** Compara outputs con los criterios de aceptación del Skill. Si el output contiene elementos no cubiertos por los criterios, un Agente rellenó un gap silenciosamente.
+    **Por qué es peligroso:** Los Agentes ejecutan fielmente — eso es lo que hacen. Si las Reglas y los Skills describen una fantasía, los Agentes construirán la fantasía. Y la fantasía no funcionará cuando se encuentre con la realidad.
 
-**Cómo prevenirlo:** El protocolo ante gaps debe estar en la definición de cada Agente Y en el project-context.md como Regla de Nivel 5. La Regla es simple: "Cuando la información es insuficiente, detente, documenta y señala. Nunca inventes." Es la Regla más importante de todo el sistema.
-:::
+    **Cómo detectarlo:** Compara cada Regla y cada Skill contra las restricciones del Solution Brief. Si alguna restricción ha sido suavizada, ignorada o "mejorada aspiracionalmente", el contexto es aspiracional.
 
-## Anti-patrón 3: El Contexto Aspiracional
+    **Cómo prevenirlo:** Las restricciones del Solution Brief se copian literalmente a las Reglas. Los Skills heredan esas Reglas. Ningún Agente puede ignorarlas. El Solution Brief es el contrato con la realidad — el sistema de contexto debe honrarlo.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={4} title="La Cadena Rota">
+    **Qué es:** Un eslabón de la cadena de Agentes produce output sin que el QA Agent lo valide. El siguiente Agente consume output no verificado y genera Reglas o Skills basados en input potencialmente defectuoso. Los errores se propagan y amplifican.
 
-:::danger Anti-patrón: Contexto Aspiracional
-**Qué es:** Reglas que describen el proyecto ideal en lugar del real. Skills que ignoran las restricciones del Solution Brief. El sistema de contexto pinta una imagen de lo que el equipo desearía estar construyendo en vez de lo que acordó construir.
+    **Cómo se manifiesta en la práctica:**
+    - El PM Agent produce el PRD y el Architect Agent empieza a trabajar sobre él antes de que el QA lo valide.
+    - Un error en el PRD (una restricción faltante, una asunción incorrecta) se amplifica: el Architect toma decisiones basadas en él, el SM Agent descompone Skills basados en esas decisiones, y los Agentes de desarrollo ejecutan Skills basados en todo ello.
+    - Cuando se descubre el error, ha contaminado decenas de artefactos posteriores.
 
-**Cómo se manifiesta en la práctica:**
-- Las Reglas especifican mejores prácticas de referencia que exceden las restricciones del proyecto (presupuesto, tiempo, capacidad del equipo).
-- Los Skills asumen recursos o capacidades que no existen.
-- La brecha entre el sistema de contexto y la realidad se amplía conforme avanza la construcción.
-- Los Agentes producen outputs elegantes pero inviables.
+    **Por qué es peligroso:** Amplificación de errores. Un error pequeño a nivel de PRD se multiplica en cada eslabón de la cadena. Una sola restricción faltante puede producir decenas de Skills incorrectamente especificados.
 
-**Por qué es peligroso:** Los Agentes ejecutan fielmente — eso es lo que hacen. Si las Reglas y los Skills describen una fantasía, los Agentes construirán la fantasía. Y la fantasía no funcionará cuando se encuentre con la realidad.
+    **Cómo detectarlo:** Si el output de algún Agente fue consumido sin validación del QA, la cadena tiene un eslabón débil. Verifica: ¿cada artefacto de la cadena tiene una entrada de validación QA correspondiente?
 
-**Cómo detectarlo:** Compara cada Regla y cada Skill contra las restricciones del Solution Brief. Si alguna restricción ha sido suavizada, ignorada o "mejorada aspiracionalmente", el contexto es aspiracional.
+    **Cómo prevenirlo:** El QA Agent valida el output de cada Agente antes de que pase al siguiente. Cada eslabón de la cadena tiene un checkpoint de fidelidad, completitud y consistencia con las Reglas. Ningún output avanza sin validación.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={5} title="El Contexto Congelado">
+    **Qué es:** Reglas, Agentes y Skills que nunca se actualizan después de su creación inicial. La construcción revela que una asunción era errónea, pero en lugar de actualizar las Reglas, un Agente toma una decisión local dentro de un Skill. El sistema de contexto gradualmente se desconecta de la realidad.
 
-**Cómo prevenirlo:** Las restricciones del Solution Brief se copian literalmente a las Reglas. Los Skills heredan esas Reglas. Ningún Agente puede ignorarlas. El Solution Brief es el contrato con la realidad — el sistema de contexto debe honrarlo.
-:::
+    **Cómo se manifiesta en la práctica:**
+    - La construcción revela que una Regla es demasiado restrictiva o demasiado laxa, pero nadie la actualiza.
+    - Los Agentes hacen "excepciones prácticas" a las Reglas durante la ejecución de Skills sin documentarlas.
+    - Los nuevos Skills se escriben para sortear gaps conocidos en las Reglas en vez de arreglar las Reglas.
+    - El Decision Log está vacío o desactualizado.
 
-## Anti-patrón 4: La Cadena Rota
+    **Por qué es peligroso:** Context Debt. Las Reglas ya no reflejan la realidad. Los Skills nuevos se basan en Reglas desactualizadas. Los Skills antiguos que funcionaban correctamente pueden fallar cuando deberían haberse aplicado nuevas Reglas. La brecha entre el contexto documentado y el contexto real crece silenciosamente.
 
-:::danger Anti-patrón: La Cadena Rota
-**Qué es:** Un eslabón de la cadena de Agentes produce output sin que el QA Agent lo valide. El siguiente Agente consume output no verificado y genera Reglas o Skills basados en input potencialmente defectuoso. Los errores se propagan y amplifican.
+    **Cómo detectarlo:** Revisa el Decision Log. Si no se ha actualizado en el último sprint, el contexto probablemente está congelado. Pregunta al equipo: "¿Se ha decidido algo durante la construcción que no esté reflejado en el project-context.md?" Si la respuesta es sí, el contexto está congelado.
 
-**Cómo se manifiesta en la práctica:**
-- El PM Agent produce el PRD y el Architect Agent empieza a trabajar sobre él antes de que el QA lo valide.
-- Un error en el PRD (una restricción faltante, una asunción incorrecta) se amplifica: el Architect toma decisiones basadas en él, el SM Agent descompone Skills basados en esas decisiones, y los Agentes de desarrollo ejecutan Skills basados en todo ello.
-- Cuando se descubre el error, ha contaminado decenas de artefactos posteriores.
-
-**Por qué es peligroso:** Amplificación de errores. Un error pequeño a nivel de PRD se multiplica en cada eslabón de la cadena. Una sola restricción faltante puede producir decenas de Skills incorrectamente especificados.
-
-**Cómo detectarlo:** Si el output de algún Agente fue consumido sin validación del QA, la cadena tiene un eslabón débil. Verifica: ¿cada artefacto de la cadena tiene una entrada de validación QA correspondiente?
-
-**Cómo prevenirlo:** El QA Agent valida el output de cada Agente antes de que pase al siguiente. Cada eslabón de la cadena tiene un checkpoint de fidelidad, completitud y consistencia con las Reglas. Ningún output avanza sin validación.
-:::
-
-## Anti-patrón 5: El Contexto Congelado
-
-:::danger Anti-patrón: Contexto Congelado
-**Qué es:** Reglas, Agentes y Skills que nunca se actualizan después de su creación inicial. La construcción revela que una asunción era errónea, pero en lugar de actualizar las Reglas, un Agente toma una decisión local dentro de un Skill. El sistema de contexto gradualmente se desconecta de la realidad.
-
-**Cómo se manifiesta en la práctica:**
-- La construcción revela que una Regla es demasiado restrictiva o demasiado laxa, pero nadie la actualiza.
-- Los Agentes hacen "excepciones prácticas" a las Reglas durante la ejecución de Skills sin documentarlas.
-- Los nuevos Skills se escriben para sortear gaps conocidos en las Reglas en vez de arreglar las Reglas.
-- El Decision Log está vacío o desactualizado.
-
-**Por qué es peligroso:** Context Debt. Las Reglas ya no reflejan la realidad. Los Skills nuevos se basan en Reglas desactualizadas. Los Skills antiguos que funcionaban correctamente pueden fallar cuando deberían haberse aplicado nuevas Reglas. La brecha entre el contexto documentado y el contexto real crece silenciosamente.
-
-**Cómo detectarlo:** Revisa el Decision Log. Si no se ha actualizado en el último sprint, el contexto probablemente está congelado. Pregunta al equipo: "¿Se ha decidido algo durante la construcción que no esté reflejado en el project-context.md?" Si la respuesta es sí, el contexto está congelado.
-
-**Cómo prevenirlo:** Cada decisión que difiera del contexto debe actualizar el artefacto afectado — la Regla, la definición del Agente o el Skill. El Decision Log registra cada cambio. El contexto es vivo. Cada mutación es deliberada y registrada.
-:::
+    **Cómo prevenirlo:** Cada decisión que difiera del contexto debe actualizar el artefacto afectado — la Regla, la definición del Agente o el Skill. El Decision Log registra cada cambio. El contexto es vivo. Cada mutación es deliberada y registrada.
+  </AntiPatternAccordionItem>
+</AntiPatternAccordion>
 
 ## Referencia rápida
 

@@ -7,44 +7,54 @@ slug: /framework/fases/solution-phase/anti-patrones
 tags: [fases, alineacion, anti-patrones, errores]
 ---
 
+import {AntiPatternAccordion, AntiPatternAccordionItem} from '@site/src/components/AntiPatternAccordion';
+
 # Anti-patrones: lo que puede salir mal
 
-:::danger[El Permiso Disfrazado de Consenso]
-**Qué es:** El anti-patrón más común y más destructivo de esta fase. Un director dice "adelante" en una reunión sin haber leído el Solution Brief, sin entender las asunciones y sin comprometerse a defender la solución cuando surjan problemas. El equipo interpreta esto como consenso y avanza.
+<AntiPatternAccordion>
+  <AntiPatternAccordionItem number={1} title="El Permiso Disfrazado de Consenso">
+    **Qué es:** El anti-patrón más común y más destructivo de esta fase. Un director dice "adelante" en una reunión sin haber leído el Solution Brief, sin entender las asunciones y sin comprometerse a defender la solución cuando surjan problemas. El equipo interpreta esto como consenso y avanza.
 
-**Cómo detectarlo:** El Test del Consenso de Corredor falla. El stakeholder que "aprobó" no puede explicar qué se va a construir ni por qué.
+    **Cómo detectarlo:** El Test del Consenso de Corredor falla. El stakeholder que "aprobó" no puede explicar qué se va a construir ni por qué.
 
-**Cómo prevenirlo:** No aceptar aprobación sin comprensión. Si un stakeholder no puede explicar la solución, no ha dado consenso. Ha dado permiso. Pedir a cada stakeholder que articule en sus palabras qué se construirá y qué cambiará.
-:::
+    **Cómo prevenirlo:** No aceptar aprobación sin comprensión. Si un stakeholder no puede explicar la solución, no ha dado consenso. Ha dado permiso. Pedir a cada stakeholder que articule en sus palabras qué se construirá y qué cambiará.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={2} title="La Solución en Busca de Problema">
+    **Qué es:** El equipo llega a la Fase 2 con una tecnología o una solución que quiere implementar y ajusta el Problem Statement para justificarla. "Queremos usar RAG" se convierte en la premisa y el problema se reformula para que RAG sea la respuesta.
 
-:::danger[La Solución en Busca de Problema]
-**Qué es:** El equipo llega a la Fase 2 con una tecnología o una solución que quiere implementar y ajusta el Problem Statement para justificarla. "Queremos usar RAG" se convierte en la premisa y el problema se reformula para que RAG sea la respuesta.
+    **Cómo detectarlo:** La solución elegida es la primera que se propuso. La Decision Matrix confirma la preferencia preexistente. Las alternativas fueron descartadas superficialmente.
 
-**Cómo detectarlo:** La solución elegida es la primera que se propuso. La Decision Matrix confirma la preferencia preexistente. Las alternativas fueron descartadas superficialmente.
+    **Cómo prevenirlo:** Incluir obligatoriamente al menos una solución candidata que no use IA. Si la solución con IA gana, que sea porque resolvió mejor el problema, no porque el equipo quería usarla.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={3} title="La Descomposición Ausente">
+    **Qué es:** El equipo elige una solución sin descomponerla por dimensiones. La idea suena bien en abstracto pero nadie ha examinado si los datos existen, si la arquitectura es viable, si el modelo de negocio cierra.
 
-**Cómo prevenirlo:** Incluir obligatoriamente al menos una solución candidata que no use IA. Si la solución con IA gana, que sea porque resolvió mejor el problema, no porque el equipo quería usarla.
-:::
+    **Cómo detectarlo:** No hay Árbol de Soluciones. Las cuatro dimensiones no están cubiertas. La pregunta "¿y los datos de dónde salen?" produce silencio.
 
-:::danger[La Descomposición Ausente]
-**Qué es:** El equipo elige una solución sin descomponerla por dimensiones. La idea suena bien en abstracto pero nadie ha examinado si los datos existen, si la arquitectura es viable, si el modelo de negocio cierra.
+    **Cómo prevenirlo:** No permitir la convergencia (Paso 3) sin la estructuración (Paso 2). La Decision Matrix solo puede evaluarse sobre soluciones que han sido descompuestas. Ideas abstractas no se evalúan.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={4} title="El Scope Creep del Consenso">
+    **Qué es:** Para lograr el acuerdo de todos los stakeholders, la solución se va expandiendo para incluir las peticiones de cada uno. Lo que empezó como una solución precisa a un problema definido se convierte en una plataforma que intenta resolver todo.
 
-**Cómo detectarlo:** No hay Árbol de Soluciones. Las cuatro dimensiones no están cubiertas. La pregunta "¿y los datos de dónde salen?" produce silencio.
+    **Cómo detectarlo:** El Solution Brief es significativamente más amplio que el Problem Statement que debía resolver. Los criterios de éxito se han multiplicado. Hay funcionalidades que no se mapean a ninguna parte del problema original.
 
-**Cómo prevenirlo:** No permitir la convergencia (Paso 3) sin la estructuración (Paso 2). La Decision Matrix solo puede evaluarse sobre soluciones que han sido descompuestas. Ideas abstractas no se evalúan.
-:::
+    **Cómo prevenirlo:** Cada funcionalidad propuesta debe pasar el "test del Problem Statement": ¿esto resuelve directamente algún elemento del problema definido en la Fase 1? Si no, va al backlog futuro, no al Solution Brief.
+  </AntiPatternAccordionItem>
+  <AntiPatternAccordionItem number={5} title="La Dimensión Olvidada">
+    **Qué es:** El equipo estructura la solución en tres de las cuatro dimensiones e ignora la cuarta. Típicamente, lo que se olvida son los datos ("ya nos preocuparemos por eso después") o el negocio ("el ROI es obvio").
 
-:::danger[El Scope Creep del Consenso]
-**Qué es:** Para lograr el acuerdo de todos los stakeholders, la solución se va expandiendo para incluir las peticiones de cada uno. Lo que empezó como una solución precisa a un problema definido se convierte en una plataforma que intenta resolver todo.
+    **Cómo detectarlo:** Una rama del Árbol de Soluciones está vacía o tiene una sola línea genérica. Especialmente peligroso cuando es la rama de datos en un proyecto de IA.
 
-**Cómo detectarlo:** El Solution Brief es significativamente más amplio que el Problem Statement que debía resolver. Los criterios de éxito se han multiplicado. Hay funcionalidades que no se mapean a ninguna parte del problema original.
+    **Cómo prevenirlo:** Checklist obligatorio: las cuatro dimensiones deben tener al menos tres líneas de detalle cada una antes de pasar a convergencia. Si una dimensión no puede completarse, eso en sí mismo es un hallazgo crítico que debe documentarse como asunción de alto riesgo.
+  </AntiPatternAccordionItem>
+</AntiPatternAccordion>
 
-**Cómo prevenirlo:** Cada funcionalidad propuesta debe pasar el "test del Problem Statement": ¿esto resuelve directamente algún elemento del problema definido en la Fase 1? Si no, va al backlog futuro, no al Solution Brief.
-:::
+## Referencia rápida
 
-:::danger[La Dimensión Olvidada]
-**Qué es:** El equipo estructura la solución en tres de las cuatro dimensiones e ignora la cuarta. Típicamente, lo que se olvida son los datos ("ya nos preocuparemos por eso después") o el negocio ("el ROI es obvio").
-
-**Cómo detectarlo:** Una rama del Árbol de Soluciones está vacía o tiene una sola línea genérica. Especialmente peligroso cuando es la rama de datos en un proyecto de IA.
-
-**Cómo prevenirlo:** Checklist obligatorio: las cuatro dimensiones deben tener al menos tres líneas de detalle cada una antes de pasar a convergencia. Si una dimensión no puede completarse, eso en sí mismo es un hallazgo crítico que debe documentarse como asunción de alto riesgo.
-:::
+| Anti-patrón | Síntoma | Causa raíz | Prevención |
+|---|---|---|---|
+| **Permiso Disfrazado de Consenso** | El stakeholder no puede explicar la solución | Aprobación sin comprensión | Cada stakeholder debe articular qué y por qué |
+| **Solución en Busca de Problema** | Solución elegida fue la primera propuesta; alternativas descartadas | Preferencia tecnológica antes del análisis del problema | Incluir al menos una solución candidata sin IA |
+| **Descomposición Ausente** | Sin Árbol de Soluciones; "¿de dónde salen los datos?" produce silencio | Converger sobre ideas abstractas | No converger sin estructurar en las 4 dimensiones |
+| **Scope Creep del Consenso** | Solution Brief más amplio que el Problem Statement | Expandir para acomodar a cada stakeholder | Cada funcionalidad debe pasar el "test del Problem Statement" |
+| **Dimensión Olvidada** | Rama vacía en el Árbol de Soluciones | Ignorar dimensiones de datos o negocio | Checklist obligatorio: 4 dimensiones, 3+ líneas cada una |
