@@ -551,6 +551,14 @@ div[class*='announcementBar'] {
 
 /* Per-page background images */
 .section-hero--overview { background-image: url('/img/vision-general.png'); }
+.section-hero--problem-phase,
+.section-hero--solution-phase,
+.section-hero--context-phase,
+.section-hero--ai-build-phase,
+.section-hero--market-phase,
+.section-hero--framework,
+.section-hero--home,
+.section-hero--resources { background-image: url('/img/framework.png'); }
 .section-hero--phases { background-image: url('/img/fases.png'); }
 .section-hero--principles { background-image: url('/img/principios.png'); }
 .section-hero--manifesto { background-image: url('/img/manifiesto.png'); }
@@ -569,4 +577,76 @@ div[class*='announcementBar'] {
 .section-hero--principle .section-hero__title {
   font-weight: 700;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+/* Subpage hero: 2/3 height, no background image, breadcrumb pills */
+.section-hero--subpage {
+  background-image: none;
+  background-color: var(--ifm-color-primary-contrast-background);
+  aspect-ratio: 1406 / 253;
+}
+
+.section-hero--subpage .section-hero__title {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+/* Breadcrumb pills */
+.section-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.section-hero__crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--pdai-font-family-heading);
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  font-weight: 500;
+  color: var(--pdai-gray-500);
+  background-color: var(--pdai-gray-0);
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.section-hero__crumb--active {
+  color: var(--ifm-color-primary);
+  background-color: rgba(79, 70, 229, 0.1);
+  font-weight: 600;
+}
+
+.section-hero__crumb-sep {
+  color: var(--pdai-gray-400);
+  font-size: 0.7rem;
+}
+
+.section-hero__crumb-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.section-hero__crumb-icon--dark {
+  display: none;
+}
+
+[data-theme='dark'] .section-hero__crumb-icon--light {
+  display: none;
+}
+
+[data-theme='dark'] .section-hero__crumb-icon--dark {
+  display: inline;
+}
+
+[data-theme='dark'] .section-hero__crumb {
+  background-color: var(--pdai-gray-800);
+  color: var(--pdai-gray-400);
+}
+
+[data-theme='dark'] .section-hero__crumb--active {
+  background-color: rgba(129, 140, 248, 0.15);
+  color: var(--ifm-color-primary);
 }
