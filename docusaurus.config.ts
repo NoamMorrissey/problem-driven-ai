@@ -290,6 +290,7 @@ const config: Config = {
           items: [
             {label: 'FAQ', to: '/resources/faq'},
             {label: 'Glossary', to: '/resources/glossary'},
+            {label: 'Roadmap', to: '/resources/roadmap'},
           ],
         },
       ],
