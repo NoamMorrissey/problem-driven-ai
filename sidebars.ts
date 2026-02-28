@@ -49,11 +49,6 @@ const sidebars: SidebarsConfig = {
       id: 'resources/glossary',
       label: 'Glossary',
     },
-    {
-      type: 'doc',
-      id: 'resources/tools',
-      label: 'Tools',
-    },
   ],
 };
 

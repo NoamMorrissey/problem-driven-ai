@@ -167,7 +167,6 @@ const config: Config = {
             {en: '/framework/phases/market-phase/effort', es: '/framework/fases/market-phase/esfuerzo'},
             // Resources
             {en: '/resources/glossary', es: '/recursos/glosario'},
-            {en: '/resources/tools', es: '/recursos/herramientas'},
           ];
 
           // Directory-level redirects (translate directory segments)
@@ -291,7 +290,6 @@ const config: Config = {
           items: [
             {label: 'FAQ', to: '/resources/faq'},
             {label: 'Glossary', to: '/resources/glossary'},
-            {label: 'Tools', to: '/resources/tools'},
           ],
         },
       ],

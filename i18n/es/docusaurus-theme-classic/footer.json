@@ -39,10 +39,6 @@
     "message": "Glosario",
     "description": "The label of footer link with label=Glossary linking to /resources/glossary"
   },
-  "link.item.label.Tools": {
-    "message": "Herramientas",
-    "description": "The label of footer link with label=Tools linking to /resources/tools"
-  },
   "copyright": {
     "message": "© 2026 <a href=\"https://morcuende.info\" target=\"_blank\" rel=\"noopener noreferrer\">Alfonso Morcuende</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://licensebuttons.net/l/by-sa/4.0/88x31.png\" alt=\"CC BY-SA 4.0\" style=\"vertical-align: middle; height: 20px;\" /> CC BY-SA 4.0</a>",
     "description": "The footer copyright"
