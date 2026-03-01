@@ -26,9 +26,9 @@ Lo que existe hoy. Marca el punto de partida del versionado.
 **Entregable:** Publicación del sitio con badge de versión "Beta 0.1" + página de changelog.
 
 ### Tareas:
-- [ ] Crear componente/badge de versión visible en el sitio (footer o header)
-- [ ] Crear página de changelog en Resources (`/resources/changelog`)
-- [ ] Primera entrada del changelog documentando el estado actual
+- [x] Crear componente/badge de versión visible en el sitio (footer o header)
+- [x] Crear página de changelog en Resources (`/resources/changelog`)
+- [x] Primera entrada del changelog documentando el estado actual
 
 ---
 

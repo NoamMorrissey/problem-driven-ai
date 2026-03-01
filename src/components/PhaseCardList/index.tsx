@@ -78,6 +78,10 @@ const icons: Record<string, PhaseIcon> = {
     icon: '/img/roadmap-ico.png',
     iconDark: '/img/roadmap-ico-dark.png',
   },
+  'changelog': {
+    icon: '/img/change-log-ico.png',
+    iconDark: '/img/change-log-ico-dark.png',
+  },
 };
 
 const methodology: Record<string, PhaseText> = {
@@ -169,6 +173,10 @@ const resources: Record<string, PhaseText> = {
   'roadmap': {
     en: 'Where Problem-Driven AI is heading — from Beta to 1.0 and beyond. Every planned milestone and what it brings.',
     es: 'Hacia dónde se dirige Problem-Driven AI — de Beta a 1.0 y más allá. Cada milestone planificado y lo que trae.',
+  },
+  'changelog': {
+    en: 'Version history and release notes for every Problem-Driven AI release.',
+    es: 'Historial de versiones y notas de cada release de Problem-Driven AI.',
   },
 };
 

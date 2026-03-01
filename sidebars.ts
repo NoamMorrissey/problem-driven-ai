@@ -54,6 +54,11 @@ const sidebars: SidebarsConfig = {
       id: 'resources/roadmap',
       label: 'Roadmap',
     },
+    {
+      type: 'doc',
+      id: 'resources/changelog',
+      label: 'Changelog',
+    },
   ],
 };
 
