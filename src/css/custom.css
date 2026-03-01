@@ -112,6 +112,38 @@ h4, h5, h6 {
   display: none;
 }
 
+/* Version badge in navbar right */
+.navbar-version-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--pdai-border-radius-sm);
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-dark);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.navbar-version-badge:hover {
+  text-decoration: none;
+  color: var(--ifm-color-success-dark);
+  opacity: 0.8;
+}
+
+[data-theme='dark'] .navbar-version-badge {
+  color: var(--ifm-color-success-light);
+}
+
+[data-theme='dark'] .navbar-version-badge:hover {
+  color: var(--ifm-color-success-light);
+}
+
 .navbar__link {
   font-family: var(--pdai-font-family-heading);
   font-size: 0.8125rem;

@@ -1,0 +1,247 @@
+/* ===================== ROADMAP TIMELINE ===================== */
+
+.roadmapTimeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Vertical spine */
+.roadmapTimeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--pdai-border-color);
+  transform: translateX(-50%);
+}
+
+/* ---- Step row ---- */
+
+.step {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+/* ---- Left column: dot + connector ---- */
+
+.stepLeft {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+/* Connector line between dots */
+.stepLeft::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--pdai-border-color);
+  transform: translateX(-50%);
+}
+
+.stepLast .stepLeft::after {
+  display: none;
+}
+
+/* ---- Dot ---- */
+
+.dot {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--pdai-border-color);
+  color: var(--ifm-font-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  z-index: 2;
+  flex-shrink: 0;
+  border: 3px solid var(--ifm-background-color);
+  box-shadow: 0 0 0 2px var(--pdai-border-color);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dotActive {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
+
+.dotCurrent {
+  background: var(--ifm-color-success);
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--ifm-color-success);
+}
+
+/* ---- Right column: card ---- */
+
+.stepRight {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 1.5rem;
+}
+
+.stepLast .stepRight {
+  padding-bottom: 0;
+}
+
+/* ---- Card header (always visible) ---- */
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border-radius: var(--pdai-border-radius-sm);
+}
+
+.cardHeader:hover .cardTitle {
+  color: var(--ifm-color-primary);
+}
+
+.versionBadge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--pdai-border-radius-sm);
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--ifm-color-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='dark'] .versionBadge {
+  background: rgba(129, 140, 248, 0.12);
+}
+
+.versionBadgeCurrent {
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-dark);
+}
+
+[data-theme='dark'] .versionBadgeCurrent {
+  color: var(--ifm-color-success-light);
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--pdai-font-family-heading);
+  color: var(--ifm-heading-color);
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.cardTitleActive {
+  color: var(--ifm-color-primary);
+}
+
+/* ---- Card body (accordion content) ---- */
+
+.cardBody {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+
+.cardBodyOpen {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+.cardContent {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--pdai-border-color);
+  border-radius: var(--pdai-border-radius);
+  padding: 1rem 1.25rem;
+}
+
+.cardContent p {
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-secondary);
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+}
+
+.cardContent p:last-child {
+  margin-bottom: 0;
+}
+
+.cardContent ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.cardContent li {
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
+.cardContent li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Status indicator ---- */
+
+.statusBadge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--pdai-border-radius-sm);
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.statusCurrent {
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-dark);
+}
+
+[data-theme='dark'] .statusCurrent {
+  color: var(--ifm-color-success-light);
+}
+
+.statusPlanned {
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .statusPlanned {
+  background: rgba(129, 140, 248, 0.1);
+}
+
+.statusFuture {
+  background: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-dark);
+}
+
+[data-theme='dark'] .statusFuture {
+  color: var(--ifm-color-warning-light);
+}

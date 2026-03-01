@@ -262,6 +262,12 @@ const config: Config = {
           label: 'Resources',
         },
         {
+          type: 'html',
+          position: 'right',
+          value:
+            '<a href="/resources/roadmap" class="navbar-version-badge">Beta 0.1</a>',
+        },
+        {
           type: 'localeDropdown',
           position: 'right',
         },
