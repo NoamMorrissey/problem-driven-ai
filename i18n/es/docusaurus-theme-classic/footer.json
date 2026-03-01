@@ -11,6 +11,10 @@
     "message": "Recursos",
     "description": "The title of the footer links column with title=Resources"
   },
+  "link.title.About the Author": {
+    "message": "Sobre el Autor",
+    "description": "The title of the footer links column with title=About the Author"
+  },
   "link.item.label.Overview": {
     "message": "Visión General",
     "description": "The label of footer link with label=Overview linking to /overview"
@@ -39,8 +43,24 @@
     "message": "Glosario",
     "description": "The label of footer link with label=Glossary linking to /resources/glossary"
   },
+  "link.item.label.Roadmap": {
+    "message": "Roadmap",
+    "description": "The label of footer link with label=Roadmap linking to /resources/roadmap"
+  },
+  "link.item.label.LinkedIn Profile": {
+    "message": "Perfil de LinkedIn",
+    "description": "The label of footer link with label=LinkedIn Profile"
+  },
+  "link.item.label.Website CV": {
+    "message": "Web Personal",
+    "description": "The label of footer link with label=Website CV"
+  },
+  "link.item.label.Substack Channel": {
+    "message": "Canal de Substack",
+    "description": "The label of footer link with label=Substack Channel"
+  },
   "copyright": {
-    "message": "© 2026 <a href=\"https://morcuende.info\" target=\"_blank\" rel=\"noopener noreferrer\">Alfonso Morcuende</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://licensebuttons.net/l/by-sa/4.0/88x31.png\" alt=\"CC BY-SA 4.0\" style=\"vertical-align: middle; height: 20px;\" /> CC BY-SA 4.0</a>",
+    "message": "© 2026 · Licenciado bajo <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 4.0</a> — puedes compartir y adaptar este trabajo con atribución bajo la misma licencia.",
     "description": "The footer copyright"
   }
 }

@@ -414,6 +414,37 @@ div[class*='admonitionHeading'] {
   transition: color var(--ifm-transition-fast) ease;
 }
 
+.footer .col.footer__col {
+  max-width: none;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.footer .col.footer__col:first-child {
+  margin-right: auto;
+}
+
+.footer .col.footer__col:not(:first-child) {
+  margin-left: 2.5rem;
+}
+
+@media (max-width: 996px) {
+  .footer .row {
+    flex-wrap: wrap;
+  }
+
+  .footer .col.footer__col:first-child {
+    flex: 1 0 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .footer .col.footer__col:not(:first-child) {
+    flex: 1 1 auto;
+    margin-left: 0;
+  }
+}
+
 .footer__copyright {
   font-size: 0.8rem;
   color: var(--pdai-gray-500);

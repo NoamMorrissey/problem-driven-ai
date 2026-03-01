@@ -289,6 +289,23 @@ const config: Config = {
       style: 'dark',
       links: [
         {
+          title: 'About the Author',
+          items: [
+            {
+              label: 'LinkedIn Profile',
+              href: 'https://www.linkedin.com/in/alfonsomorcuende/',
+            },
+            {
+              label: 'Website CV',
+              href: 'https://morcuende.info/about/',
+            },
+            {
+              label: 'Substack Channel',
+              href: 'https://morcuende.substack.com/',
+            },
+          ],
+        },
+        {
           title: 'Methodology',
           items: [
             {label: 'Overview', to: '/overview'},
@@ -300,7 +317,11 @@ const config: Config = {
         {
           title: 'Framework',
           items: [
-            {label: 'Phases', to: '/framework'},
+            {label: 'Problem Phase', to: '/framework/phases/problem-phase'},
+            {label: 'Solution Phase', to: '/framework/phases/solution-phase'},
+            {label: 'Context Phase', to: '/framework/phases/context-phase'},
+            {label: 'AI Build Phase', to: '/framework/phases/ai-build-phase'},
+            {label: 'Market Phase', to: '/framework/phases/market-phase'},
           ],
         },
         {
@@ -312,7 +333,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} <a href="https://morcuende.info" target="_blank" rel="noopener noreferrer">Alfonso Morcuende</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="CC BY-SA 4.0" style="vertical-align: middle; height: 20px;" /> CC BY-SA 4.0</a>`,
+      copyright: `© ${new Date().getFullYear()} · Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> — you may share and adapt this work with attribution under the same license.`,
     },
     prism: {
       theme: prismThemes.github,
