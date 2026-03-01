@@ -8,21 +8,19 @@
 
 .heroSection {
   text-align: center;
-  padding: 4rem 2rem 2rem;
+  padding: 2rem 2rem 2rem;
 }
 
 .heroTitle {
-  font-family: var(--pdai-font-family-heading);
-  font-weight: 800;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--pdai-gray-900);
   margin: 0 0 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 0;
 }
 
-[data-theme='dark'] .heroTitle {
-  color: var(--pdai-gray-0);
+.heroLogo {
+  height: 140px;
+  width: auto;
+  border: none;
+  border-radius: 0;
 }
 
 .heroSubtitle {

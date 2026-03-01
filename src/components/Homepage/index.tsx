@@ -107,7 +107,13 @@ export default function Homepage(): React.ReactElement {
     <div className={styles.homepage}>
       {/* Section A: Hero Text */}
       <section className={styles.heroSection}>
-        <h1 className={styles.heroTitle}>Problem-Driven AI</h1>
+        <h1 className={styles.heroTitle}>
+          <img
+            src={isDark ? '/img/logo-home-dark.png' : '/img/logo-home-light.png'}
+            alt="Problem-Driven AI"
+            className={styles.heroLogo}
+          />
+        </h1>
         <p className={styles.heroSubtitle}>
           {locale === 'es'
             ? 'No construyas más rápido. Construye lo que importa.'

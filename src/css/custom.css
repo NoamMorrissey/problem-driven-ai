@@ -577,9 +577,19 @@ details summary {
   border: 1px solid var(--pdai-border-color);
 }
 
+.markdown img[alt="Problem-Driven AI"] {
+  border: none;
+  border-radius: 0;
+}
+
 [data-theme='dark'] .markdown img {
   border-color: var(--pdai-gray-700);
   opacity: 0.9;
+}
+
+[data-theme='dark'] .markdown img[alt="Problem-Driven AI"] {
+  border: none;
+  opacity: 1;
 }
 
 /* ---------- 19. ANNOUNCEMENT BAR ---------- */
