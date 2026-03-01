@@ -144,6 +144,28 @@ h4, h5, h6 {
   color: var(--ifm-color-success-light);
 }
 
+/* Locale dropdown — replace globe SVG icon with flag image */
+[class*='iconLanguage'] {
+  display: none !important;
+}
+
+.dropdown--right > .navbar__link::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/img/nav-lang-en.png');
+}
+
+html[lang|='es'] .dropdown--right > .navbar__link::before {
+  background-image: url('/img/nav-lang-sp.png');
+}
+
 .navbar__link {
   font-family: var(--pdai-font-family-heading);
   font-size: 0.8125rem;
