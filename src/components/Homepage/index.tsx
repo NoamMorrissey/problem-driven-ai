@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useColorMode} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
 
-const YOUTUBE_VIDEO_ID = 'URu4Jd8b29U';
+const YOUTUBE_VIDEO_ID = 'AmCpLRwBFgQ';
 
 interface NavCard {
   title: {en: string; es: string};
