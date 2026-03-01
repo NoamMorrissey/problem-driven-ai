@@ -5,9 +5,9 @@
 
 :root {
   /* ---------- Typography ---------- */
-  --pdai-font-family-heading: 'Plus Jakarta Sans', var(--ifm-font-family-base);
-  --pdai-font-family-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --pdai-font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+  --pdai-font-family-heading: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', var(--ifm-font-family-base);
+  --pdai-font-family-body: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --pdai-font-family-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', SFMono-Regular, Menlo, monospace;
 
   /* ---------- Spacing ---------- */
   --pdai-border-radius: 0.5rem;

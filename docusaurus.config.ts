@@ -15,15 +15,20 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
-        rel: 'preconnect',
-        href: 'https://fonts.googleapis.com',
+        rel: 'preload',
+        href: '/fonts/inter-latin.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
       },
     },
     {
       tagName: 'link',
       attributes: {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
+        rel: 'preload',
+        href: '/fonts/plus-jakarta-sans-latin.woff2',
+        as: 'font',
+        type: 'font/woff2',
         crossorigin: 'anonymous',
       },
     },
@@ -201,6 +206,13 @@ const config: Config = {
 
           return redirects.length > 0 ? redirects : undefined;
         },
+      },
+    ],
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-VKCR94YC25',
+        anonymizeIP: true,
       },
     ],
   ],

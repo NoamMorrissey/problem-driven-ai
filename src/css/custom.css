@@ -90,21 +90,21 @@ h4, h5, h6 {
 .navbar__logo img {
   height: 36px;
   width: auto;
-  position: relative;
-  top: -9px;
+  aspect-ratio: 352 / 100;
+  transform: translateY(-9px);
 }
 
 @media (min-width: 576px) {
   .navbar__logo img {
     height: 45px;
-    top: -11px;
+    transform: translateY(-11px);
   }
 }
 
 @media (min-width: 997px) {
   .navbar__logo img {
     height: 55px;
-    top: -13px;
+    transform: translateY(-13px);
   }
 }
 
