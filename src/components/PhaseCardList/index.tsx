@@ -62,6 +62,22 @@ const icons: Record<string, PhaseIcon> = {
     icon: '/img/fases-ico.png',
     iconDark: '/img/fases-ico-dark.png',
   },
+  'faq': {
+    icon: '/img/faq-ico.png',
+    iconDark: '/img/faq-ico-dark.png',
+  },
+  'glossary': {
+    icon: '/img/glosario-ico.png',
+    iconDark: '/img/glosario-ico-dark.png',
+  },
+  'glosario': {
+    icon: '/img/glosario-ico.png',
+    iconDark: '/img/glosario-ico-dark.png',
+  },
+  'roadmap': {
+    icon: '/img/roadmap-ico.png',
+    iconDark: '/img/roadmap-ico-dark.png',
+  },
 };
 
 const methodology: Record<string, PhaseText> = {
@@ -137,7 +153,26 @@ const overview: Record<string, PhaseText> = {
   },
 };
 
-const variants = {methodology, framework, overview};
+const resources: Record<string, PhaseText> = {
+  'faq': {
+    en: 'Frequently asked questions about Problem-Driven AI — what it is, what it isn\'t, and how it works in practice.',
+    es: 'Preguntas frecuentes sobre Problem-Driven AI — qué es, qué no es y cómo funciona en la práctica.',
+  },
+  'glossary': {
+    en: 'Key terms and definitions used throughout the methodology, from Context Engineering to Build-First Bias.',
+    es: 'Términos clave y definiciones usados en toda la metodología, desde Context Engineering hasta Build-First Bias.',
+  },
+  'glosario': {
+    en: 'Key terms and definitions used throughout the methodology, from Context Engineering to Build-First Bias.',
+    es: 'Términos clave y definiciones usados en toda la metodología, desde Context Engineering hasta Build-First Bias.',
+  },
+  'roadmap': {
+    en: 'Where Problem-Driven AI is heading — from Beta to 1.0 and beyond. Every planned milestone and what it brings.',
+    es: 'Hacia dónde se dirige Problem-Driven AI — de Beta a 1.0 y más allá. Cada milestone planificado y lo que trae.',
+  },
+};
+
+const variants = {methodology, framework, overview, resources};
 
 function getPhaseSlug(href: string): string | null {
   const segments = href.replace(/\/$/, '').split('/');
@@ -145,7 +180,7 @@ function getPhaseSlug(href: string): string | null {
 }
 
 interface Props {
-  variant?: 'methodology' | 'framework' | 'overview';
+  variant?: 'methodology' | 'framework' | 'overview' | 'resources';
 }
 
 export default function PhaseCardList({
