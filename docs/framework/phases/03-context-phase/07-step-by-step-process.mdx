@@ -38,7 +38,7 @@ Think of it like writing a company employee handbook. New hires don't have years
 | **Security constraints** | What's prohibited, what requires escalation. | A single security violation can compromise the entire project. These are always Level 5 Rules. |
 | **Integration rules** | How components communicate (REST, gRPC, events). | When a Skill involves integration, these Rules define the how. |
 | **Agent limits** | What each Agent can decide autonomously and what requires escalation. | Prevents Agents from making decisions outside their role — like a developer deciding to change the database without consulting the architect. |
-| **Gap protocol** | "When an Agent detects insufficient information in a Skill, it signals the gap. It does not fill it." | Without this, Agents invent answers with total confidence, creating invisible context debt. This is the single most important Rule. |
+| **Gap protocol** | "When an Agent detects insufficient information in a Skill, it signals the gap. It does not fill it." | Without this, Agents invent answers with total confidence, creating invisible Context Debt. This is the single most important Rule. |
 | **Justified global decisions** | Each cross-cutting decision with its "why." | If an Agent understands *why* a Rule exists, it can apply it correctly in situations the Context Engineer didn't foresee. |
 
 ### Calibrate precision levels

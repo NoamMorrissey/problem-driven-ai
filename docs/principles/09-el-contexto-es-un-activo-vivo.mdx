@@ -15,11 +15,11 @@ hide_title: true
 
 ## Statement
 
-Treating it as finished is the beginning of **context debt**. Context has its own lifecycle: it's born with the Problem Statement, grows with discovery, is refined with market validation, and matures with each iteration. Declaring it "done" is declaring that you've stopped learning.
+Treating it as finished is the beginning of **Context Debt**. Context has its own lifecycle: it's born with the Problem Statement, grows with discovery, is refined with market validation, and matures with each iteration. Declaring it "done" is declaring that you've stopped learning.
 
 ## Why it matters
 
-Context debt is the AI equivalent of technical debt: invisible at first, paralyzing at the end. Outdated context produces outputs that reflect a reality that no longer exists. And the worst part: the outputs seem correct because they're internally coherent, even though they're based on obsolete premises.
+Context Debt is the AI equivalent of technical debt: invisible at first, paralyzing at the end. Outdated context produces outputs that reflect a reality that no longer exists. And the worst part: the outputs seem correct because they're internally coherent, even though they're based on obsolete premises.
 
 Context as a living asset requires governance: who updates it, when it's reviewed, what signals trigger an update, how changes are versioned.
 
@@ -27,12 +27,16 @@ Context as a living asset requires governance: who updates it, when it's reviewe
 
 - **Version your context**: each significant change deserves a record of what changed and why.
 - **Define update triggers**: market signals, team changes, new learnings, strategic pivots.
-- **Audit context debt**: periodically review whether the context reflects the current reality of the project.
+- **Audit Context Debt**: periodically review whether the context reflects the current reality of the project.
 - **Assign ownership**: someone must be responsible for the health of the context.
 
 :::danger Anti-pattern: The Frozen Context
 
-Writing the context once at the start of the project and never touching it again. The team continues using a context that reflects day-1 reality, while the project is on day 90. AI outputs are technically correct but strategically obsolete.
+**What it is.** Writing the context once at the start of the project and never touching it again. The team continues using a context that reflects day-1 reality, while the project is on day 90. AI outputs are technically correct but strategically obsolete.
+
+**How to detect it.** The `project-context.md` file has no version history beyond the initial commit. Market signals and user feedback are collected but never incorporated into the context. The team acknowledges "things have changed" but the context still reflects the original assumptions. AI outputs feel increasingly disconnected from current reality.
+
+**How to prevent it.** Define update triggers: market signals, team changes, validated learnings, strategic pivots. Assign explicit ownership of context health. Schedule periodic context audits. Version every significant change with a record of what changed and why.
 
 :::
 

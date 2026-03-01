@@ -24,24 +24,24 @@ El Context Phase puede fallar de formas predecibles. Conocer estos patrones de a
     - El project-context.md supera las 10 páginas.
     - Los Skills incluyen pseudocódigo o detalles de implementación en vez de objetivos y criterios de aceptación.
     - Se usan Reglas de Nivel 4-5 para decisiones que deberían ser Nivel 1-2.
-    - Los Agentes producen output técnicamente correcto pero mecánicamente rígido — funcional pero sin inteligencia.
+    - Los Agentes producen output técnicamente correcto pero mecánicamente rígido, funcional pero sin inteligencia.
 
     **Por qué es peligroso:** El output sigue las Reglas al pie de la letra pero produce código que ningún desarrollador experimentado escribiría. Es el equivalente a microgestionar a un ingeniero senior: consigues cumplimiento, no artesanía. Los Agentes dejan de pensar y empiezan a copiar.
 
-    **Cómo detectarlo:** Si el output de un Skill parece generado rellenando una plantilla — todas las piezas correctas pero sin criterio de ingeniería — estás sobre-especificando.
+    **Cómo detectarlo:** Si el output de un Skill parece generado rellenando una plantilla (todas las piezas correctas pero sin criterio de ingeniería), estás sobre-especificando.
 
     **Cómo prevenirlo:** Los Niveles 1-2 existen por una razón. Úsalos. Los Skills definen el "qué", no el "cómo". Si un Skill incluye pseudocódigo, probablemente estás sobre-especificando. Confía en que un Agente bien definido con Reglas claras puede tomar decisiones de implementación.
   </AntiPatternAccordionItem>
   <AntiPatternAccordionItem number={2} title="El Agente Silencioso">
-    **Qué es:** Un Agente que detecta un gap en un Skill — información faltante, requisito ambiguo, restricción poco clara — y lo rellena con invención en lugar de señalarlo. El Agente produce output que parece completo y seguro, pero contiene decisiones que nadie autorizó.
+    **Qué es:** Un Agente que detecta un gap en un Skill (información faltante, requisito ambiguo, restricción poco clara) y lo rellena con invención en lugar de señalarlo. El Agente produce output que parece completo y seguro, pero contiene decisiones que nadie autorizó.
 
     **Cómo se manifiesta en la práctica:**
     - Los outputs incluyen funcionalidades o comportamientos no mencionados en el Skill.
     - Las decisiones de implementación se toman sin trazabilidad a Reglas o restricciones del Skill.
     - El QA Agent encuentra outputs internamente consistentes pero que no coinciden con el PRD.
-    - El equipo descubre "funcionalidades fantasma" durante la revisión — cosas que nadie pidió.
+    - El equipo descubre "funcionalidades fantasma" durante la revisión, cosas que nadie pidió.
 
-    **Por qué es peligroso:** Context drift. El proyecto diverge silenciosamente del Problem Statement y del Solution Brief. Para cuando alguien lo nota, decenas de Skills se han ejecutado basándose en asunciones no autorizadas. El coste de corrección es enorme.
+    **Por qué es peligroso:** Context Drift. El proyecto diverge silenciosamente del Problem Statement y del Solution Brief. Para cuando alguien lo nota, decenas de Skills se han ejecutado basándose en asunciones no autorizadas. El coste de corrección es enorme.
 
     **Cómo detectarlo:** Compara outputs con los criterios de aceptación del Skill. Si el output contiene elementos no cubiertos por los criterios, un Agente rellenó un gap silenciosamente.
 
@@ -56,11 +56,11 @@ El Context Phase puede fallar de formas predecibles. Conocer estos patrones de a
     - La brecha entre el sistema de contexto y la realidad se amplía conforme avanza la construcción.
     - Los Agentes producen outputs elegantes pero inviables.
 
-    **Por qué es peligroso:** Los Agentes ejecutan fielmente — eso es lo que hacen. Si las Reglas y los Skills describen una fantasía, los Agentes construirán la fantasía. Y la fantasía no funcionará cuando se encuentre con la realidad.
+    **Por qué es peligroso:** Los Agentes ejecutan fielmente, eso es lo que hacen. Si las Reglas y los Skills describen una fantasía, los Agentes construirán la fantasía. Y la fantasía no funcionará cuando se encuentre con la realidad.
 
     **Cómo detectarlo:** Compara cada Regla y cada Skill contra las restricciones del Solution Brief. Si alguna restricción ha sido suavizada, ignorada o "mejorada aspiracionalmente", el contexto es aspiracional.
 
-    **Cómo prevenirlo:** Las restricciones del Solution Brief se copian literalmente a las Reglas. Los Skills heredan esas Reglas. Ningún Agente puede ignorarlas. El Solution Brief es el contrato con la realidad — el sistema de contexto debe honrarlo.
+    **Cómo prevenirlo:** Las restricciones del Solution Brief se copian literalmente a las Reglas. Los Skills heredan esas Reglas. Ningún Agente puede ignorarlas. El Solution Brief es el contrato con la realidad, y el sistema de contexto debe honrarlo.
   </AntiPatternAccordionItem>
   <AntiPatternAccordionItem number={4} title="La Cadena Rota">
     **Qué es:** Un eslabón de la cadena de Agentes produce output sin que el QA Agent lo valide. El siguiente Agente consume output no verificado y genera Reglas o Skills basados en input potencialmente defectuoso. Los errores se propagan y amplifican.
@@ -89,7 +89,7 @@ El Context Phase puede fallar de formas predecibles. Conocer estos patrones de a
 
     **Cómo detectarlo:** Revisa el Decision Log. Si no se ha actualizado en el último sprint, el contexto probablemente está congelado. Pregunta al equipo: "¿Se ha decidido algo durante la construcción que no esté reflejado en el project-context.md?" Si la respuesta es sí, el contexto está congelado.
 
-    **Cómo prevenirlo:** Cada decisión que difiera del contexto debe actualizar el artefacto afectado — la Regla, la definición del Agente o el Skill. El Decision Log registra cada cambio. El contexto es vivo. Cada mutación es deliberada y registrada.
+    **Cómo prevenirlo:** Cada decisión que difiera del contexto debe actualizar el artefacto afectado: la Regla, la definición del Agente o el Skill. El Decision Log registra cada cambio. El contexto es vivo. Cada mutación es deliberada y registrada.
   </AntiPatternAccordionItem>
 </AntiPatternAccordion>
 
@@ -98,7 +98,7 @@ El Context Phase puede fallar de formas predecibles. Conocer estos patrones de a
 | Anti-patrón | Síntoma | Causa raíz | Prevención |
 |---|---|---|---|
 | **Over-Context** | Output rígido y mecánico | Reglas/Skills demasiado prescriptivos | Usar Niveles 1-2 para decisiones de bajo impacto |
-| **Agente Silencioso** | Funcionalidades fantasma, context drift | Protocolo ante gaps ausente o débil | Regla Nivel 5 de protocolo ante gaps en cada Agente |
+| **Agente Silencioso** | Funcionalidades fantasma, Context Drift | Protocolo ante gaps ausente o débil | Regla Nivel 5 de protocolo ante gaps en cada Agente |
 | **Contexto Aspiracional** | Outputs elegantes pero inviables | Restricciones del Solution Brief ignoradas | Copiar restricciones literalmente a las Reglas |
 | **Cadena Rota** | Amplificación de errores | QA omitido en eslabones de la cadena | QA valida cada output antes de que avance |
 | **Contexto Congelado** | Desconexión creciente de la realidad | Sin proceso de actualización | Decision Log + actualizaciones obligatorias del contexto |

@@ -1,22 +1,22 @@
 ---
-title: "Criterio de salida: el Gate Review"
+title: "Exit Criteria: el Gate Review"
 sidebar_label: "Gate Review"
 slug: /framework/fases/context-phase/gate-review
-description: "El Context Phase está completo cuando los outputs del sistema son reconocidos como correctos por los stakeholders — no cuando los documentos parecen pulidos."
+description: "El Context Phase está completo cuando los outputs del sistema son reconocidos como correctos por los stakeholders, no cuando los documentos parecen pulidos."
 sidebar_position: 4
 tags: [fases, context-phase, gate-review, exit-criteria]
 hide_title: true
 ---
 
 <div className="section-hero section-hero--subpage">
-  <h1 className="section-hero__title">Criterio de salida: el Gate Review</h1>
+  <h1 className="section-hero__title">Exit Criteria: el Gate Review</h1>
 </div>
 
-El Context Phase no está completo cuando los documentos parecen pulidos. Está completo cuando los **outputs** del sistema — Agentes ejecutando Skills bajo Reglas — son reconocidos como correctos por los stakeholders que definieron el problema y la solución.
+El Context Phase no está completo cuando los documentos parecen pulidos. Está completo cuando los **outputs** del sistema (Agentes ejecutando Skills bajo Reglas) son reconocidos como correctos por los stakeholders que definieron el problema y la solución.
 
 :::caution Gate 3 → 4: Condiciones de paso
 - ✅ Los outputs de prueba (Agentes ejecutando Skills bajo Reglas) son reconocidos como correctos por stakeholders de las Fases 1 y 2. Pueden mirar el output y decir: "Sí, esto es una expresión fiel de lo que acordamos."
-- ✅ Las Reglas pasan la regla de las tres lecturas: un Agente que lea solo el project-context.md puede responder — ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente?
+- ✅ Las Reglas pasan la regla de las tres lecturas: un Agente que lea solo el project-context.md puede responder: ¿Qué tecnologías uso? ¿Qué no puedo hacer? ¿Cuál es la convención para cualquier patrón recurrente?
 - ✅ Cada Agente tiene los cinco elementos obligatorios: identidad, responsabilidades, límites, referencia a Reglas y protocolo ante gaps.
 - ✅ Cada Skill pasa el test de autocontención: un Agente con el Skill + project-context.md puede completar la tarea sin preguntar nada.
 - ✅ El PRD tiene trazabilidad total a los artefactos de las Fases 1 y 2. Cada sección traza al Problem Statement o al Solution Brief.
@@ -24,14 +24,14 @@ El Context Phase no está completo cuando los documentos parecen pulidos. Está 
 - ✅ El QA Agent ha validado cada documento de la cadena: fidelidad a inputs, completitud, consistencia con Reglas.
 - ❌ No se avanza si los outputs de prueba no son reconocidos como fieles al Problem Statement y al Solution Brief.
 - ❌ No se avanza si hay Skills que dependen de contexto implícito no presente en las Reglas ni en el propio Skill.
-- ❌ No se avanza si hay Reglas implícitas que no están en el project-context.md — si el equipo "sabe" algo pero no está documentado, no existe para los Agentes.
+- ❌ No se avanza si hay Reglas implícitas que no están en el project-context.md. Si el equipo "sabe" algo pero no está documentado, no existe para los Agentes.
 :::
 
-Este criterio de salida existe porque el Context Phase es el último checkpoint antes de la construcción. Cada gap que pase este gate se convierte en Context Debt invisible durante la Fase 4: los Agentes toman decisiones confiadas basadas en información incompleta, produciendo outputs que parecen correctos pero no son fieles a lo que los stakeholders acordaron.
+Estos Exit Criteria existen porque el Context Phase es el último checkpoint antes de la construcción. Cada gap que pase este gate se convierte en Context Debt invisible durante la Fase 4: los Agentes toman decisiones confiadas basadas en información incompleta, produciendo outputs que parecen correctos pero no son fieles a lo que los stakeholders acordaron.
 
 ## La pregunta de validación
 
-La pregunta fundamental en el Gate Review no es "¿Los documentos están completos?" — es **"¿Los outputs son correctos?"**
+La pregunta fundamental en el Gate Review no es "¿Los documentos están completos?", es **"¿Los outputs son correctos?"**
 
 Esta distinción importa. Un project-context.md puede parecer exhaustivo, las Definiciones de Agentes pueden lucir bien estructuradas y los Skills pueden parecer detallados. Pero la única prueba real es ejecutar el sistema y evaluar lo que produce. Los documentos son el medio; los outputs son la evidencia.
 
@@ -39,14 +39,14 @@ La validación funciona así:
 
 1. Seleccionar 3-5 Skills representativos que cubran diferentes áreas del proyecto.
 2. Hacer que los Agentes correspondientes los ejecuten bajo las Reglas actuales.
-3. Presentar los outputs a los stakeholders — las mismas personas que validaron el Problem Statement y el Solution Brief.
+3. Presentar los outputs a los stakeholders, las mismas personas que validaron el Problem Statement y el Solution Brief.
 4. Preguntar: "¿Es esto reconocible como una expresión fiel de lo que acordamos?"
 5. Si sí para todas las muestras: el sistema de contexto está validado.
 6. Si no para alguna muestra: diagnosticar dónde está el fallo (Reglas, Agente, Skill o interacción) e iterar.
 
 ## Después del gate: transición a la Fase 4
 
-Cuando el equipo completa el Gate Review, el proyecto transiciona del diseño a la ejecución. Pero a diferencia de proyectos tradicionales, **la fase de construcción no empieza con un briefing — empieza con un sistema operativo completo.**
+Cuando el equipo completa el Gate Review, el proyecto transiciona del diseño a la ejecución. Pero a diferencia de proyectos tradicionales, **la fase de construcción no empieza con un briefing, empieza con un sistema operativo completo.**
 
 Cada Agente de desarrollo ya sabe:
 - **Qué tecnologías usar** (Reglas, Sección 2)

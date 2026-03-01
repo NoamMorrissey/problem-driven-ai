@@ -41,7 +41,7 @@ Context Phase can fail in predictable ways. Knowing these patterns in advance al
     - The QA Agent finds outputs that are internally consistent but don't match the PRD.
     - The team discovers "phantom features" during review — things nobody asked for.
 
-    **Why it's dangerous:** Context drift. The project silently diverges from the Problem Statement and the Solution Brief. By the time someone notices, dozens of Skills have been executed based on unauthorized assumptions. The cost of correction is enormous.
+    **Why it's dangerous:** Context Drift. The project silently diverges from the Problem Statement and the Solution Brief. By the time someone notices, dozens of Skills have been executed based on unauthorized assumptions. The cost of correction is enormous.
 
     **How to detect it:** Compare outputs against Skill acceptance criteria. If the output contains elements not covered by the criteria, an Agent filled a gap silently.
 
@@ -98,7 +98,7 @@ Context Phase can fail in predictable ways. Knowing these patterns in advance al
 | Anti-pattern | Symptom | Root cause | Prevention |
 |---|---|---|---|
 | **Over-Context** | Rigid, mechanical output | Rules/Skills too prescriptive | Use Levels 1-2 for low-impact decisions |
-| **Silent Agent** | Phantom features, context drift | Missing or weak gap protocol | Level 5 gap protocol Rule in every Agent |
+| **Silent Agent** | Phantom features, Context Drift | Missing or weak gap protocol | Level 5 gap protocol Rule in every Agent |
 | **Aspirational Context** | Elegant but inviable outputs | Constraints from Solution Brief ignored | Copy constraints literally into Rules |
 | **Broken Chain** | Error amplification | QA skipped at chain links | QA validates every output before it moves |
 | **Frozen Context** | Growing disconnect from reality | No update process | Decision Log + mandatory context updates |

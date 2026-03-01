@@ -14,11 +14,11 @@ hide_title: true
 
 There is a specific risk in Phase 4 that doesn't exist in previous phases. It's called **Context Drift**: the gradual accumulation of technical decisions that, individually, seem reasonable, but together silently move the built solution away from the problem it was supposed to solve.
 
-In sequential construction, context drift is relatively visible — a single thread of work drifts and a reviewer can detect it. In parallel construction, it has an especially dangerous variant: **distributed context drift.**
+In sequential construction, Context Drift is relatively visible — a single thread of work drifts and a reviewer can detect it. In parallel construction, it has an especially dangerous variant: **distributed Context Drift.**
 
-## What distributed context drift is
+## What distributed Context Drift is
 
-Distributed context drift occurs when the drift doesn't concentrate in a single track but in multiple tracks evolving in slightly different directions without anyone having visibility of the whole. Each track is faithful to its own local context. The system, considered as a whole, drifts from the global context.
+Distributed Context Drift occurs when the drift doesn't concentrate in a single track but in multiple tracks evolving in slightly different directions without anyone having visibility of the whole. Each track is faithful to its own local context. The system, considered as a whole, drifts from the global context.
 
 Imagine three teams building in parallel: one develops the prediction engine, another the user interface, and another the alerting system. Each team follows their Story File faithfully. But the prediction team optimizes for accuracy (3-second response times), the interface team optimizes for speed (expects responses under 500ms), and the alerting team optimizes for volume (batch processing, not real-time). Each decision is locally reasonable. The system, once integrated, doesn't work for the user's use case.
 
@@ -33,7 +33,7 @@ Imagine three teams building in parallel: one develops the prediction engine, an
 
 ## Warning signals
 
-These are the five signals indicating active context drift in a team with parallel construction:
+These are the five signals indicating active Context Drift in a team with parallel construction:
 
 1. A Dev Lead describes their track's output as "improved relative to the original Story File" without a Context Document update justifying that improvement.
 

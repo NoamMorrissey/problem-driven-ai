@@ -15,11 +15,11 @@ hide_title: true
 
 ## Enunciado
 
-Tratarlo como algo terminado es el inicio de la **deuda de contexto**. El contexto tiene un ciclo de vida propio: nace con el Problem Statement, crece con el discovery, se refina con la validación del mercado y madura con cada iteración. Declararlo "terminado" es declarar que has dejado de aprender.
+Tratarlo como algo terminado es el inicio de la **Context Debt**. El contexto tiene un ciclo de vida propio: nace con el Problem Statement, crece con el discovery, se refina con la validación del mercado y madura con cada iteración. Declararlo "terminado" es declarar que has dejado de aprender.
 
 ## Por qué importa
 
-La deuda de contexto es el equivalente en IA de la deuda técnica: invisible al principio, paralizante al final. Un contexto desactualizado produce outputs que reflejan una realidad que ya no existe. Y lo peor: los outputs parecen correctos porque son coherentes internamente, aunque estén basados en premisas obsoletas.
+La Context Debt es el equivalente en IA de la deuda técnica: invisible al principio, paralizante al final. Un contexto desactualizado produce outputs que reflejan una realidad que ya no existe. Y lo peor: los outputs parecen correctos porque son coherentes internamente, aunque estén basados en premisas obsoletas.
 
 El contexto como activo vivo requiere gobernanza: quién lo actualiza, cuándo se revisa, qué señales disparan una actualización, cómo se versionan los cambios.
 
@@ -27,12 +27,16 @@ El contexto como activo vivo requiere gobernanza: quién lo actualiza, cuándo s
 
 - **Versiona el contexto**: cada cambio significativo merece un registro de qué cambió y por qué.
 - **Define triggers de actualización**: señales del mercado, cambios en el equipo, nuevos aprendizajes, pivotes estratégicos.
-- **Audita la deuda de contexto**: revisa periódicamente si el contexto refleja la realidad actual del proyecto.
+- **Audita la Context Debt**: revisa periódicamente si el contexto refleja la realidad actual del proyecto.
 - **Asigna ownership**: alguien debe ser responsable de la salud del contexto.
 
 :::danger Anti-patrón: El Contexto Congelado
 
-Escribir el contexto una vez al inicio del proyecto y no volver a tocarlo. El equipo sigue usando un contexto que refleja la realidad del día 1, mientras el proyecto está en el día 90. Los outputs de la IA son técnicamente correctos pero estratégicamente obsoletos.
+**Qué es.** Escribir el contexto una vez al inicio del proyecto y no volver a tocarlo. El equipo sigue usando un contexto que refleja la realidad del día 1, mientras el proyecto va por el día 90. Los outputs de la IA son técnicamente correctos pero estratégicamente obsoletos.
+
+**Cómo detectarlo.** El fichero `project-context.md` no tiene historial de versiones más allá del commit inicial. Las señales de mercado y el feedback de usuarios se recopilan pero nunca se incorporan al contexto. El equipo reconoce que "las cosas han cambiado" pero el contexto sigue reflejando las asunciones originales. Los outputs de la IA se sienten cada vez más desconectados de la realidad actual.
+
+**Cómo prevenirlo.** Define disparadores de actualización: señales de mercado, cambios de equipo, aprendizajes validados, pivotes estratégicos. Asigna propiedad explícita de la salud del contexto. Programa auditorías de contexto periódicas. Versiona cada cambio significativo con un registro de qué cambió y por qué.
 
 :::
 

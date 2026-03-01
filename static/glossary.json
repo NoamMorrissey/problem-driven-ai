@@ -126,7 +126,7 @@
     "definition_es": "El artefacto vivo que abarca las Fases 3-5: project-context.md, PRD, Arquitectura y Story Files. Evoluciona con señales del mercado. La fuente única de verdad para la ejecución de IA.",
     "context_en": "The Context Document is not a single file but a structured system of interconnected artifacts produced through Context Engineering. It begins in Phase 3 as the translation of the Solution Brief into AI-executable specifications. In Phase 4 it guides parallel construction. In Phase 5 it evolves with market learnings. Its quality determines whether AI agents produce correct output or hallucinate.",
     "context_es": "El Context Document no es un archivo único sino un sistema estructurado de artefactos interconectados producidos mediante Context Engineering. Comienza en la Fase 3 como la traducción del Solution Brief a especificaciones ejecutables por IA. En la Fase 4 guía la construcción paralela. En la Fase 5 evoluciona con aprendizajes del mercado. Su calidad determina si los agentes IA producen output correcto o alucinan.",
-    "related_terms": ["Context Engineering", "project-context.md", "PRD"],
+    "related_terms": ["Context Engineering", "project-context.md"],
     "canonical": false,
     "acronym_full": null
   },
