@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import glossaryData from '@site/static/glossary.json';
 import styles from './styles.module.css';
@@ -76,6 +76,44 @@ export default function GlossaryPage(): React.ReactElement {
     window.scrollTo({top: 0, behavior: 'smooth'});
   };
 
+  // On mount: if URL has a hash, find the term, go to its page, scroll to it
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+
+    const slug = decodeURIComponent(hash);
+    // All terms sorted alphabetically (same as filtered with no search/category)
+    const allSorted = [...terms].sort((a, b) => {
+      const tA = isEs ? a.term_es : a.term_en;
+      const tB = isEs ? b.term_es : b.term_en;
+      return tA.localeCompare(tB);
+    });
+
+    const idx = allSorted.findIndex(
+      (t) => t.term_en.toLowerCase().replace(/\s+/g, '-') === slug,
+    );
+    if (idx === -1) return;
+
+    const page = Math.floor(idx / PAGE_SIZE) + 1;
+    setActiveCategory('All');
+    setSearch('');
+    setCurrentPage(page);
+
+    // Wait for render, then scroll to the element
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const el = document.getElementById(slug);
+        if (el) {
+          el.scrollIntoView({behavior: 'smooth', block: 'center'});
+          el.style.outline = '2px solid var(--ifm-color-primary)';
+          el.style.outlineOffset = '4px';
+          el.style.borderRadius = '0.5rem';
+          setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 2000);
+        }
+      }, 100);
+    });
+  }, []);
+
   return (
     <div className={styles.glossaryContainer}>
       <div className={styles.searchWrapper}>
@@ -123,7 +161,7 @@ export default function GlossaryPage(): React.ReactElement {
             const context = isEs ? t.context_es : t.context_en;
 
             return (
-              <div key={t.term_en} className={styles.termCard}>
+              <div key={t.term_en} id={t.term_en.toLowerCase().replace(/\s+/g, '-')} className={styles.termCard}>
                 <div className={styles.termHeader}>
                   <h3 className={styles.termName}>{term}</h3>
                   {t.canonical && (

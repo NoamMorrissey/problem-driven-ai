@@ -153,9 +153,14 @@ When a new content section is needed:
 - Exception: `index.mdx` files may use URL paths for category links (e.g., `/principios`, `/fases`)
 - Verify linked files exist in both trees
 
-### 9. Glossary Sync
+### 9. Glossary Sync & Tooltip Propagation
 - Detect new canonical terms in the content
 - If found, propose additions to `static/glossary.json` with `term_en` and `term_es`
+- **Category determines tooltip eligibility**: only `Methodology`, `Framework`, and `Anti-pattern` terms get tooltips. `Global` and `AI Technical` do NOT.
+- After adding new terms: the remark plugin (`src/remark/remarkGlossary.ts`) will automatically inject tooltips across ALL pages on next build — no manual `.mdx` edits needed
+- **Tooltip exclusion zones**: the remark plugin automatically skips headings, links, code blocks, and card components (`PhaseCardList`, `MethodologyCardList`, `PrincipleCardList`, `GuideCard`, `GuideCardGrid`, `FilteredDocCardList`, `StatCard`, `StatCardGrid`)
+- Verify no manual `<GlossaryTooltip>` tags exist in `.mdx` files — the plugin handles this automatically
+- After build, spot-check tooltip rendering on 2-3 pages (both EN and ES)
 
 ### 10. Restart Server
 - Kill any process on port 3000: `lsof -ti:3000 | xargs kill -9`
@@ -243,14 +248,25 @@ This is the most critical audit step. Every level must be verified independently
   ```
 - If ANY redirect HTML file is missing → BLOCK commit, fix the mapping, rebuild
 
-### 7. Build Verification
+### 7. Glossary Tooltip Audit
+- Verify `glossary.json` term categories are correct (only `Methodology`, `Framework`, `Anti-pattern` get tooltips)
+- Scan all `.mdx` files for manual `<GlossaryTooltip>` tags — these should NOT exist (the remark plugin handles injection automatically). Report and remove if found.
+- After build: spot-check 3-5 pages across different sections to verify:
+  - Tooltip-eligible terms appear with dotted underline and tooltip on hover
+  - Tooltip shows correct definition (EN or ES depending on locale)
+  - Tooltip link navigates to the specific term in the glossary page
+  - No tooltips appear inside card components or headings
+  - Tooltip displays correctly in both light and dark modes
+
+### 8. Build Verification
 - Run `npx docusaurus build` (if not already done in step 6d)
 - Confirm both locales: `[SUCCESS]`
 - Confirm 0 broken links (footer redirect warnings are acceptable)
 
-### 8. Report
+### 9. Report
 - Output structured table with PASS/FAIL per check
 - **Redirect audit must have its own section** with explicit PASS/FAIL for each of the three levels (dir, index, slug)
+- **Tooltip audit must have its own section** with PASS/FAIL for category correctness and visual verification
 - List all fixes applied
 - Suggest Changelog entry
 

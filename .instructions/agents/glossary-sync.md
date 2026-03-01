@@ -127,10 +127,51 @@ Format: table with term, one-line definition, and "read more" phase reference.
 
 ## 8. Categories Reference
 
-| Category | What goes here | Examples |
-|---|---|---|
-| **Global** | Sacred terms + concepts used across all phases | Problem Statement, Context Engineering, Gate Review, Exit Criteria |
-| **Methodology** | Phase-specific concepts from the methodology sections | Divergence, Four Dimensions, Gap Protocol, Nested Loops |
-| **Framework** | Roles, agent types, operational processes | Context Engineer, PM Agent, ADR, Fidelity Review |
-| **Anti-pattern** | Cross-phase violations with proper names | Context Drift, Over-Context, Silent Agent, Frozen Context |
-| **AI Technical** | Industry AI terms framed within the methodology | LLM, RAG, Fine-tuning, Hallucination, Context Window |
+| Category | What goes here | Tooltip | Examples |
+|---|---|---|---|
+| **Global** | Sacred terms + concepts used across all phases | No | Problem Statement, Context Engineering, Gate Review, Exit Criteria |
+| **Methodology** | Phase-specific concepts from the methodology sections | **Yes** | Divergence, Four Dimensions, Gap Protocol, Nested Loops |
+| **Framework** | Roles, agent types, operational processes | **Yes** | Context Engineer, PM Agent, ADR, Fidelity Review |
+| **Anti-pattern** | Cross-phase violations with proper names | **Yes** | Context Drift, Over-Context, Silent Agent, Frozen Context |
+| **AI Technical** | Industry AI terms framed within the methodology | No | LLM, RAG, Fine-tuning, Hallucination, Context Window |
+
+## 9. Tooltip Integration
+
+### Automatic tooltip system
+
+The site includes a remark plugin (`src/remark/remarkGlossary.ts`) that **automatically** wraps glossary terms with interactive tooltips at build time. This process is fully automated — no manual markup is required in `.mdx` files.
+
+### Which terms get tooltips
+
+Only terms in categories **Methodology**, **Framework**, and **Anti-pattern** are eligible for tooltips. Terms in **Global** and **AI Technical** are NOT shown as tooltips.
+
+**When adding a new term to `glossary.json`:** the `category` field determines whether it will appear as a tooltip across the site. Choose the category carefully — it controls both the glossary page grouping AND tooltip eligibility.
+
+### Tooltip behavior
+
+- Only the **first occurrence** of each term per page gets a tooltip
+- Terms inside **headings**, **links**, **code blocks**, and **navigation card components** are never tooltipped
+- The tooltip shows the term's `definition_en`/`definition_es` (based on locale) and a link to the specific term in the glossary page
+- Tooltips are rendered via React Portal (immune to parent CSS context)
+
+### Excluded components (no tooltips inside)
+
+The remark plugin skips the following components — text inside them is never marked:
+
+| Component | Reason |
+|---|---|
+| `PhaseCardList` | Navigation card — linking context, not reading context |
+| `MethodologyCardList` | Navigation card |
+| `PrincipleCardList` | Navigation card |
+| `FilteredDocCardList` | Navigation card |
+| `GuideCard` / `GuideCardGrid` | Navigation card |
+| `StatCard` / `StatCardGrid` | Metric display, not prose |
+
+### Validation during `sincroniza`
+
+After adding new terms to `glossary.json`:
+
+1. Verify the `category` is correct (determines tooltip eligibility)
+2. Run `npm run build` — the remark plugin will automatically inject tooltips for the new term across ALL pages
+3. Spot-check 2-3 pages where the term appears to confirm tooltip renders correctly
+4. Verify both locales (EN and ES) show the correct definition in the tooltip

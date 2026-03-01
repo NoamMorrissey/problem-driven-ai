@@ -255,6 +255,33 @@ Violaciones encontradas: X
 
 ---
 
+---
+
+## 5. Glossary Tooltip Rules
+
+### Tooltip eligibility
+
+The site has an automatic tooltip system (remark plugin `src/remark/remarkGlossary.ts`) that wraps glossary terms with interactive tooltips at build time. The Content Curator must verify that tooltip behavior is consistent with content intent.
+
+### Rules
+
+| Rule | Severity | Action |
+|---|---|---|
+| Terms inside navigation card components (`PhaseCardList`, `MethodologyCardList`, `PrincipleCardList`, `GuideCard`, etc.) must NOT have tooltips | Alta | Auto-handled by remark plugin (skips these components) — verify visually |
+| Only terms with category `Methodology`, `Framework`, or `Anti-pattern` should appear as tooltips | Alta | Verify `glossary.json` category is correct for new terms |
+| Tooltip text must be readable in both light and dark modes | Media | Report if tooltip contrast appears broken |
+| Only the first occurrence per page should have a tooltip — no repeated tooltips for the same term | Alta | Auto-handled by remark plugin — verify visually |
+| Manual `<GlossaryTooltip>` tags in `.mdx` files should NOT exist — the remark plugin handles injection automatically | Alta | Report — remove manual tags |
+
+### What to check when new terms are added
+
+1. The new term's `category` in `glossary.json` determines tooltip eligibility
+2. After build, spot-check that the term appears with tooltip on relevant pages
+3. Verify the term does NOT appear tooltipped inside card components
+4. Verify both EN and ES definitions render correctly in the tooltip
+
+---
+
 ## Execution Checklist
 
 When invoked, the Content Curator follows this sequence:
@@ -265,5 +292,6 @@ When invoked, the Content Curator follows this sequence:
 4. **Pass 3 — Structure scan:** Three-Move pattern, admonition types, table usage, blockquotes. Report or auto-correct type mismatches.
 5. **Pass 4 — Cross-file scan:** EN↔ES parity (headings, tables, admonitions, terms). Report.
 6. **Pass 5 — Vocabulary scan:** Preferred terms vs alternatives. Suggest (soft).
-7. **Generate report table** with all findings.
-8. **Log auto-corrections** in changelog entry.
+7. **Pass 6 — Tooltip scan:** Verify no manual `<GlossaryTooltip>` in MDX, verify new glossary terms have correct category for tooltip eligibility. Report.
+8. **Generate report table** with all findings.
+9. **Log auto-corrections** in changelog entry.

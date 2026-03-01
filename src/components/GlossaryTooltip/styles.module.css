@@ -1,0 +1,132 @@
+/* ===== Trigger ===== */
+
+.wrapper {
+  position: relative;
+  display: inline;
+}
+
+.trigger {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--ifm-color-primary);
+  text-underline-offset: 3px;
+  color: inherit;
+  outline: none;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  text-decoration-color: var(--ifm-color-primary-dark);
+}
+
+/* ===== Tooltip bubble ===== */
+
+.tooltip {
+  all: initial;
+  display: block;
+  box-sizing: border-box;
+  z-index: 9999;
+  width: max-content;
+  max-width: 340px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background: rgba(26, 31, 54, 0.95);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  animation: fadeIn 0.15s ease forwards;
+  pointer-events: auto;
+}
+
+[data-theme='dark'] .tooltip {
+  background: rgba(241, 243, 249, 0.95);
+  color: #1a1f36;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tooltipTop {
+  composes: tooltip;
+}
+
+.tooltipBottom {
+  composes: tooltip;
+}
+
+/* ===== Arrow ===== */
+
+.arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(26, 31, 54, 0.95);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+[data-theme='dark'] .arrow {
+  background: rgba(241, 243, 249, 0.95);
+}
+
+.tooltipTop .arrow {
+  bottom: -6px;
+}
+
+.tooltipBottom .arrow {
+  top: -6px;
+}
+
+/* ===== Content ===== */
+
+.definition {
+  all: unset;
+  display: block;
+  margin: 0 0 0.5rem !important;
+  font-family: inherit;
+  font-size: 0.8125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .definition {
+  color: #1a1f36 !important;
+}
+
+.glossaryLink {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #a5b4fc !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.glossaryLink:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+[data-theme='dark'] .glossaryLink {
+  color: #4f46e5 !important;
+}
+
+[data-theme='dark'] .glossaryLink:hover {
+  color: #4338ca !important;
+}
