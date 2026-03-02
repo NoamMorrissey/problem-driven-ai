@@ -65,4 +65,12 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardDescription {
+    font-size: 0.8rem;
+  }
 }

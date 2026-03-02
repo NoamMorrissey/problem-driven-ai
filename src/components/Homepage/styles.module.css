@@ -242,7 +242,11 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 2.5rem 1rem 1.5rem;
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .heroLogo {
+    height: 100px;
   }
 
   .navCards {
@@ -260,5 +264,35 @@
   .pill {
     font-size: 0.75rem;
     padding: 0.3rem 0.75rem;
+  }
+
+  .videoSection {
+    padding: 0 0 2rem;
+  }
+
+  .whySection {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .featureBlockTitle {
+    font-size: 1.25rem;
+  }
+
+  .featureBlockText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroLogo {
+    height: 80px;
+  }
+
+  .heroSection {
+    padding: 1.5rem 0.75rem 1rem;
+  }
+
+  .navCard {
+    padding: 1.25rem;
   }
 }

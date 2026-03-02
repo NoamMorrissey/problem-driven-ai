@@ -79,3 +79,13 @@
   color: var(--ifm-color-content-secondary);
   margin: 0 0 0.4rem;
 }
+
+@media (max-width: 768px) {
+  .accordionContent {
+    padding: 0 0 1rem 0.5rem;
+  }
+
+  .accordionTitle {
+    font-size: 0.9rem;
+  }
+}
