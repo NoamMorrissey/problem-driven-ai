@@ -150,10 +150,12 @@ const config: Config = {
             {en: '/phases/solution-phase/what-it-is-and-isnt', es: '/fases/solution-phase/que-es-y-que-no-es'},
             {en: '/phases/solution-phase/who-participates', es: '/fases/solution-phase/quien-participa'},
             {en: '/phases/solution-phase/thinking-about-ai', es: '/fases/solution-phase/pensar-en-la-ia'},
+            {en: '/phases/solution-phase/the-alignment-trap', es: '/fases/solution-phase/la-trampa-del-alineamiento'},
             {en: '/phases/solution-phase/connection-to-phase-3', es: '/fases/solution-phase/conexion-con-fase-3'},
             // Phase 3: Context Phase (methodology)
             {en: '/phases/context-phase/why-this-phase-exists', es: '/fases/context-phase/por-que-esta-fase-existe'},
             {en: '/phases/context-phase/context-vs-prompt', es: '/fases/context-phase/contexto-vs-prompt'},
+            {en: '/phases/context-phase/what-it-is-and-isnt', es: '/fases/context-phase/que-es-y-que-no-es'},
             {en: '/phases/context-phase/who-participates', es: '/fases/context-phase/quien-participa'},
             {en: '/phases/context-phase/rules-the-constitution', es: '/fases/context-phase/reglas-la-constitucion'},
             {en: '/phases/context-phase/agents-orchestrators-and-executors', es: '/fases/context-phase/agentes-orquestadores-y-ejecutores'},

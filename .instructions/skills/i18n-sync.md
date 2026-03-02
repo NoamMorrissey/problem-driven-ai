@@ -58,17 +58,9 @@ The sidebar references these via `link: {type: 'doc', id: '[section]/index'}`.
 
 ### Redirect Plugin (Bidirectional)
 
-`@docusaurus/plugin-client-redirects` in `docusaurus.config.ts` handles **bidirectional** redirects between EN and ES path segments. This is CRITICAL for the locale switcher to work correctly.
+The full redirect architecture (three levels: dirMappings, indexMappings, slugMappings) is defined in `rules/core-rules.md` Rule 9. Consult that rule for the authoritative explanation of why and how redirects work.
 
-**Why bidirectional:** Docusaurus locale switcher does a simple URL path swap (adds/removes `/es/` prefix). Without bidirectional redirects:
-- EN→ES: `/phases/x` → `/es/phases/x` → 404 (actual page: `/es/fases/x`)
-- ES→EN: `/es/fases/x` → `/fases/x` → 404 (actual page: `/phases/x`)
-
-**The `createRedirects` function MUST handle both directions:**
-1. **ES locale**: redirect English-segment URLs → Spanish-segment URLs (e.g., `/es/phases/x` → `/es/fases/x`)
-2. **EN locale**: redirect Spanish-segment URLs → English-segment URLs (e.g., `/fases/x` → `/phases/x`)
-
-**When adding a new directory with a translated prefix**, add BOTH mapping directions to `createRedirects` in `docusaurus.config.ts`. The mappings array is shared — the function applies it in both directions automatically.
+**Key procedural note:** When adding a new directory with a translated prefix, add BOTH mapping directions to `createRedirects` in `docusaurus.config.ts`. The mappings array is shared — the function applies it in both directions automatically.
 
 ---
 
@@ -162,14 +154,20 @@ When a new content section is needed:
 - Verify no manual `<GlossaryTooltip>` tags exist in `.mdx` files — the plugin handles this automatically
 - After build, spot-check tooltip rendering on 2-3 pages (both EN and ES)
 
-### 10. Restart Server
+### 10. Changelog Entry (invoke: `agents/changelog-agent.md`)
+- Summarize all changes made in this `sincroniza` execution
+- Categorize changes: [ADD], [FIX], [SYNC], [TRANSLATE], [REFACTOR], [INFRA]
+- Suggest version bump based on `roadmap.md` semver model
+- Generate bilingual changelog entry suggestion
+
+### 11. Restart Server
 - Kill any process on port 3000: `lsof -ti:3000 | xargs kill -9`
 - Clean cache: `npx docusaurus clear`
 - **ALWAYS use `npm run start`** (build + serve, bilingual). NEVER use `npm run dev` for verification — it only serves one locale and the locale switcher produces 404s.
 - Confirm server is running and report URL `http://localhost:3000`
 - Verify both `http://localhost:3000/` (EN) and `http://localhost:3000/es/` (ES) return 200
 
-### 11. Locale Switcher Verification
+### 12. Locale Switcher Verification
 - For the page(s) just created or modified, verify locale switching works in both directions.
 - **Directory-level redirects** (translate `/phases/` ↔ `/fases/`):
   - `build/es/[en-dir]/[es-slug]/index.html` exists (dir redirect for ES locale)

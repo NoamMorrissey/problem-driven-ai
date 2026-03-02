@@ -245,3 +245,57 @@ Rules reference:
 ```
 
 La diferencia entre un buen Skill y uno pobre es el test de autocontención: un Agente que lea solo este Skill y el project-context.md puede completar la tarea sin preguntar nada. Si el contexto del PRD o del Architecture Document es relevante, se extrae dentro del Skill, no se referencia con "ver documento X."
+
+## KPI & OKR Register: el marco de medición
+
+El KPI & OKR Register es el artefacto que conecta la Fase 3 y la Fase 5. Se define durante Context Phase porque los criterios de éxito deben ser trazables al Problem Statement y al Solution Brief. Se usa operativamente en Market Phase, donde el equipo mide si el producto cumple sus promesas.
+
+### Por qué vive en el sistema de contexto
+
+Los criterios de medición no son una ocurrencia tardía. Son una **decisión de diseño**. Si el equipo espera hasta Market Phase para definir qué significa "éxito", la IA habrá construido algo que no puede medirse contra el problema original.
+
+El KPI & OKR Register es parte del sistema de contexto porque:
+- Los Agentes necesitan saber cómo se ve el éxito para tomar buenas decisiones de trade-off
+- Los QA Agents lo usan para definir Skills de validación
+- El protocolo ante gaps aplica: si un Skill no tiene un criterio de éxito medible, es un gap
+
+### Estructura
+
+```
+KPI & OKR Register
+Version: [X]
+Source: Problem Statement v[X], Solution Brief v[X]
+Last updated: [Fecha]
+Owner: Context Engineer (definición), Product Lead (calibración)
+
+--- OKRs ---
+
+Objective 1: [Derivado de los criterios de éxito del Problem Statement]
+  KR 1.1: [Key result medible] — Baseline: [X], Target: [Y]
+  KR 1.2: [Key result medible] — Baseline: [X], Target: [Y]
+
+Objective 2: [Derivado de los objetivos del Solution Brief]
+  KR 2.1: [Key result medible] — Baseline: [X], Target: [Y]
+
+--- KPI Dashboard Inputs ---
+
+| KPI | Fuente | Frecuencia | Owner | Señal Fase 5 |
+|---|---|---|---|---|
+| [Nombre de métrica] | [Fuente de datos] | [Diaria/Semanal/Sprint] | [Rol] | [Qué nos dice] |
+```
+
+### Reglas de trazabilidad
+
+| Elemento | Debe trazarse a | Violación |
+|---|---|---|
+| Cada Objective | Un criterio de éxito del Problem Statement o un objetivo del Solution Brief | BLOCK, los objetivos sin origen son invenciones |
+| Cada Key Result | Un elemento medible de Fase 1 o Fase 2 | WARN, puede indicar scope creep |
+| Cada KPI | Al menos un Key Result | WARN, KPIs huérfanos desperdician esfuerzo de medición |
+
+### Calibración en Fase 5
+
+El Register se **define** en la Fase 3 pero se **calibra** en la Fase 5. Durante Market Phase, el equipo descubre si los baselines eran precisos, los targets realistas y los KPIs realmente correlacionan con el éxito. El Context Update Record captura estas calibraciones, y el Register se actualiza en consecuencia.
+
+:::tip[La paradoja de la medición]
+El KPI & OKR Register es más valioso cuando revela que los criterios de éxito originales estaban equivocados. **Un equipo que nunca actualiza su Register o tuvo una previsión perfecta (improbable) o no está midiendo honestamente.** El objetivo no es alcanzar targets, el objetivo es aprender si los targets eran los correctos.
+:::

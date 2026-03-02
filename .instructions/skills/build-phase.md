@@ -228,5 +228,5 @@ Locale switcher: [ALL PASS | issues listed]
 ## Validation
 
 - Consults: `rules/core-rules.md` (Rules 1-4, 7, 9)
-- Consults: `rules/phase-content-rules.md` (Rules 10-15)
+- Consults: `rules/phase-content-rules.md` (Rules 20-26)
 - Invokes agents: Content Curator, Structure Validator, SEO & Metadata

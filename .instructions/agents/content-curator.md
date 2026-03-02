@@ -31,7 +31,7 @@ Four areas of responsibility, applied uniformly to methodology AND framework con
 
 ### Terms that must NEVER be translated
 
-Problem Statement, Context Engineering, Context Document, Context Debt, Context Drift, Build-First Bias, Speed Theater, Discovery, BMAD, Exit Criteria, Signal Log, Context Update Record, Iteration Brief, Solution Brief, Story Files, Decision Log, Build Validation Report, KPI & OKR Register
+See `rules/sacred-terms.md` for the canonical list. The full list includes Core Concepts (Problem Statement, Context Engineering, Context Debt, etc.) and Artifacts (Signal Log, Story Files, Solution Brief, etc.).
 
 ### Casing rules
 

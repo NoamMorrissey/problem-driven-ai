@@ -245,3 +245,57 @@ Rules reference:
 ```
 
 The difference between a good Skill and a poor one is the self-containment test: an Agent reading only this Skill and the project-context.md can complete the task without asking anything. If context from the PRD or Architecture Document is relevant, it's extracted into the Skill — not referenced with "see document X."
+
+## KPI & OKR Register: the measurement framework
+
+The KPI & OKR Register is the artifact that bridges Phase 3 and Phase 5. It is defined during Context Phase because the success criteria must be traceable to the Problem Statement and Solution Brief. It is operationally used in Market Phase, where the team measures whether the product delivers on its promises.
+
+### Why it lives in the context system
+
+Measurement criteria are not an afterthought. They are a **design decision**. If the team waits until Market Phase to define what "success" means, the AI will have built something that cannot be measured against the original problem.
+
+The KPI & OKR Register is part of the context system because:
+- Agents need to know what success looks like to make good trade-off decisions
+- QA Agents use it to define validation Skills
+- The Gap Protocol applies: if a Skill doesn't have a measurable success criterion, it's a gap
+
+### Structure
+
+```
+KPI & OKR Register
+Version: [X]
+Source: Problem Statement v[X], Solution Brief v[X]
+Last updated: [Date]
+Owner: Context Engineer (definition), Product Lead (calibration)
+
+--- OKRs ---
+
+Objective 1: [Derived from Problem Statement success criteria]
+  KR 1.1: [Measurable key result] — Baseline: [X], Target: [Y]
+  KR 1.2: [Measurable key result] — Baseline: [X], Target: [Y]
+
+Objective 2: [Derived from Solution Brief goals]
+  KR 2.1: [Measurable key result] — Baseline: [X], Target: [Y]
+
+--- KPI Dashboard Inputs ---
+
+| KPI | Source | Frequency | Owner | Phase 5 Signal |
+|---|---|---|---|---|
+| [Metric name] | [Data source] | [Daily/Weekly/Sprint] | [Role] | [What it tells us] |
+```
+
+### Traceability rules
+
+| Element | Must trace to | Violation |
+|---|---|---|
+| Each Objective | A Problem Statement success criterion or Solution Brief goal | BLOCK — objectives without origin are inventions |
+| Each Key Result | A measurable element from Phase 1 or Phase 2 | WARN — may indicate scope creep |
+| Each KPI | At least one Key Result | WARN — orphan KPIs waste measurement effort |
+
+### Calibration in Phase 5
+
+The Register is **defined** in Phase 3 but **calibrated** in Phase 5. During Market Phase, the team discovers whether baselines were accurate, targets were realistic, and KPIs actually correlate with success. The Context Update Record captures these calibrations, and the Register gets updated accordingly.
+
+:::tip[The measurement paradox]
+The KPI & OKR Register is most valuable when it reveals that the original success criteria were wrong. **A team that never updates its Register either had perfect foresight (unlikely) or isn't measuring honestly.** The goal is not to hit targets; the goal is to learn whether the targets were the right ones.
+:::

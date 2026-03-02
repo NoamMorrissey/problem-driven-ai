@@ -32,39 +32,45 @@ Lo que existe hoy. Marca el punto de partida del versionado.
 
 ---
 
-## Beta 0.2 — *Content Complete*
+## Beta 0.2 — *Content Complete* ✅ (2026-03-02)
 
 **Objetivo:** Cerrar todos los huecos de contenido. Que las 5 fases tengan profundidad uniforme y no existan gaps teóricos.
 
 ### Capa Metodología — Contenido nuevo:
 
-| Fase | Página | Descripción |
-|---|---|---|
-| Fase 2 | `05-the-alignment-trap.mdx` | **"The Alignment Trap"** — El riesgo característico de la Fase 2: confundir alineamiento aparente con consenso real, validación por autoridad vs. evidencia, asunciones clasificadas como hechos |
-| Fase 3 | `XX-what-it-is-and-isnt.mdx` | **"What it is and isn't"** — La única fase sin esta página estándar. Completar el patrón uniforme |
+- [x] Fase 2: `05-the-alignment-trap.mdx` — "The Alignment Trap" (EN+ES)
+- [x] Fase 3: `03-what-it-is-and-isnt.mdx` — "What it is and isn't" (EN+ES)
 
 ### Capa Framework — Correcciones:
 
-| Fase | Acción | Detalle |
-|---|---|---|
-| Fase 2 | Renumerar archivos framework | Alinear `05-step-by-step` → `07-step-by-step`, `07-artifacts` → `09-artifacts`, etc. para consistencia con el patrón `07-12` de las otras 4 fases |
-| Fase 3/5 | Crear anatomía KPI & OKR Register | Documentar este artefacto referenciado pero sin anatomía propia |
+- [x] Fase 2: Renumerar archivos framework al patrón `07-12`
+- [x] Fase 3: Crear anatomía KPI & OKR Register (expandido en `08-context-system-anatomy.mdx`)
 
 ### Capa Principios:
 
-| Acción | Detalle |
-|---|---|
-| Mapa de relaciones de principios | Crear una visualización (componente React o diagrama) que muestre cómo los 10 principios se interrelacionan como sistema, no como lista |
+- [x] Mapa de relaciones de principios — componente React `PrincipleRelationshipMap`
+
+### Gobernanza (`.instructions/`):
+
+- [x] Consolidar terminología sagrada → `rules/sacred-terms.md`
+- [x] Corregir solapamiento de numeración → Rules 20-26
+- [x] Consolidar Rule 9 (redirects) → fuente única en `core-rules.md`
+- [x] Pipeline de invocación de agentes documentado
+- [x] Protocolo de resolución de conflictos documentado
+- [x] Reescribir `phase-builder.md` como delegación
+- [x] Expandir `changelog-agent.md`
+- [x] Crear templates para `registrar`
+- [x] Vincular roadmap al orchestrator
 
 ### Bilingüe:
-- Todas las páginas nuevas se crean en EN + ES simultáneamente
-- Redirects actualizados para cada nueva página (3 niveles: dir, index, slug)
+- [x] Todas las páginas nuevas en EN + ES simultáneamente
+- [x] Redirects actualizados (2 nuevos slugMappings)
 
 ### Verificación:
-- `npm run build` sin errores
-- Redirect HTMLs verificados para cada nueva página
-- Todas las fases tienen ≥6 sub-páginas en metodología
-- Framework Phase 2 usa numeración `07-12`
+- [x] `npm run build` sin errores
+- [x] Redirect HTMLs verificados para cada nueva página
+- [x] Todas las fases tienen ≥6 sub-páginas en metodología
+- [x] Framework Phase 2 usa numeración `07-12`
 
 ---
 
@@ -168,8 +174,7 @@ Lo que existe hoy. Marca el punto de partida del versionado.
 - [ ] Revisar consistencia de componentes visuales (acordeones, cards, heros)
 
 ### Mapa de principios:
-- [ ] Componente interactivo o diagrama que muestre las relaciones entre los 10 principios
-- [ ] Integrar en la página index de Principios
+- [x] ~~Completado en Beta 0.2~~ — Componente `PrincipleRelationshipMap` integrado en página index de Principios
 
 ### Changelog y versionado:
 - [ ] Poblar el changelog con todas las versiones anteriores (0.1 → 0.5)

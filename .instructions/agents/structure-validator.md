@@ -35,13 +35,9 @@ Invoked automatically on every `sincroniza` execution, before file write.
 ### All Content Types (Universal Checks)
 - [ ] Frontmatter parity: `sidebar_position` identical between EN↔ES pair
 - [ ] EN slug is relative (no leading `/`), except for `index.mdx` and `framework/` pages
-- [ ] ES slug is absolute with correct Spanish prefix per Path Prefix Map
-- [ ] **Redirect mapping exists** (Rule 9): if EN URL ≠ ES URL, verify entry in `docusaurus.config.ts`:
-  - `slugMappings` for page-level slug differences
-  - `indexMappings` for category index pages
-  - `dirMappings` for directory-level path differences
-- [ ] **Root-level pages**: special attention — files at `docs/` root (e.g., `manifiesto.mdx`) may use different namespaces between EN and ES
-- [ ] **Build verification** (Rule 10): redirect HTML files confirmed to exist after build
+- [ ] ES slug is absolute with correct Spanish prefix per Path Prefix Map (`skills/i18n-sync.md`)
+- [ ] **Redirect mapping exists**: Validate per `rules/core-rules.md` Rule 9 (three levels: dirMappings, indexMappings, slugMappings)
+- [ ] **Build verification**: Validate per `rules/core-rules.md` Rule 10 (redirect HTML files confirmed after build)
 
 ## Output
 - PASS with checklist confirmation, or

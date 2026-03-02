@@ -40,15 +40,8 @@ with a clear error message requesting the missing information.
 ### Rule 4: Sacred Terminology
 
 - **Applies to**: All content in both languages
-- **Protected terms** (NEVER translate, even in Spanish docs):
-  - Problem Statement
-  - Context Engineering
-  - Context Debt
-  - Build-First Bias
-  - Speed Theater
-  - Discovery
-  - BMAD
-  - Exit Criteria
+- **Protected terms**: See `rules/sacred-terms.md` for the canonical list (Core Concepts + Artifacts). NEVER translate these terms, even in Spanish docs.
+- **Casing**: Always Title Case as defined in `sacred-terms.md`
 - **Violation**: Auto-correct during translation. Log in changelog.
 
 ---
