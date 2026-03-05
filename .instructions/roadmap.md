@@ -1,275 +1,221 @@
-# Roadmap: Problem-Driven AI — De Beta 0.1 a 1.0 (y más allá)
+# Roadmap: Problem-Driven AI — De v0.1 a v1.0
 
 ## Context
 
-Problem-Driven AI es una metodología completa para construir productos de IA centrados en el problema. El sitio actual tiene ~97 páginas bilingües (EN/ES) con dos capas: metodología (conceptual) y framework (operativa), 10 principios, 5 fases, FAQ y glosario.
+Problem-Driven AI es una metodología para construir productos de IA centrados en el problema.
+El ecosistema incluye un sitio bilingüe (ES/EN), programas formativos, servicios de consultoría,
+y un panel de administración con 10 productos integrados (P1-P10).
 
-El objetivo es tratar la metodología como un **producto versionado** que evoluciona desde Beta 0.1 (estado actual) hasta una versión 1.0 estable, con releases incrementales que incluyen fixes, nuevas funcionalidades y mejoras. La visión a largo plazo incluye un Centro de Excelencia, módulo BMAD, comunidad y certificación.
+Este roadmap unifica dos líneas: **producto** (infraestructura y funcionalidades) y
+**contenido** (páginas, templates, caso de estudio). Ambas avanzan en paralelo dentro de cada fase.
 
-**Prioridades para 1.0:** Profundidad de contenido (sin huecos teóricos) + Herramientas prácticas (que alguien pueda USAR la metodología).
+**Prioridades para v1.0:** Sitio funcional completo + profundidad de contenido sin huecos + herramientas prácticas.
 
 ---
 
 ## Modelo de Versionado
 
 Semver con milestones temáticos: `MAJOR.MINOR.PATCH`
-- **PATCH (0.1.x):** Fixes, correcciones, ajustes menores
-- **MINOR (0.x.0):** Nuevas funcionalidades, secciones, herramientas
-- **MAJOR:** 1.0 = salida de beta, 2.0 = ecosistema
+- **PATCH (0.x.Y):** Fixes, correcciones, ajustes menores
+- **MINOR (0.Y.0):** Nueva fase completada, nuevas funcionalidades
+- **MAJOR:** 1.0 = lanzamiento público
+
+Tags Git: `v0.1`, `v0.2`, ..., `v1.0`
+Cada tag corresponde a un merge `develop → main`.
 
 ---
 
-## Beta 0.1 — *Foundation* (Estado actual)
+## v0.1 — *Foundation* (Fase 1, semanas 1-3)
 
-Lo que existe hoy. Marca el punto de partida del versionado.
-
-**Entregable:** Publicación del sitio con badge de versión "Beta 0.1" + página de changelog.
-
-### Tareas:
-- [x] Crear componente/badge de versión visible en el sitio (footer o header)
-- [x] Crear página de changelog en Resources (`/resources/changelog`)
-- [x] Primera entrada del changelog documentando el estado actual
-
----
-
-## Beta 0.2 — *Content Complete* ✅ (2026-03-02)
-
-**Objetivo:** Cerrar todos los huecos de contenido. Que las 5 fases tengan profundidad uniforme y no existan gaps teóricos.
-
-### Capa Metodología — Contenido nuevo:
-
-- [x] Fase 2: `05-the-alignment-trap.mdx` — "The Alignment Trap" (EN+ES)
-- [x] Fase 3: `03-what-it-is-and-isnt.mdx` — "What it is and isn't" (EN+ES)
-
-### Capa Framework — Correcciones:
-
-- [x] Fase 2: Renumerar archivos framework al patrón `07-12`
-- [x] Fase 3: Crear anatomía KPI & OKR Register (expandido en `08-context-system-anatomy.mdx`)
-
-### Capa Principios:
-
-- [x] Mapa de relaciones de principios — componente React `PrincipleRelationshipMap`
-
-### Gobernanza (`.instructions/`):
-
-- [x] Consolidar terminología sagrada → `rules/sacred-terms.md`
-- [x] Corregir solapamiento de numeración → Rules 20-26
-- [x] Consolidar Rule 9 (redirects) → fuente única en `core-rules.md`
-- [x] Pipeline de invocación de agentes documentado
-- [x] Protocolo de resolución de conflictos documentado
-- [x] Reescribir `phase-builder.md` como delegación
-- [x] Expandir `changelog-agent.md`
-- [x] Crear templates para `registrar`
-- [x] Vincular roadmap al orchestrator
-
-### Bilingüe:
-- [x] Todas las páginas nuevas en EN + ES simultáneamente
-- [x] Redirects actualizados (2 nuevos slugMappings)
-
-### Verificación:
-- [x] `npm run build` sin errores
-- [x] Redirect HTMLs verificados para cada nueva página
-- [x] Todas las fases tienen ≥6 sub-páginas en metodología
-- [x] Framework Phase 2 usa numeración `07-12`
-
----
-
-## Beta 0.3 — *Toolkit*
-
-**Objetivo:** Que alguien pueda USAR la metodología con plantillas descargables. Transformar la documentación de artefactos en herramientas prácticas.
+**Productos:** P1 (Sitio), P10 (Analytics)
+**Objetivo:** Sitio Next.js funcional con todo el contenido público migrado.
 
 ### Infraestructura:
-- [ ] Crear sección "Toolkit" o "Templates" en Resources (`/resources/toolkit`)
-- [ ] Componente de descarga de plantillas (botón de descarga por artefacto)
-- [ ] Definir formatos por tipo de artefacto:
-  - **Documentos narrativos** (Problem Statement, Solution Brief, PRD, Iteration Brief): Markdown + Google Docs
-  - **Registros tabulares** (Assumptions Register, Decision Matrix, Signal Log, Decision Log): Google Sheets
-  - **Definiciones estructuradas** (Agent Definitions, Story Files, ADRs, project-context.md): Markdown
-  - **Actas/minutos** (Integration Minutes, Build Validation Report): Google Docs
-  - **Visuales** (Actor Map, Synthesis Board, Solution Trees): Guía de estructura + template Miro/FigJam (enlace)
+- [ ] Next.js 15 scaffold (App Router, TypeScript, Tailwind)
+- [ ] Supabase proyecto + migraciones SQL + RLS
+- [ ] next-intl configurado (ES/EN)
+- [ ] MDX pipeline (loader, componentes custom, frontmatter)
+- [ ] Auth admin (magic links, middleware)
+- [ ] Umami analytics
+- [ ] Vercel deploy (preview en develop, producción en main)
 
-### Tier 1 — Templates con estructura ya implícita (prioridad):
+### Contenido:
+- [ ] Migrar 124 .mdx a nueva estructura de 6 secciones
+- [ ] Reorganizar en content/en/ y content/es/
+- [ ] Verificar que todo el contenido renderiza correctamente
+- [ ] Adaptar frontmatter al nuevo formato
 
-| # | Artefacto | Fase | Formato |
-|---|---|---|---|
-| 1 | Problem Statement | 1 | Markdown + Google Doc |
-| 2 | project-context.md | 3 | Markdown |
-| 3 | Agent Definition | 3 | Markdown |
-| 4 | Story File / Skill | 3 | Markdown |
-| 5 | ADR (Architecture Decision Record) | 3 | Markdown |
-| 6 | Signal Log | 5 | Google Sheet |
-| 7 | Context Update Record | 5 | Google Sheet |
-| 8 | Iteration Brief | 5 | Markdown + Google Doc |
-
-### Tier 2 — Templates que requieren ensamblaje:
-
-| # | Artefacto | Fase | Formato |
-|---|---|---|---|
-| 9 | Solution Brief | 2 | Markdown + Google Doc |
-| 10 | PRD | 3 | Markdown + Google Doc |
-| 11 | Interview Guide | 1 | Google Doc |
-| 12 | Assumptions Register | 2 | Google Sheet |
-| 13 | Decision Matrix | 2 | Google Sheet |
-| 14 | Distributed Decision Log | 4 | Google Sheet |
-| 15 | Build Validation Report | 4 | Google Doc |
-| 16 | Integration Synchronization Minutes | 4 | Google Doc |
-
-### Tier 3 — Guías de estructura para artefactos visuales:
-
-| # | Artefacto | Fase | Formato |
-|---|---|---|---|
-| 17 | Actor Map | 1 | Guía de zonas + template board |
-| 18 | Synthesis Board | 1 | Guía de zonas + template board |
-| 19 | Solution Trees | 2 | Guía de 4 dimensiones |
-| 20 | KPI Dashboard | 5 | Checklist de requisitos |
+### Context Engineering:
+- [ ] Sistema .instructions/ unificado (primer commit del repo)
 
 ### Verificación:
-- Cada template descargable enlazado desde su página de artefactos correspondiente
-- Templates probados (abiertos, editables, estructura correcta)
-- Sección Toolkit navegable y completa
+- [ ] `npm run build` sin errores
+- [ ] Todas las páginas accesibles en ambos idiomas
+- [ ] Locale switcher funcional
+- [ ] Admin protegido por auth
 
 ---
 
-## Beta 0.4 — *Experience*
+## v0.2 — *Capture* (Fase 2, semanas 4-5)
 
-**Objetivo:** Que alguien nuevo pueda entrar al sitio y aplicar la metodología de punta a punta. Experiencia de onboarding completa.
+**Productos:** P3 (Lead/Ebook), P7 (CRM básico)
+**Objetivo:** Formulario de captura + entrega automática de e-book + CRM básico.
 
-### Quick Start — Tutorial guiado:
+### Infraestructura:
+- [ ] Formulario de lead capture (Server Actions + Zod)
+- [ ] Entrega automática de e-book por email (Resend)
+- [ ] Tabla contacts en Supabase con source tracking
+- [ ] CRM básico en admin: lista de contactos, filtros, exportar CSV
 
-- [ ] Crear sección "Getting Started" o "Quick Start" (`/getting-started` o dentro de Overview)
-- [ ] Tutorial paso a paso: "Aplica Problem-Driven AI a tu primer proyecto"
-  - Paso 1: Entiende el problema (resumen Fase 1 + template Problem Statement)
-  - Paso 2: Diseña la solución (resumen Fase 2 + template Solution Brief)
-  - Paso 3: Construye el contexto (resumen Fase 3 + templates key)
-  - Paso 4: Construye con IA (resumen Fase 4)
-  - Paso 5: Valida con el mercado (resumen Fase 5)
-  - Cada paso enlaza a las páginas detalladas y a los templates relevantes
-
-### Caso de estudio end-to-end:
-
-- [ ] Crear sección "Case Studies" en Resources o como sección propia
-- [ ] Caso real anonimizado que atraviese las 5 fases:
-  - Contexto del proyecto y problema original
-  - Cómo se aplicó cada fase
-  - Artefactos producidos (ejemplos reales adaptados)
-  - Resultados y aprendizajes
-  - Qué habría pasado sin la metodología (contrafactual)
-- [ ] Considerar expandir el ejemplo del inventario retail que ya aparece en Fase 1 como base
+### Contenido:
+- [ ] Landing pages de Programs (workshops, e-book)
+- [ ] Contenido del e-book (si no existe, placeholder)
 
 ### Verificación:
-- Un usuario nuevo puede seguir el Quick Start de principio a fin
-- El caso de estudio referencia artefactos reales y es coherente con la metodología
-- Los enlaces del tutorial apuntan correctamente a las páginas y templates
+- [ ] Formulario funcional end-to-end (submit → email → download)
+- [ ] Contacto aparece en CRM con source "ebook"
+- [ ] Email llega correctamente con PDF adjunto
 
 ---
 
-## Beta 0.5 — *Polish*
+## v0.3 — *Programs* (Fase 3, semanas 6-7)
 
-**Objetivo:** El sitio es profesional, pulido y navegable. UX de calidad de un producto serio.
+**Productos:** P4 (Workshops)
+**Objetivo:** CRUD de workshops + página pública + inscripciones.
 
-### UX y navegación:
-- [ ] Revisar home page (actualmente 14 líneas) — valorar si necesita más contenido o es intencional
-- [ ] Asegurar que el flujo Overview → Principios → Fases → Framework → Resources es intuitivo
-- [ ] Mejorar cross-linking entre las capas metodología y framework
-- [ ] Revisar consistencia de componentes visuales (acordeones, cards, heros)
+### Infraestructura:
+- [ ] CRUD workshops en admin (crear, editar, publicar, archivar)
+- [ ] Página pública de workshops (listado + detalle)
+- [ ] Formulario de inscripción → contacts
+- [ ] Galería de fotos por workshop
+- [ ] Exportar inscritos CSV
 
-### Mapa de principios:
-- [x] ~~Completado en Beta 0.2~~ — Componente `PrincipleRelationshipMap` integrado en página index de Principios
-
-### Changelog y versionado:
-- [ ] Poblar el changelog con todas las versiones anteriores (0.1 → 0.5)
-- [ ] Semver badge actualizado
-
-### SEO y metadata:
-- [ ] Revisar meta descriptions de todas las páginas
-- [ ] Open Graph tags para compartir en redes
-- [ ] Sitemap optimizado
+### Contenido nuevo:
+- [ ] Human Thinking (Vision)
+- [ ] FAQ (Methodology)
+- [ ] Discovery Bias (Operational Solution)
+- [ ] Problem Paths: Hypothesis-Driven Path + Hypothesis Pyramid
+- [ ] Problem Paths: Issue-Driven Path + Issue Tree
+- [ ] Problem Paths: Design Thinking Path overview
 
 ### Verificación:
-- Navegación fluida en todas las rutas
-- Lighthouse score ≥ 90 en todas las categorías
-- Locale switcher funcional en todas las páginas
-- Changelog completo y actualizado
+- [ ] Workshop creado en admin aparece en página pública
+- [ ] Inscripción funcional, contacto en CRM con source "workshop"
+- [ ] Nuevo contenido renderiza correctamente en ambos idiomas
 
 ---
 
-## RC 1.0 — *Release Candidate*
+## v0.4 — *Enterprise* (Fase 4, semanas 8-9)
 
-**Objetivo:** Validación externa antes del lanzamiento. Todo el contenido y las herramientas están completas; se busca feedback de beta testers.
+**Productos:** P5 (Servicios empresa), P6 (Eventos)
+**Objetivo:** Fichas de empresa + servicios + eventos + páginas públicas.
+
+### Infraestructura:
+- [ ] CRUD empresas en admin (contacto, sector, logo, notas)
+- [ ] Servicios prestados por empresa
+- [ ] Testimonios (públicos/privados)
+- [ ] CRUD eventos (conferencias, meetups, webinars)
+- [ ] Página pública de próximos eventos + archivo
+- [ ] Página pública de logos de clientes + testimonios
+
+### Contenido nuevo:
+- [ ] Design Thinking: Ideation (7 técnicas)
+- [ ] Design Thinking: Validation (4 técnicas)
+- [ ] Operating Cadences (Operational Market)
+- [ ] Técnicas Operational Problem restantes
+
+### Verificación:
+- [ ] Empresa con testimonio público visible en la web
+- [ ] Evento creado en admin aparece en página pública
+- [ ] Todo el contenido Operational está completo
+
+---
+
+## v0.5 — *Tools* (Fase 5, semanas 10-11)
+
+**Productos:** P2 (CMS), P8 (Ilustraciones IA), P9 (Dashboard)
+**Objetivo:** Panel admin completo con CMS, generador de ilustraciones, y dashboard.
+
+### Infraestructura:
+- [ ] CMS: editor markdown, gestión de imágenes, borradores, publicación
+- [ ] Generador de ilustraciones IA (Replicate/Flux)
+- [ ] Galería de ilustraciones, variaciones, descarga
+- [ ] Dashboard central: métricas, accesos directos, actividad reciente
+- [ ] CRM completo: etiquetado, segmentación, envío de emails, historial
+
+### Contenido:
+- [ ] Quick Start tutorial (guía paso a paso de la metodología)
+- [ ] Caso de estudio end-to-end (5 fases aplicadas)
+- [ ] Templates descargables (Tier 1: 8 templates prioritarios)
+
+### Verificación:
+- [ ] CMS permite crear y publicar una página sin tocar código
+- [ ] Ilustración generada con prompt base produce resultado consistente
+- [ ] Dashboard muestra métricas reales
+- [ ] Quick Start navegable de principio a fin
+
+---
+
+## v1.0 — *Launch* (Fase 6, semana 12)
+
+**Objetivo:** Lanzamiento público. Todo funcional, pulido, y validado.
 
 ### Acciones:
-- [ ] Revisión completa de contenido (coherencia, errores, gaps residuales)
-- [ ] Revisión de todos los templates (usabilidad, completitud)
-- [ ] Reclutar 3-5 beta testers (personas reales que apliquen la metodología)
-- [ ] Recoger feedback estructurado
-- [ ] Fixes basados en el feedback
-- [ ] Freeze de contenido para 1.0
+- [ ] Revisión completa de contenido (coherencia, errores, gaps)
+- [ ] SEO: meta descriptions, Open Graph, sitemap
+- [ ] UX: navegación fluida, responsive, accesibilidad
+- [ ] Performance: Lighthouse ≥ 90 en todas las categorías
+- [ ] Migración de dominio a producción
+- [ ] Documentación de admin para uso personal
+- [ ] Templates restantes (Tier 2 y 3 si es posible)
 
-### Criterios de salida:
-- 0 bugs conocidos en navegación/redirects
-- Al menos 1 beta tester ha completado el Quick Start con éxito
-- Feedback integrado o documentado como backlog para 1.x
-
----
-
-## 1.0 — *Stable*
-
-**Objetivo:** Lanzamiento público oficial. La metodología está completa, usable y validada.
-
-### Entregable:
-- Badge "1.0" visible en el sitio
-- Anuncio de lanzamiento
-- Changelog entry celebratoria
-- Contenido completo: 5 fases con profundidad uniforme + 10 principios + framework operativo
-- Herramientas: ~20 templates descargables
-- Experiencia: Quick Start + caso de estudio real
-- UX: sitio profesional y navegable
+### Verificación:
+- [ ] 0 broken links
+- [ ] Locale switcher funcional en todas las páginas
+- [ ] Formularios funcionan end-to-end
+- [ ] Admin completo y usable
+- [ ] Deploy a producción exitoso
 
 ---
 
-## Post-1.0 — Visión de futuro
+## Post-v1.0 — Visión de futuro
 
-### 1.x — *Operations* (Centro de Excelencia)
+### v1.x — *Excellence*
 
 | Componente | Descripción |
 |---|---|
-| Modelo operativo | Roles, estructura de equipo, responsabilidades |
-| Procesos | Flujos de trabajo formalizados entre fases |
+| Centro de Excelencia | Estructura organizacional, roles, procesos formalizados |
 | Ceremonias | Rituales de equipo (kickoffs, reviews, retrospectivas) |
-| Datos y métricas | Qué se mide, cómo se recoge, KPIs por fase |
-| Análisis y mejora | Cómo los datos alimentan la depuración de procesos |
-| Centro de Excelencia | Estructura organizacional que sostiene todo |
-| Herramientas/dashboards | Tooling para datos y toma de decisiones |
+| Métricas avanzadas | KPIs por fase, dashboards de seguimiento |
+| Templates Tier 2-3 | 12 templates adicionales + guías visuales |
 
-### 2.0 — *Ecosystem*
+### v2.0 — *Ecosystem*
 
 | Componente | Descripción |
 |---|---|
-| Módulo BMAD | Extensión/módulo de BMAD adaptado a Problem-Driven AI (no fork, extensión) |
+| Módulo BMAD | Extensión de BMAD adaptada a Problem-Driven AI |
 | Comunidad | Discord/GitHub Discussions, contribuciones externas |
-| Casos de estudio múltiples | Biblioteca de casos reales de diferentes industrias |
+| Casos de estudio | Biblioteca de casos reales de diferentes industrias |
 | Certificación | Formación y certificación en la metodología |
 
 ---
 
-## Resumen visual del roadmap
+## Resumen visual
 
 ```
-Beta 0.1 (Foundation)     → Publicar + changelog + badge versión
+v0.1 (Foundation)  → Sitio Next.js + contenido migrado + analytics
      ↓
-Beta 0.2 (Content)        → Cerrar gaps de contenido (Fase 2, 3, KPI Register, principios)
+v0.2 (Capture)     → Lead capture + e-book + CRM básico
      ↓
-Beta 0.3 (Toolkit)        → 20 templates descargables en formatos apropiados
+v0.3 (Programs)    → Workshops + contenido nuevo (Human Thinking, FAQ, Paths)
      ↓
-Beta 0.4 (Experience)     → Quick Start tutorial + caso de estudio real
+v0.4 (Enterprise)  → Empresas + eventos + contenido Operational completo
      ↓
-Beta 0.5 (Polish)         → UX, SEO, mapa principios, home page
+v0.5 (Tools)       → CMS + ilustraciones IA + dashboard + Quick Start
      ↓
-RC 1.0 (Candidate)        → Beta testers + feedback + fixes
+v1.0 (Launch)      → Pulido + SEO + migración dominio + lanzamiento
      ↓
-1.0 (Stable)              → Lanzamiento público
+v1.x (Excellence)  → Centro de Excelencia + métricas avanzadas
      ↓
-1.x (Operations)          → Centro de Excelencia + modelo operativo
-     ↓
-2.0 (Ecosystem)           → BMAD module + comunidad + certificación
+v2.0 (Ecosystem)   → BMAD + comunidad + certificación
 ```

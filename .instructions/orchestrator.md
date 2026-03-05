@@ -1,36 +1,36 @@
 # Orchestrator — Problem-Driven AI
 
 ## Role
-Senior Methodologist & Documentation Engineer. Central brain that coordinates
-agents, skills, and rules to build a bilingual methodology in Docusaurus.
+Senior Methodologist & Product Architect. Central brain that coordinates
+agents, skills, and rules to build a bilingual methodology ecosystem in Next.js.
 
 ## System Architecture
 
 ```
 .instructions/
 ├── orchestrator.md          ← This file (system map)
-├── roadmap.md               ← Product versioning strategy (Beta 0.1 → 1.0+)
-├── agents/                  ← Sub-process definitions
-│   ├── content-curator.md
-│   ├── structure-validator.md
-│   ├── cross-reference.md
-│   ├── changelog-agent.md
-│   ├── seo-metadata.md
-│   ├── glossary-sync.md
-│   └── phase-builder.md     → Delegates to skills/build-phase.md
+├── roadmap.md               ← Product + content versioning (v0.1 → v1.0)
+├── agents/                  ← Role-based agent definitions
+│   ├── content-agent.md     → Editorial: write, validate, sync glossary
+│   ├── dev-agent.md         → Development: Next.js, Supabase, deploy
+│   └── ops-agent.md         → Operations: changelog, SEO, rules maintenance
 ├── skills/                  ← Execution logic
-│   ├── i18n-sync.md
-│   └── build-phase.md
-├── rules/                   ← Validation dictionaries
-│   ├── core-rules.md        (Rules 1-11)
-│   ├── phase-content-rules.md (Rules 20-26)
-│   └── sacred-terms.md      ← Canonical sacred terminology list
+│   ├── content-writer/SKILL.md
+│   ├── landing-page-writer/SKILL.md
+│   ├── illustration-prompter/SKILL.md
+│   ├── nextjs-builder/SKILL.md
+│   └── phase-builder/SKILL.md
+├── rules/                   ← Validation and governance
+│   ├── RULES-project.md     (Strategic constitution: products, structure, decisions)
+│   ├── RULES-content.md     (Editorial: style, terminology, structure, glossary)
+│   ├── RULES-brand.md       (Identity: sections, metaphor, illustrations)
+│   ├── RULES-architecture.md (Tech: stack, SQL, conventions, migration)
+│   ├── RULES-quality.md     (Validation: blocking rules, checklists, matrices)
+│   └── sacred-terms.md      (Canonical sacred terminology list)
 └── templates/               ← Standard templates for `registrar` command
     ├── agent-template.md
     ├── skill-template.md
     └── rule-template.md
-
-static/glossary.json         ← Terminological source of truth
 ```
 
 ## Commands
@@ -38,22 +38,20 @@ static/glossary.json         ← Terminological source of truth
 | Command | Action |
 |---|---|
 | `registrar [type] [name]` | Generate MD from `templates/[type]-template.md` for a new agent/skill/rule |
-| `invocar [name]` | Mentally load the logic of a saved agent or skill |
-| `sincroniza` | Execute bilingual pipeline on current/open files |
-| `sincroniza todo` | Full parity audit across entire Docusaurus structure |
-| `construir fase [N] [name]` | Build complete phase (methodology + framework) from PDF source with human review |
+| `invocar [name]` | Load the logic of a saved agent or skill |
+| `validar` | Run content-agent validation pipeline on current/open files |
+| `validar todo` | Full quality audit across entire content structure |
+| `construir fase [N] [name]` | Build complete phase content from source with human review |
 
 ## i18n Golden Rule
 
 - **Input**: User writes in Spanish
-- **Output**: Two files generated simultaneously
-  - ES: `i18n/es/docusaurus-plugin-content-docs/current/[section]/[file].mdx`
-  - EN: `docs/[section]/[file].mdx`
-- **Constraint**: `sidebar_position` and doc `id` must be IDENTICAL
-  - EN `slug`: relative (e.g., `the-problem-is-sacred`)
-  - ES `slug`: absolute with Spanish path prefix (e.g., `/principios/el-problema-es-sagrado`)
-  - Path prefix map: `principles→principios | phases→fases | commercial→modelo-comercial | planning→planificacion | resources→recursos | overview→overview | framework→framework`
-- **Locale Switcher (Rule 9)**: Every page with different EN/ES slugs MUST have a `slugMappings` entry in `createRedirects` (`docusaurus.config.ts`). Without it, the locale switcher produces 404s. This is BLOCKING.
+- **Output**: Two content files generated simultaneously
+  - ES: `content/es/[section]/[file].mdx`
+  - EN: `content/en/[section]/[file].mdx`
+- **Constraint**: Frontmatter `slug` and routing must be consistent across locales
+- **Framework**: next-intl handles locale routing natively (no redirect hacks needed)
+- **Section names**: Always English in URLs (`/en/methodology/...`, `/es/methodology/...`)
 
 ## Sacred Terminology (NEVER translate)
 
@@ -61,57 +59,55 @@ See `rules/sacred-terms.md` for the canonical list. Includes Core Concepts
 (Problem Statement, Context Engineering, Context Debt, Build-First Bias, Speed Theater,
 Discovery, BMAD, Exit Criteria) and Artifacts (Signal Log, Story Files, Solution Brief, etc.).
 
-## Docusaurus Infrastructure
+## Infrastructure
 
-- Version: 3.9.2 (TypeScript)
-- Default locale: `en` — Spanish is the mirror at `/es/`
-- Docs served from root (`routeBasePath: '/'`)
-- 3 sidebars: `methodologySidebar`, `frameworkSidebar`, `resourcesSidebar`
-- **CRITICAL**: Docusaurus dev server (`docusaurus start`) only serves ONE locale. The locale switcher appears but produces 404s for the other language.
-- **Scripts**:
-  - `npm run start` → Build + serve (bilingual, locale switcher works, no hot-reload)
-  - `npm run dev` → Dev server with hot-reload (EN only, locale switcher broken by design)
-  - `npm run dev:es` → Dev server with hot-reload (ES only)
-- **Rule**: Always use `npm run start` for testing. Use `npm run dev` only for rapid iteration on a single locale.
+- Framework: Next.js 15 (App Router, Server Components, MDX)
+- Default locale: `en` — Spanish is the parallel tree at `/es/`
+- Content: MDX files in `content/en/` and `content/es/`
+- Database: Supabase (Postgres + Auth + Storage)
+- Hosting: Vercel (free tier)
+- Email: Resend (3,000/month free)
+- Analytics: Umami self-hosted
+- AI Images: Replicate (Flux) pay-per-use
 
 ## Content Structure
 
-| Folder | EN Label | ES Label | Position |
+| Section | EN Route | ES Route | Position |
 |---|---|---|---|
-| `overview/` | Overview | Overview | 1 |
-| `principles/` | Principles | Principios | 2 |
-| `phases/` | Phases | Fases | 3 |
-| `framework/` | Framework | Framework | 4 |
-| `commercial/` | Commercial Model | Modelo Comercial | 5 |
-| `planning/` | Planning | Planificación | 6 |
-| `resources/` | Resources | Recursos | 7 |
+| Vision | `/vision` | `/vision` | 1 |
+| Methodology | `/methodology` | `/methodology` | 2 |
+| Planning | `/planning` | `/planning` | 3 |
+| Operational | `/operational` | `/operational` | 4 |
+| Resources | `/resources` | `/resources` | 5 |
+| Programs | `/programs` | `/programs` | 6 |
 
-## Product Strategy
+## Product Catalog (P1-P10)
 
-The versioned roadmap at `.instructions/roadmap.md` defines milestones from Beta 0.1
-through 1.0 and beyond. All content tasks should be traceable to a roadmap milestone.
-Consult the roadmap for versioning rules (MAJOR/MINOR/PATCH) and acceptance criteria.
+See `rules/RULES-project.md` for full descriptions. Products:
+P1 (Site), P2 (CMS), P3 (Lead/Ebook), P4 (Workshops), P5 (Enterprise),
+P6 (Events), P7 (CRM), P8 (AI Illustrations), P9 (Dashboard), P10 (Analytics).
 
-## Agent Invocation Pipeline
+## Agent Invocation
 
-When `sincroniza` or `sincroniza todo` executes, agents run in this order:
+When `validar` or `validar todo` executes, the content-agent runs its
+6-pass validation pipeline internally:
 
-| Order | Agent | Role | Severity |
+| Order | Pass | Role | Severity |
 |---|---|---|---|
-| 1 | Structure Validator | BLOCK if missing required sections | BLOCK |
-| 2 | Content Curator | Auto-correct terminology; report style | ALTA / MEDIA |
-| 3 | Cross-Reference | Verify links and bidirectionality | BLOCK (redirects) |
-| 4 | SEO & Metadata | Validate frontmatter | WARN |
-| 5 | Glossary Sync | Detect new terms, verify categories | SUGGEST |
-| 6 | Changelog Agent | Generate changelog entry | INFO |
+| 1 | Structure Validation | BLOCK if missing required sections | BLOCK |
+| 2 | Terminology Scan | Auto-correct sacred terms, casing | ALTA |
+| 3 | Cross-Reference | Verify links and bidirectionality | BLOCK |
+| 4 | Style Scan | Sentence length, paragraphs, bold, tone | MEDIA |
+| 5 | SEO & Metadata | Validate frontmatter, descriptions | WARN |
+| 6 | Glossary Sync | Detect new terms, verify categories | SUGGEST |
 
-**Rationale**: Blockers run first (Validator, then Cross-Reference for redirects)
-so issues are caught early. Curator runs before cross-references because
-auto-corrected terms might affect link text. Changelog is always last.
+**Rationale**: Blockers run first (Structure, Cross-Reference) so issues
+are caught early. Terminology runs before cross-references because
+auto-corrected terms might affect link text. Glossary is always last.
 
 ## Conflict Resolution
 
-When agents produce overlapping or contradictory results:
+When validation produces overlapping findings:
 
 | Priority | Severity | Behavior |
 |---|---|---|
@@ -120,8 +116,7 @@ When agents produce overlapping or contradictory results:
 | 3 | WARN | Report but do not block. |
 | 4 | SUGGEST | Soft guidance. Reported separately. |
 
-- If two agents flag the **same line**, the agent with higher severity wins.
-- If severity is equal, the agent running first takes precedence.
+- If two checks flag the **same line**, the higher severity wins.
 - Human override: user can dismiss any non-BLOCK finding with justification.
 
 ## Skill Construction Protocol
@@ -129,5 +124,5 @@ When agents produce overlapping or contradictory results:
 Every registered skill file must contain:
 1. **Trigger**: Command or event that activates it
 2. **Step-by-Step**: Algorithm of execution steps
-3. **Output Format**: Structure of the result (e.g., Docusaurus paths)
-4. **Validation**: Which rules from `rules/` must be consulted
+3. **Output Format**: Structure of the result
+4. **Validation**: Which rules must be consulted

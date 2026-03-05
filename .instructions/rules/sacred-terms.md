@@ -14,6 +14,8 @@ All other governance files reference this file instead of maintaining inline lis
 - Discovery
 - BMAD
 - Exit Criteria
+- Gate Review
+- Three-Move Pattern
 
 ## Artifacts
 - Context Document
@@ -25,6 +27,16 @@ All other governance files reference this file instead of maintaining inline lis
 - Decision Log
 - Build Validation Report
 - KPI & OKR Register
+
+## Roles
+- Context Engineer
+- Product Lead
+- Tech Lead
+
+## Anti-patterns (proper names)
+- Over-Context
+- Silent Agent
+- Frozen Context
 
 ## Casing Rules
 - Always Title Case as shown above
