@@ -1,0 +1,83 @@
+---
+title: "Changelog"
+slug: changelog
+description: "Version history and release notes for every Problem-Driven AI release."
+sidebar_position: 4
+tags: [resources, changelog]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">Changelog</h1>
+</div>
+
+Problem-Driven AI follows a **versioned release model** — like a product, not a static document. Each release brings new content, practical tools, and improvements. We use [semantic versioning](/resources/roadmap) with themed milestones.
+
+---
+
+## Beta 0.2 — Content Complete
+
+**2026-03-02**
+
+Closes all content gaps across methodology and framework layers. Reorganizes the governance system for consistency and maintainability.
+
+### Content
+
+- **"The Alignment Trap"** — new methodology page for Phase 2 (EN+ES): the characteristic risk of confusing apparent alignment with real consensus
+- **"What it is and what it isn't"** — new methodology page for Phase 3 (EN+ES): fills the standard pattern present in all other phases
+- **KPI & OKR Register anatomy** — expanded Phase 3 framework anatomy with measurement framework, traceability rules, and calibration process
+- **Principle Relationship Map** — interactive SVG component showing how the 10 principles interconnect (hover to explore connections)
+
+### Framework corrections
+
+- **Phase 2 framework renumbering** — aligned file numbering to the `07-12` pattern used by all other phases (10 file renames)
+- **2 new redirect slug mappings** added to `docusaurus.config.ts` for new bilingual pages
+
+### Governance system (`.instructions/`)
+
+- **Sacred terminology consolidation** — single source of truth (`rules/sacred-terms.md`) replacing 3 desynchronized inline lists
+- **Rule numbering fix** — `phase-content-rules.md` renumbered to Rules 20-26 (was 10-16, overlapping with `core-rules.md`)
+- **Rule 9 consolidation** — redirect architecture defined once in `core-rules.md`, referenced elsewhere
+- **Agent invocation pipeline** — documented 6-agent execution order with severity levels in `orchestrator.md`
+- **Conflict resolution protocol** — BLOCK > ALTA > WARN > SUGGEST priority documented
+- **Phase builder rewrite** — thin delegation to `skills/build-phase.md` (eliminated ~200 lines of duplication)
+- **Changelog agent expansion** — from 27 to ~70 lines with bilingual template, change tags, and version bump logic
+- **Templates for `registrar` command** — standardized templates for agent, skill, and rule creation
+- **Roadmap linked to orchestrator** — product strategy now accessible from the system brain
+
+### Architecture
+
+- Branch `release/0.1` created from tag `v0.1.0` to preserve Beta 0.1 state
+- Branch `beta-0.2` created for all Beta 0.2 work
+
+---
+
+## Beta 0.1 — Foundation
+
+**2026-03-01**
+
+The initial public release. The complete methodology foundation, fully bilingual.
+
+### Content
+
+- **5 methodology phases** with conceptual depth: Problem Phase, Solution Phase, Context Phase, AI Build Phase, Market Phase
+- **5 framework phases** with operational guides: step-by-step processes, artifact anatomy, gate reviews, anti-patterns, and effort estimates
+- **10 foundational principles**, each with its anti-pattern (3-part structure: what it is, how to detect it, how to prevent it)
+- **Manifesto** and **Overview** — the founding declaration and methodology introduction
+- **~97 bilingual pages** (EN/ES) with full parity between both locales
+
+### Resources
+
+- **FAQ** — frequently asked questions about Problem-Driven AI
+- **Glossary** — key terms with automatic tooltip integration across all pages
+- **Roadmap** — interactive timeline from Beta 0.1 to 2.0
+
+### Architecture and UX
+
+- Docusaurus 3.9.2 with custom Warm Indigo theme
+- Custom components: StepAccordion, ArtifactAccordion, AntiPatternAccordion, RoadmapTimeline, PhaseCardList, PrincipleCardList, GlossaryTooltip
+- Section hero headers across all pages
+- Locale switcher with country flag icons
+- Custom favicon with all platform variants
+- Google Analytics integration
+- CC BY-SA 4.0 license

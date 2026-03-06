@@ -1,0 +1,112 @@
+---
+title: "Phase artifacts"
+sidebar_label: "Artifacts"
+slug: /framework/phases/ai-build-phase/artifacts
+description: "Six artifacts that evidence faithful construction: distributed Decision Log, updated graph, synchronization minutes, Build Validation Report, Context Document, and the Iteration Brief."
+sidebar_position: 3
+tags: [framework, phases, ai-build-phase, artifacts, decision-log, build-validation-report]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">Phase artifacts</h1>
+</div>
+
+Phase 4 produces six artifacts. Each one fulfills a specific function in the traceability between what was built and the problem that motivated the project. In projects with parallel construction, each artifact has an additional dimension reflecting coordination between tracks.
+
+| Artifact | Format | Built by |
+|---|---|---|
+| **Distributed Decision Log** | Chronological log per track (Google Sheets). Consolidated at closure | Dev Leads per track. Context Engineer consolidates at closure |
+| **Updated dependency graph** | Directed graph (Miro, draw.io) | SM Agent (Phase 3 origin). Updates authorized by Context Engineer |
+| **Integration synchronization minutes** | Meeting minutes (Google Docs) | Tech Lead convenes. Context Engineer documents |
+| **Build Validation Report** | Structured document in 4 blocks, signed | Team. Signatories: Tech Lead, Phase 1-2 stakeholders, Context Engineer |
+| **Updated Context Document** | Markdown files (same structure as Phase 3) | Context Engineer |
+| **Iteration Brief (draft)** | Structured document (Google Docs) | Context Engineer / Product Lead with learnings from all tracks |
+
+## Creation sequence
+
+```
+Setup (Step 1)
+    │
+    ├── Distributed Decision Log ─── [continuous, from day 1]
+    │
+    ▼
+Construction (Step 2)
+    │
+    ├── Dependency graph ────────── [updated when new dependencies emerge]
+    │
+    ├── Synchronization minutes ──── [at each graph synchronization point]
+    │
+    ▼
+Fidelity Review (Step 4)
+    │
+    ├── Build Validation Report ──── [upon completing the 4 review blocks]
+    │
+    ▼
+Closure (Step 5)
+    │
+    ├── Updated Context Document
+    │
+    └── Iteration Brief (draft)
+```
+
+## 1. Distributed Decision Log
+
+The continuous record of every unforeseen decision during construction.
+
+- **Format:** Chronological log with fields: decision, Story File, track, estimated impact (local/cross-track/global), urgency, status.
+- **Built by:** Dev Leads per track. Context Engineer consolidates at closure.
+- **When it's created:** From day one. One log per track, accessible to the entire team.
+- **Purpose:** Real-time coordination between tracks and change traceability.
+- **Final consolidation:** At phase closure, logs from all tracks are merged into a single registry where cross-track and global decisions are consolidated into entries reflecting the systemic resolution.
+- **Valid final states:** Resolved (global Rule), Resolved (local), Resolved (integration coherence), Open (pending Phase 5).
+
+## 2. Updated dependency graph
+
+The map of relationships between Story Files that determines what can be built in parallel.
+
+- **Format:** Directed graph with nodes (Story Files) and edges (dependencies).
+- **Built by:** SM Agent (Phase 3 origin). Updates authorized by Context Engineer.
+- **When it's created:** Inherited from Phase 3. Verified by all Dev Leads during setup. Updated when construction reveals undocumented dependencies.
+- **In parallel construction:** Reference document for activating and deactivating tracks. Any modification notifies all Dev Leads.
+
+## 3. Integration synchronization minutes
+
+Formal record of each synchronization session between tracks.
+
+- **Format:** Minutes with: date, tracks involved, agreed interface contracts, decisions on incompatibilities, track(s) that must adjust their output.
+- **Built by:** Tech Lead convenes. Context Engineer documents.
+- **When it's created:** Every time an integration synchronization is activated.
+- **Purpose:** Evidence of system state at each dependency graph point.
+
+## 4. Build Validation Report
+
+The document certifying that what was built is faithful to the defined problem and solution.
+
+- **Format:** Document with results from the 4 Fidelity Review blocks.
+- **Built by:** Team. Signatories: Tech Lead (Block 0), Phase 1 stakeholders (Block 1), Phase 2 stakeholders (Block 2), Context Engineer (Block 3).
+- **When it's created:** Upon completing the Fidelity Review.
+- **Pass condition:** All four blocks must be approved. Block 0 is a prerequisite for blocks 1 and 2.
+
+## 5. Updated Context Document
+
+The project-context.md traveling to Phase 5.
+
+- **Format:** Markdown files (same structure as Phase 3).
+- **Built by:** Context Engineer.
+- **When it's created:** Upon completing Step 5 (Closure).
+- **Contents:** All original Rules + all Rules that emerged from construction. Updated dependency graph. Documented integration decisions.
+- **Difference from Phase 3 version:** Reflects what was actually built, not what was planned to be built.
+
+## 6. Iteration Brief (draft)
+
+The open learnings that Phase 5 will put to the test with the market.
+
+- **Format:** Structured document (Google Docs). Prioritized list of hypotheses to validate, decisions pending market data, and active Problem Statement assumptions that construction could neither confirm nor refute.
+- **Built by:** Context Engineer / Product Lead with learnings from all tracks.
+- **When it's created:** Upon completing Step 5 (Closure).
+- **In parallel:** Consolidates learnings from all tracks, not just the most active one.
+
+:::tip The complete traceability chain
+**Problem Statement → Solution Brief → PRD → Story Files → Built code → Build Validation Report.** If a line of code cannot be traced back to the Problem Statement, it's Context Debt. The Decision Log is the registry that makes this traceability verifiable across all tracks.
+:::

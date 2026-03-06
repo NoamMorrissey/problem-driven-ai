@@ -1,0 +1,51 @@
+---
+title: "What Context Phase is and what it isn't"
+sidebar_label: "What it is"
+description: "Context Phase is the translation of human thinking into a language AI can process. It's system design, not prompt engineering."
+sidebar_position: 3
+slug: what-it-is-and-isnt
+tags: [phases, context-phase, definition]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">What Context Phase is and what it isn't</h1>
+</div>
+
+This is the phase most likely to be misunderstood, because it operates at the intersection of two worlds that rarely speak the same language: the world of human decisions and the world of AI capabilities. Most failures here come from treating it as one or the other, instead of as the bridge between both.
+
+## What it IS
+
+- **System design, not prompt writing.** Context Phase produces a complete system of Agents, Rules, and Skills that work together. Each prompt is a component of that system, not an isolated instruction.
+- **Translation of human thinking into AI-processable language.** The Problem Statement and Solution Brief contain human decisions. Context Phase converts those decisions into structures an AI can operate on without ambiguity.
+- **An exercise in fidelity.** The goal is not creativity. The goal is that what the AI produces faithfully reflects what the team decided. Fidelity between human intent and AI output is the measure of success.
+- **Architecture of constraints.** The Context Engineer designs Rules that limit what Agents can and cannot do. These constraints are not restrictions on creativity; they are what makes creativity productive.
+- **A collaborative process.** The Context Engineer works with the team, not in isolation. Domain knowledge from Phase 1 and Phase 2 must survive the translation into context. The engineer is a translator, not an author.
+
+## What it is NOT
+
+- **It's not prompt engineering.** Prompt engineering optimizes a single interaction. Context Phase designs an entire operating system. The difference is the same as between writing a function and designing an architecture.
+- **It's not a technical task.** While it requires technical understanding, the primary skill is translation: converting business decisions, user needs, and design intent into a language AI can process. Developers, designers, and strategists all contribute.
+- **It's not configuration.** Context Phase doesn't configure tools. It creates the intellectual infrastructure that makes tools work correctly. A well-designed Context Document makes the choice of tools almost irrelevant.
+- **It's not the start of building.** Nothing is built in this phase. No code is written. No interfaces are designed. The output is a Context Document: a complete, validated blueprint that Phase 4 will execute.
+- **It's not optional because "the AI is smart enough."** The smarter the AI, the more damage it can do with bad context. An LLM without constraints will produce confident, coherent, and completely wrong output if the context doesn't define what "right" means.
+
+:::danger Anti-pattern: The Prompt Collection
+**What it is:** Instead of designing a coherent system, the team produces a collection of individual prompts, each written for a specific task, with no shared Rules, no defined Agents, and no reusable Skills. Each prompt reinvents the wheel. Each prompt contains its own version of the project's reality.
+
+**How to detect it:** Open three different prompts from the project. If they describe the same concept differently, reference different assumptions, or contradict each other on project constraints, there is no context system. There is a prompt collection.
+
+**How to prevent it:** Start with Rules, not prompts. Rules define what is true for the entire project. Then define Agents that operate within those Rules. Then design Skills that Agents execute. Individual prompts emerge as implementations of Skills, not as standalone instructions.
+:::
+
+:::tip[The distinction that defines this phase]
+The quality of Context Phase is inversely proportional to how much the AI needs to "figure out" on its own. **A perfect Context Document leaves the AI with no room for interpretation, only room for execution.** The creative intelligence was invested by humans in Phases 1 and 2. The AI's job in Phase 4 is to execute that intelligence with fidelity, not to reinvent it.
+:::
+
+## Exit Criteria
+
+- A complete Context Document exists with defined Agents, Rules, and Skills
+- Every Agent has explicit limits on what it can and cannot decide
+- Every Rule is traceable to a decision from Phase 1 or Phase 2
+- Skills are self-contained: an Agent can execute any Skill without asking for clarification
+- The team (not just the Context Engineer) validates that the Context Document reflects their decisions

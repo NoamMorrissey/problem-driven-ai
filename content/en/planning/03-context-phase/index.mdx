@@ -1,0 +1,131 @@
+---
+title: "Phase 03: Context Phase"
+slug: /framework/phases/context-phase
+description: "Operational guide: step-by-step process, context system anatomy, artifacts, gate review, anti-patterns, and effort estimates."
+sidebar_position: 0
+hide_title: true
+tags: [framework, phases, context-phase, execution, artifacts]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline, RadarChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--context-phase">
+  <h1 className="section-hero__title">3. Context phase</h1>
+  <p className="section-hero__subtitle">Agents, Rules and Skills: the operating system of the AI project.</p>
+</div>
+
+This is the operational guide for executing Context Phase — the phase where the team translates human understanding into a system that AI can process faithfully. While the [methodology section](/phases/context-phase) explains the *why* and the conceptual foundations (what Agents, Rules, and Skills are and why they matter), this guide covers the *how*: the concrete process to follow, the artifacts to produce, the criteria to meet before moving forward, and the failure patterns to watch for.
+
+<StatCardGrid>
+  <StatCard value="5" label="Structured steps" description="From Rules to Validation" />
+  <StatCard value="6" label="Artifacts" description="Transferred to Phase 4" />
+  <StatCard value="9" label="Gate Review criteria" description="All must pass to advance" />
+</StatCardGrid>
+
+## The Context Phase workflow
+
+Context Phase translates human understanding into a system that AI can process faithfully, through five steps in strict sequence. Rules come first because everything else depends on them. Agents are designed before Skills because Skills need to know who will execute them. Strategic documents come before decomposition because Skills are derived from them. Validation is last because it tests the complete system, not individual pieces.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Establish Rules', description: 'Define the project constitution: tech stack, conventions, constraints, Agent limits, and gap protocol. All globally-applicable decisions.', owner: 'project-context.md'},
+  {number: 2, title: '2. Design the Agent Chain', description: 'Define which Agents exist, what each one does, and how they pass work. Each with identity, responsibilities, limits, and gap protocol.', owner: 'Agent Definitions'},
+  {number: 3, title: '3. Generate Strategic Documents', description: 'PM Agent produces the PRD from the Solution Brief. Architect Agent produces the Architecture Document and promotes new Rules.', owner: 'PRD + Architecture Document'},
+  {number: 4, title: '4. Decompose into Skills', description: 'SM Agent breaks the solution into self-contained tasks with all the context an Agent needs to complete them.', owner: 'Story Files'},
+  {number: 5, title: '5. Validate through Outputs', description: 'Agents execute sample Skills under Rules. Stakeholders verify the output is a faithful expression of what was agreed.', owner: 'Validated context system'},
+]} />
+
+## The six artifacts
+
+This phase produces six artifacts that together form the operating system for Phase 4. Unlike previous phases, here artifacts are produced by both humans and AI Agents, and each has defined producers and consumers within the chain.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="project-context.md (Rules)">
+    The project constitution. Global norms that every Agent loads before executing any Skill: stack, conventions, constraints, Agent limits, gap protocol, justified decisions.
+
+    **Format:** Markdown file, 2-5 pages. Lives in the project root.
+
+    **Built by:** Context Engineer (initial version). Architect Agent (updates).
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Agent Definitions">
+    Identity cards for each AI role: who they are, what they do, what they can't do, which Rules govern them, what to do when information is missing.
+
+    **Format:** One Markdown document per Agent or single document with separated sections.
+
+    **Built by:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="PRD (Product Requirements Document)">
+    What to build, for whom, use cases, success criteria, priorities. Translation of the Solution Brief into product language.
+
+    **Format:** Structured document (Markdown, Google Docs).
+
+    **Built by:** PM Agent from the Solution Brief.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Architecture Document">
+    Technical decisions (ADRs), data model, AI strategy, non-functional requirements. Its decisions become new Rules.
+
+    **Format:** Document with ADRs (Architecture Decision Records).
+
+    **Built by:** Architect Agent. Decisions promoted to project-context.md.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Story Files (Skills)">
+    Self-contained tasks with objective, specific context, acceptance criteria, dependencies, and constraints. Each Skill is one interaction between an Agent and its work.
+
+    **Format:** One Markdown file per Skill, five mandatory elements.
+
+    **Built by:** SM Agent.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Log">
+    Every change to Rules, Agents, or Skills from their creation: date, what changed, why, who authorized it, which artifacts were affected.
+
+    **Format:** Chronological log (Markdown, spreadsheet).
+
+    **Built by:** All participants. Continuous from the first document.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+## Context system quality
+
+A well-designed context system scores high across all five quality dimensions. Gaps in any dimension produce outputs that look correct but aren't faithful to what stakeholders agreed.
+
+<RadarChart
+  axes={['Fidelity', 'Completeness', 'Self-containment', 'Traceability', 'Consistency']}
+  datasets={[
+    {label: 'Well-designed system', values: [95, 90, 85, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'System with gaps', values: [60, 45, 40, 35, 50], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+- **Fidelity** — Outputs match the Problem Statement and Solution Brief. No invention, no reinterpretation.
+- **Completeness** — Every Rule, Agent, and Skill has all mandatory elements. No implicit context.
+- **Self-containment** — An Agent with a Skill + project-context.md can complete the task without asking anything.
+- **Traceability** — Problem Statement → Solution Brief → PRD → Rules + Skills. Every element traces back.
+- **Consistency** — Rules don't contradict each other. Skills inherit Rules faithfully. Agents respect their limits.
+
+## What this guide covers
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/context-phase/step-by-step-process">
+    A five-step process from Rules to validated context system. Each step builds on the previous: Rules, Agents, Documents, Skills, Validation.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/context-phase/context-system-anatomy">
+    The architecture of a well-designed context system. How Rules, Agents, Skills, and strategic documents interconnect.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/context-phase/artifacts">
+    project-context.md, Agent Definitions, PRD, Architecture Document, Story Files, and Decision Log. Templates and quality criteria.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/context-phase/gate-review">
+    Nine criteria that must all pass before advancing to Phase 4. Validates fidelity, completeness, and self-containment of the context system.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/context-phase/anti-patterns">
+    Common failure modes in context design. From over-specified Rules to under-contained Skills and implicit dependencies.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/context-phase/effort">
+    Time investment ranges calibrated to construction time. The optimal proportion is 30-50% of the build phase duration.
+  </GuideCard>
+</GuideCardGrid>
+
+:::tip The operating system investment
+If Context Phase consumes more time than the construction phase itself, you're likely over-specifying Rules or atomizing Skills excessively. If it consumes less than a third of construction time, there are implicit Rules and incomplete Skills. The optimal proportion is **30-50% of construction time.** For a project that will take 4 weeks to build, invest 1-2 weeks in Context Phase. The payoff: construction becomes the phase of least friction.
+:::

@@ -1,0 +1,71 @@
+---
+title: "La trampa del alineamiento"
+sidebar_label: "La Trampa"
+description: "El riesgo característico de la Fase 2: confundir alineamiento aparente con consenso real. Cuando todos asienten pero nadie se compromete."
+sidebar_position: 5
+slug: /fases/solution-phase/la-trampa-del-alineamiento
+tags: [fases, solution-phase, anti-patrones, consenso, alineamiento]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">La trampa del alineamiento</h1>
+</div>
+
+Cada fase tiene su riesgo característico. En Problem Phase, es decorar el discovery con entrevistas que confirman lo que ya se creía. En Solution Phase, el riesgo es más sutil y más peligroso: **confundir alineamiento aparente con consenso real.**
+
+La trampa no se parece al fracaso. Se parece al éxito. Las reuniones terminan a tiempo. Todos asienten. El Solution Brief se firma. El equipo pasa a la Fase 3 con sensación de logro. Y entonces, en la primera decisión de diseño que requiere sacrificio, el alineamiento se desintegra.
+
+## Cómo funciona la trampa
+
+La trampa del alineamiento opera sobre tres mecanismos que se refuerzan entre sí:
+
+| Mecanismo | Cómo se ve | Qué ocurre realmente |
+|---|---|---|
+| **Validación por autoridad** | La persona con más rango habla primero, los demás asienten | El grupo valida la posición, no el razonamiento. Cuando esa persona no está en la sala, nadie sabe por qué se tomó la decisión. |
+| **Convergencia prematura** | El equipo acuerda rápidamente una solución que "gusta a todos" | El desacuerdo se evitó, no se resolvió. La disidencia pasó a la clandestinidad. Resurgirá como resistencia durante AI Build Phase. |
+| **Blanqueo de asunciones** | Las asunciones se presentan como hechos validados en el Solution Brief | Nadie cuestiona "los usuarios quieren un dashboard" porque se afirmó con suficiente confianza. La asunción entra en el Context Document como verdad. |
+
+## El coste del falso alineamiento
+
+Cuando la trampa del alineamiento tiene éxito, no produce daño visible inmediato. El daño aparece después, amplificado:
+
+- **En Context Phase**: El Context Engineer construye definiciones de agentes basadas en un Solution Brief que contiene asunciones disfrazadas de decisiones. La IA opera con confianza sobre terreno inestable.
+- **En AI Build Phase**: El primer sprint revela que "todos estaban de acuerdo" significaba "nadie objetó". Diferentes miembros del equipo tenían modelos mentales diferentes de lo que se decidió. La IA construye lo que se escribió, no lo que se quería decir.
+- **En Market Phase**: El producto funciona técnicamente pero resuelve un problema que nunca se alineó correctamente. Las señales del usuario contradicen las expectativas internas porque la solución fue aprobada, no validada.
+
+## Cómo detectarla
+
+Tres señales diagnósticas de que la trampa está activa:
+
+1. **La señal de unanimidad.** Si todos están de acuerdo en todo sin debate, algo va mal. El alineamiento real requiere fricción. La ausencia de fricción no es consenso, es pasividad.
+2. **El test de explicación.** Pide a tres miembros diferentes del equipo que expliquen la solución elegida de forma independiente. Si describen tres soluciones diferentes, no hubo alineamiento. Hubo una reunión.
+3. **El test de sacrificio.** El alineamiento real sobrevive a los trade-offs. Presenta un escenario donde la solución debe sacrificar una funcionalidad por otra. Si el equipo se fragmenta, el alineamiento era superficial.
+
+## Cómo prevenirla
+
+La prevención es estructural, no conductual. No puedes prevenir la trampa "siendo más cuidadoso". La previenes diseñando el proceso para que la trampa no tenga espacio donde operar:
+
+- **Documenta la disidencia explícitamente.** El Solution Brief debe contener una sección "Decisiones descartadas y por qué". Si está vacía, el proceso no fue suficientemente riguroso.
+- **Valida las asunciones por separado.** Cada asunción del Solution Brief se clasifica: validada (con evidencia), plausible (sin evidencia, riesgo aceptado) o no testada (requiere validación en Fase 5). Ninguna asunción entra como "hecho".
+- **Testea el alineamiento, no lo asumas.** Antes de cerrar la fase, ejecuta el test de explicación. Si el equipo no puede describir independientemente la misma solución, la fase no ha terminado.
+
+:::danger Anti-patrón: El Solution Brief educado
+**Qué es:** Un Solution Brief que se lee bien, no tiene contradicciones internas y fue aprobado en una sola reunión. Parece profesional porque todas las aristas se suavizaron. El problema es que las aristas son donde viven las decisiones reales.
+
+**Cómo detectarlo:** Cuenta el número de trade-offs documentados en el brief. Si la solución no sacrifica nada, o es trivial o el equipo evitó las conversaciones difíciles. Las soluciones reales tienen costes. Un brief sin costes documentados es un brief sin decisiones reales.
+
+**Cómo prevenirlo:** Exige al menos tres trade-offs documentados por Solution Brief. Para cada trade-off: qué se sacrificó, por qué, cuál es el coste y quién aceptó ese coste. Si el equipo no puede articular tres trade-offs, la solución no se ha pensado con suficiente profundidad.
+:::
+
+:::tip[La paradoja de esta fase]
+Los mejores Solution Briefs son los que documentan lo que se rechazó con tanto cuidado como lo que se eligió. **La calidad del alineamiento se mide no por el entusiasmo del "sí", sino por la precisión del "no".** Un equipo que puede explicar exactamente por qué descartó cuatro alternativas y eligió la quinta tiene alineamiento. Un equipo que eligió la primera idea que sonaba razonable tiene permiso.
+:::
+
+## Exit Criteria
+
+- Todos los miembros del equipo pueden describir independientemente la solución y su razonamiento
+- Las asunciones están clasificadas (validada / plausible / no testada) con evidencia
+- Al menos tres trade-offs están documentados con sus costes
+- Las opiniones disidentes están registradas, no solo la decisión final
+- El test de explicación produce respuestas consistentes entre los miembros del equipo
