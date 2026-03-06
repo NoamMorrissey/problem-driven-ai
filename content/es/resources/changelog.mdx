@@ -1,0 +1,84 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+slug: /recursos/changelog
+description: "Historial de versiones y notas de cada release de Problem-Driven AI."
+sidebar_position: 4
+tags: [recursos, changelog]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">Changelog</h1>
+</div>
+
+Problem-Driven AI sigue un **modelo de releases versionado**, como un producto, no como un documento estático. Cada release trae nuevo contenido, herramientas prácticas y mejoras. Usamos [versionado semántico](/es/recursos/roadmap) con milestones temáticos.
+
+---
+
+## Beta 0.2 — Content Complete
+
+**2026-03-02**
+
+Cierra todos los huecos de contenido en las capas de metodología y framework. Reorganiza el sistema de gobernanza para consistencia y mantenibilidad.
+
+### Contenido
+
+- **"The Alignment Trap"** — nueva página de metodología para Fase 2 (EN+ES): el riesgo característico de confundir alineamiento aparente con consenso real
+- **"What it is and what it isn't"** — nueva página de metodología para Fase 3 (EN+ES): completa el patrón estándar presente en todas las demás fases
+- **Anatomía del KPI & OKR Register** — ampliada la anatomía del framework de Fase 3 con framework de medición, reglas de trazabilidad y proceso de calibración
+- **Mapa de relaciones de principios** — componente SVG interactivo que muestra cómo los 10 principios se interconectan (hover para explorar conexiones)
+
+### Correcciones de framework
+
+- **Renumeración del framework de Fase 2** — alineada la numeración de archivos al patrón `07-12` usado por las demás fases (10 renombramientos)
+- **2 nuevos slug mappings de redirect** añadidos a `docusaurus.config.ts` para las nuevas páginas bilingües
+
+### Sistema de gobernanza (`.instructions/`)
+
+- **Consolidación de terminología sagrada** — fuente única de verdad (`rules/sacred-terms.md`) reemplazando 3 listas inline desincronizadas
+- **Corrección de numeración de reglas** — `phase-content-rules.md` renumerado a Rules 20-26 (era 10-16, solapándose con `core-rules.md`)
+- **Consolidación de Rule 9** — arquitectura de redirects definida una vez en `core-rules.md`, referenciada en los demás archivos
+- **Pipeline de invocación de agentes** — documentado orden de ejecución de 6 agentes con niveles de severidad en `orchestrator.md`
+- **Protocolo de resolución de conflictos** — prioridad BLOCK > ALTA > WARN > SUGGEST documentada
+- **Reescritura de phase builder** — delegación ligera a `skills/build-phase.md` (eliminadas ~200 líneas de duplicación)
+- **Expansión del changelog agent** — de 27 a ~70 líneas con template bilingüe, tags de cambio y lógica de version bump
+- **Templates para comando `registrar`** — plantillas estandarizadas para creación de agentes, skills y reglas
+- **Roadmap vinculado al orchestrator** — estrategia de producto ahora accesible desde el cerebro del sistema
+
+### Arquitectura
+
+- Rama `release/0.1` creada desde el tag `v0.1.0` para preservar el estado de Beta 0.1
+- Rama `beta-0.2` creada para todo el trabajo de Beta 0.2
+
+---
+
+## Beta 0.1 — Foundation
+
+**2026-03-01**
+
+El release público inicial. La base completa de la metodología, totalmente bilingüe.
+
+### Contenido
+
+- **5 fases de metodología** con profundidad conceptual: Problem Phase, Solution Phase, Context Phase, AI Build Phase, Market Phase
+- **5 fases de framework** con guías operativas: procesos paso a paso, anatomía de artefactos, gate reviews, anti-patrones y estimaciones de esfuerzo
+- **10 principios fundamentales**, cada uno con su anti-patrón (estructura de 3 partes: qué es, cómo detectarlo, cómo prevenirlo)
+- **Manifiesto** y **Overview**: la declaración fundacional e introducción a la metodología
+- **~97 páginas bilingües** (EN/ES) con paridad completa entre ambos idiomas
+
+### Recursos
+
+- **FAQ**: preguntas frecuentes sobre Problem-Driven AI
+- **Glosario**: términos clave con integración automática de tooltips en todas las páginas
+- **Roadmap**: timeline interactivo desde Beta 0.1 hasta 2.0
+
+### Arquitectura y UX
+
+- Docusaurus 3.9.2 con tema personalizado Warm Indigo
+- Componentes personalizados: StepAccordion, ArtifactAccordion, AntiPatternAccordion, RoadmapTimeline, PhaseCardList, PrincipleCardList, GlossaryTooltip
+- Cabeceras section hero en todas las páginas
+- Selector de idioma con iconos de bandera
+- Favicon personalizado con todas las variantes de plataforma
+- Integración con Google Analytics
+- Licencia CC BY-SA 4.0

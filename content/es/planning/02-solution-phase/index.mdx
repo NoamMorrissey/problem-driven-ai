@@ -1,0 +1,113 @@
+---
+title: "Fase 02: Solution Phase"
+slug: /framework/fases/solution-phase
+description: "Guía operativa: proceso paso a paso, anatomía del Solution Brief, artefactos, gate review, anti-patrones y estimaciones de esfuerzo."
+sidebar_position: 0
+hide_title: true
+tags: [framework, fases, alignment, ejecucion, artefactos]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--solution-phase">
+  <h1 className="section-hero__title">2. Solution phase</h1>
+  <p className="section-hero__subtitle">El derecho a construir se gana pensando.</p>
+</div>
+
+Esta es la guía operativa para ejecutar Solution Phase — la fase donde el equipo encuentra, estructura y alinea la solución correcta antes de construir nada. Mientras que la [sección de metodología](/fases/solution-phase) explica el *por qué* y las bases conceptuales, esta guía cubre el *cómo*: el proceso concreto a seguir, los artefactos a producir, los criterios que cumplir antes de avanzar y los patrones de fallo que vigilar.
+
+<StatCardGrid>
+  <StatCard value="5" label="Pasos estructurados" description="De Divergencia a Gate Review" />
+  <StatCard value="6" label="Artefactos" description="Transferidos a Fase 3" />
+  <StatCard value="7" label="Criterios de Gate Review" description="Todos deben cumplirse para avanzar" />
+</StatCardGrid>
+
+## El flujo de Solution Phase
+
+Solution Phase estructura en cinco pasos el camino desde la idea hasta el mandato compartido. Los tres primeros (Divergencia, Estructuración, Convergencia) son trabajo intelectual: generar opciones, descomponerlas y seleccionar con criterios explícitos. Los dos últimos (Validación con clientes, Validación con stakeholders internos) son trabajo de alineación: confirmar que la solución resuelve el problema real y que toda la organización lo entiende igual. El Solution Brief empaqueta todo para la transferencia a Fase 3.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Divergencia', description: 'Reformulación How Might We e ideación silenciosa. Se genera el mayor abanico posible de soluciones sin filtrar ni juzgar.', owner: 'Ideation Board'},
+  {number: 2, title: '2. Estructuración', description: 'Descomposición de cada solución en 4 dimensiones: negocio, modelo IA, arquitectura y datos. Clasificación de asunciones por riesgo.', owner: 'Árboles de Soluciones + Registro de Asunciones'},
+  {number: 3, title: '3. Convergencia', description: 'Evaluación de candidatas con criterios ponderados fijados antes de evaluar. Decisión basada en evidencia, no en intuición.', owner: 'Decision Matrix'},
+  {number: 4, title: '4. Validación con clientes', description: 'Presentar la solución a usuarios reales. Pregunta clave: "Si esto existiera mañana, ¿cambiaría algo en tu día a día?"', owner: 'Feedback Log (externo)'},
+  {number: 5, title: '5. Validación con stakeholders internos', description: 'Conseguir consenso organizacional real. Test del Consenso de Corredor: cualquiera explica el qué y por qué de forma coherente.', owner: 'Feedback Log (interno) + Solution Brief'},
+]} />
+
+## Los seis artefactos
+
+Esta fase produce seis artefactos que juntos forman la base para la Fase 3. Los tres primeros capturan el trabajo intelectual de generar y evaluar soluciones. Los tres últimos registran la validación y empaquetan todo para la transferencia.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Ideation Board">
+    Registro visual de todas las soluciones generadas, agrupadas, con notas de por qué se descartaron las no seleccionadas. Memoria organizacional que evita reinventar lo ya evaluado.
+
+    **Formato:** Tablero visual colaborativo (Miro, FigJam, post-its).
+
+    **Construye:** El equipo completo durante la Divergencia.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Árboles de Soluciones">
+    Descomposición de cada solución candidata en las cuatro dimensiones: negocio, modelo, arquitectura, datos. Hacen visible la complejidad que las ideas abstractas ocultan.
+
+    **Formato:** Tablero visual colaborativo o documento estructurado.
+
+    **Construye:** El equipo durante la Estructuración.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Registro de Asunciones">
+    Lista clasificada de todas las asunciones: verificadas, bajo riesgo, alto riesgo, desconocidas. Con planes de acción para las de alto riesgo.
+
+    **Formato:** Tabla (Google Sheets).
+
+    **Construye:** El equipo. Se inicia en la Estructuración y se actualiza en cada paso.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Matrix">
+    Evaluación de soluciones candidatas contra criterios ponderados fijados antes de evaluar. Hace explícitas las razones de la elección.
+
+    **Formato:** Tabla con puntuaciones 1-5 y pesos por criterio (Google Sheets).
+
+    **Construye:** El equipo durante la Convergencia. Pesos fijados por el Decision Owner.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Feedback Log">
+    Registro acumulativo de todo el feedback de clientes y stakeholders: quién dijo qué, cómo se incorporó o por qué se descartó.
+
+    **Formato:** Registro cronológico (Google Docs, hoja de cálculo).
+
+    **Construye:** El facilitador durante las validaciones externa e interna.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Solution Brief">
+    Documento de entrada a Fase 3: problema que resuelve, solución propuesta, decisiones y justificaciones, descomposición por dimensiones, asunciones activas, criterios de éxito, restricciones y Mapa de Traducibilidad.
+
+    **Formato:** Documento estructurado en 8 secciones (Google Docs).
+
+    **Construye:** PM / Product Lead con input del equipo.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+## Qué cubre esta guía
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/solution-phase/proceso-paso-a-paso">
+    Un proceso en cinco pasos desde la divergencia hasta el Solution Brief validado. Generar, estructurar, converger y validar con stakeholders reales.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/solution-phase/anatomia-del-solution-brief">
+    Las ocho secciones obligatorias del Solution Brief. El documento que empaqueta cada decisión para la transferencia a Fase 3.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/solution-phase/artefactos">
+    Ideation Board, Árboles de Soluciones, Registro de Asunciones, Decision Matrix, Feedback Log y Solution Brief. Referencia completa.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/solution-phase/gate-review">
+    Siete criterios que deben cumplirse antes de avanzar a la Fase 3. Valida la calidad de la solución y el consenso organizacional.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/solution-phase/anti-patrones">
+    Modos de fallo comunes en la alineación de soluciones. Desde convergencia prematura hasta teatro de consenso y asunciones olvidadas.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/solution-phase/esfuerzo">
+    Rangos de inversión de tiempo por tamaño de equipo y complejidad de solución. Calibrar entre rapidez excesiva y sobreanálisis.
+  </GuideCard>
+</GuideCardGrid>
+
+:::tip La inversión en consenso se paga sola
+Esta fase es la bisagra entre el pensamiento humano puro (Fase 1) y la traducción de ese pensamiento a un lenguaje que la IA pueda procesar (Fase 3). Todo lo que se haga mal aquí se amplifica exponencialmente cuando el contexto llega a la IA. Una solución bien alineada produce un contexto preciso. Una solución ambigua produce un contexto que parece correcto pero no resuelve lo que debía resolver.
+:::

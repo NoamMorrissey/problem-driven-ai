@@ -1,0 +1,111 @@
+---
+title: "Phase 04: AI Build Phase"
+slug: /framework/phases/ai-build-phase
+description: "Operational guide for executing Phase 4: setup, Story File-driven construction, gap management, fidelity review, and closure. With parallel construction model."
+sidebar_position: 0
+hide_title: true
+tags: [framework, phases, ai-build-phase, execution, artifacts]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--ai-build-phase">
+  <h1 className="section-hero__title">4. AI build phase</h1>
+  <p className="section-hero__subtitle">Build well because it was thought well.</p>
+</div>
+
+This section contains the operational guide for executing Phase 4. While the [methodology section](/phases/ai-build-phase) explains the why and the concepts, this guide details the **how**: the concrete steps, templates, artifacts, and validation criteria.
+
+<StatCardGrid>
+  <StatCard value="5" label="Structured steps" description="From Setup to Closure" />
+  <StatCard value="6" label="Artifacts" description="Transferred to Phase 5" />
+  <StatCard value="10" label="Gate Review criteria" description="Integration checklist" />
+</StatCardGrid>
+
+## The AI Build Phase workflow
+
+AI Build Phase executes construction in five steps that manage parallel tracks, detect collisions between them, and validate the result with the original stakeholders. The environment is verified before building anything. Agents execute Story Files under human supervision. Gaps are classified and resolved in real time. The fidelity review confirms that what was built solves the original problem and respects the agreed solution. Closure consolidates learnings for the market cycle.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Environment setup', description: 'Collective briefing, three-read context test, and implicit dependency graph verification between Story Files.', owner: 'Verified environment'},
+  {number: 2, title: '2. Story File-driven construction', description: 'Agent execution under Dev Lead supervision. Decision classification: Local, Cross-track, or Global.', owner: 'Completed Skills'},
+  {number: 3, title: '3. Gap management during construction', description: 'QA Agent detects inconsistencies between built output and context. Classification: Specification, Rules, Architecture, or Data.', owner: 'Updated Decision Log'},
+  {number: 4, title: '4. Fidelity review', description: 'Triple validation: Technical (system works), Phase 1 (solves the problem), and Phase 2 (implements the agreed solution).', owner: 'Build Validation Report'},
+  {number: 5, title: '5. Decision Log closure', description: 'Decision Log consolidation across all tracks and Iteration Brief drafting with cross-track learnings.', owner: 'Updated Context Document'},
+]} />
+
+### Phase artifacts
+
+This phase produces six artifacts that record decisions made during construction, discovered dependencies, and validation that what was built is faithful to the original problem and solution.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Distributed Decision Log">
+    Chronological log of decisions per track with impact classification: local, cross-track, or global. One log per track, accessible to the entire team.
+
+    **Format:** Chronological log per track (Google Sheets, spreadsheet). Consolidated at closure.
+
+    **Built by:** Dev Leads per track. Context Engineer consolidates at closure.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Updated dependency graph">
+    Directed graph with nodes (Story Files) and edges (dependencies). Inherited from Phase 3, updated when construction reveals undocumented dependencies.
+
+    **Format:** Directed graph (Miro, draw.io, diagramming tool).
+
+    **Built by:** SM Agent (Phase 3 origin). Updates authorized by Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Integration synchronization minutes">
+    Interface contracts and resolutions when there are incompatibilities between tracks.
+
+    **Format:** Meeting minutes (Google Docs).
+
+    **Built by:** Tech Lead convenes. Context Engineer documents.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Build Validation Report">
+    Fidelity review result across 4 blocks: integration coherence, Problem Statement fidelity, Solution Brief fidelity, and Decision Log review.
+
+    **Format:** Structured document in 4 blocks, signed.
+
+    **Built by:** Team. Signatories: Tech Lead, Phase 1-2 stakeholders, Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Updated Context Document">
+    project-context.md with all Rules emerged from construction, plus updated dependency graph and integration decisions.
+
+    **Format:** Markdown files (same structure as Phase 3).
+
+    **Built by:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief (draft)">
+    Hypotheses to validate, decisions pending market data, and assumptions that construction could neither confirm nor refute.
+
+    **Format:** Structured document (Google Docs).
+
+    **Built by:** Context Engineer / Product Lead with learnings from all tracks.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+---
+
+## What this guide covers
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/ai-build-phase/step-by-step-process">
+    A five-step process from environment setup to closure. Managing parallel tracks, detecting collisions, and validating fidelity.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/ai-build-phase/parallel-build-anatomy">
+    How parallel construction works with multiple tracks. Coordination, synchronization, and collision management between teams.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/ai-build-phase/artifacts">
+    Decision Log, dependency graph, integration minutes, Build Validation Report, updated Context Document, and Iteration Brief.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/ai-build-phase/gate-review">
+    Ten integration criteria that validate the complete system. Coherence across tracks and fidelity to Problem Statement and Solution Brief.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/ai-build-phase/anti-patterns">
+    Common failure modes in AI-assisted construction. From invisible gaps to deferred decisions and integration without verification.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/ai-build-phase/effort">
+    Time investment ranges for sequential and parallel construction. How team size and track count affect total duration.
+  </GuideCard>
+</GuideCardGrid>

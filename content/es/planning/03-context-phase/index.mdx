@@ -1,0 +1,131 @@
+---
+title: "Fase 03: Context Phase"
+slug: /framework/fases/context-phase
+description: "Guía operativa: proceso paso a paso, anatomía del sistema de contexto, artefactos, gate review, anti-patrones y estimaciones de esfuerzo."
+sidebar_position: 0
+hide_title: true
+tags: [framework, fases, context-phase, ejecucion, artefactos]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline, RadarChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--context-phase">
+  <h1 className="section-hero__title">3. Context phase</h1>
+  <p className="section-hero__subtitle">Agentes, Reglas y Skills: el sistema operativo del proyecto de IA.</p>
+</div>
+
+Esta es la guía operativa para ejecutar el Context Phase — la fase en la que el equipo traduce la comprensión humana en un sistema que la IA puede procesar fielmente. Mientras que la [sección de metodología](/fases/context-phase) explica el *por qué* y los fundamentos conceptuales (qué son los Agentes, las Reglas y los Skills y por qué importan), esta guía cubre el *cómo*: el proceso concreto a seguir, los artefactos a producir, los criterios a cumplir antes de avanzar y los patrones de fallo a vigilar.
+
+<StatCardGrid>
+  <StatCard value="5" label="Pasos estructurados" description="De Reglas a Validación" />
+  <StatCard value="6" label="Artefactos" description="Transferidos a Fase 4" />
+  <StatCard value="9" label="Criterios de Gate Review" description="Todos deben cumplirse para avanzar" />
+</StatCardGrid>
+
+## El flujo de Context Phase
+
+Context Phase traduce la comprensión humana en un sistema que la IA puede procesar fielmente, a través de cinco pasos en secuencia estricta. Las Reglas van primero porque todo lo demás depende de ellas. Los Agentes se diseñan antes que los Skills porque los Skills necesitan saber quién los ejecutará. Los documentos estratégicos van antes de la descomposición porque los Skills se derivan de ellos. La validación va al final porque prueba el sistema completo, no las piezas individuales.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Establecer Reglas', description: 'Definir la constitución del proyecto: stack, convenciones, restricciones, límites de Agentes y protocolo ante gaps. Todas las decisiones globales.', owner: 'project-context.md'},
+  {number: 2, title: '2. Diseñar la Cadena de Agentes', description: 'Definir qué Agentes existen, qué hace cada uno y cómo se pasan el trabajo. Cada uno con identidad, responsabilidades, límites y protocolo ante gaps.', owner: 'Definiciones de Agentes'},
+  {number: 3, title: '3. Generar Documentos Estratégicos', description: 'El PM Agent produce el PRD a partir del Solution Brief. El Architect Agent produce el Architecture Document y promueve nuevas Reglas.', owner: 'PRD + Architecture Document'},
+  {number: 4, title: '4. Descomponer en Skills', description: 'El SM Agent descompone la solución en tareas autocontenidas con todo el contexto que un Agente necesita para completarlas.', owner: 'Story Files'},
+  {number: 5, title: '5. Validar a través de Outputs', description: 'Los Agentes ejecutan Skills de muestra bajo las Reglas. Los stakeholders verifican que el output sea una expresión fiel de lo acordado.', owner: 'Sistema de contexto validado'},
+]} />
+
+## Los seis artefactos
+
+Esta fase produce seis artefactos que juntos forman el sistema operativo para la Fase 4. A diferencia de las fases anteriores, aquí los artefactos los producen tanto humanos como Agentes de IA, y cada uno tiene productores y consumidores definidos dentro de la cadena.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="project-context.md (Reglas)">
+    La constitución del proyecto. Normas globales que cada Agente carga antes de ejecutar cualquier Skill: stack, convenciones, restricciones, límites de Agentes, protocolo ante gaps, decisiones justificadas.
+
+    **Formato:** Archivo Markdown, 2-5 páginas. Vive en la raíz del proyecto.
+
+    **Construye:** Context Engineer (versión inicial). Architect Agent (actualizaciones).
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Definiciones de Agentes">
+    Fichas de identidad para cada rol de IA: quiénes son, qué hacen, qué no pueden hacer, qué Reglas los gobiernan, qué hacer cuando falta información.
+
+    **Formato:** Un documento Markdown por Agente o documento único con secciones separadas.
+
+    **Construye:** Context Engineer.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="PRD (Product Requirements Document)">
+    Qué construir, para quién, casos de uso, criterios de éxito, prioridades. Traducción del Solution Brief al lenguaje de producto.
+
+    **Formato:** Documento estructurado (Markdown, Google Docs).
+
+    **Construye:** PM Agent a partir del Solution Brief.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Architecture Document">
+    Decisiones técnicas (ADRs), modelo de datos, estrategia de IA, requisitos no funcionales. Sus decisiones se convierten en nuevas Reglas.
+
+    **Formato:** Documento con ADRs (Architecture Decision Records).
+
+    **Construye:** Architect Agent. Decisiones promovidas a project-context.md.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Story Files (Skills)">
+    Tareas autocontenidas con objetivo, contexto específico, criterios de aceptación, dependencias y restricciones. Cada Skill es una interacción entre un Agente y su trabajo.
+
+    **Formato:** Un archivo Markdown por Skill, cinco elementos obligatorios.
+
+    **Construye:** SM Agent.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Decision Log">
+    Cada cambio a Reglas, Agentes o Skills desde su creación: fecha, qué cambió, por qué, quién autorizó, qué artefactos se vieron afectados.
+
+    **Formato:** Registro cronológico (Markdown, hoja de cálculo).
+
+    **Construye:** Todos los participantes. Continuo desde el primer documento.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+## Calidad del sistema de contexto
+
+Un sistema de contexto bien diseñado puntúa alto en las cinco dimensiones de calidad. Los gaps en cualquier dimensión producen outputs que parecen correctos pero no son fieles a lo que los stakeholders acordaron.
+
+<RadarChart
+  axes={['Fidelidad', 'Completitud', 'Autocontención', 'Trazabilidad', 'Consistencia']}
+  datasets={[
+    {label: 'Sistema bien diseñado', values: [95, 90, 85, 95, 90], color: 'var(--ifm-color-primary)'},
+    {label: 'Sistema con gaps', values: [60, 45, 40, 35, 50], color: 'var(--ifm-color-danger)'},
+  ]}
+/>
+
+- **Fidelidad** — Los outputs coinciden con el Problem Statement y el Solution Brief. Sin invención, sin reinterpretación.
+- **Completitud** — Cada Regla, Agente y Skill tiene todos los elementos obligatorios. Sin contexto implícito.
+- **Autocontención** — Un Agente con un Skill + project-context.md puede completar la tarea sin preguntar nada.
+- **Trazabilidad** — Problem Statement → Solution Brief → PRD → Reglas + Skills. Cada elemento traza hacia atrás.
+- **Consistencia** — Las Reglas no se contradicen entre sí. Los Skills heredan Reglas fielmente. Los Agentes respetan sus límites.
+
+## Qué cubre esta guía
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/context-phase/proceso-paso-a-paso">
+    Un proceso en cinco pasos desde las Reglas hasta el sistema de contexto validado. Cada paso construye sobre el anterior: Reglas, Agentes, Documentos, Skills, Validación.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/context-phase/anatomia-del-sistema-de-contexto">
+    La arquitectura de un sistema de contexto bien diseñado. Cómo se interconectan Reglas, Agentes, Skills y documentos estratégicos.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/context-phase/artefactos">
+    project-context.md, Definiciones de Agentes, PRD, Architecture Document, Story Files y Decision Log. Plantillas y criterios de calidad.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/context-phase/gate-review">
+    Nueve criterios que deben cumplirse antes de avanzar a la Fase 4. Valida fidelidad, completitud y autocontención del sistema de contexto.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/context-phase/anti-patrones">
+    Modos de fallo comunes en el diseño de contexto. Desde Reglas sobre-especificadas hasta Skills sin autocontención y dependencias implícitas.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/context-phase/esfuerzo">
+    Rangos de inversión de tiempo calibrados al tiempo de construcción. La proporción óptima es 30-50% de la duración de la fase de build.
+  </GuideCard>
+</GuideCardGrid>
+
+:::tip La inversión del sistema operativo
+Si el Context Phase consume más tiempo que la fase de construcción, probablemente estás sobre-especificando Reglas o atomizando Skills en exceso. Si consume menos de un tercio del tiempo de construcción, hay Reglas implícitas y Skills incompletos. La proporción óptima es **30-50% del tiempo de construcción.** Para un proyecto que tardará 4 semanas en construirse, invierte 1-2 semanas en Context Phase. El retorno: la construcción se convierte en la fase de menor fricción.
+:::

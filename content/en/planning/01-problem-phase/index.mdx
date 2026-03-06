@@ -1,0 +1,110 @@
+---
+title: "Phase 01: Problem Phase"
+slug: /framework/phases/problem-phase
+description: "Operational guide: step-by-step process, Problem Statement anatomy, artifacts, gate review, anti-patterns, and effort estimates."
+sidebar_position: 0
+hide_title: true
+tags: [framework, phases, problem-phase, execution, artifacts]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline, CostChart} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--problem-phase">
+  <h1 className="section-hero__title">1. Problem phase</h1>
+  <p className="section-hero__subtitle">The art of understanding before solving.</p>
+</div>
+
+This is the operational guide for executing Problem Phase — the phase where the team investigates the real problem before thinking about solutions. While the [methodology section](/phases/problem-phase) explains the *why* and the conceptual foundations, this guide covers the *how*: the concrete process to follow, the artifacts to produce, the criteria to meet before moving forward, and the failure patterns to watch for.
+
+<StatCardGrid>
+  <StatCard value="4" label="Structured steps" description="From Kick-off to Validation" />
+  <StatCard value="4" label="Artifacts" description="Transferred to Phase 2" />
+  <StatCard value="6" label="Gate Review criteria" description="All must pass to advance" />
+</StatCardGrid>
+
+## The Problem Phase workflow
+
+Problem Phase is a structured four-step process that guides the team from identifying a problem to its validated definition. Each step produces a deliverable that feeds the next: the kick-off establishes the actor map and hypotheses, the interviews generate raw findings, the synthesis converts those findings into patterns, and the Problem Statement distills everything into a definition that both users and the Decision Owner recognize as real. Discipline in the sequence is what differentiates a rigorous discovery from a well-intentioned conversation.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Discovery Kick-off', description: 'Align scope, build the Actor Map, document starting hypotheses, and design the Interview Guide.', owner: 'Actor Map + Interview Guide'},
+  {number: 2, title: '2. In-depth interviews', description: 'Structured 45-60 min conversations with minimum 5 people who live the problem. Literal note capture without interpretation.', owner: 'Raw findings'},
+  {number: 3, title: '3. Findings synthesis', description: 'The team groups findings by patterns, identifies tensions and outliers, and distills the real problem emerging from the data.', owner: 'Synthesis Board'},
+  {number: 4, title: '4. Problem Statement drafting and validation', description: 'Distillation of the problem into a half-page document. Dual validation: resonance with users and viability with the Decision Owner.', owner: 'Validated Problem Statement'},
+]} />
+
+## The four artifacts
+
+This phase produces four artifacts that together form the foundation for Phase 2. Each one captures a distinct type of knowledge: who surrounds the problem, what questions to ask, what patterns emerge from listening, and what the distilled definition of the real problem is.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Actor Map">
+    Visual map of everyone who touches the problem: who lives it, who decides whether it gets solved, who is affected by the solution, and who has information the team isn't seeing.
+
+    **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
+
+    **Built by:** The full team during the kick-off.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Interview Guide">
+    Open question guide in four blocks (opening, exploration, depth, closing), including at least one question designed to challenge the team's main hypothesis.
+
+    **Format:** Document (Google Docs).
+
+    **Built by:** The team during the kick-off, after the Actor Map.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Synthesis Board">
+    Visual map of anonymized findings grouped by patterns, with affinities, tensions, outliers, and hypotheses explicitly confirmed or refuted.
+
+    **Format:** Collaborative visual board (Miro, FigJam, or physical whiteboard).
+
+    **Built by:** The full team in the synthesis session.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Problem Statement">
+    Problem definition of no more than half a page with seven elements: the gap, the owner, the success criteria, the constraints, the actors, the temporal context, and the cost of inaction.
+
+    **Format:** Half-page maximum document (Google Docs).
+
+    **Built by:** The team. Validated by users and Decision Owner.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+## The cost of error
+
+Why invest in Discovery? Because fixing a misunderstood problem in Production costs **100x more** than fixing it during Discovery. The earlier the error is caught, the cheaper the correction.
+
+<CostChart bars={[
+  {label: 'Discovery', value: '1x', height: 40, color: 'var(--ifm-color-success)'},
+  {label: 'Development', value: '10x', height: 130, color: 'var(--ifm-color-warning)'},
+  {label: 'Production', value: '100x', height: 250, color: 'var(--ifm-color-danger)'},
+]} />
+
+This is not theory. It is the most consistent finding in software engineering research: **the cost of change grows exponentially with each phase**. Discovery is the cheapest moment to be wrong.
+
+## What this guide covers
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/problem-phase/step-by-step-process">
+    A structured four-step process from kick-off to validated Problem Statement. Each step produces a deliverable that feeds the next.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/problem-phase/problem-statement-anatomy">
+    The seven mandatory elements of a well-crafted Problem Statement. What each element contributes and how to validate it.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/problem-phase/artifacts">
+    Actor Map, Interview Guide, Synthesis Board, and Problem Statement. Templates, formats, and quality criteria for each deliverable.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/problem-phase/gate-review">
+    Six criteria that must all pass before advancing to Phase 2. The checkpoint that prevents carrying a poorly defined problem forward.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/problem-phase/anti-patterns">
+    The most common failure modes in problem discovery. How to recognize them early and what to do when they appear.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/problem-phase/effort">
+    Time investment ranges for teams of different sizes. How to calibrate effort without over-investing or under-investing.
+  </GuideCard>
+</GuideCardGrid>
+
+:::tip The investment that pays for itself
+Every hour invested in properly understanding the problem saves weeks of misguided building, rework cycles, realignment meetings, and — above all — the erosion of trust that occurs when a team delivers something nobody needed. If you're dedicating less than 15% of the project's total time to Problem Phase, you're probably investing too little. The sweet spot is between 15% and 25%.
+:::

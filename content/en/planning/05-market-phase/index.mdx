@@ -1,0 +1,104 @@
+---
+title: "Phase 05: Market Phase"
+slug: /framework/phases/market-phase
+description: "Operational guide for executing Phase 5: measurement activation, signal capture, interpretation, Context Document updates, and iteration cycles."
+sidebar_position: 0
+hide_title: true
+tags: [framework, phases, market-phase, execution, artifacts]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--market-phase">
+  <h1 className="section-hero__title">5. Market phase</h1>
+  <p className="section-hero__subtitle">The market as a permanent teacher.</p>
+</div>
+
+This section contains the operational guide for executing Phase 5. While the [methodology section](/phases/market-phase) explains the why and the concepts, this guide details the **how**: the concrete steps, templates, artifacts, and validation criteria.
+
+<StatCardGrid>
+  <StatCard value="5" label="Structured steps" description="From Activation to Iteration" />
+  <StatCard value="5" label="Artifacts" description="Integrated system" />
+  <StatCard value="7" label="Health criteria" description="Continuous monitoring" />
+</StatCardGrid>
+
+## The Market Phase workflow
+
+Market Phase operates as a system of nested loops with different cadences: the innermost captures signals continuously and automatically, the middle one interprets them weekly and monthly, and the outermost reviews strategy quarterly. The five steps ensure that market learning produces tangible action: each signal is captured, interpreted, updates the Context Document with full traceability, and feeds the next cycle through the Iteration Brief.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Measurement system activation', description: 'KPI Register connection to verified data sources with precise formulas and defined alert thresholds.', owner: 'Connected KPIs + operational Signal Log'},
+  {number: 2, title: '2. Signal capture', description: 'Continuous background system. Three ingestion layers: automatic (KPIs), structured (feedback), and contextual (market).', owner: 'Fed Signal Log'},
+  {number: 3, title: '3. Signal interpretation', description: 'Does it confirm or refute an assumption? What causes it? What context element must change? Five whys technique.', owner: 'Classified signals'},
+  {number: 4, title: '4. Context Document update', description: 'Tangible update of Rules, Story Files, or PRD with full traceability to the originating signal.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Document closing the learning cycle: what was learned, what changed, and what the next cycle focus is.', owner: 'New cycle opening'},
+]} />
+
+### Phase artifacts
+
+This phase produces five artifacts that operate as an integrated system: signals are captured, interpreted, update the Context Document with full traceability, and feed the next cycle through the Iteration Brief.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Signal Log">
+    Structured record of market signals: observed signal, source, level (1-5), cause hypothesis, affected Context Document element, urgency, proposed action, and status.
+
+    **Format:** Structured log with template (Google Sheets).
+
+    **Built by:** Product Lead + Data Lead. Continuous and weekly-monthly feeding.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Update Record">
+    Traceability between signals and Context Document changes: source signals, validated hypothesis, modified element, change (before/after/justification), approved by, impact.
+
+    **Format:** Chronological log with template (spreadsheet).
+
+    **Built by:** Context Engineer. Generated with every Context Document change.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief">
+    Document closing the cycle: what was learned, Context Document state, open questions, next cycle focus, priority KPIs.
+
+    **Format:** Structured document with template (Google Docs).
+
+    **Built by:** Product Lead with team input. Monthly or quarterly cadence.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="KPI Dashboard">
+    Real-time KPI movement visualization with automatic alerts when defined thresholds are crossed.
+
+    **Format:** Dashboard connected to verified sources (Looker, Metabase, Google Sheets).
+
+    **Built by:** Data Lead. Automatic real-time updates.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Document (living version)">
+    project-context.md, PRD, Story Files, and KPI Register continuously updated based on market signals.
+
+    **Format:** Markdown files (same structure as Phases 3-4).
+
+    **Built by:** Context Engineer + Product Lead. Continuous updates.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+---
+
+## What this guide covers
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Step by Step" to="/framework/phases/market-phase/step-by-step-process">
+    A five-step continuous process from measurement activation to Iteration Brief. Nested loops with weekly, monthly, and quarterly cadences.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomy" to="/framework/phases/market-phase/iteration-cycle-anatomy">
+    The structure of the continuous learning cycle. How signals flow from capture to interpretation to context updates.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artifacts" to="/framework/phases/market-phase/artifacts">
+    Signal Log, Context Update Record, Iteration Brief, KPI Dashboard, and living Context Document. The integrated measurement system.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/phases/market-phase/gate-review">
+    Seven health criteria for continuous monitoring. Validates that the learning system produces tangible action, not just data.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patterns" to="/framework/phases/market-phase/anti-patterns">
+    Common failure modes in market iteration. From dashboard blindness to signal paralysis and context that never updates.
+  </GuideCard>
+  <GuideCard icon="effort" title="Effort" to="/framework/phases/market-phase/effort">
+    Time investment by cadence type. Weekly reviews, monthly synthesis, and quarterly strategic sessions calibrated by team size.
+  </GuideCard>
+</GuideCardGrid>

@@ -1,0 +1,51 @@
+---
+title: "Qué es y qué no es Context Phase"
+sidebar_label: "Qué es"
+description: "Context Phase es la traducción del pensamiento humano a un lenguaje que la IA puede procesar. Es diseño de sistemas, no ingeniería de prompts."
+sidebar_position: 3
+slug: /fases/context-phase/que-es-y-que-no-es
+tags: [fases, context-phase, definicion]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">Qué es y qué no es Context Phase</h1>
+</div>
+
+Esta es la fase con mayor probabilidad de ser malinterpretada, porque opera en la intersección de dos mundos que rara vez hablan el mismo idioma: el mundo de las decisiones humanas y el mundo de las capacidades de la IA. La mayoría de los fracasos aquí vienen de tratarla como uno u otro, en lugar de como el puente entre ambos.
+
+## Qué ES
+
+- **Diseño de sistemas, no escritura de prompts.** Context Phase produce un sistema completo de Agentes, Reglas y Skills que trabajan juntos. Cada prompt es un componente de ese sistema, no una instrucción aislada.
+- **Traducción del pensamiento humano a lenguaje procesable por la IA.** El Problem Statement y el Solution Brief contienen decisiones humanas. Context Phase convierte esas decisiones en estructuras sobre las que la IA puede operar sin ambigüedad.
+- **Un ejercicio de fidelidad.** El objetivo no es la creatividad. El objetivo es que lo que la IA produzca refleje fielmente lo que el equipo decidió. La fidelidad entre la intención humana y el output de la IA es la medida del éxito.
+- **Arquitectura de restricciones.** El Context Engineer diseña Reglas que limitan lo que los Agentes pueden y no pueden hacer. Esas restricciones no son limitaciones a la creatividad, son lo que hace que la creatividad sea productiva.
+- **Un proceso colaborativo.** El Context Engineer trabaja con el equipo, no en aislamiento. El conocimiento de dominio de las Fases 1 y 2 debe sobrevivir a la traducción a contexto. El ingeniero es un traductor, no un autor.
+
+## Qué NO es
+
+- **No es ingeniería de prompts.** La ingeniería de prompts optimiza una interacción individual. Context Phase diseña un sistema operativo completo. La diferencia es la misma que entre escribir una función y diseñar una arquitectura.
+- **No es una tarea técnica.** Aunque requiere comprensión técnica, la habilidad principal es la traducción: convertir decisiones de negocio, necesidades de usuario e intención de diseño en un lenguaje que la IA pueda procesar. Desarrolladores, diseñadores y estrategas contribuyen por igual.
+- **No es configuración.** Context Phase no configura herramientas. Crea la infraestructura intelectual que hace que las herramientas funcionen correctamente. Un Context Document bien diseñado hace que la elección de herramientas sea casi irrelevante.
+- **No es el inicio de la construcción.** Nada se construye en esta fase. No se escribe código. No se diseñan interfaces. El output es un Context Document: un blueprint completo y validado que la Fase 4 ejecutará.
+- **No es opcional porque "la IA es suficientemente inteligente".** Cuanto más inteligente es la IA, más daño puede hacer con mal contexto. Un LLM sin restricciones producirá output confiado, coherente y completamente equivocado si el contexto no define qué significa "correcto".
+
+:::danger Anti-patrón: La colección de prompts
+**Qué es:** En lugar de diseñar un sistema coherente, el equipo produce una colección de prompts individuales, cada uno escrito para una tarea específica, sin Reglas compartidas, sin Agentes definidos y sin Skills reutilizables. Cada prompt reinventa la rueda. Cada prompt contiene su propia versión de la realidad del proyecto.
+
+**Cómo detectarlo:** Abre tres prompts diferentes del proyecto. Si describen el mismo concepto de forma diferente, referencian asunciones distintas o se contradicen en las restricciones del proyecto, no hay un sistema de contexto. Hay una colección de prompts.
+
+**Cómo prevenirlo:** Empieza con las Reglas, no con los prompts. Las Reglas definen qué es verdad para todo el proyecto. Luego define Agentes que operan dentro de esas Reglas. Luego diseña Skills que los Agentes ejecutan. Los prompts individuales emergen como implementaciones de Skills, no como instrucciones aisladas.
+:::
+
+:::tip[La distinción que define esta fase]
+La calidad de Context Phase es inversamente proporcional a cuánto necesita la IA "averiguar" por su cuenta. **Un Context Document perfecto no deja a la IA espacio para interpretación, solo espacio para ejecución.** La inteligencia creativa fue invertida por los humanos en las Fases 1 y 2. El trabajo de la IA en la Fase 4 es ejecutar esa inteligencia con fidelidad, no reinventarla.
+:::
+
+## Exit Criteria
+
+- Existe un Context Document completo con Agentes, Reglas y Skills definidos
+- Cada Agente tiene límites explícitos sobre lo que puede y no puede decidir
+- Cada Regla es trazable a una decisión de la Fase 1 o Fase 2
+- Los Skills son autocontenidos: un Agente puede ejecutar cualquier Skill sin pedir aclaraciones
+- El equipo (no solo el Context Engineer) valida que el Context Document refleja sus decisiones

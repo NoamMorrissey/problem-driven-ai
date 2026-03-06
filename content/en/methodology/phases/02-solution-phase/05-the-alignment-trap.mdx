@@ -1,0 +1,71 @@
+---
+title: "The Alignment Trap"
+sidebar_label: "The Trap"
+description: "The characteristic risk of Phase 2: confusing apparent alignment with real consensus. When everyone nods but nobody commits."
+sidebar_position: 5
+slug: the-alignment-trap
+tags: [phases, solution-phase, anti-patterns, consensus, alignment]
+hide_title: true
+---
+
+<div className="section-hero section-hero--subpage">
+  <h1 className="section-hero__title">The Alignment Trap</h1>
+</div>
+
+Every phase has its characteristic risk. In Problem Phase, it's decorating discovery with interviews that confirm what you already believed. In Solution Phase, the risk is more subtle and more dangerous: **confusing apparent alignment with real consensus.**
+
+The trap doesn't look like failure. It looks like success. Meetings end on time. Everyone nods. The Solution Brief gets signed. The team moves to Phase 3 with a sense of accomplishment. And then, at the first design decision that requires sacrifice, the alignment disintegrates.
+
+## How the trap works
+
+The Alignment Trap operates on three mechanisms that reinforce each other:
+
+| Mechanism | What it looks like | What actually happens |
+|---|---|---|
+| **Validation by authority** | The most senior person speaks first, others agree | The group validates position, not reasoning. When that person isn't in the room, nobody knows why the decision was made. |
+| **Premature convergence** | The team quickly agrees on a solution that "everyone likes" | Disagreement was avoided, not resolved. Dissent went underground. It will resurface as resistance during AI Build Phase. |
+| **Assumption laundering** | Assumptions get presented as validated facts in the Solution Brief | Nobody questions "users want a dashboard" because it was stated with enough confidence. The assumption enters the Context Document as truth. |
+
+## The cost of false alignment
+
+When the Alignment Trap succeeds, it doesn't produce immediate visible damage. The damage appears later, amplified:
+
+- **In Context Phase**: The Context Engineer builds agent definitions based on a Solution Brief that contains assumptions disguised as decisions. The AI operates with confidence on unstable ground.
+- **In AI Build Phase**: The first sprint reveals that "everyone agreed" meant "nobody objected." Different team members had different mental models of what was decided. The AI builds what was written, not what was meant.
+- **In Market Phase**: The product works technically but solves a problem that was never properly aligned. User signals contradict internal expectations because the solution was approved, not validated.
+
+## How to detect it
+
+Three diagnostic signals that the trap is active:
+
+1. **The unanimity signal.** If everyone agrees on everything without debate, something is wrong. Real alignment requires friction. The absence of friction is not consensus; it's passivity.
+2. **The explanation test.** Ask three different team members to explain the chosen solution independently. If they describe three different solutions, there was no alignment. There was a meeting.
+3. **The sacrifice test.** Real alignment survives trade-offs. Present a scenario where the solution must sacrifice one feature for another. If the team fragments, the alignment was superficial.
+
+## How to prevent it
+
+Prevention is structural, not behavioral. You can't prevent the trap by "being more careful." You prevent it by designing the process so the trap has no room to operate:
+
+- **Document dissent explicitly.** The Solution Brief must contain a "Decisions discarded and why" section. If it's empty, the process wasn't rigorous enough.
+- **Validate assumptions separately.** Every assumption in the Solution Brief gets classified: validated (with evidence), plausible (without evidence, accepted risk), or untested (requires Phase 5 validation). No assumption enters as "fact."
+- **Test alignment, don't assume it.** Before closing the phase, run the explanation test. If the team can't independently describe the same solution, the phase isn't done.
+
+:::danger Anti-pattern: The Polite Solution Brief
+**What it is:** A Solution Brief that reads well, has no internal contradictions, and was approved in a single meeting. It looks professional because all rough edges were smoothed out. The problem is that rough edges are where real decisions live.
+
+**How to detect it:** Count the number of trade-offs documented in the brief. If the solution doesn't sacrifice anything, it's either trivial or the team avoided the hard conversations. Real solutions have costs. A brief without documented costs is a brief without real decisions.
+
+**How to prevent it:** Require at least three documented trade-offs per Solution Brief. For each trade-off: what was sacrificed, why, what the cost is, and who accepted that cost. If the team can't articulate three trade-offs, the solution hasn't been thought through deeply enough.
+:::
+
+:::tip[The paradox of this phase]
+The best Solution Briefs are the ones that document what was rejected as carefully as what was chosen. **The quality of alignment is measured not by the enthusiasm of the "yes," but by the precision of the "no."** A team that can explain exactly why they discarded four alternatives and chose the fifth has alignment. A team that chose the first idea that sounded reasonable has permission.
+:::
+
+## Exit Criteria
+
+- All team members can independently describe the solution and its rationale
+- Assumptions are classified (validated / plausible / untested) with evidence
+- At least three trade-offs are documented with their costs
+- Dissenting opinions are recorded, not just the final decision
+- The explanation test produces consistent answers across team members

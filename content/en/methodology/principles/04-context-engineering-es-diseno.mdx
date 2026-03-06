@@ -1,0 +1,48 @@
+---
+title: "04. Context Engineering is design, not writing"
+sidebar_label: "4. Context Engineering is design, not writing"
+slug: context-engineering-is-design
+description: "Writing context for AI is not summarizing what you know. It's making deliberate decisions about what to include, exclude, and how to structure."
+sidebar_position: 4
+tags: [principle, context-engineering, design, ai]
+hide_title: true
+---
+
+<div className="section-hero section-hero--principle section-hero--principle-04">
+  <h1 className="section-hero__title">Context Engineering<br />is design, not writing</h1>
+  <p className="section-hero__subtitle">Writing context for AI is not summarizing what you know. It's making deliberate decisions about what to include, exclude, and how to structure.</p>
+</div>
+
+## Statement
+
+Poor context produces poor results regardless of the model you use. Context Engineering is a design discipline that requires strategic thinking, not a writing exercise solved with good prose.
+
+## Why it matters
+
+The quality of any AI system's output is determined by the quality of its context. Not by the prompt. Not by the model. By the context. This inverts the usual equation: instead of looking for the most powerful model, look for the most precise context.
+
+Context Engineering involves information architecture decisions: what data is relevant, in what order it should be presented, what level of detail each section needs, what is deliberately excluded to avoid noise. It's information design applied to AI.
+
+## Practical implications
+
+- **Treat context as a design artifact**: it has versions, iterations, and quality criteria.
+- **Decide what to exclude**: what you leave out of the context is as important as what you include.
+- **Structure before writing**: the organization of context precedes its writing.
+- **Set precision levels**: not everything needs the same level of detail. Calibrate granularity per section.
+
+:::danger Anti-pattern: The Context Dump
+
+**What it is.** Dumping all available information into the context without curation, structure, or prioritization. The equivalent of giving someone 200 pages of documentation and saying "it's all in there." More information is not better information.
+
+**How to detect it.** The context document exceeds 10 pages with no clear hierarchy. Every piece of information has the same emphasis. The AI produces correct but unfocused outputs because it cannot distinguish what matters from what is noise. Team members cannot identify the three most important rules from memory.
+
+**How to prevent it.** Apply the exclusion principle: for every piece of information you include, articulate why it's there. Structure context in layers of decreasing priority. Test readability by asking someone unfamiliar with the project to identify the three key constraints after one read.
+
+:::
+
+## Connections
+
+- Depends on [Organizational Consensus](../principles/03-sin-consenso-no-hay-contexto.mdx) as a prerequisite.
+- Materialized in the [Framework](/framework) artifacts.
+- Evolves according to [Principle 09: Context is a living asset](../principles/09-el-contexto-es-un-activo-vivo.mdx).
+- Context quality is measured with [Clarity](../principles/10-la-claridad-es-el-unico-lujo.mdx) as the metric.

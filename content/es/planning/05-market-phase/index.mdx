@@ -1,0 +1,104 @@
+---
+title: "Fase 05: Market Phase"
+slug: /framework/fases/market-phase
+description: "Guía operativa para ejecutar la Fase 5: activación de medición, captura de señales, interpretación, actualización del Context Document y ciclos de iteración."
+sidebar_position: 0
+hide_title: true
+tags: [framework, fases, market-phase, ejecucion, artefactos]
+---
+
+import {GuideCardGrid, GuideCard} from '@site/src/components/GuideCard';
+import {StatCardGrid, StatCard, ProcessTimeline} from '@site/src/components/ProcessInfographic';
+import {ArtifactAccordion, ArtifactAccordionItem} from '@site/src/components/ArtifactAccordion';
+
+<div className="section-hero section-hero--market-phase">
+  <h1 className="section-hero__title">5. Market phase</h1>
+  <p className="section-hero__subtitle">El mercado como profesor permanente.</p>
+</div>
+
+Esta sección contiene la guía operativa para ejecutar la Fase 5. Mientras la [sección de metodología](/fases/market-phase) explica el porqué y los conceptos, aquí se detalla el **cómo**: los pasos concretos, las plantillas, los artefactos y los criterios de validación.
+
+<StatCardGrid>
+  <StatCard value="5" label="Pasos estructurados" description="De Activación a Iteración" />
+  <StatCard value="5" label="Artefactos" description="Sistema integrado" />
+  <StatCard value="7" label="Criterios de salud" description="Monitorización continua" />
+</StatCardGrid>
+
+## El flujo de Market Phase
+
+Market Phase opera como un sistema de bucles anidados con diferentes cadencias: el más interno captura señales de forma continua y automática, el intermedio las interpreta semanal y mensualmente, y el más externo revisa la estrategia cada trimestre. Los cinco pasos garantizan que el aprendizaje del mercado produce acción tangible: cada señal se captura, se interpreta, actualiza el Context Document con trazabilidad completa, y alimenta el siguiente ciclo a través del Iteration Brief.
+
+<ProcessTimeline steps={[
+  {number: 1, title: '1. Activación del sistema de medición', description: 'Conexión del KPI Register a fuentes de datos verificadas con fórmulas precisas y umbrales de alerta definidos.', owner: 'KPIs conectados + Signal Log operativo'},
+  {number: 2, title: '2. Captura de señales', description: 'Sistema continuo operando en segundo plano. Tres capas de ingesta: automática (KPIs), estructurada (feedback) y contextual (mercado).', owner: 'Signal Log alimentado'},
+  {number: 3, title: '3. Interpretación de señales', description: '¿Confirma o refuta una asunción? ¿Qué la causa? ¿Qué elemento del contexto debe cambiar? Técnica de los 5 por qués.', owner: 'Señales clasificadas'},
+  {number: 4, title: '4. Actualización del Context Document', description: 'Actualización tangible de Reglas, Story Files o PRD con trazabilidad completa a la señal de origen.', owner: 'Context Update Record'},
+  {number: 5, title: '5. Iteration Brief', description: 'Documento que cierra el ciclo de aprendizaje: qué se aprendió, qué cambió y cuál es el foco del próximo ciclo.', owner: 'Apertura de nuevo ciclo'},
+]} />
+
+### Artefactos de esta fase
+
+Esta fase produce cinco artefactos que operan como un sistema integrado: las señales se capturan, se interpretan, actualizan el Context Document con trazabilidad completa y alimentan el siguiente ciclo a través del Iteration Brief.
+
+<ArtifactAccordion>
+  <ArtifactAccordionItem title="Signal Log">
+    Registro estructurado de señales del mercado: señal observada, fuente, nivel (1-5), hipótesis de causa, elemento del Context Document afectado, urgencia, acción propuesta y estado.
+
+    **Formato:** Registro estructurado con plantilla (Google Sheets).
+
+    **Construye:** Product Lead + Data Lead. Alimentación continua y semanal-mensual.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Update Record">
+    Trazabilidad entre señales y cambios en el Context Document: señales de origen, hipótesis validada, elemento modificado, cambio (antes/después/justificación), aprobado por, impacto.
+
+    **Formato:** Registro cronológico con plantilla (hoja de cálculo).
+
+    **Construye:** Context Engineer. Se genera con cada cambio al Context Document.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Iteration Brief">
+    Documento que cierra el ciclo: qué se aprendió, estado del Context Document, preguntas abiertas, foco del próximo ciclo, KPIs prioritarios.
+
+    **Formato:** Documento estructurado con plantilla (Google Docs).
+
+    **Construye:** Product Lead con input del equipo. Cadencia mensual o trimestral.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="KPI Dashboard">
+    Visualización en tiempo real del movimiento de KPIs con alertas automáticas cuando se cruzan umbrales definidos.
+
+    **Formato:** Dashboard conectado a fuentes verificadas (Looker, Metabase, Google Sheets).
+
+    **Construye:** Data Lead. Actualización automática en tiempo real.
+  </ArtifactAccordionItem>
+  <ArtifactAccordionItem title="Context Document (versión viva)">
+    project-context.md, PRD, Story Files y KPI Register actualizados continuamente basándose en señales del mercado.
+
+    **Formato:** Archivos Markdown (misma estructura que Fases 3-4).
+
+    **Construye:** Context Engineer + Product Lead. Actualización continua.
+  </ArtifactAccordionItem>
+</ArtifactAccordion>
+
+---
+
+## Qué cubre esta guía
+
+<GuideCardGrid>
+  <GuideCard icon="step-by-step" title="Paso a Paso" to="/framework/fases/market-phase/proceso-paso-a-paso">
+    Un proceso continuo en cinco pasos desde la activación de la medición hasta el Iteration Brief. Bucles anidados con cadencias semanal, mensual y trimestral.
+  </GuideCard>
+  <GuideCard icon="anatomy" title="Anatomía" to="/framework/fases/market-phase/anatomia-del-ciclo-de-iteracion">
+    La estructura del ciclo de aprendizaje continuo. Cómo fluyen las señales desde la captura a la interpretación y la actualización del contexto.
+  </GuideCard>
+  <GuideCard icon="artifacts" title="Artefactos" to="/framework/fases/market-phase/artefactos">
+    Signal Log, Context Update Record, Iteration Brief, KPI Dashboard y Context Document vivo. El sistema de medición integrado.
+  </GuideCard>
+  <GuideCard icon="gate-review" title="Gate Review" to="/framework/fases/market-phase/gate-review">
+    Siete criterios de salud para monitorización continua. Valida que el sistema de aprendizaje produce acción tangible, no solo datos.
+  </GuideCard>
+  <GuideCard icon="anti-patterns" title="Anti-patrones" to="/framework/fases/market-phase/anti-patrones">
+    Modos de fallo comunes en la iteración de mercado. Desde ceguera de dashboard hasta parálisis por señales y contexto que nunca se actualiza.
+  </GuideCard>
+  <GuideCard icon="effort" title="Esfuerzo" to="/framework/fases/market-phase/esfuerzo">
+    Inversión de tiempo por tipo de cadencia. Revisiones semanales, síntesis mensuales y sesiones estratégicas trimestrales calibradas por tamaño de equipo.
+  </GuideCard>
+</GuideCardGrid>
