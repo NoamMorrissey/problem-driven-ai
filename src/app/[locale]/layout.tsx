@@ -3,6 +3,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/navbar";
+import { UmamiAnalytics } from "@/components/layout/analytics";
 import "@/../styles/globals.css";
 
 export default async function LocaleLayout({
@@ -27,6 +28,7 @@ export default async function LocaleLayout({
           <Navbar />
           <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>
         </NextIntlClientProvider>
+        <UmamiAnalytics />
       </body>
     </html>
   );
