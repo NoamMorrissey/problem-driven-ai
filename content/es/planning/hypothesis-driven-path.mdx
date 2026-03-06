@@ -1,0 +1,114 @@
+---
+title: "Camino Impulsado por Hipótesis"
+slug: camino-hipotesis
+description: "Usar desarrollo impulsado por hipótesis para validar suposiciones y probar soluciones sistemáticamente."
+sidebar_position: 10
+tags: [planificación, hipótesis, caminos]
+---
+
+El camino impulsado por hipótesis es el enfoque científico para resolver problemas. En lugar de asumir que entiendes la solución, haces una predicción explícita sobre qué funcionará, diseñas un experimento para probarlo, e iteras basado en lo que aprendes.
+
+Este camino es especialmente valioso cuando estás en territorio incierto—cuando las necesidades del cliente aún no se definen completamente, cuando múltiples soluciones podrían abordar el mismo problema, o cuando necesitas iteración rápida para encontrar la respuesta correcta.
+
+## La Pirámide de Hipótesis
+
+El enfoque impulsado por hipótesis descansa en tres niveles de suposiciones, cada uno construyendo sobre el anterior:
+
+### Nivel 1: Hipótesis del Problema
+
+**"Creemos que [segmento de usuario] tiene [problema que importa]."**
+
+Esta es tu suposición fundamental. Antes de proponer cualquier solución, debes validar que el problema realmente existe e importa a personas reales.
+
+Ejemplo: *"Creemos que los diseñadores freelance gastan 3+ horas por semana en seguimiento de facturas, y esto es lo suficientemente costoso que pagarían para evitarlo."*
+
+**Preguntas de validación:**
+- ¿Las personas en este segmento realmente experimentan este problema?
+- ¿Cuánto les cuesta (tiempo, dinero, frustración)?
+- ¿Han intentado resolverlo antes? ¿Por qué esas soluciones no funcionaron?
+- ¿Resolver esto mejoraría materialmente su trabajo?
+
+**Cómo probarlo:** Entrevistas de clientes, observación, encuestas con poblaciones específicas, análisis de datos de impacto de tiempo/costo.
+
+### Nivel 2: Hipótesis de Solución
+
+**"Creemos que [enfoque de solución] resolverá [problema] para [segmento de usuario]."**
+
+Una vez que el problema está validado, propones una solución específica y predices por qué funcionará.
+
+Ejemplo: *"Creemos que un sistema de plantilla de factura automatizado integrado con procesadores de pago reducirá el tiempo de creación de facturas a menos de 15 minutos por factura, que los diseñadores adoptarán porque es más rápido que su enfoque actual."*
+
+**Preguntas de validación:**
+- ¿La solución realmente aborda la causa raíz del problema?
+- ¿Es el enfoque factible de construir?
+- ¿Hay soluciones más baratas/fáciles/mejores que no hemos considerado?
+- ¿Hay algo sobre el contexto del usuario que prevendría la adopción?
+
+**Cómo probarlo:** Prototipo, solución mínimamente viable, prueba de usuario con flujos reales, pruebas A/B de diferentes enfoques.
+
+### Nivel 3: Hipótesis de Valor
+
+**"Creemos que los usuarios [adoptarán/usarán/pagarán por] esta solución y [alcanzaremos rentabilidad/construiremos un negocio sostenible]."**
+
+Aquí es donde la viabilidad comercial entra. Una solución puede resolver perfectamente un problema y aún fallar si los usuarios no la adoptan o si el modelo de negocio no funciona.
+
+Ejemplo: *"Creemos que los freelancers pagarán $9/mes por este servicio, que nos dará un LTV de $180 por usuario (retención promedio de 2 años), habilitando adquisición de cliente rentable a $50 CAC."*
+
+**Preguntas de validación:**
+- ¿Los usuarios realmente adoptarán esto?
+- ¿Están dispuestos a pagar / cambiar su comportamiento?
+- ¿Podemos alcanzarlos de forma asequible?
+- ¿Funcionarán las economías unitarias a escala?
+- ¿Hay costos de cambio o efectos de red que fortalezcan la oferta?
+
+**Cómo probarlo:** Experimentos de precios, seguimiento de conversión, análisis de costo de adquisición de cliente, curvas de retención, análisis de cohortes.
+
+## Diseñando Experimentos de Validación
+
+Para cada nivel de hipótesis, diseñas experimentos específicos que validan o invalidan tu suposición.
+
+### Estructura de un experimento de validación
+
+1. **Establece la hipótesis precisamente:** No "A los usuarios les gusta el diseño" sino "Los usuarios pueden completar la configuración de cuenta en menos de 2 minutos en primer intento sin ayuda."
+
+2. **Define criterios de éxito:** ¿Qué probaría la hipótesis verdadera? ¿Qué la probaría falsa? Se específico sobre el umbral—80% de tasa de éxito, no "la mayoría de los usuarios."
+
+3. **Corre la prueba mínima:** No construyas la solución completa. Usa entrevistas, prototipos, mockups, landing pages, o datos de encuesta. Haz la prueba más barata que responda la pregunta.
+
+4. **Mide sistemáticamente:** No confíes en sentimiento o anécdotas. Cuenta comportamientos o respuestas actuales.
+
+5. **Documenta el resultado:** Registra lo que aprendiste. ¿La hipótesis se mantuvo o falló? ¿Cuáles fueron los resultados sorprendentes?
+
+6. **Itera:** Si la hipótesis se mantuvo, muévete al siguiente nivel. Si falló, revisa la hipótesis y prueba de nuevo.
+
+## Ejemplo de viaje impulsado por hipótesis
+
+**Hipótesis del Problema:** "Los equipos de ventas gastan 4+ horas por semana en entrada de datos manual en CRM y pagarían para evitarlo."
+
+- **Prueba:** Entrevista a 10 gerentes de ventas. Resultado: Confirmado. Gastan 3-6 horas por semana, y 8/10 dicen que estarían dispuestos a intentar una solución.
+
+**Hipótesis de Solución (primera iteración):** "Un sistema de IA que completa automáticamente campos de CRM desde email reducirá el tiempo de entrada de datos en 60%."
+
+- **Prueba:** Construye un prototipo que analice emails. Ejecútalo contra 100 cadenas de email reales de usuarios. Resultado: El sistema completa correctamente el 75% del tiempo, pero pierde el 25% que requieren juicios que los usuarios tienen que corregir de todas formas.
+
+**Hipótesis de Solución (revisada):** "Un sistema de IA que marca registros incompletos de CRM y sugiere datos con confirmación del usuario reducirá el tiempo de entrada de datos en 40% mientras mantiene la precisión."
+
+- **Prueba:** Ejecuta el enfoque revisado con 3 clientes piloto durante 4 semanas. Mide tiempo para cerrar registros. Resultado: Confirmado. El tiempo baja de 45 a 27 minutos por registro. Los usuarios reportan que se siente más rápido y menos manual.
+
+**Hipótesis de Valor:** "Los equipos de ventas pagarán $300/mes porque ahorra 2+ horas por persona por semana a salarios promedio de $65/hora."
+
+- **Prueba:** Ofrece solución a 5 clientes beta. 4 acuerdan pagar $300/mes. 1 dice que pagaría $200. Tienes tu señal de precios inicial.
+
+## Cuándo usar este camino
+
+El camino impulsado por hipótesis sobresale cuando:
+- Estás explorando un nuevo mercado o característica
+- Hay múltiples soluciones potenciales al mismo problema
+- Necesitas iteración rápida para encontrar product-market fit
+- Los stakeholders no están de acuerdo sobre qué funcionará
+- Tienes conocimiento de dominio profundo pero aplicación incierta
+
+Es menos eficiente para:
+- Problemas bien entendidos con soluciones obvias
+- Implementaciones complejas donde necesitas construir antes de poder probar
+- Contextos donde el comportamiento del usuario difiere dramáticamente de preferencias declaradas

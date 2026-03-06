@@ -1,0 +1,138 @@
+---
+title: "Issue-Driven Path"
+slug: issue-driven-path
+description: "Decompose complex problems into mutually exclusive, collectively exhaustive sub-issues using Issue Trees."
+sidebar_position: 11
+tags: [planning, issue-tree, paths]
+---
+
+The issue-driven path is inspired by management consulting frameworks, particularly McKinsey's approach to problem decomposition. When you have a complex problem with many potential causes, an Issue Tree helps you systematically break it down, prioritize what matters, and navigate toward solutions with rigor.
+
+This path is particularly valuable when you're diagnosing an existing problem at scale—when something is broken and you need to understand why. It's less about discovering new customer needs and more about understanding the root causes of known friction.
+
+## The Issue Tree Structure
+
+An Issue Tree starts with a core question and recursively breaks it into sub-issues using the MECE principle: **Mutually Exclusive, Collectively Exhaustive**. This means each branch doesn't overlap, and together they cover all possibilities.
+
+### Core Structure
+
+```
+Why is onboarding conversion dropping?
+├── Is the problem pre-signup?
+│   ├── Low awareness?
+│   ├── Low traffic?
+│   └── High bounce rate?
+├── Is the problem at signup?
+│   ├── Form friction?
+│   ├── Unclear value proposition?
+│   └── Trust concerns?
+└── Is the problem post-signup?
+    ├── Onboarding UX unclear?
+    ├── Product doesn't match expectations?
+    └── Missing incentive to activate?
+```
+
+Each branch answers part of the core question. Together, they cover all reasons conversion could be dropping.
+
+### Applying MECE correctly
+
+**Mutually Exclusive:** Each category should not overlap. If you have "Mobile users" and "iOS users," they overlap. Better: "Desktop users" and "Mobile users" (mutually exclusive).
+
+**Collectively Exhaustive:** The categories must cover all possibilities. If you're analyzing customer loss and your branches are "Competition" and "Price," you've missed retention, product issues, support quality, and a hundred other factors. Your tree is incomplete.
+
+The discipline of MECE forces you to think rigorously. You can't just add random branches. Each layer must be a true logical partition of the question.
+
+## How to build an Issue Tree
+
+### Step 1: Start with a specific question, not a vague one
+
+Bad: "Why are we not growing?"
+
+Good: "Why is monthly new customer acquisition below target (currently 500/month vs. target of 1000/month)?"
+
+More specific is better. It focuses your decomposition and makes it clear what you're actually trying to solve.
+
+### Step 2: Identify the main drivers
+
+What are the 3-5 major factors that could answer this question? Don't overthink it—write down what logically must be true:
+
+For "Why is acquisition dropping," the top-level drivers might be:
+- Is the problem demand-side (fewer people interested)?
+- Is the problem conversion-side (interested people not signing up)?
+- Is the problem distribution-side (can't reach interested people)?
+
+### Step 3: Decompose each branch
+
+For each branch, ask: "What could cause this?" and break it further. Go 2-3 levels deep, depending on complexity.
+
+For "Is the problem demand-side?"
+- Market awareness: Do people know the product exists?
+- Perceived fit: Do they think it solves their problem?
+- Perceived cost: Do they think it's worth the price/effort?
+
+### Step 4: Identify hypotheses at the leaf level
+
+At the bottom of the tree, you have specific, testable hypotheses:
+- "Brand awareness is below 10% in our target segment"
+- "Users perceive the product as solving their problem, but think it's 2x more expensive than our competitors"
+- "Users don't understand the value prop in under 30 seconds of landing page exposure"
+
+### Step 5: Prioritize which branches to investigate
+
+You can't test every hypothesis simultaneously. Prioritize by:
+
+1. **Impact:** If this hypothesis is true, how much does it explain our problem?
+2. **Testability:** How quickly can we get a definitive answer?
+3. **Actionability:** If we're right, what would we actually do differently?
+
+Investigate high-impact, testable, actionable branches first. Deprioritize low-impact or hard-to-test branches.
+
+## Practical example: Diagnosing user churn
+
+**Core Question:** "Why are active users dropping from 10,000 to 8,000 per month (20% monthly churn)?"
+
+```
+Why is monthly churn 20%?
+├── Are users leaving due to external factors?
+│   ├── Market shift (changing customer needs)?
+│   ├── Competitive threat (better alternative available)?
+│   └── Economic (users can't afford it)?
+├── Are users leaving due to product dissatisfaction?
+│   ├── Feature gap (missing critical capability)?
+│   ├── Performance (product is slow/broken)?
+│   └── UX (too complicated to use)?
+└── Are users leaving due to adoption barriers?
+    ├── Onboarding (users don't get value in trial period)?
+    ├── Time-to-value (takes too long to see benefit)?
+    └── Switching cost (too much effort to migrate)?
+```
+
+Now you design tests for each branch:
+
+- **Market shift:** Survey churned users about what changed in their needs. Monitor competitor mentions in support tickets.
+- **Competitive threat:** Analyze churn correlation with competitor feature releases. Survey churned users about what they switched to.
+- **Feature gap:** Review support tickets and churned user accounts for feature requests. Compare feature adoption between retained and churned users.
+- **Performance issues:** Measure app performance metrics, error rates, support tickets about bugs.
+- **UX complexity:** Measure task completion times for core flows. Analyze support volume for navigation questions.
+- **Onboarding:** Compare time-to-first-success between retained and churned users. Analyze early-stage dropout points.
+
+## When to use this path
+
+The issue-driven path excels when:
+- You have a clear metric that's declining or not meeting target
+- You need to understand root causes of a known problem
+- The problem is complex with many potential contributors
+- You need to prioritize which causes to address first
+- You're doing a diagnostic workup before deciding on solutions
+
+It's less ideal for:
+- Early-stage exploration where the problem isn't yet defined
+- Situations where you don't have good data to validate hypotheses
+- Markets where user preferences are rapidly shifting and historical analysis is unreliable
+- Problems that are primarily about discovery of new customer needs (not diagnosis of what's broken)
+
+## Integration with hypothesis testing
+
+Issue Trees and hypothesis testing complement each other. Build the Issue Tree to structure the problem space. Then, for the highest-priority branches, design validation experiments using the hypothesis-driven approach.
+
+The Issue Tree is your diagnostic framework. The hypothesis testing is your validation methodology. Together, they create a rigorous system for moving from problem to root cause to solution.
