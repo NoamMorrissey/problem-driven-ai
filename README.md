@@ -1,32 +1,68 @@
-# 🌀 Problem-Driven AI
-> **"The answer is 42. The problem is that we never knew what the question was."**
+# Problem-Driven AI
 
-In the era of Artificial Intelligence, building is faster and cheaper than ever. But speed is not progress if you are running in the wrong direction. **Problem-Driven AI** is a thinking methodology designed to ensure that the superpower of AI is applied to solving real problems, not accelerating incorrect solutions.
+A methodology for building AI products starting from the real problem.
 
-## 💡 The Philosophy
-The bottleneck of technology has never been construction—it has always been **understanding**.
+## Tech Stack
 
-* **Thought is the Product:** Construction costs are trending toward zero. Competitive advantage now lies in the depth of our questions and the clarity of our thinking.
-* **Context over Code:** A poorly defined problem fed into an AI produces a perfectly constructed incorrect answer at scale. The quality of the output is a direct function of the quality of the context provided.
-* **Aim Before You Fire:** This isn't about going slower; it's about earning the right to build through the deeply human work of listening, aligning, and defining.
+- **Framework:** Next.js 15 (App Router, Server Components, TypeScript)
+- **Styling:** Tailwind CSS 4
+- **Database & Auth:** Supabase (Postgres, magic links, Storage)
+- **Email:** Resend
+- **AI Images:** Replicate (Flux)
+- **Analytics:** Umami
+- **i18n:** next-intl (ES/EN)
+- **Hosting:** Vercel
 
-## 🚀 The Continuous Value Loop (The Spiral)
-The methodology operates in a spiral of five phases that transform uncertainty into high-precision solutions:
+## Getting Started
 
-1.  **Problem Phase:** Deep research to find the real problem, not just the one that is comfortable to solve.
-2.  **Solution Phase:** Achieving genuine organizational consensus on the solution before writing a single line of context.
-3.  **Context Phase:** The high-leverage skill of the AI era. Systematically translating human thought into a structured system of **Agents and Documents** that AI can process with fidelity.
-4.  **AI Build Phase:** Context-guided construction. With high-quality context, this phase becomes the point of lowest friction.
-5.  **Market Phase:** Real-world usage generates signals that feed back into the system, making every turn of the spiral smarter than the last.
+```bash
+# Install dependencies
+npm install
 
-## 🛠️ Execution: Context Engineering
-To ensure AI executes without "context loss," we transform strategy into **Artifacts of Truth**:
+# Set up environment variables
+cp .env.example .env.local
+# Fill in your Supabase, Resend, and other credentials
 
-* **Specialized Agents:** Roles (Analyst, PM, Architect) that act as context executors to maintain coherence.
-* **Structured Artifacts:** From the **PRD** (defining the *what* and *for whom*) to the **project-context.md** (the "Constitution" of the project), ensuring global rules remain consistent.
+# Run development server
+npm run dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000).
 
-**The problem is still the product. AI only changed what happens after you find it.**
+## Project Structure
 
----
+```
+problem-driven-ai/
+├── src/
+│   ├── app/
+│   │   ├── [locale]/          # i18n public routes (EN/ES)
+│   │   ├── admin/             # Admin panel (no i18n)
+│   │   └── api/               # API routes
+│   ├── components/
+│   │   ├── content/           # MDX content components
+│   │   ├── layout/            # Navbar, locale switcher, analytics
+│   │   ├── admin/             # Admin UI components
+│   │   └── ui/                # Shared UI primitives
+│   ├── i18n/                  # next-intl config
+│   └── lib/                   # Supabase, Resend, utilities
+├── content/
+│   ├── en/                    # English MDX content
+│   └── es/                    # Spanish MDX content
+├── supabase/
+│   └── migrations/            # SQL migrations
+├── messages/                  # i18n message files
+└── .instructions/             # Context Engineering system
+```
+
+## Content Sections
+
+1. **Vision** — Manifesto and overview
+2. **Methodology** — 10 Principles + 5 Phases
+3. **Planning** — Step-by-step guides per phase
+4. **Operational** — Techniques by area
+5. **Resources** — Glossary, changelog, roadmap
+6. **Programs** — Workshops, e-book
+
+## License
+
+All rights reserved. Alfonso Morcuende.
