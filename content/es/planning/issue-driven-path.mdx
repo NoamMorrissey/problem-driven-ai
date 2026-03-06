@@ -1,0 +1,138 @@
+---
+title: "Camino Impulsado por Problemas"
+slug: camino-problemas
+description: "Descomponer problemas complejos en sub-problemas mutuamente excluyentes y colectivamente exhaustivos usando Árboles de Problemas."
+sidebar_position: 11
+tags: [planificación, árbol-problemas, caminos]
+---
+
+El camino impulsado por problemas está inspirado en frameworks de consultoría de gestión, particularmente el enfoque de McKinsey para descomposición de problemas. Cuando tienes un problema complejo con muchas causas potenciales, un Árbol de Problemas te ayuda a desglosarlo sistemáticamente, priorizar qué importa, y navegar hacia soluciones con rigor.
+
+Este camino es particularmente valioso cuando estás diagnosticando un problema existente a escala—cuando algo está roto y necesitas entender por qué. Es menos sobre descubrir nuevas necesidades del cliente y más sobre entender las causas raíz de la fricción conocida.
+
+## La Estructura del Árbol de Problemas
+
+Un Árbol de Problemas comienza con una pregunta central y recursivamente la desglosa en sub-problemas usando el principio MECE: **Mutuamente Excluyentes, Colectivamente Exhaustivos**. Esto significa que cada rama no se superpone, y juntas cubren todas las posibilidades.
+
+### Estructura Central
+
+```
+¿Por qué está cayendo la conversión de onboarding?
+├── ¿Es el problema pre-registro?
+│   ├── ¿Conciencia baja?
+│   ├── ¿Tráfico bajo?
+│   └── ¿Tasa de rebote alta?
+├── ¿Es el problema en registro?
+│   ├── ¿Fricción de formulario?
+│   ├── ¿Propuesta de valor poco clara?
+│   └── ¿Preocupaciones de confianza?
+└── ¿Es el problema post-registro?
+    ├── ¿UX de onboarding poco clara?
+    ├── ¿Producto no coincide con expectativas?
+    └── ¿Falta incentivo para activar?
+```
+
+Cada rama responde parte de la pregunta central. Juntas, cubren todas las razones por las que la conversión podría estar cayendo.
+
+### Aplicando MECE correctamente
+
+**Mutuamente Excluyentes:** Cada categoría no debe superponerse. Si tienes "Usuarios móviles" y "Usuarios iOS," se superponen. Mejor: "Usuarios de escritorio" y "Usuarios móviles" (mutuamente excluyentes).
+
+**Colectivamente Exhaustivos:** Las categorías deben cubrir todas las posibilidades. Si estás analizando pérdida de clientes y tus ramas son "Competencia" y "Precio," te has perdido retención, problemas de producto, calidad de soporte, y cien otros factores. Tu árbol está incompleto.
+
+La disciplina de MECE te obliga a pensar con rigor. No puedes simplemente agregar ramas aleatorias. Cada nivel debe ser una verdadera partición lógica de la pregunta.
+
+## Cómo construir un Árbol de Problemas
+
+### Paso 1: Comienza con una pregunta específica, no vaga
+
+Malo: "¿Por qué no estamos creciendo?"
+
+Bien: "¿Por qué la adquisición de nuevos clientes mensuales está por debajo del objetivo (actualmente 500/mes vs. objetivo de 1000/mes)?"
+
+Más específico es mejor. Enfoca tu descomposición y hace claro qué realmente estás intentando resolver.
+
+### Paso 2: Identifica los impulsores principales
+
+¿Cuáles son los 3-5 factores principales que podrían responder esta pregunta? No overthinks—escribe lo que lógicamente debe ser verdad:
+
+Para "¿Por qué está cayendo la adquisición?," los impulsores de nivel superior podrían ser:
+- ¿Es el problema del lado de la demanda (menos gente interesada)?
+- ¿Es el problema del lado de la conversión (gente interesada no se registra)?
+- ¿Es el problema del lado de la distribución (no puedes alcanzar gente interesada)?
+
+### Paso 3: Desglosa cada rama
+
+Para cada rama, pregunta: "¿Qué podría causar esto?" y desglosalo más. Ve 2-3 niveles profundo, dependiendo de complejidad.
+
+Para "¿Es el problema del lado de la demanda?"
+- Conciencia de mercado: ¿Sabe la gente que el producto existe?
+- Encaje percibido: ¿Creen que resuelve su problema?
+- Costo percibido: ¿Creen que vale el precio/esfuerzo?
+
+### Paso 4: Identifica hipótesis en el nivel de hoja
+
+En el fondo del árbol, tienes hipótesis específicas y testables:
+- "La conciencia de marca está por debajo del 10% en nuestro segmento objetivo"
+- "Los usuarios perciben que el producto resuelve su problema, pero piensan que es 2x más caro que nuestros competidores"
+- "Los usuarios no entienden la propuesta de valor en menos de 30 segundos de exposición de landing page"
+
+### Paso 5: Prioriza qué ramas investigar
+
+No puedes probar cada hipótesis simultáneamente. Prioriza por:
+
+1. **Impacto:** Si esta hipótesis es verdadera, ¿cuánto explica nuestro problema?
+2. **Testabilidad:** ¿Qué tan rápido podemos obtener una respuesta definitiva?
+3. **Accionabilidad:** Si estamos en lo correcto, ¿qué haríamos diferente?
+
+Investiga ramas de alto impacto, testables y accionables primero. Despojar ramas de bajo impacto o difíciles de probar.
+
+## Ejemplo práctico: Diagnosticando churn de usuario
+
+**Pregunta Central:** "¿Por qué los usuarios activos caen de 10,000 a 8,000 por mes (churn mensual de 20%)?"
+
+```
+¿Por qué es el churn mensual 20%?
+├── ¿Los usuarios se van por factores externos?
+│   ├── ¿Cambio de mercado (necesidades de cliente cambiantes)?
+│   ├── ¿Amenaza competitiva (alternativa mejor disponible)?
+│   └── ¿Económico (usuarios no pueden permitírselo)?
+├── ¿Los usuarios se van por insatisfacción de producto?
+│   ├── ¿Brecha de característica (capacidad crítica faltante)?
+│   ├── ¿Desempeño (producto es lento/roto)?
+│   └── ¿UX (demasiado complicado de usar)?
+└── ¿Los usuarios se van por barreras de adopción?
+    ├── ¿Onboarding (usuarios no obtienen valor en período de prueba)?
+    ├── ¿Tiempo para valor (toma demasiado tiempo ver beneficio)?
+    └── ¿Costo de cambio (demasiado esfuerzo para migrar)?
+```
+
+Ahora diseñas pruebas para cada rama:
+
+- **Cambio de mercado:** Encuesta a usuarios que se fueron sobre qué cambió en sus necesidades. Monitorea menciones de competidor en tickets de soporte.
+- **Amenaza competitiva:** Analiza correlación de churn con lanzamientos de características competidoras. Encuesta a usuarios que se fueron sobre a qué cambiaron.
+- **Brecha de característica:** Revisa tickets de soporte y cuentas de usuarios que se fueron por solicitudes de características. Compara adopción de características entre usuarios retenidos y que se fueron.
+- **Problemas de desempeño:** Mide métricas de desempeño de app, tasas de error, tickets de soporte sobre bugs.
+- **Complejidad de UX:** Mide tiempos de finalización de tareas para flujos principales. Analiza volumen de soporte para preguntas de navegación.
+- **Onboarding:** Compara tiempo para primer éxito entre usuarios retenidos y que se fueron. Analiza puntos de abandono de etapa temprana.
+
+## Cuándo usar este camino
+
+El camino impulsado por problemas sobresale cuando:
+- Tienes una métrica clara que está cayendo o no cumple con el objetivo
+- Necesitas entender causas raíz de un problema conocido
+- El problema es complejo con muchos contribuyentes potenciales
+- Necesitas priorizar qué causas abordar primero
+- Estás haciendo un diagnóstico antes de decidir sobre soluciones
+
+Es menos ideal para:
+- Exploración de etapa temprana donde el problema aún no se define
+- Situaciones donde no tienes buenos datos para validar hipótesis
+- Mercados donde las preferencias del usuario están cambiando rápidamente y el análisis histórico no es confiable
+- Problemas que son principalmente sobre descubrimiento de nuevas necesidades del cliente (no diagnóstico de qué está roto)
+
+## Integración con prueba de hipótesis
+
+Los Árboles de Problemas y las pruebas de hipótesis se complementan mutuamente. Construye el Árbol de Problemas para estructurar el espacio del problema. Luego, para las ramas de prioridad más alta, diseña experimentos de validación usando el enfoque impulsado por hipótesis.
+
+El Árbol de Problemas es tu framework de diagnóstico. Las pruebas de hipótesis son tu metodología de validación. Juntas, crean un sistema riguroso para moverse de problema a causa raíz a solución.

@@ -1,0 +1,108 @@
+---
+title: "Design Thinking Path"
+slug: design-thinking-path
+description: "How Design Thinking integrates with Problem-Driven AI methodology."
+sidebar_position: 12
+tags: [planning, design-thinking, paths]
+---
+
+Design Thinking has been central to human-centered product development for decades. Its emphasis on empathy, rapid prototyping, and iterative refinement produces products that people actually want to use. Problem-Driven AI builds on these strengths while adding a critical missing layer: the bridge between human-centered discovery and AI-driven context engineering.
+
+## The Design Thinking Stages and Where They Fit
+
+Traditional Design Thinking consists of five stages:
+
+### 1. Empathize
+**Goal:** Understand user needs, behaviors, and pain points through deep observation and conversation.
+
+**In Problem-Driven AI:** This maps to the early discovery work within the Problem Phase. However, Problem-Driven AI adds a prerequisite step: you must already have a clearly scoped problem space to empathize within. "Empathize with what?" is the wrong question to start with.
+
+The difference: Design Thinking might start with "Let's empathize with healthcare workers" (broad). Problem-Driven AI requires you to have narrowed first: "Let's empathize with surgical nurses specifically regarding their pre-operative workflow" (scoped).
+
+### 2. Define
+**Goal:** Synthesize insights into a clear problem statement.
+
+**In Problem-Driven AI:** This directly corresponds to the Problem Phase output—a validated Problem Statement that the organization understands and agrees on.
+
+### 3. Ideate
+**Goal:** Generate multiple solution approaches without judgment.
+
+**In Problem-Driven AI:** This maps to the early Solution Phase work. You generate candidate solutions before narrowing to the one you'll fully develop.
+
+### 4. Prototype
+**Goal:** Build low-fidelity representations to test ideas quickly.
+
+**In Problem-Driven AI:** This is part of both the Solution Phase (validating the solution approach) and the AI Build Phase (rapid iteration on context and testing).
+
+### 5. Test
+**Goal:** Get user feedback on prototypes and iterate.
+
+**In Problem-Driven AI:** This spans the Solution Phase validation and continues through the AI Build Phase as you refine the context system.
+
+## The Critical Addition: Context Engineering as a Bridge
+
+The missing layer in traditional Design Thinking is the translation step. You've empathized with users and defined their problem. You've ideated solutions and prototyped them. But how do you now communicate that understanding to an AI system?
+
+This is where Context Engineering enters. It's not a separate methodology. It's the disciplined process of translating human understanding into machine-executable instructions.
+
+**Traditional Design Thinking flow:**
+Problem → Prototype → Test → Iterate
+
+**Problem-Driven AI + Design Thinking flow:**
+Problem → Solution → **Context Engineering** → AI Implementation → Test → Iterate
+
+The Context Phase is where the rigor of Design Thinking meets the precision of AI. You take the deep human understanding you've built and encode it into a system that an AI can work within.
+
+## When to use this path
+
+The Design Thinking path is powerful when:
+
+- **You have a well-defined customer segment** but need to understand their nuanced needs deeply
+- **Speed of iteration matters** and you want rapid prototyping before full implementation
+- **Multiple solution approaches are viable** and you need to test which resonates
+- **Your team has strong design/UX experience** and you want to leverage that muscle
+- **Building in iterations is feasible** (you can test small pieces before the full build)
+
+### Hybrid approach
+
+In practice, most teams use a blend of approaches:
+
+1. **Start with Issue-Driven** (if diagnosing an existing metric problem)
+2. **Add Design Thinking** (to empathize deeply with the customer)
+3. **Layer Hypothesis Testing** (to validate the specific solution approach)
+
+The key is to use the methodology that fits your problem, not to force all problems into one framework.
+
+## How it differs from hypothesis-driven and issue-driven approaches
+
+| | Design Thinking | Hypothesis-Driven | Issue-Driven |
+|---|---|---|---|
+| **Best for** | Discovering customer needs deeply | Validating solution assumptions | Diagnosing known problems |
+| **Time horizon** | Medium (weeks to months) | Short (days to weeks) | Short to medium (weeks) |
+| **Starting point** | Customer empathy | Explicit hypothesis | Problem metric/signal |
+| **Key output** | Deep human understanding | Validated assumptions | Root cause identification |
+| **Iteration mode** | Design → Test → Refine | Hypothesis → Test → Pivot | Diagnosis → Hypothesis → Test |
+
+## An integrated example
+
+Imagine a healthcare organization building an AI system for doctor-patient intake.
+
+1. **Issue-Driven work (first):** "Why are intake appointments 45 minutes when they should be 20?" Analysis reveals: 60% time is non-clinical paperwork duplication. This is the prioritized problem.
+
+2. **Design Thinking work (second):** Empathize with doctors and patients about the intake experience. Discover: Doctors feel patients withhold information due to intimidation. Patients feel overwhelmed by forms. The real problem is *trust and clarity*, not efficiency.
+
+3. **Hypothesis-Driven work (third):** Now with understanding in hand, test hypotheses: "If we restructure forms to be more conversational, doctors will uncover 20% more relevant information from patients?" "If we add explanatory context to each question, patients will complete forms 40% faster?" Run these tests quickly with prototypes.
+
+4. **Solution Phase:** Based on these tests, define: "An AI-augmented intake system that structures questions conversationally, explains each question's clinical relevance, and summarizes patient answers for the doctor."
+
+5. **Context Engineering (new layer):** Translate that understanding into precise context: system prompts about tone, specific clinical protocols, privacy constraints, documentation requirements.
+
+6. **AI Build:** Implement using the precise context as specification.
+
+Each approach contributed its specific strength. You wouldn't have the right solution without combining them.
+
+## Key principle
+
+The path you choose should be determined by the *problem you're solving*, not by methodological preference. Design Thinking is brilliant for empathetic discovery. Hypothesis testing is efficient for validating unknowns. Issue trees are powerful for diagnosing complexity.
+
+The teams that win are those that can seamlessly move between all three, using whichever tool is most appropriate for the current question.

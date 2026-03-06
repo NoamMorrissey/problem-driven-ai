@@ -1,0 +1,108 @@
+---
+title: "Camino Design Thinking"
+slug: camino-design-thinking
+description: "Cómo Design Thinking se integra con la metodología Problem-Driven AI."
+sidebar_position: 12
+tags: [planificación, design-thinking, caminos]
+---
+
+Design Thinking ha sido central para el desarrollo de producto centrado en humanos durante décadas. Su énfasis en empatía, prototipado rápido e iteración refinada produce productos que la gente realmente quiere usar. Problem-Driven AI construye sobre estas fortalezas mientras agrega una capa crítica que falta: el puente entre descubrimiento centrado en humanos e ingeniería de contexto impulsada por IA.
+
+## Las Etapas de Design Thinking y Dónde Encajan
+
+El Design Thinking tradicional consiste en cinco etapas:
+
+### 1. Empatizar
+**Objetivo:** Entender necesidades del usuario, comportamientos, y puntos de dolor a través de observación y conversación profunda.
+
+**En Problem-Driven AI:** Esto mapea al trabajo de descubrimiento temprano dentro de la Fase de Problema. Sin embargo, Problem-Driven AI añade un paso previo: ya debes tener un espacio de problema claramente delimitado en el que empatizar. "¿Empatizar con qué?" es la pregunta equivocada con la que comenzar.
+
+La diferencia: Design Thinking podría comenzar con "Empaticemos con trabajadores de salud" (amplio). Problem-Driven AI requiere que primero hayas estrechado: "Empaticemos con enfermeras quirúrgicas específicamente respecto a su flujo de trabajo preoperatorio" (delimitado).
+
+### 2. Definir
+**Objetivo:** Sintetizar insights en una declaración de problema clara.
+
+**En Problem-Driven AI:** Esto corresponde directamente al resultado de la Fase de Problema—una Declaración de Problema validada que la organización entiende y con la que está de acuerdo.
+
+### 3. Idear
+**Objetivo:** Generar múltiples enfoques de solución sin juzgar.
+
+**En Problem-Driven AI:** Esto mapea al trabajo de Fase de Solución temprana. Generas soluciones candidatas antes de estrechar a la que desarrollarás completamente.
+
+### 4. Prototipo
+**Objetivo:** Construir representaciones de baja fidelidad para probar ideas rápidamente.
+
+**En Problem-Driven AI:** Esto es parte tanto de la Fase de Solución (validando el enfoque de solución) como de la Fase de AI Build (iteración rápida en contexto y prueba).
+
+### 5. Probar
+**Objetivo:** Obtener feedback de usuario en prototipos e iterar.
+
+**En Problem-Driven AI:** Esto abarca la validación de Fase de Solución y continúa a través de la Fase de AI Build conforme refinas el sistema de contexto.
+
+## La Adición Crítica: Context Engineering como un Puente
+
+La capa faltante en Design Thinking tradicional es el paso de traducción. Has empatizado con usuarios y definido su problema. Has ideado soluciones y las has prototipado. Pero ¿cómo comunicas ahora esa comprensión a un sistema de IA?
+
+Aquí es donde entra Context Engineering. No es una metodología separada. Es el proceso disciplinado de traducir comprensión humana en instrucciones ejecutables por máquina.
+
+**Flujo de Design Thinking tradicional:**
+Problema → Prototipo → Prueba → Itera
+
+**Flujo de Problem-Driven AI + Design Thinking:**
+Problema → Solución → **Context Engineering** → Implementación de IA → Prueba → Itera
+
+La Fase de Contexto es donde el rigor de Design Thinking se encuentra con la precisión de IA. Tomas la comprensión humana profunda que has construido y la codificas en un sistema dentro del cual un IA puede trabajar.
+
+## Cuándo usar este camino
+
+El camino Design Thinking es poderoso cuando:
+
+- **Tienes un segmento de cliente bien definido** pero necesitas entender sus necesidades matizadas profundamente
+- **La velocidad de iteración importa** y quieres prototipado rápido antes de implementación completa
+- **Múltiples enfoques de solución son viables** y necesitas probar cuál resuena
+- **Tu equipo tiene experiencia fuerte en diseño/UX** y quieres aprovechar ese músculo
+- **Construir en iteraciones es factible** (puedes probar piezas pequeñas antes del build completo)
+
+### Enfoque híbrido
+
+En la práctica, la mayoría de equipos usan una mezcla de enfoques:
+
+1. **Comienza con Issue-Driven** (si estás diagnosticando un problema de métrica existente)
+2. **Añade Design Thinking** (para empatizar profundamente con el cliente)
+3. **Capa Prueba de Hipótesis** (para validar el enfoque de solución específico)
+
+La clave es usar la metodología que encaja tu problema, no forzar todos los problemas en un framework.
+
+## Cómo difiere de enfoques hypothesis-driven e issue-driven
+
+| | Design Thinking | Hypothesis-Driven | Issue-Driven |
+|---|---|---|---|
+| **Mejor para** | Descubrir necesidades del cliente profundamente | Validar suposiciones de solución | Diagnosticar problemas conocidos |
+| **Horizonte de tiempo** | Medio (semanas a meses) | Corto (días a semanas) | Corto a medio (semanas) |
+| **Punto de partida** | Empatía del cliente | Hipótesis explícita | Métrica de problema/señal |
+| **Resultado clave** | Comprensión humana profunda | Suposiciones validadas | Identificación de causa raíz |
+| **Modo de iteración** | Diseño → Prueba → Refina | Hipótesis → Prueba → Pivota | Diagnóstico → Hipótesis → Prueba |
+
+## Un ejemplo integrado
+
+Imagina una organización de salud construyendo un sistema de IA para intake doctor-paciente.
+
+1. **Trabajo Issue-Driven (primero):** "¿Por qué las citas de intake son 45 minutos cuando deberían ser 20?" El análisis revela: 60% del tiempo es duplicación de paperwork no-clínico. Este es el problema priorizado.
+
+2. **Trabajo Design Thinking (segundo):** Empatiza con doctores y pacientes sobre la experiencia de intake. Descubre: Los doctores sienten que los pacientes retienen información debido a intimidación. Los pacientes se sienten abrumados por formularios. El problema real es *confianza y claridad*, no eficiencia.
+
+3. **Trabajo Hypothesis-Driven (tercero):** Ahora con comprensión en mano, prueba hipótesis: "¿Si reestructuramos formularios para ser más conversacionales, los doctores descubrirán 20% más información relevante de pacientes?" "¿Si añadimos contexto explicatorio a cada pregunta, los pacientes completarán formularios 40% más rápido?" Ejecuta estas pruebas rápidamente con prototipos.
+
+4. **Fase de Solución:** Basado en estas pruebas, define: "Un sistema de intake aumentado por IA que estructura preguntas conversacionalmente, explica la relevancia clínica de cada pregunta, y resume respuestas del paciente para el doctor."
+
+5. **Context Engineering (capa nueva):** Traduce esa comprensión en contexto preciso: prompts de sistema sobre tono, protocolos clínicos específicos, limitaciones de privacidad, requisitos de documentación.
+
+6. **AI Build:** Implementa usando el contexto preciso como especificación.
+
+Cada enfoque contribuyó su fortaleza específica. No habrías tenido la solución correcta sin combinarlos.
+
+## Principio clave
+
+El camino que elijas debe determinarse por el *problema que estás resolviendo*, no por preferencia metodológica. Design Thinking es brillante para descubrimiento empático. Las pruebas de hipótesis son eficientes para validar desconocidos. Los árboles de problemas son poderosos para diagnosticar complejidad.
+
+Los equipos que ganan son aquellos que pueden moverse sin problemas entre los tres, usando la herramienta que sea más apropiada para la pregunta actual.

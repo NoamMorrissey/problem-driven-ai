@@ -1,0 +1,114 @@
+---
+title: "Hypothesis-Driven Path"
+slug: hypothesis-driven-path
+description: "Using hypothesis-driven development to validate assumptions and test solutions systematically."
+sidebar_position: 10
+tags: [planning, hypothesis, paths]
+---
+
+The hypothesis-driven path is the scientific approach to problem-solving. Rather than assuming you understand the solution, you make an explicit prediction about what will work, design an experiment to test it, and iterate based on what you learn.
+
+This path is especially valuable when you're in uncertain territory—when customer needs are not yet fully defined, when multiple solutions could address the same problem, or when you need rapid iteration to find the right answer.
+
+## The Hypothesis Pyramid
+
+The hypothesis-driven approach rests on three levels of assumptions, each building on the previous one:
+
+### Level 1: Problem Hypothesis
+
+**"We believe [user segment] has [problem that matters]."**
+
+This is your foundational assumption. Before you propose any solution, you must validate that the problem actually exists and matters to real people.
+
+Example: *"We believe freelance designers waste 3+ hours per week on invoice tracking, and this is costly enough that they'd pay to avoid it."*
+
+**Validation questions:**
+- Do people in this segment actually experience this problem?
+- How much does it cost them (time, money, frustration)?
+- Have they tried to solve it before? Why didn't those solutions work?
+- Would solving it materially improve their work?
+
+**How to test:** Customer interviews, observation, surveys with specific populations, data analysis of time/cost impact.
+
+### Level 2: Solution Hypothesis
+
+**"We believe [solution approach] will solve [problem] for [user segment]."**
+
+Once the problem is validated, you propose a specific solution and predict why it will work.
+
+Example: *"We believe an automated invoice template system integrated with payment processors will reduce invoice creation time to under 15 minutes per invoice, which designers will adopt because it's faster than their current approach."*
+
+**Validation questions:**
+- Does the solution actually address the root cause of the problem?
+- Is the approach feasible to build?
+- Are there cheaper/easier/better solutions we haven't considered?
+- Is there anything about the user's context that would prevent adoption?
+
+**How to test:** Prototype, minimum viable solution, user testing with actual workflows, A/B testing different approaches.
+
+### Level 3: Value Hypothesis
+
+**"We believe users will [adopt/use/pay for] this solution and we will [reach profitability/build a sustainable business]."**
+
+This is where commercial viability enters. A solution can perfectly solve a problem and still fail if users won't adopt it or if the business model doesn't work.
+
+Example: *"We believe freelancers will pay $9/month for this service, which will give us a LTV of $180 per user (2-year average retention), enabling profitable customer acquisition at $50 CAC."*
+
+**Validation questions:**
+- Will users actually adopt this?
+- Are they willing to pay / change their behavior?
+- Can we reach them affordably?
+- Will unit economics work at scale?
+- Are there switching costs or network effects that strengthen the offering?
+
+**How to test:** Pricing experiments, conversion tracking, customer acquisition cost analysis, retention curves, cohort analysis.
+
+## Designing Validation Experiments
+
+For each hypothesis level, you design targeted experiments that either validate or invalidate your assumption.
+
+### Structure of a validation experiment
+
+1. **State the hypothesis precisely:** Not "Users like the design" but "Users can complete account setup in under 2 minutes on first try without help."
+
+2. **Define success criteria:** What would prove the hypothesis true? What would prove it false? Be specific about the threshold—80% success rate, not "most users."
+
+3. **Run the minimum test:** Don't build the full solution. Use interviews, prototypes, mockups, landing pages, or survey data. Do the cheapest test that answers the question.
+
+4. **Measure systematically:** Don't rely on feeling or anecdotes. Count actual behaviors or responses.
+
+5. **Document the result:** Record what you learned. Did the hypothesis hold or fail? What were the surprising results?
+
+6. **Iterate:** If the hypothesis held, move to the next level. If it failed, revise the hypothesis and test again.
+
+## Example hypothesis-driven journey
+
+**Problem Hypothesis:** "Sales teams spend 4+ hours per week on manual CRM data entry and would pay to avoid it."
+
+- **Test:** Interview 10 sales managers. Result: Confirmed. They spend 3-6 hours per week, and 8/10 say they'd be willing to try a solution.
+
+**Solution Hypothesis (first iteration):** "An AI system that auto-populates CRM fields from email will reduce data entry time by 60%."
+
+- **Test:** Build a prototype that parses emails. Run it against 100 real email threads from users. Result: The system populates correctly 75% of the time, but misses 25% that require judgment calls users have to fix anyway.
+
+**Solution Hypothesis (revised):** "An AI system that flags incomplete CRM records and suggests data with user confirmation will reduce data entry time by 40% while maintaining accuracy."
+
+- **Test:** Run the revised approach with 3 pilot customers for 4 weeks. Measure time to close records. Result: Confirmed. Time drops from 45 to 27 minutes per record. Users report it feels faster and less manual.
+
+**Value Hypothesis:** "Sales teams will pay $300/month because it saves 2+ hours per person per week at average salaries of $65/hour."
+
+- **Test:** Offer solution to 5 beta customers. 4 agree to pay $300/month. 1 says they'd pay $200. You have your initial pricing signal.
+
+## When to use this path
+
+The hypothesis-driven path excels when:
+- You're exploring a new market or feature
+- There are multiple potential solutions to the same problem
+- You need rapid iteration to find product-market fit
+- Stakeholders disagree about what will work
+- You have deep domain knowledge but uncertain application
+
+It's less efficient for:
+- Well-understood problems with obvious solutions
+- Complex implementations where you need to build before you can test
+- Contexts where user behavior differs dramatically from stated preferences
