@@ -1,0 +1,17 @@
+{
+  "home": {
+    "description": "Una metodología para construir productos de IA partiendo del problema real"
+  },
+  "nav": {
+    "vision": "Visión",
+    "methodology": "Metodología",
+    "planning": "Planificación",
+    "operational": "Operativa",
+    "resources": "Recursos",
+    "programs": "Programas"
+  },
+  "common": {
+    "language": "Idioma",
+    "switchLocale": "Switch to English"
+  }
+}

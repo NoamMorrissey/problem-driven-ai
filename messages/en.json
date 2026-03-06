@@ -1,0 +1,17 @@
+{
+  "home": {
+    "description": "A methodology for building AI products starting from the real problem"
+  },
+  "nav": {
+    "vision": "Vision",
+    "methodology": "Methodology",
+    "planning": "Planning",
+    "operational": "Operational",
+    "resources": "Resources",
+    "programs": "Programs"
+  },
+  "common": {
+    "language": "Language",
+    "switchLocale": "Cambiar a Español"
+  }
+}
